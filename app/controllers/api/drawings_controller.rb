@@ -7,8 +7,9 @@ require 'json'
       data = params[:d]
 
 
-
       data.each_with_index do |drawing,i|
+
+        winner = false
         number = ""
 
         digits = []
@@ -32,51 +33,52 @@ require 'json'
 
 #       letters = ['[1-12]','[13-24]','[25-36]','[37-48]','[49-60]']
 
-        number = digits.join("")
+        number = digits.join("•") # • digits[0..3].join("•")
 
+        #drawing[:tandemcode] = digits[4..-1].join("•") if digits[4]
 
+        query = Chance.where("code LIKE ?", "#{number}%")
 
-        if Chance.where("code LIKE ?", "%#{number}").present?
+        if query.present?
           data[i][:niete] = false
-          if digits.count == 7
-            winner = Chance.where("code = ?", "#{number}").first
+          if query.count == 1
+            winner = query.first
             if winner.user
               data[i][:user] = winner.user
-            else
-              data[i][:user] = { :name => "Twitter-Nutzer @#{winner.last_name}", :id => 0 }
-            end
+            # else
+            #   data[i][:user] = { :name => "Twitter-Nutzer @#{winner.last_name}", :id => 0 }
+            # end
 
-            data[i][:isChild] = winner.is_child
-            data[i][:childName] = winner.first_name
-          else
-            data[i][:user] = false
-          end
+              data[i][:isChild] = winner.is_child
+              data[i][:childName] = winner.first_name
+            end
+            else
+              data[i][:user] = false
+            end
         else
           data[i][:niete] = true
           data[i][:user] = false
         end
 
-
-
         data[i][:number] = number
 
-        # if number.size == 4
-        #   data[i][:potentials] = {}
-        #   characters.each do |n|
-        #     if Chance.where(:code => "#{number}#{n}").present?
-        #       user = Chance.where(:code => "#{number}#{n}").first.user
-        #     else
-        #       if Chance.where(:code2 => "#{number}#{n}").present?
-        #         user = Chance.where(:code2 => "#{number}#{n}").first.user
-        #       else
-        #         user = :niete
-        #       end
-        #     end
-        #     data[i][:potentials]["#{n}"] = user
+
+        # if winner
+
+        #   #generate tandem codes
+        #   query.first.generatetandemcodes
+
+        #   tandem = Tandem.where("(inviter_code = '#{drawing[:tandemcode]}' and inviter_id = #{winner.user.id}) or (invitee_code = '#{drawing[:tandemcode]}' and invitee_id = #{winner.user.id})").first
+
+        #   if tandem.present?
+        #      partner_id = tandem.inviter_id if tandem.invitee_id == winner.user.id
+        #      partner_id = tandem.invitee_id if tandem.inviter_id == winner.user.id
+        #      data[i][:tandem] = User.find_by_id(partner_id)
+        #   else
+        #     data[i][:tandem] = false
         #   end
-        # else
-        #   data[i][:potentials] = false
         # end
+
 
       end
 

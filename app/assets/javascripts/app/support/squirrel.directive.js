@@ -17,9 +17,9 @@
                 $scope.user = Security
 
                 var vm = this;
-                vm.price = 5;
-                vm.priceSociety = 5;
-                vm.priceBge = 0;
+                vm.price = 6;
+                vm.priceSociety = 3;
+                vm.priceBge = 3;
                 vm.auth = Security.isAuthenticated();
 
                 // holds the form data in the user scope
@@ -62,7 +62,7 @@
                  */
                 vm.optionsSociety = {
                     from: 0,
-                    to: 5,
+                    to: 6,
                     step: 1,
                     dimension: " €",
                     round: 0,
@@ -107,7 +107,9 @@
                             vm.user.lastName = p.user_last_name;
                             vm.user.address = {
                                 street: p.user_street,
-                                streetNumber: p.user_street_number
+                                streetNumber: p.user_street_number,
+                                city: p.user_city,
+                                zip: p.user_zip,
                             };
                             vm.priceSociety = p.amount_society;
                             vm.priceBge = p.amount_bge;
@@ -142,6 +144,8 @@
                         user_last_name: vm.user.lastName,
                         user_street: vm.user.address.street,
                         user_street_number: vm.user.address.streetNumber,
+                        user_zip: vm.user.address.zip,
+                        user_city: vm.user.address.city,
                         amount_society: vm.priceSociety,
                         amount_bge: vm.priceBge,
                         amount_total: vm.price,

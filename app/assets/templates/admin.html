@@ -7,15 +7,130 @@
   	<tab heading="Statistiken">
   		<div class="container" style="padding:30px">
 			<table>
+				<tr>
+					<td>Spenden pro confirmed User:</td>
+					<td>{{home.kpi.clvDonations}}€ <a target="_blank" href="/api/homepages.csv?kpi=donations_by_date">Tagesstatistik</a></td>
+				</tr>
+				<tr>
+					<td>BGE pro confirmed User:</td>
+					<td>{{home.kpi.clvIncome}}€ <a target="_blank" href="/api/homepages.csv?kpi=basic_income_funding_by_date">Tagesstatistik</a></td>
+				</tr>
+				<tr>
+					<td>Crowdbar Installs:</td>
+					<td>{{home.kpi.crowdbarUsers}}</td>
+				</tr>
+				<tr>
+					<td>Crowdhörnchen Total:</td>
+					<td>{{home.squirrelMonthlyAmount}}</td>
+				</tr>
+				<tr>
+					<td>Crowdhörnchen Verein:</td>
+					<td>{{home.squirrelMonthlyAmountSociety}}</td>
+				</tr>
+				<tr>
+					<td>Crowdhörnchen Lostopf:</td>
+					<td>{{home.squirrelMonthlyAmountBge}}</td>
+				</tr>
+				<tr>
+					<td>Verteilung der sozialen Gruppen:</td>
+					<td><a target="_blank" href="/api/homepages.csv?kpi=kpi_social_groups_distribution">Herunterladen</a></td>
+				</tr>
 				<tr ng-repeat="(key,value) in stats">
 					<td>{{key}}:</td>
-					<td>{{value}} <a href="/api/statistics.csv?admin=true&stat={{key}}" target="_blank"> <i class="fa fa-download"></i> Kontakte für Newsletter herunterladen</a></td>
+					<td>{{value}} <span ng-show="key == 'Accounts'"><a target="_blank" href="/api/homepages.csv?kpi=registered_confirmed_users_by_date">Registrierungen pro Tag</a></span></td>
+				</tr>
+				<tr>
+					<td>Newsletterquote der confirmed User:</td>
+					<td>{{(stats.newsletterSubscriptions / stats.activeAccounts) * 100}}%</td>
 				</tr>
 			</table>
 		</div>
 
 
 	</tab>
+
+
+	<tab heading="Website-Variablen">
+  		<div class="container" style="padding:30px">
+  			<table>
+  				<tr>
+  					<td colspan="2"><b>Home Ankündigung</b></td>
+  				</tr>
+  				<tr>
+  					<td>Überschrift</td>
+  					<td></td>
+  				</tr>
+  				<tr>
+  					<td>Text</td>
+  					<td></td>
+  				</tr>
+  				<tr>
+  					<td>Link-URL</td>
+  					<td></td>
+  				</tr>
+  				<tr>
+  					<td>Button-Text</td>
+  					<td></td>
+  				</tr>
+
+  				<tr>
+  					<td colspan="2"><b>Verlosung</b></td>
+  				</tr>
+
+  				<tr>
+  					<td>Welche BGEs # werden verlost?</td>
+  					<td></td>
+  				</tr>
+
+  				<tr>
+  					<td>Verlosungstag</td>
+  					<td></td>
+  				</tr>
+
+  				<tr>
+  					<td>Gewinnspielende</td>
+  					<td></td>
+  				</tr>
+
+  				<tr>
+  					<td>Nächste Verlosung</td>
+  					<td>/td>
+  				</tr>
+
+  				<tr>
+  					<td>Anmeldung geöffnet?</td>
+  					<td></td>
+  				</tr>
+
+  				<tr>
+  					<td>Losnummern anzeigen?</td>
+  					<td></td>
+  				</tr>
+
+  				<tr>
+  					<td colspan="2"><b>Auslosungsseite</b></td>
+  				</tr>
+
+  				<tr>
+  					<td>Überschrift</td>
+  					<td></td>
+  				</tr>
+
+  				<tr>
+  					<td>Titeltext</td>
+  					<td></td>
+  				</tr>
+
+  				<tr>
+  					<td>So funktioniert die Auslosung</td>
+  					<td></td>
+  				</tr>
+
+
+
+  			</table>
+  		</div>
+  	</tab>
 
 
 	<tab heading="Mailings">
@@ -139,7 +254,7 @@
 	</tab>
 
 
-	<!-- <tab  heading="Crowdcards">
+	<tab  heading="Crowdcards">
 
 		<div class="well">
 
@@ -157,6 +272,10 @@
 		</div>
 
 
+
+		<a href="#" ng-click="loadCards()" class="pull-right btn btn-color">Alle Crowdcard-Bestellungen laden</a>
+
+
 		<table class="table">
 			<tr>
 				<td>ID</td>
@@ -171,7 +290,7 @@
 				<td>
 					{{crowdcard.firstName}} {{crowdcard.lastName}}<br>
 					<a href="/menschen/{{crowdcard.user.id}}" target="_blank">{{crowdcard.user.name}}</a>
-					<a href="mailto:{{crowdcard.user.email}}" class="fa fa-envelope"></a>
+					<i class="fa fa-envelope"></i> {{crowdcard.user.email}}
 
 				</td>
 				<td>{{crowdcard.street}} {{crowdcard.houseNumber}}, {{crowdcard.zipCode}} {{crowdcard.city}}</td>
@@ -185,7 +304,7 @@
 		</table>
 
 	</tab>
- -->
+
 
 	<!-- <tab heading="Bank-Supports">
 
@@ -241,7 +360,7 @@
 			<tr ng-repeat="payment in payments | filter:search">
 				<td>{{payment.id}}</td>
 				<td>{{payment.userId}}</td>
-				<td><a href="mailto:{{payment.userEmail}}">{{payment.userFirstName}} {{payment.userLastName}}</a>
+				<td>{{payment.userFirstName}} {{payment.userLastName}} ( {{payment.userEmail}} )
 				</td>
 				<td>{{payment.accountIban}}</td>
 				<td>{{payment.amountTotal}}€</td>

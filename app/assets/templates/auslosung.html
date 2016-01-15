@@ -6,23 +6,28 @@
         <div class="col-md-12 text-center">
 
 
-<h4 style="color:white">Die Verlosung auf der re:publica</h4>
-<h1 class="title_headline">Wer gewinnt das 11. Grundeinkommen?</h1>
+<!-- <h4 style="color:white">Die Verlosung bei den Bayreuther Dialogen</h4> -->
+<h1 class="title_headline">Fünf neue Grundeinkommen!</h1>
         </div>
 
          <div class="row text-center" style="margin-bottom:50px;">
 
-               <!-- <a href="http://www.ustream.tv/channel/mein-grundeinkommen" class="btn btn-special btn-color btn-large margin-top-30" style="box-shadow:0px 0px 30px 15px white">Zum Video-Livestream</a><br> -->
-
-               <div class="well">
-Am Donnerstag, dem 7. Mai um 18 Uhr verlosen wir das 11. Grundeinkommen während <a href="https://re-publica.de/session/wir-grundeinkommen-eingefuehrt-haben-und-session-bge-12000-eu-verlosen">unseres Talks auf der re:publica</a> in Berlin. Kommt vorbei (Stage 8) oder schaut euch hier den Video-Livestream an.
-</div>
-
-              <iframe width="600" height="450" src="//www.youtube.com/embed/ZVnGNVIxlYQ?autoplay=1" frameborder="0" allowfullscreen></iframe>
 
 
+               <!-- <div class="well">
+Am Montag, dem 7. Dezember um 23:59 Uhr verlosen wir bei der <a href="https://www.facebook.com/events/950267335047949/">Langen Nacht des Grundeinkommens</a> ganze 5 Mal 12.000€ Grundeinkommen. Komm gern vorbei, wenn du in der Nähe bist!
+</div> -->
 
-                <br><a href="http://rp15.meinbge.de" target="_blank" class="btn btn-color btn-large"><i class="fa fa-twitter"></i> Noch schnell teilnehmen</a>
+              <!-- <iframe width="600" height="450" src="//www.youtube.com/embed/hRjoW48Itek?t=1m35s&autoplay=1" frameborder="0" allowfullscreen></iframe> -->
+
+<br>
+              <!-- <a href="http://www.daserste.de/live/index.html" class="btn btn-special btn-color btn-large margin-top-30" style="box-shadow:0px 0px 30px 15px white">Zum ARD-Livestream</a><br> -->
+
+              <!-- <a href="http://www.lotto.de/de/ergebnisse/lotto-6aus49/live-ziehung.html" class="btn btn-special btn-color btn-large margin-top-30" style="box-shadow:0px 0px 30px 15px white">Zum Video</a><br> -->
+
+
+
+                <!-- <br><a href="http://rp15.meinbge.de" target="_blank" class="btn btn-color btn-large"><i class="fa fa-twitter"></i> Noch schnell teilnehmen</a> -->
 
 <br>
                <a class="btn btn-grey btn-pad" ng-click="verlosung_erklaert()">So funktioniert die Auslosung</a>
@@ -40,27 +45,58 @@ Am Donnerstag, dem 7. Mai um 18 Uhr verlosen wir das 11. Grundeinkommen während
    <div class="container">
 
 
-      <div class="row text-center" ng-repeat="current_drawing in drawings | limitTo: 1">
-        <h1>Das {{11+$index}}. Grundeinkommen geht an*:</h1>
+      <div class="row text-center" ng-repeat="current_drawing in drawings | limitTo: 5">
+        <h1>Das {{21+$index}}. Grundeinkommen geht an*:</h1>
 
         <div class="col-md-12  text-center" >
 
-          <div ng-if="current_drawing.user && current_drawing.done">
-            <div class="testimonial-image-medium">
-              <a href="/menschen/{{current_drawing.user.id}}">
-                <img src="{{current_drawing.user.avatar.url}}">
-              </a>
+          <div class="row" ng-if="current_drawing.user && current_drawing.done">
+
+            <div class="col-sm-5 text-right">
+              <div class="testimonial-image-medium ">
+                <a href="/menschen/{{current_drawing.user.id}}">
+                  <img src="{{current_drawing.user.avatar.url}}">
+                </a>
+              </div>
             </div>
+
+
+            <!-- <div class="col-sm-1">
+              <h1>&</h1>
+            </div>
+            <div class="col-sm-5 text-left">
+
+              <div ng-show="current_drawing.tandem" class="testimonial-image-medium">
+                <a href="/menschen/{{current_drawing.tandem.id}}">
+                  <img src="{{current_drawing.tandem.avatar.url}}">
+                </a>
+              </div>
+
+            </div> -->
+
+
+            <!-- </div> -->
+
+
             <a ng-if="current_drawing.isChild == 0" href="/menschen/{{current_drawing.user.id}}">{{current_drawing.user.name}}</a>
             <a ng-if="current_drawing.isChild == 1" href="/menschen/{{current_drawing.user.id}}">{{current_drawing.childName}} (Kind von {{current_drawing.user.name}})</a>
 
+            <span ng-show="current_drawing.tandem">
+              &
+              <a href="/menschen/{{current_drawing.tandem.id}}">{{current_drawing.tandem.name}}</a>
+            </span>
+
           </div>
+
+
+
+
             <br>
             <div class="margin-top:30">Losnummer:</div>
             <br>
             <alert ng-if="current_drawing.number.length > 1 && current_drawing.niete && current_drawing.done">NIETE</alert>
             <br><div class="margin-top-30 row">
-             <span style="margin-left:10px;" ng-repeat="diget in current_drawing.digets | limitTo:7" class="well huge"><span ng-if="current_drawing.done && (current_drawing.done || (current.user && current.user.admin))">{{diget.value}}</span><i ng-if=" !current_drawing.done || (!diget.value || (!current_drawing.done && !(current.user && current.user.admin)))" class="fa fa-refresh" style="color:#ccc"></i></span>
+             <span style="margin-left:10px;" ng-repeat="diget in current_drawing.digets | limitTo:4" class="well huge"> <span ng-if="current_drawing.done && (current_drawing.done || (current.user && current.user.admin))">{{diget.value}}</span><i ng-if=" !current_drawing.done || (!diget.value || (!current_drawing.done && !(current.user && current.user.admin)))" class="fa fa-refresh" style="color:#ccc"></i></span>
 
             </div>
             <br>
@@ -109,7 +145,7 @@ Am Donnerstag, dem 7. Mai um 18 Uhr verlosen wir das 11. Grundeinkommen während
                <h2 class="slogan-title margin-top-30">
 
                 Hast du nicht gewonnen?<br>
-                Vielleicht klappt's beim 12. Grundeinkommen:
+                Vielleicht klappt's beim nächsten Grundeinkommen:
 
               </h2>
 

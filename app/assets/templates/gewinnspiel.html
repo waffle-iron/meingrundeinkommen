@@ -1,41 +1,35 @@
 <div class="container">
 
     <!-- <alert ng-show="!chances_form.editAllChances && current.hasCode()" type="success" class="margin-top-30">
-      <h3 style="margin-bottom:0"><i class="fa fa-check"></i> Du nimmst an der Verlosung des 10. Grundeinkommens am 17. April teil!</h3>
-    </alert> -->
+      <h3 style="margin-bottom:0"><i class="fa fa-check"></i> Du nimmst an der Verlosung des 14. Grundeinkommens am 22. August teil!</h3>
+    </alert>
+    -->
 
-    <alert>Ein weiteres Grundeinkommen wird im Juni verlost, sobald es finanziert ist. Infos & Anmeldung findest du dann hier.</alert>
-
-    <p ng-show="!chances_form.editAllChances">
-      <h4>Das 11. Grundeinkommen in Höhe von 12.000€ wird am 7. Mai 2015 in einem Gewinnspiel verlost.
-        <a href="/gewinnspielbedingungen">Gewinnspielbedingungen</a>
+     <p ng-show="!chances_form.editAllChances">
+      <h3 style="margin-bottom:0;">Die nächsten Grundeinkommen werden am 3. Februar 2016 verlost
+      </h3>
+      <a href="/gewinnspielbedingungen">Gewinnspielbedingungen</a>
     | <a href="/faq/verlosung">Häufige Fragen</a>
-      </h4>
+    <!-- | <a href="/tandem">So funktioniert das Tandem</a> -->
     </p>
 
-    <div class="text-center" ng-hide="current.participates()">
+     <div class="text-center" ng-hide="current.participates()">
 
-        <!-- <a class="btn-large btn-color btn" href="/boarding?trigger=wants_to_participate">Jetzt teilnehmen!</a> -->
-   <!-- <div class="text-center"> -->
+        <a class="btn-large btn-color btn" href="/boarding?trigger=wants_to_participate">Jetzt teilnehmen!</a>
 
-           <!-- <h3 class="margin-top-20">Die Anmeldung zum 6. & 7. Grundeinkommen hat am <b>21.02.</b> geendet!</h3>
-
-          <hr>
- -->
-          <!-- <div class="well text-center">
-            Nächste Grundeinkommensverlosung: 21. März 2015
-          </div> -->
-
+        <!-- <alert>Die Anmeldung zur Verlosung ist geschlossen. Die nächsten Grundeinkommen werden im Januar verlost. Du kannst dich in den nächsten Tagen dafür anmelden.</alert> -->
 
       </div>
 
         <div ng-show="current.participates()">
 
           <alert ng-show="!chances_form.editAllChances" type="success" class="margin-top-30">
-            <h3 style="margin-bottom:0" ng-if="!chance.isChild"><i class="fa fa-check"></i> Du nimmst an der Verlosung des 11. Grundeinkommens am 7. Mai teil!</h3>
+            <h3 style="margin-bottom:0" ng-if="!chance.isChild"><i class="fa fa-check"></i> Du nimmst an der Verlosung der Grundeinkommen am 3. Februar teil!</h3>
           </alert>
 
           <ul ng-hide="chances_form.editAllChances">
+            <li style="float:right"><a ng-show="!chances_form.editAllChances" ng-click="chances_form.editAllChances = true" href="#" class="btn btn-color btn-small" ><i class="fa fa-pencil"></i> Daten ändern</a></li>
+
             <li ng-repeat="chance in current.user.chances | orderBy:chance.isChild">
               <div ng-if="chance.id" class="margin-top-30">
                 <div style="padding-left:30px;">
@@ -50,7 +44,21 @@
             </li>
           </ul>
 
-          <a ng-show="!chances_form.editAllChances" ng-click="chances_form.editAllChances = true" href="#" class="btn btn-color btn-small" ><i class="fa fa-pencil"></i> Daten ändern</a>
+
+
+
+           <!-- <div ng-controller="TandemsController">
+            <div ng-hide="chances_form.editAllChances">
+
+               <div ng-include="'/assets/tandem_form.html'" ng-init="location = 'overview'"></div>
+
+              <div ng-include="'/assets/tandem_list.html'" ng-init="location = 'overview'"></div>
+
+              <hr>
+              <div sytle="clear:both"></div>
+            </div>
+          </div> -->
+
 
 
           <div ng-show="chances_form.editAllChances" ng-include="'/assets/gewinnspiel_form.html'"></div>
@@ -67,7 +75,7 @@
             <div class="col-sm-offset-1 col-sm-11 text-left">
               <div class="checkbox">
                 <label>
-                  <input name="newsletter" ng-model="user.newsletter" type="checkbox" ng-click="setNewsletterFlag()" analytics-on="click" analytics-event="Newsletter abboniert (im Gewinnspieltab)"> Bitte informiert mich per E-Mail über weitere Verlosungstermine und bei wichtigen Änderungen auf der Seite.
+                  <input name="newsletter" ng-model="user.newsletter" type="checkbox" ng-click="setNewsletterFlag()" analytics-on="click" analytics-event="Newsletter abboniert (im Gewinnspieltab)"> Bitte informiert mich per E-Mail über Verlosungstermine und bei wichtigen Änderungen auf der Seite.
                 </label>
               </div>
             </div>

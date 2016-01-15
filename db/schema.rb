@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150427143857) do
+ActiveRecord::Schema.define(version: 20151022215122) do
 
   create_table "chances", force: true do |t|
     t.date     "dob"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20150427143857) do
     t.boolean  "confirmed",             default: false
     t.boolean  "mediacoverage",         default: false
     t.string   "phone"
+    t.integer  "affiliate"
   end
 
   add_index "chances", ["first_name", "last_name", "dob"], name: "index_chances_on_first_name_and_last_name_and_dob", unique: true
@@ -191,7 +192,33 @@ ActiveRecord::Schema.define(version: 20150427143857) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.boolean  "tweeted"
   end
+
+  create_table "tandems", force: true do |t|
+    t.integer  "inviter_id"
+    t.integer  "invitee_id"
+    t.string   "invitee_name"
+    t.string   "invitee_email"
+    t.string   "invitation_token"
+    t.datetime "invitation_accepted_at"
+    t.string   "purpose"
+    t.boolean  "invitee_participates"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "invitation_type"
+    t.integer  "disabled_by"
+    t.text     "invitee_email_subject"
+    t.text     "invitee_email_text"
+    t.datetime "invitee_email_sent"
+    t.text     "inviter_grudges_invitee_for"
+    t.text     "invitee_grudges_inviter_for"
+    t.string   "inviter_code"
+    t.string   "invitee_code"
+  end
+
+  add_index "tandems", ["invitation_token"], name: "index_tandems_on_invitation_token", unique: true
+  add_index "tandems", ["inviter_id", "invitee_email"], name: "index_tandems_on_inviter_id_and_invitee_email", unique: true
 
   create_table "todos", force: true do |t|
     t.string   "title"

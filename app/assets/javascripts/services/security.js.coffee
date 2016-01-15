@@ -7,7 +7,9 @@ angular.module "Security", ["Devise","Flag"]
   "Flag"
   "$cookies"
   "$window"
-  ($http, $q, $location, Auth, Flag, $cookies, $window) ->
+  "User"
+  "Tandem"
+  ($http, $q, $location, Auth, Flag, $cookies, $window, User, Tandem) ->
 
     # The public API of the service
     service =
@@ -16,6 +18,8 @@ angular.module "Security", ["Devise","Flag"]
       login: (credentials) ->
         Auth.login(credentials).then (response) ->
           service.user = response unless response.error
+          if service.inviter
+            service.confirmTandem()
           return response
         , (error) ->
           return error.data
@@ -40,6 +44,8 @@ angular.module "Security", ["Devise","Flag"]
 
       user: null
 
+      subscribed: false
+
 
       # Ask the backend to see if a user is already authenticated - this may be from a previous session.
       requestCurrentUser: ->
@@ -49,6 +55,15 @@ angular.module "Security", ["Devise","Flag"]
         ), (error) ->
           service.user = false
           console.log error
+
+
+      setNewsletterFlag: ->
+        $http.put("/users.json",
+          user:
+            newsletter: true
+        )
+        service.user.newsletter = true
+        service.subscribed = true
 
       is_own_profile: (profile_id) ->
         if this.user && this.user.id == profile_id then true else false
@@ -106,6 +121,48 @@ angular.module "Security", ["Devise","Flag"]
           true
         else
           false
+
+      getInviterDetails: (id) ->
+        User.query {},
+          id: id
+        .then (user) ->
+          return user
+
+      confirmTandem: ->
+
+        if parseInt(service.inviter.id)==service.user.id
+          alert 'Nur gemeinsam ist man stark! Du kannst kein Tandem mit dir selbst bilden.'
+          return false
+
+        if service.user.tandems.length > 99
+          alert('Du kannst kein weiteres Tandem bilden, weil du bereits 100 Tandems hast. Bitte lösche erst eines deiner Tandems um dieses hier bilden zu können.')
+          $location.path("/menschen/#{service.user.id}").search('gewinnspiel',true)
+        else
+          if service.inviter && service.inviter.number_of_tandems > 99
+            alert("Du kannst dieses Tandem nicht bilden, weil #{service.inviter.name} bereits 100 Tandems hat. Du kannst natürlich trotzdem teilnehmen.")
+            $location.path("/menschen/#{service.user.id}").search('gewinnspiel',true)
+          else
+
+            if service.participates()
+              tnew =
+                invitee_id: service.user.id
+                inviter_id: service.inviter.id
+                invitation_type: service.inviter.invitation_type
+                grudge: ""
+                details:
+                  name: service.inviter.name
+                  avatar: service.inviter.avatar
+              new Tandem(tnew).create().then (tandems) ->
+                tnew.id = tandems.id
+                service.user.tandems.push tnew
+                $cookies["mitdir"] = null
+                alert("Du und #{service.inviter.name} bildet jetzt ein Tandem! Gute Fahrt!")
+                service.inviter = null if service.inviter
+                $location.path("/menschen/#{service.user.id}").search('gewinnspiel',true).search('mitdir', null)
+
+            else
+              $location.path("/boarding").search('trigger','wants_to_participate')
+
 
       has_crowdbar: ->
         service.getFlag('hasCrowdbar')

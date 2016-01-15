@@ -44,26 +44,51 @@
   <hr>
 
 
-    <!-- <div ng-show="own_profile"> -->
-    <!-- <ul> -->
-    <ul ng-show="user.chances[0].code">
-    <li><b>Losnummer für die Verlosung am 07. Mai:</b></li>
-    <!-- <li ng-show="user.chances.length == 0"><i>Bitte erst <a href="/boarding?trigger=wants_to_participate">teilnehmen</a></i></li>
-    <li ng-show="user.chances.length > 0"><i>- wird am Abend des 6. Mai vergeben -</i></li> -->
-    <li ng-repeat="chance in user.chances">
+
+
+<div ng-show="own_profile">
+<!-- <div> -->
+
+    <ul>
+    <!-- <ul ng-show="user.chances[0].code"> -->
+    <li><b>Losnummer für die Verlosung am 3. Februar:</b></li>
+     <li ng-hide="current.participates()"><i>Bitte erst <a href="/boarding?trigger=wants_to_participate">teilnehmen</a></i></li>
+     <li ng-show="current.participates() && !user.chances[0].code"><i>- Du nimmst teil aber die Losnummern werden erst am 2. Februar vergeben. -</i></li>
+    <!-- <li ng-repeat="chance in user.chances" ng-show="chance.code">
       <div class="well big">{{chance.code}}
         <div style="font-size:12px;font-weight:normal;">
           <span ng-show="chance.isChild">(für ein Kind)</span>
         </div>
       </div>
-    </li>
+    </li> -->
 
     <!-- <li ng-if="user.chances[0].crowdbarVerified"><b>Doppelte Chance (für <a href="/crowdbar">Crowdbar</a>-Nutzung):</b></li>
     <li ng-repeat="chance in user.chances" ng-if="chance.code2">
       <div class="well big">{{chance.code2}}</div>
     </li> -->
   </ul>
-<!-- </div> -->
+
+  <hr>
+</div>
+  <ul>
+    <li><h4><b>Freund_innen</b></h4></li>
+    <li ng-repeat="t in user.tandems" ng-show="t.invitation_type=='link' || t.invitee_participates || t.invitationType=='link' || t.inviteeParticipates" class="text-left">
+
+      <!-- t.inviterCode || t.inviter_code -->
+
+      <!-- <div class="well big pull-right" ng-show="t.details.code">{{t.details.code}}</div> --><div style="margin-right:20px;" class="testimonial-image pull-left"><img ng-src="{{t.details.avatar ? t.details.avatar.avatar.thumb.url : '/assets/team/team-member.jpg'}}" height="50"></div>
+      mit <br>
+      <a ng-show="t.invitee_id && t.invitee_id != user.id" href="/menschen/{{t.invitee_id}}">{{t.details.name}}</a>
+      <a ng-show="t.inviter_id && t.inviter_id != user.id" href="/menschen/{{t.inviter_id}}">{{t.details.name}}</a>
+      <a ng-show="t.inviteeId && t.inviteeId != user.id" href="/menschen/{{t.inviteeId}}">{{t.details.name}}</a>
+      <a ng-show="t.inviterId && t.inviterId != user.id" href="/menschen/{{t.inviterId}}">{{t.details.name}}</a>
+      <div style="clear:both"></div>
+    </li>
+  </ul>
+
+  <!-- <alert><b>Hinweis:</b> Für die Verlosung relevant ist ein Tandem erst, wenn ich a) selbst an der Verlosung teilnehme, b) meine Tandempartnerin dem Tandem zugestimmt hat und c) auch an der Verlosung teilnimmt.</alert> -->
+
+
 
   <hr>
 

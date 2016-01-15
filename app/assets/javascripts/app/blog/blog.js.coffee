@@ -30,12 +30,11 @@ angular.module("blog", ['ng-breadcrumbs','Comment'])
     #url += "?" + serializeQuery(query)  if serializeQuery(query)
     $http.get(url).success (data) ->
       $scope.posts = data
-
       if $routeParams['postId']
         angular.forEach data, (post) ->
-          if parseInt(post.ID) == parseInt($routeParams['postId'])
+          if parseInt(post.id) == parseInt($routeParams['postId'])
             $scope.post = post
-          return
+            return
       return
 
 

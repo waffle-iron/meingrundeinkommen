@@ -9,82 +9,55 @@
             <mge-support-nav></mge-support-nav>
         </div>
     </div>
+</section>
+<div class="container">
     <article class="row bge-support_cola">
         <header class="col-xs-12">
             <div class="row">
                 <div class="col-xs-12 col-sm-7 text-center intro">
-                    <h1>Die CrowdCola bringt die Fragen auf den Tisch!</h1>
+                    <h1>Die Grundeinkommens-Cola bringt die Frage auf den Tisch!</h1>
 
-                    <h2>Alle Einnahmen fließen zu einhundert Prozent in das Projekt Mein-Grundeinkommen!</h2>
+                    <h2>Jede Flasche finanziert 26 Sekunden Grundeinkommen</h2>
+                    <p>Pro Flasche geht 1 Cent direkt in den Lostopf und jede 6. Flasche trägt das BGE-Label mit der wichtigsten Frage der Welt.</p>
                 </div>
                 <div class="col-xs-12 col-sm-5">
-                    <img class="img-responsive" src="../assets/support/cola.png" alt="Cola Flasche">
+                    <img class="img-responsive" src="../assets/support/crowdcola.jpg" alt="Cola Flasche">
                 </div>
             </div>
-            <hr>
         </header>
-        <section class="col-xs-12 text-center">
-            <h1>Sag's uns!</h1>
-
-            <h2>Was würdest du tun, wenn für dein Einkommen gesorgt wäre?</h2>
-            <p class="text-center">Melde dich für das bedingungslose Grundeinkommen an und sag es uns!</p>
-            <a class="btn-large btn-color btn-bge" href="/register">Anmelden!</a>
+        <div class="col-xs-12">
+            <img id="cola-stream" src="../assets/support/cola_stream.png" class="img-responsive">
+        </div>
+        <section class="col-xs-12 col-md-8 col-md-offset-2 text-center">
+            <h2>Du möchtest wissen wie Grundeinkommen schmeckt?</h2>
+            <p>Mit 25 mg natürlichem Koffein pro 100 ml und echten Kolanuss-Extrakten macht COLA hellwach und schmeckt sanft fruchtig und erfrischend, mit einem dezenten Spritzer Zitrone. Ein ausgewähltes, weiches Quellwasser sorgt dafür, dass sich der Geschmack voll entfalten kann.</p>
+            <p>Weitere Informationen zur Cola findet ihr <a href="http://bierbier.org/website/cola/" target="_blank">hier</a></p>
         </section>
-
-        <section class="col-xs-12 text-center bge-link">
-            <h1>Was andere tun würden?</h1>
-            <h2>Lass dich überraschen und inspirieren.</h2>
-
-            <ul class="listbox">
-
-                <li ng-repeat="wish in wishes" ng-show="wish.text">
-                    <div class="pull-left">
-                        <div class="testimonial-image "><img alt="" ng-src="{{wish.user.avatar.avatar.thumb.url}}">
-                        </div>
+    </article>
+</div>
+<div class="bge-support_divider">
+    <div class="container">
+        <div class="row bge-support_cola">
+            <section class="col-xs-12">
+                <div class="row">
+                    <!-- <div class="col-xs-12 col-md-6 text-center">
+                        <h2>Du möchtest die Cola<br> für dich und deine Freunde?</h2>
+                        <h3>Hier kannst du bis zu 24 Flaschen für<br> deinen Eigenbedarf bestellen.</h3>
+                        <a href="http://www.revolutiondrinks.com/onlineshop/cola/cola/" target="_blank" class="btn btn-bge">Kleine Menge bestellen</a>
+                    </div> -->
+                    <div class="col-xs-12 col-md-12 text-center">
+                        <h2>Die Cola<br> soll deine Party rocken?</h2>
+                        <h3>Bestellt in der Gruppe oder für größere<br> Veranstaltungen!</h3>
+                        <a href="https://docs.google.com/forms/d/1HOvjiYNJ8OerkCEO-TIqgmFKcMYHOxjZLwYD8L7w_tM/viewform" target="_blank" class="btn btn-bge">Größere Menge bestellen</a>
                     </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
 
-                    <a ng-click="me_too(wish)" analytics-on="click" analytics-event="geklickt: Ich auch (Startseite)"
-                       href="#" class="btn-normal btn-pad pull-right"
-                       ng-class="{disabled: wish.meToo, 'btn-grey': wish.meToo, 'btn-color': !wish.meToo}">
-                     <span ng-show="wish.meToo">
-                        <i class="fa fa-check"></i> Du auch!
-                     </span>
-                     <span ng-hide="wish.meToo">
-                        <i class="fa fa-lightbulb"></i> Ich auch!
-                     </span>
-                    </a>
-
-                    <a href="/mit-grundeinkommen-wuerde-ich/{{wish.wishUrl}}/{{wish.wishId}}"
-                       class="edit_button_hidden btn-normal btn-pad pull-right btn-grey">
-                        <i class="fa fa-angle-right"></i> ansehen
-                    </a>
-
-                    <div class="textblock">
-                        <a href="/menschen/{{wish.user.id}}">{{wish.user.name}}</a>
-                        <span ng-show="wish.othersCount > 0"> und <b>{{wish.othersCount}}</b> andere würden</span>
-
-                        <span ng-show="wish.othersCount == 0"> würde</span>
-                        <br>
-                        <a style="font-size:18px" href="/mit-grundeinkommen-wuerde-ich/{{wish.wishUrl}}/{{wish.wishId}}">
-                            {{wish.othersCount == 0 ? wish.wish.he : wish.wish.they}}
-                        </a>
-                    </div>
-
-                </li>
-
-            </ul>
-            <!--MEHR ZEIGEN BUTTON-->
-            <div class="text-center">
-                <a ng-hide="show_more_wishes" ng-click="show_more_wishes = true" href="#"
-                   class="btn-grey btn-small btn-pad">Mehr anzeigen</a>
-                <pagination ng-show="show_more_wishes" total-items="home.numberOfWishesRaw"
-                            ng-model="pagination.current_page" boundary-links="true" first-text="Anfang"
-                            next-text="Weiter" previous-text="Zurück" max-size="10" last-text="Ende"
-                            rotate="true"></pagination>
-            </div>
-
-            <hr>
-        </section>
+<div class="container">
+    <div class="row bge-support_cola">
         <section class="col-xs-12">
             <div class="row">
                 <div class="col-xs-12 col-sm-8 text-center">
@@ -96,17 +69,18 @@
 
                 </div>
                 <div class="col-xs-12 col-sm-4">
-                    <img class="img-responsive" src="../assets/support/cola2.png" alt="Cola Flasche">
+                    <img class="img-responsive" src="../assets/support/cola_bge.jpg" alt="Cola Flasche">
                 </div>
             </div>
             <hr>
         </section>
+
         <section>
             <div class="row">
                 <div class="bge-link text-center">
-                    <h3>Die Idee der Grundeinkommens-Cola kommt vom Unternehmen Mitte Basel. </br>Mehr über die Volksinitiative in der Schweiz erfahrt ihr <a target="_blank" href="http://cola.mitte.ch/">hier</a>.</h3>
+                    <h3>Die Idee der Grundeinkommens-Cola kommt vom Unternehmen Mitte Basel. </br>Mehr über das Unternehmen Mitte, die „Generation Grundeinkommen“ und die Volksinitiative in der Schweiz erfahrt ihr <a target="_blank" href="http://cola.mitte.ch/">hier</a>.</h3>
                 </div>
             </div>
         </section>
-    </article>
-</section>
+    </div>
+</div>

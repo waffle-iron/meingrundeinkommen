@@ -7,18 +7,18 @@
 
  	<article class="post hentry">
 	   <div class="post-image">
-	      <a href="/blog/{{post.ID}}" data-rel="prettyPhoto">
+	      <a href="/blog/{{post.id}}" data-rel="prettyPhoto">
 	      <span class="img-hover" style="opacity: 0;"></span>
 	      <span class="fullscreen" style="top: 65%; opacity: 0;"><i class="fa fa-search"></i></span>
-	      <img src="{{post.featured_image.attachment_meta.sizes['post-thumbnail'].url}}" alt="">
+	      <img src="{{post.thumb}}" alt="">
 	      </a>
 	   </div>
-	   <div class="post-content-wrap">
+	   <div class="post-content-wrap" style="height:210px;overflow:hidden;">
 	      <header class="post-header">
 	         <!-- <div class="post-date">
 	            <a class="date" href="#"><strong>{{post.modified | date:'dd.MM.yyyy'}}</a>
 	         </div> -->
-	         <h3 class="content-title"><a href="/blog/{{post.ID}}">{{post.title}}</a></h3>
+	         <h3 class="content-title"><a href="/blog/{{post.id}}">{{post.title.rendered}}</a></h3>
 	         <div class="blog-entry-meta">
 	            <!-- <div class="blog-entry-meta-author">
 	               <i class="icon-user"></i>
@@ -35,12 +35,13 @@
 	            </div> -->
 	         </div>
 	      </header>
-	      <div class="post-content" ng-bind-html="post.excerpt | unsafe">
+	      <div class="post-content" ng-bind-html="post.content.rendered | unsafe">
        </div>
        <!-- <footer class="post-footer">
-          <a class="btn-small btn-color" href="/blog/{{post.ID}}">Lesen</a>
+          <a class="btn-small btn-color" href="/blog/{{post.id}}">Lesen</a>
        </footer> -->
 	   </div>
+     <a class="pull-right" href="/blog/{{post.id}}"> >> weiterlesen</a>
 	   <div class="clearfix"></div>
 	</article>
 

@@ -2,7 +2,7 @@ class MailingsMailer < MassMandrill::MandrillMailer
   include ActionView::Helpers::NumberHelper
 
   def possible_user_groups
-    %w(confirmed with_newsletter sign_up_after# not_participating participating has_code without_crowdbar with_crowdbar is_squirrel frst_notification_not_sent last_squirrel_id# byids#)
+    %w(confirmed not_confirmed with_newsletter without_newsletter sign_up_after# not_participating participating has_code without_crowdbar with_crowdbar has_crowdcard has_tandems has_no_tandems is_squirrel frst_notification_not_sent frst_notification_sent last_squirrel_id# byids#)
   end
 
   def prepare_recipients(groups,group_keys)
@@ -33,8 +33,8 @@ class MailingsMailer < MassMandrill::MandrillMailer
                     { :name => 'uid', :content => recipient.id },
                     { :name => 'losnummern', :content => recipient.chances.where.not(:code => nil).any? ? recipient.chances.map(&:code).join('; ') : '' },
                     { :name => 'ch_betrag', :content => !recipient.payment.blank? ? number_with_precision(recipient.payment.amount_total, precision: 2, separator: ',', delimiter: '.') : '' },
-                    { :name => 'ch_id', :content => !recipient.payment.blank? ? recipient.payment.id : '' },
-                    { :name => 'real_first_name', :content => recipient.chances.any? ? !recipient.chances.where(:is_child => false).empty? ? recipient.chances.where(:is_child => false).first.first_name : '' : '' }
+                    { :name => 'ch_id', :content => !recipient.payment.blank? ? recipient.payment.id : '' }
+                    #{ :name => 'real_first_name', :content => recipient.chances.any? ? !recipient.chances.where(:is_child => false).empty? ? recipient.chances.where(:is_child => false).first.first_name : '' : '' }
                  ]
       }
     end
