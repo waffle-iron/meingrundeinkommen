@@ -62,4 +62,5 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'simplecov'
+  gem 'railroady', '~> 1.4', '>= 1.4.2' # Visualize model and controller as UML and output to SVG
 end
