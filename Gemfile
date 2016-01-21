@@ -45,6 +45,7 @@ gem 'iban-tools'
 gem 'figaro'
 gem 'mass_mandrill'
 gem 'newrelic_rpm'
+gem 'bugsnag', '~> 3.0'
 
 # production
 gem 'lograge'
