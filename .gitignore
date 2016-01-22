@@ -203,3 +203,6 @@ public/crowdcard.json
 public/crowdcard_daily.json
 
 public/news.json
+
+.todo
+.envrc
