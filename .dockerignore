@@ -1,0 +1,9 @@
+.git*
+Dockerfile
+Makefile
+README.md
+db/*.sqlite3
+docker-compose.yml
+log/*
+plan
+tmp/*
