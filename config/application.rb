@@ -10,6 +10,8 @@ module Grundeinkommen
 
   config.exceptions_app = self.routes
 
+  config.secret_key_base = ENV['SECRET_KEY_BASE']
+
   config.to_prepare do
     DeviseController.respond_to :html, :json
   end
