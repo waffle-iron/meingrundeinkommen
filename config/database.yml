@@ -1,12 +1,22 @@
 default: &default
-  adapter: sqlite3
-  pool: 5
-  timeout: 5000
+  adapter:  mysql2
+  encoding: utf8
+  host:     <%= ENV['MYSQL_TCP_ADDR'] %>
+  username: <%= ENV['MYSQL_USER_NAME'] %>
+  password: <%= ENV['MYSQL_USER_PASSWORD'] %>
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  database: mge_development
 
 test:
   <<: *default
-  database: db/test.sqlite3
+  database: mge_test
+
+staging:
+  <<: *default
+  database: mge_staging
+
+production:
+  <<: *default
+  database: mge_production
