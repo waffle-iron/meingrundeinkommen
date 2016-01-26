@@ -6,8 +6,10 @@ machine:
     - docker
 
 dependencies:
-  override:
+  pre:
     - pip install awscli
+
+  override:
     - docker build -t meinbge/meinbge-rails:$CIRCLE_SHA1 .
 
 test:
