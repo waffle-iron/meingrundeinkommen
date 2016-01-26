@@ -24,7 +24,9 @@ COPY . /usr/src/app
 WORKDIR /usr/src/app
 
 ENV SECRET_KEY_BASE="${SECRET_KEY_BASE}"
-RUN RAILS_ENV=production bundle exec rake assets:precompile
+ENV RAILS_ENV=production
+
+RUN bundle exec rake assets:precompile
 
 EXPOSE 3000
 CMD ["rails", "server", "-b", "0.0.0.0"]
