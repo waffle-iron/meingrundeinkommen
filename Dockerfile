@@ -6,6 +6,9 @@ LABEL environment="production"
 
 MAINTAINER https://github.com/MeinGrundeinkommen
 
+RUN apt-get update && apt-get install -y nodejs --no-install-recommends && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y mysql-client sqlite3 --no-install-recommends && rm -rf /var/lib/apt/lists/*
+
 # throw errors if Gemfile has been modified since Gemfile.lock
 RUN bundle config --global frozen 1
 
@@ -19,9 +22,6 @@ RUN bundle install --without development test
 RUN mkdir -p /usr/src/app
 COPY . /usr/src/app
 WORKDIR /usr/src/app
-
-RUN apt-get update && apt-get install -y nodejs --no-install-recommends && rm -rf /var/lib/apt/lists/*
-RUN apt-get update && apt-get install -y mysql-client sqlite3 --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
 ENV SECRET_KEY_BASE="${SECRET_KEY_BASE}"
 RUN RAILS_ENV=production bundle exec rake assets:precompile
