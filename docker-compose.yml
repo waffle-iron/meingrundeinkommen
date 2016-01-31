@@ -1,0 +1,18 @@
+web:
+  build: .
+  ports:
+    - "3000:3000"
+  environment:
+    LANG:                en_US.UTF-8
+    RACK_ENV:            production
+    RAILS_ENV:           production
+    SECRET_KEY_BASE:     556928915749caa2e798d9eb3ac64bbaecfdfc6b25ba22c79f7440e4c6e9d3527d5d306ef193a8126b5faeace84fe4d9076e6db4f737905e142afca9059277ea
+
+  links:
+    - db
+db:
+  image: mysql:5.6.24
+  ports:
+    - "3306:3306"
+  environment:
+    MYSQL_ROOT_PASSWORD: root
