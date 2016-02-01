@@ -30,11 +30,11 @@ class User < ActiveRecord::Base
   has_many :state_users, :dependent => :destroy
   has_many :states, through: :state_users
 
-  searchable do
-    text :name
-    text :email
-    text :id
-  end
+  #searchable do
+    #text :name
+    #text :email
+    #text :id
+  #end
 
   #validates_presence_of   :avatar
   validates_integrity_of  :avatar
