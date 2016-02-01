@@ -6,8 +6,7 @@ gem 'rails', '4.1.0'
 # database & models
 gem 'active_model_serializers', '0.8.1'
 gem 'jbuilder', '~> 1.2'
-gem 'mysql2'
-gem 'pg'
+gem 'mysql2', '~> 0.3.18'
 
 # authentication/authorization
 gem 'bcrypt-ruby'
