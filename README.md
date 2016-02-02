@@ -14,3 +14,8 @@ Once you are done with `bower.json` or `Bowerfile` you can run
 * `rake bower:clean` to remove all files not listed as [main files](#bower-main-files) (if specified)
 * `rake bower:resolve` to resolve [relative asset paths](#relative-asset-paths) in components
 * `rake bower:cache:clean` to clear the bower cache. This is useful when you know a component has been updated. 
+* 
+
+## Deployment
+
+!!! Check if the newsletter scripts is running before deploying. !!!
