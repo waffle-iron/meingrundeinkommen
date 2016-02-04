@@ -6,8 +6,14 @@ LABEL environment="production"
 
 MAINTAINER https://github.com/MeinGrundeinkommen
 
-RUN apt-get update && apt-get install -y nodejs --no-install-recommends && rm -rf /var/lib/apt/lists/*
-RUN apt-get update && apt-get install -y mysql-client sqlite3 --no-install-recommends && rm -rf /var/lib/apt/lists/*
+RUN \
+  apt-get update && \
+  apt-get install -y \
+    mysql-client \
+    nodejs \
+    sqlite3 \
+    --no-install-recommends && \
+  rm -rf /var/lib/apt/lists/*
 
 # throw errors if Gemfile has been modified since Gemfile.lock
 RUN bundle config --global frozen 1
