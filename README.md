@@ -19,3 +19,8 @@ Once you are done with `bower.json` or `Bowerfile` you can run
 ## Deployment
 
 !!! Check if the newsletter scripts is running before deploying. !!!
+
+## Jameica Server
+
+### Ports
+```"sudo iptables -I net2fw 5 -p tcp -m tcp --dport 8080 -j ACCEPT“```
