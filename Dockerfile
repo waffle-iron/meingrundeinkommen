@@ -30,7 +30,6 @@ COPY . /usr/src/app
 WORKDIR /usr/src/app
 
 ENV SECRET_KEY_BASE="${SECRET_KEY_BASE}"
-ENV RAILS_ENV=production
 
 RUN bundle exec rake assets:precompile
 
