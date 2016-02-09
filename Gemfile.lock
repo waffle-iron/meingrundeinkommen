@@ -357,9 +357,8 @@ DEPENDENCIES
   mailjet
   mass_mandrill
   mini_magick
-  mysql2
+  mysql2 (~> 0.3.18)
   newrelic_rpm
-  pg
   progress_bar
   puma (~> 2.16)
   railroady (~> 1.4, >= 1.4.2)
