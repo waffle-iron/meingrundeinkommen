@@ -207,8 +207,7 @@ public/news.json
 .envrc
 .todo
 
-secrets.env
-docker.env
+*.env
 
 ca-cert.pem
 cleardb_id-key.pem
