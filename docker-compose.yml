@@ -8,9 +8,16 @@ web:
 
   links:
     - db
+    - solr
+
 db:
   image: mysql:5.6.24
   ports:
     - "3306:3306"
   env_file:
     - ./mge-rails.env
+
+solr:
+  image: solr:5.4
+  ports:
+    - "8983:8983"
