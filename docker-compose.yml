@@ -1,23 +1,29 @@
-web:
-  build: .
-  ports:
-    - "3000:3000"
-  env_file:
-    - ./mge-rails.env
-    - ./secrets.env
+version: '2'
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./mge_rails.env
+      - ./secrets.env
 
-  links:
-    - db
-    - solr
+    depends_on:
+      - mysql
+      - solr
 
-db:
-  image: mysql:5.6.24
-  ports:
-    - "3306:3306"
-  env_file:
-    - ./mge-rails.env
+  mysql:
+    image: mysql:5.6.24
+    ports:
+      - "3306:3306"
+    volumes:
+      - mge_data:/var/lib/mysql
 
-solr:
-  image: solr:5.4
-  ports:
-    - "8983:8983"
+  solr:
+    image: solr:5.4
+    ports:
+      - "8983:8983"
+
+volumes:
+  mge_data:
+    external: true
