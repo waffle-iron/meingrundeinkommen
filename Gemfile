@@ -44,9 +44,6 @@ gem 'sunspot_solr'
 gem 'uglifier', '>= 1.3.0'
 gem 'rails_12factor', '~> 0.0.3', group: :production # heroku
 
-# gem 'angularjs-rails'
-#gem 'rmagick', :require => 'RMagick'
-
 # production
 gem 'lograge'
 gem 'puma', '~> 2.16'
