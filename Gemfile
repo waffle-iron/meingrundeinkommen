@@ -19,7 +19,6 @@ gem 'angular_rails_csrf'
 gem 'angularjs-rails-resource', '~> 1.1.1'
 gem 'bower-rails'
 gem 'browser'
-gem 'bugsnag', '~> 3.0'
 gem 'carrierwave'
 gem 'clockwork'
 gem 'coffee-rails', '~> 4.0.0'
@@ -35,14 +34,18 @@ gem 'less-rails-bootstrap'
 gem 'mailjet'
 gem 'mass_mandrill'
 gem 'mini_magick'
-gem 'newrelic_rpm'
 gem 'sass-rails'
 gem 'sepa_king'
 gem 'strip_attributes'
 gem 'sunspot_rails'
 gem 'sunspot_solr'
 gem 'uglifier', '>= 1.3.0'
-gem 'rails_12factor', '~> 0.0.3', group: :production # heroku
+
+group :production do
+  gem 'bugsnag', '~> 3.0'
+  gem 'newrelic_rpm'
+  gem 'rails_12factor', '~> 0.0.3' # heroku
+end
 
 # production
 gem 'lograge'
