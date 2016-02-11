@@ -41,7 +41,6 @@ gem 'sepa_king'
 gem 'strip_attributes'
 gem 'sunspot_rails'
 gem 'sunspot_solr'
-gem 'therubyracer'
 gem 'uglifier', '>= 1.3.0'
 gem 'rails_12factor', '~> 0.0.3', group: :production # heroku
 
@@ -67,4 +66,5 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'simplecov'
   gem 'sqlite3'
+  gem 'therubyracer'
 end
