@@ -28,13 +28,13 @@ class Api::FlagsController < ApplicationController
 	end
 
 	def index
-		if current_user
+	  if current_user
 		  flags = {}
 	      current_user.flags.each do |flag|
 	        flags[flag.name] = flag.display
-	      end
+       end
 	      render json: flags
-	    end
+    end
 	end
 
 

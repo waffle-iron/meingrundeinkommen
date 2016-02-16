@@ -18614,7 +18614,7 @@ namespace :squirrels do
 
     sdd = []
 
-    documents.times do |i|
+    documents.times do |_i|
     	sdd << SEPA::DirectDebit.new(
 	      # Name of the initiating party and creditor, in German: "Auftraggeber"
 	      # String, max. 70 char
@@ -18722,12 +18722,11 @@ namespace :squirrels do
 		      end
 		    end
 	    end
-	end
+	   end
 
 	# Last: create XML string
 	sdd.each do |r|
 		puts r.to_xml # Use latest schema pain.008.003.02
-		debugger
 	end
 
 
