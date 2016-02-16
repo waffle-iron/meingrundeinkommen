@@ -19,6 +19,7 @@ gem 'angular_rails_csrf'
 gem 'angularjs-rails-resource', '~> 1.1.1'
 gem 'bower-rails'
 gem 'browser'
+gem 'bugsnag', '~> 3.0'
 gem 'carrierwave'
 gem 'clockwork'
 gem 'coffee-rails', '~> 4.0.0'
@@ -42,7 +43,6 @@ gem 'sunspot_solr'
 gem 'uglifier', '>= 1.3.0'
 
 group :production do
-  gem 'bugsnag', '~> 3.0'
   gem 'newrelic_rpm'
   gem 'rails_12factor', '~> 0.0.3' # heroku
 end
