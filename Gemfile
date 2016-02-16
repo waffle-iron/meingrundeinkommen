@@ -40,6 +40,7 @@ gem 'sepa_king'
 gem 'strip_attributes'
 gem 'sunspot_rails'
 gem 'sunspot_solr'
+gem 'therubyracer'
 gem 'uglifier', '>= 1.3.0'
 
 group :production do
@@ -66,5 +67,4 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'simplecov'
   gem 'sqlite3'
-  gem 'therubyracer'
 end
