@@ -19,6 +19,7 @@ gem 'angular_rails_csrf'
 gem 'angularjs-rails-resource', '~> 1.1.1'
 gem 'bower-rails'
 gem 'browser'
+gem 'bugsnag', '~> 3.0'
 gem 'carrierwave'
 gem 'clockwork'
 gem 'coffee-rails', '~> 4.0.0'
@@ -39,10 +40,10 @@ gem 'sepa_king'
 gem 'strip_attributes'
 gem 'sunspot_rails'
 gem 'sunspot_solr'
+gem 'therubyracer'
 gem 'uglifier', '>= 1.3.0'
 
 group :production do
-  gem 'bugsnag', '~> 3.0'
   gem 'newrelic_rpm'
   gem 'rails_12factor', '~> 0.0.3' # heroku
 end
@@ -62,9 +63,8 @@ group :development, :test do
   gem 'progress_bar'
   gem 'railroady', '~> 1.4', '>= 1.4.2' # Visualize model and controller as UML and output to SVG
   gem 'rspec-rails'
-  gem 'rubocop', '~> 0.36.0', require: false
+  gem 'rubocop', '~> 0.37.2', require: false
   gem 'shoulda-matchers'
   gem 'simplecov'
   gem 'sqlite3'
-  gem 'therubyracer'
 end

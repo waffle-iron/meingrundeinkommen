@@ -1,7 +1,7 @@
 default: &default
   adapter:  mysql2
   encoding: utf8
-  host:     <%= ENV['MYSQL_TCP_ADDR'] %>
+  url:      <%= ENV['DATABASE_URL'] %>
   username: <%= ENV['MYSQL_USER_NAME'] %>
   password: <%= ENV['MYSQL_USER_PASSWORD'] %>
 
