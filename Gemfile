@@ -9,7 +9,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'mysql2', '~> 0.3.18'
 
 # authentication/authorization
-gem 'bcrypt-ruby'
+gem 'bcrypt'
 gem 'devise', '3.2.4'
 
 # misc
