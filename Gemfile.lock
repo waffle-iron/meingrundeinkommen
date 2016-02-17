@@ -266,11 +266,13 @@ GEM
       addressable (~> 2.3)
     less (2.6.0)
       commonjs (~> 0.2.7)
-    less-rails (2.6.0)
-      actionpack (>= 3.1)
+    less-rails (2.7.1)
+      actionpack (>= 4.0)
       less (~> 2.6.0)
-    less-rails-bootstrap (3.3.2.0)
-      less-rails (~> 2.6.0)
+      sprockets (> 2, < 4)
+      tilt
+    less-rails-bootstrap (3.3.5.0)
+      less-rails (>= 2.6, <= 2.8)
     letter_opener (1.3.0)
       launchy (~> 2.2)
     libv8 (3.16.14.7)
@@ -293,7 +295,7 @@ GEM
       mandrill-api (~> 1.0.16)
     mime-types (2.99)
     mini_magick (4.1.0)
-    mini_portile (0.6.2)
+    mini_portile2 (2.0.0)
     minitest (5.8.4)
     multi_json (1.11.2)
     multi_xml (0.5.5)
@@ -301,8 +303,8 @@ GEM
     mysql2 (0.3.18)
     netrc (0.10.3)
     newrelic_rpm (3.11.2.286)
-    nokogiri (1.6.6.2)
-      mini_portile (~> 0.6.0)
+    nokogiri (1.6.7.2)
+      mini_portile2 (~> 2.0.0.rc2)
     nuggets (1.2.0)
     oauth (0.4.7)
     oauth2 (1.0.0)
@@ -487,8 +489,8 @@ DEPENDENCIES
   iban-tools
   jbuilder (~> 1.2)
   jquery-rails
-  less-rails
-  less-rails-bootstrap
+  less-rails (~> 2.7, >= 2.7.1)
+  less-rails-bootstrap (~> 3.3, >= 3.3.5.0)
   letter_opener
   lograge
   mailjet
