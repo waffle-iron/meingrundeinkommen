@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # rails
-gem 'rails', '4.1.0'
+gem 'rails', '~> 4.1', '>= 4.1.14.1'
 
 # database & models
 gem 'active_model_serializers', '0.8.1'
