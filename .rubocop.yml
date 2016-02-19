@@ -7,8 +7,9 @@ AllCops:
   MaxFilesInCache: 20000
   CacheRootDirectory: /tmp
 
-  EnforcedHashRocketStyle: table
-  EnforcedColonStyle: table
   Exclude:
     - 'db/**/*'
     - 'vendor/**/*'
+
+Style/AlignHash:
+  EnforcedHashRocketStyle: key

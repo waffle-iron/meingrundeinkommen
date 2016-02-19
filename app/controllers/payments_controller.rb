@@ -50,7 +50,7 @@ class PaymentsController < ApplicationController
     Rails.logger.info raw
     response = http.post(uri.request_uri, raw,
                          'Content-Length' => "#{raw.size}",
-                         'User-Agent' => "My custom user agent"
+                         'User-Agent'     => "My custom user agent"
                        ).body
   end
 
