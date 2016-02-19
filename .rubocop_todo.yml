@@ -367,9 +367,6 @@ Style/IfInsideElse:
 # Configuration parameters: MaxLineLength.
 Style/IfUnlessModifier:
   Exclude:
-    - 'app/controllers/api/questions_controller.rb'
-    - 'app/controllers/subscriptions_controller.rb'
-    - 'lib/tasks/chances.rake'
 
 # Offense count: 2
 # Cop supports --auto-correct.

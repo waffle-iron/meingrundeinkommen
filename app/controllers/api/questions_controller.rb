@@ -17,9 +17,7 @@ class Api::QuestionsController < ApplicationController
 
   def update
     q = Question.find(params[:id])
-    if params[:up]
-      q.update_attributes(votes: q.votes + 1)
-    end
+    q.update_attributes(votes: q.votes + 1) if params[:up]
     if current_user && current_user.admin?
       q.update_attributes(params.permit(:text,:category,:answer,:votes))
     end

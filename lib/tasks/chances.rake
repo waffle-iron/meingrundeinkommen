@@ -135,9 +135,7 @@ namespace :chances do
           end
         else
           chances = p.user.chances
-          if !chances.first.confirmed
-            chances.update_all(confirmed: true)
-          end
+          chances.update_all(confirmed: true) if !chances.first.confirmed
 
         end
       end
