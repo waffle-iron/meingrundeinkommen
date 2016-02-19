@@ -21,11 +21,11 @@ namespace :comments do
     wp_startnext.each do |wp,startnext|
       post_comments = JSON.parse(open("https://api.startnext.de/v1.1/projects/updates/#{startnext}/comments?client_id=82142814552425").read)
       post_comments["comments"].each do |comment|
-        if comment["author"]["image"]
-          image = comment["author"]["image"].length > 0 ? comment["author"]["image"].last : comment["author"]["image"]
-        else
-          image = false
-        end
+        image = if comment["author"]["image"]
+          comment["author"]["image"].length > 0 ? comment["author"]["image"].last : comment["author"]["image"]
+                else
+          false
+                end
         Comment.create(
           :text => comment["text"],
           :commentable_type => 'blogpost',

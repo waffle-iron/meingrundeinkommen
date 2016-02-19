@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
 #before_filter :authenticate_user!
 
-  before_filter :load_user, only:[:show,:states, :wishes]
+  before_action :load_user, only:[:show,:states, :wishes]
 
 
   def index
