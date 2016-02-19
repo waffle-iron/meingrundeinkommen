@@ -104,11 +104,11 @@ class Api::UsersController < ApplicationController
 
           if wish
 
-            if exists = UserWish.where(id:wish.user_wish_ids.sample).first
-              sample_user = exists.user
-            else
-              sample_user = current_user
-            end
+            sample_user = if exists = UserWish.where(id:wish.user_wish_ids.sample).first
+                            exists.user
+                          else
+                            current_user
+                          end
 
             r << {
               suggestion:   suggestion,

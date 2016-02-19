@@ -188,28 +188,21 @@ Style/ClosingParenthesisIndentation:
     - 'app/controllers/payments_controller.rb'
     - 'app/mailers/mailings_mailer.rb'
 
-# Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: Keywords.
 # Keywords: TODO, FIXME, OPTIMIZE, HACK, REVIEW
 Style/CommentAnnotation:
   Exclude:
-    - 'app/controllers/api/tandems_controller.rb'
 
 # Cop supports --auto-correct.
 Style/CommentIndentation:
   Exclude:
 
-# Offense count: 5
 # Cop supports --auto-correct.
 # Configuration parameters: SingleLineConditionsOnly.
 Style/ConditionalAssignment:
+  SingleLineConditionalsOnly: true
   Exclude:
-    - 'app/controllers/api/flags_controller.rb'
-    - 'app/controllers/api/users_controller.rb'
-    - 'app/controllers/registrations_controller.rb'
-    - 'app/helpers/conjugation_helper.rb'
-    - 'app/mailers/mailings_mailer.rb'
 
 # Offense count: 118
 Style/Documentation:

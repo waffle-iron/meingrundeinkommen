@@ -3,11 +3,11 @@ class Api::FlagsController < ApplicationController
 	 def create
  		 if current_user && params[:name]
 
-  			 if current_user.admin? && params[:admin] && params[:for_user]
-   			  user = User.find(params[:for_user])
-   			else
-   			  user = current_user
-   			end
+  			 user = if current_user.admin? && params[:admin] && params[:for_user]
+   			         User.find(params[:for_user])
+   			       else
+   			         current_user
+   			       end
 
   			 flag = Flag.set(user,params)
   			 render json: {value: flag.display}

@@ -63,11 +63,11 @@ module ConjugationHelper
       text = text.gsub(/^mich\s/i, "dich #{insertion}").gsub(/\smich\s/i, " dich ").gsub(/\smich$/i, " dich") #replaces mich with dich
       text = text.gsub(/^mir\s/i, "dir #{insertion}").gsub(/\smir\s/i, " dir ").gsub(/\smir$/i, " dir") #replaces mir with dir
 
-      if text.match(/^dich\s.*$/i).nil? && text.match(/^dir\s.*$/i).nil?
-        text = insertion + text + "?"
-      else
-        text = text + "?"
-      end
+      text = if text.match(/^dich\s.*$/i).nil? && text.match(/^dir\s.*$/i).nil?
+               insertion + text + "?"
+             else
+               text + "?"
+             end
 
     elsif person == :he
 

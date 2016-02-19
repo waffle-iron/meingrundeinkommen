@@ -11,11 +11,11 @@ class MailingsMailer < MassMandrill::MandrillMailer
     groups.each_with_index do |g,i|
       g2 = "#{g}#"
       if self.possible_user_groups.include?(g) || self.possible_user_groups.include?(g2)
-        if group_keys[i].empty?
-          users = users.send(g)
-        else
-          users = users.send(g.sub('#',''),group_keys[i])
-        end
+        users = if group_keys[i].empty?
+                  users.send(g)
+                else
+                  users.send(g.sub('#',''),group_keys[i])
+                end
       end
     end
     return users
