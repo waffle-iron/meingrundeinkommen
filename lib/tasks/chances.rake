@@ -131,7 +131,7 @@ namespace :chances do
           if chance.valid?
             chance.save!
           else
-            puts "#{p.user_id} - #{chance.errors.first.to_s}"
+            puts "#{p.user_id} - #{chance.errors.first}"
           end
         else
           chances = p.user.chances
