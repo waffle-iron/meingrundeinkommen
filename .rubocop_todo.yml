@@ -152,6 +152,7 @@ Style/AndOr:
 
 # Offense count: 16
 Style/AsciiComments:
+  Enabled: false
   Exclude:
     - 'app/controllers/api/drawings_controller.rb'
     - 'app/helpers/conjugation_helper.rb'
