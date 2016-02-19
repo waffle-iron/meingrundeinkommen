@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-#before_filter :authenticate_user!
+  #before_filter :authenticate_user!
 
   before_action :load_user, only:[:show,:states, :wishes]
 

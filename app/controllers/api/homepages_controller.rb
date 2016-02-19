@@ -51,9 +51,9 @@ class Api::HomepagesController < ApplicationController
     # crowdcard_average = crowdcard_sum / 7
 
     #if now - date(day before) < 24h
-      #gelddiff / 24h * stunden
+    #gelddiff / 24h * stunden
     #else
-      #crowdbar_amount = crowdbar_yesterday
+    #crowdbar_amount = crowdbar_yesterday
 
     #crowdbar
     cb_json = JSON.parse(File.read('public/crowdbar.json'))

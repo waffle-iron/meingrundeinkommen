@@ -38,7 +38,6 @@ Lint/ShadowingOuterLocalVariable:
     - 'app/controllers/api/drawings_controller.rb'
     - 'app/controllers/api/homepages_controller.rb'
 
-# Offense count: 2
 # Cop supports --auto-correct.
 Lint/StringConversionInInterpolation:
   Exclude:
@@ -170,7 +169,6 @@ Style/BlockEndNewline:
 Style/BracesAroundHashParameters:
   Exclude:
 
-# Offense count: 2
 # Cop supports --auto-correct.
 # Configuration parameters: SupportedStyles, IndentOneStep, IndentationWidth.
 # SupportedStyles: case, end
@@ -198,25 +196,9 @@ Style/CommentAnnotation:
   Exclude:
     - 'app/controllers/api/tandems_controller.rb'
 
-# Offense count: 23
 # Cop supports --auto-correct.
 Style/CommentIndentation:
   Exclude:
-    - 'app/controllers/api/chances_controller.rb'
-    - 'app/controllers/api/drawings_controller.rb'
-    - 'app/controllers/api/homepages_controller.rb'
-    - 'app/controllers/api/notifications_controller.rb'
-    - 'app/controllers/api/statistics_controller.rb'
-    - 'app/controllers/api/tandems_controller.rb'
-    - 'app/controllers/api/users_controller.rb'
-    - 'app/controllers/application_controller.rb'
-    - 'app/helpers/conjugation_helper.rb'
-    - 'app/mailers/mailings_mailer.rb'
-    - 'app/models/chance.rb'
-    - 'app/models/wish.rb'
-    - 'config/application.rb'
-    - 'lib/tasks/chances.rake'
-    - 'lib/tasks/squirrels.rake'
 
 # Offense count: 5
 # Cop supports --auto-correct.

@@ -23,7 +23,7 @@ namespace :chances do
             # end
             if !first_round
               if chances[i]
-              # •
+                # •
                 puts "#{i} - #{c1}•#{c2}•#{c3}•#{c4}"
                 chances[i].update_attribute(:code, "#{c1}•#{c2}•#{c3}•#{c4}")
                 i = i + 1

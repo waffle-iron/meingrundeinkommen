@@ -2,7 +2,7 @@
 module ConjugationHelper
 
 
-# GERMAN RULEZ
+  # GERMAN RULEZ
 
   BEGINNING_FIRST_PERSON_REGEXP = /^(mich|mir)\s/i
   THIRD_PERSON = 'sich'
@@ -14,7 +14,7 @@ module ConjugationHelper
   end
 
 
-    #refactore for other persons
+  #refactore for other persons
   def without_person(todo, person = :me, gender = :male)
     correct_todo_sentence(todo, person, false, false, gender)
   end
@@ -32,12 +32,12 @@ module ConjugationHelper
     result ? result[1] : nil
   end
 
-    # ich will        -- :me
-    # willst Du       -- :you
-    # willst Du gemiensam mit ihm/ihr?  -- :you_too
-    # [name] will     -- :he --> can have a list of names = []
-    # Alle Leute, die -- :they
-    # TODO: ENGLISH VERSION
+  # ich will        -- :me
+  # willst Du       -- :you
+  # willst Du gemiensam mit ihm/ihr?  -- :you_too
+  # [name] will     -- :he --> can have a list of names = []
+  # Alle Leute, die -- :they
+  # TODO: ENGLISH VERSION
   def conjugate_sentence(text, person = :me, comma=true, prefix = true, gender = :male, add_space = false)
     return "" if !text
     text.gsub!(BEGINNING_FIRST_PERSON_REGEXP," ") if !prefix
@@ -144,7 +144,7 @@ module ConjugationHelper
     text
   end
 
-# ENGLISH RULEZ
+  # ENGLISH RULEZ
 
   #persons:
   #  :me
