@@ -12,9 +12,9 @@ class MailingsMailer < MassMandrill::MandrillMailer
       g2 = "#{g}#"
       if self.possible_user_groups.include?(g) || self.possible_user_groups.include?(g2)
         if group_keys[i].empty?
-            users = users.send(g)
+          users = users.send(g)
         else
-            users = users.send(g.sub('#',''),group_keys[i])
+          users = users.send(g.sub('#',''),group_keys[i])
         end
       end
     end
@@ -29,13 +29,13 @@ class MailingsMailer < MassMandrill::MandrillMailer
       {
         rcpt: recipient.email,
         vars: [
-                    { name: 'name', content: recipient.name },
-                    { name: 'uid', content: recipient.id },
-                    { name: 'losnummern', content: recipient.chances.where.not(code: nil).any? ? recipient.chances.map(&:code).join('; ') : '' },
-                    { name: 'ch_betrag', content: !recipient.payment.blank? ? number_with_precision(recipient.payment.amount_total, precision: 2, separator: ',', delimiter: '.') : '' },
-                    { name: 'ch_id', content: !recipient.payment.blank? ? recipient.payment.id : '' }
+          { name: 'name', content: recipient.name },
+          { name: 'uid', content: recipient.id },
+          { name: 'losnummern', content: recipient.chances.where.not(code: nil).any? ? recipient.chances.map(&:code).join('; ') : '' },
+          { name: 'ch_betrag', content: !recipient.payment.blank? ? number_with_precision(recipient.payment.amount_total, precision: 2, separator: ',', delimiter: '.') : '' },
+          { name: 'ch_id', content: !recipient.payment.blank? ? recipient.payment.id : '' }
                     #{ :name => 'real_first_name', :content => recipient.chances.any? ? !recipient.chances.where(:is_child => false).empty? ? recipient.chances.where(:is_child => false).first.first_name : '' : '' }
-                 ]
+        ]
       }
     end
 
@@ -51,8 +51,8 @@ class MailingsMailer < MassMandrill::MandrillMailer
          message_extra: {
            track_opens: true,
            headers: {
-               "Reply-To" => 'Mein Grundeinkommen <support@mein-grundeinkommen.de>'
-             }
+             "Reply-To" => 'Mein Grundeinkommen <support@mein-grundeinkommen.de>'
+           }
          }
          )
 

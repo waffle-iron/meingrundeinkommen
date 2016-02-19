@@ -373,27 +373,28 @@ Style/IfUnlessModifier:
 # Configuration parameters: EnforcedStyle, SupportedStyles, IndentationWidth.
 # SupportedStyles: special_inside_parentheses, consistent, align_brackets
 Style/IndentArray:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 16
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles, IndentationWidth.
 # SupportedStyles: special_inside_parentheses, consistent, align_braces
 Style/IndentHash:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 36
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 # SupportedStyles: normal, rails
 Style/IndentationConsistency:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 116
 # Cop supports --auto-correct.
 # Configuration parameters: Width.
 Style/IndentationWidth:
-  Enabled: false
+  Enabled: true
+  Width: 2
 
 # Offense count: 12
 # Cop supports --auto-correct.

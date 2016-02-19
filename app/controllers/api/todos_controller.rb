@@ -22,8 +22,8 @@ class Api::TodosController < ApplicationController
   end
 
   private
-    def post_params
-      params.require(:todo).permit(:title)
-    end
+  def post_params
+    params.require(:todo).permit(:title)
+  end
 
 end

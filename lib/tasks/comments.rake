@@ -22,9 +22,9 @@ namespace :comments do
       post_comments = JSON.parse(open("https://api.startnext.de/v1.1/projects/updates/#{startnext}/comments?client_id=82142814552425").read)
       post_comments["comments"].each do |comment|
         image = if comment["author"]["image"]
-          comment["author"]["image"].length > 0 ? comment["author"]["image"].last : comment["author"]["image"]
+                  comment["author"]["image"].length > 0 ? comment["author"]["image"].last : comment["author"]["image"]
                 else
-          false
+                  false
                 end
         Comment.create(
           text: comment["text"],

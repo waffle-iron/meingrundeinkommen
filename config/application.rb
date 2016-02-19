@@ -8,13 +8,13 @@ Bundler.require(*Rails.groups)
 module Grundeinkommen
   class Application < Rails::Application
 
-  config.exceptions_app = self.routes
+    config.exceptions_app = self.routes
 
-  config.secret_key_base = ENV['SECRET_KEY_BASE']
+    config.secret_key_base = ENV['SECRET_KEY_BASE']
 
-  config.to_prepare do
-    DeviseController.respond_to :html, :json
-  end
+    config.to_prepare do
+      DeviseController.respond_to :html, :json
+    end
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -26,6 +26,6 @@ module Grundeinkommen
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-  config.i18n.locale = :en
+    config.i18n.locale = :en
   end
 end

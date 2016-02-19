@@ -1,21 +1,21 @@
 class Crowdcard < ActiveRecord::Base
 
-	require 'csv'
+	 require 'csv'
 
-	validates_presence_of :last_name, :street, :house_number, :city, :zip_code, :country
+	 validates_presence_of :last_name, :street, :house_number, :city, :zip_code, :country
 
-	belongs_to :user
+	 belongs_to :user
 
 
 
-	def self.to_csv(options = {})
-	  CSV.generate(options) do |csv|
-	    csv << column_names
-	    all.find_each do |product|
-	      csv << product.attributes.values_at(*column_names)
-	    end
-	  end
-	end
+	 def self.to_csv(options = {})
+ 	  CSV.generate(options) do |csv|
+ 	    csv << column_names
+ 	    all.find_each do |product|
+ 	      csv << product.attributes.values_at(*column_names)
+ 	    end
+ 	  end
+ 	end
 
 
 

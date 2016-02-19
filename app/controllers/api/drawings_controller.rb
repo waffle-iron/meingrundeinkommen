@@ -1,5 +1,5 @@
 class Api::DrawingsController < ApplicationController
-require 'json'
+  require 'json'
 
   def create
     if current_user && current_user.id = 1
@@ -31,7 +31,7 @@ require 'json'
         #   digits[2] = t
         # end
 
-#       letters = ['[1-12]','[13-24]','[25-36]','[37-48]','[49-60]']
+  #       letters = ['[1-12]','[13-24]','[25-36]','[37-48]','[49-60]']
 
         number = digits.join("•") # • digits[0..3].join("•")
 

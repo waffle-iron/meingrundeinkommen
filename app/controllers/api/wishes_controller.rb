@@ -131,9 +131,9 @@ class Api::WishesController < ApplicationController
       end
 
       base = if current_user
-        base.where(wish_id:query.results.map(&:id)).where.not(wish_id: current_user.user_wishes.map(&:wish_id))
+               base.where(wish_id:query.results.map(&:id)).where.not(wish_id: current_user.user_wishes.map(&:wish_id))
              else
-        base.where(wish_id:query.results.map(&:id))
+               base.where(wish_id:query.results.map(&:id))
              end
     end
 

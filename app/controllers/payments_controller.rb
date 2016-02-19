@@ -1,8 +1,8 @@
 class PaymentsController < ApplicationController
-require "uri"
-require "net/http"
+  require "uri"
+  require "net/http"
 
-protect_from_forgery except: [:create] #Otherwise the request from PayPal wouldn't make it to the controller
+  protect_from_forgery except: [:create] #Otherwise the request from PayPal wouldn't make it to the controller
 
   def create
     response = validate_IPN_notification(request.raw_post, false )
