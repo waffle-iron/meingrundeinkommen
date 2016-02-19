@@ -20,7 +20,7 @@ class Api::StatisticsController < ApplicationController
 
 
     respond_to do |format|
-      format.json {
+      format.json do
 
         # newsletter_only = ''
         # base     = "select users.email, REPLACE(users.name,',','') from users, chances where users.id = chances.user_id #{newsletter_only} and is_child = 0 and "
@@ -48,8 +48,8 @@ class Api::StatisticsController < ApplicationController
         stats['newsletterSubscriptions'] = User.where('confirmed_at is not null and newsletter = 1').count
         #stats['newsletterRatio'] = (stats['newsletterSubscriptions'] / stats['activeAccounts']) * 100
         render json: stats
-      }
-      format.csv {
+      end
+      format.csv do
         if current_user && current_user.admin? && params[:stat]
           newsletter_only = " and confirmed_at is not null and newsletter = 1 "
           #base     = "select users.email, REPLACE(users.name,',','') from users, chances where users.id = chances.user_id #{newsletter_only} and is_child = 0 and "
@@ -103,7 +103,7 @@ class Api::StatisticsController < ApplicationController
           send_data r
 
         end
-      }
+      end
     end
 
 

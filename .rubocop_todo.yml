@@ -168,16 +168,11 @@ Style/AsciiComments:
 # IgnoredMethods: lambda, proc, it
 Style/BlockDelimiters:
   Exclude:
-    - 'app/controllers/api/statistics_controller.rb'
-    - 'app/controllers/api/users_controller.rb'
-    - 'app/controllers/application_controller.rb'
-    - 'app/helpers/conjugation_helper.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.
 Style/BlockEndNewline:
   Exclude:
-    - 'app/controllers/application_controller.rb'
 
 # Offense count: 11
 # Cop supports --auto-correct.
