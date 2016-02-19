@@ -95,14 +95,12 @@ namespace :chances do
     i = 0
     while users[i] do
       puts "#{i} of #{users_without_tandem.count}"
-      Tandem.create({
-                      inviter_id:           users[i],
-                      invitee_id:           users[i+1],
-                      invitation_type:      "random",
-                      invitee_participates: true,
-                      inviter_code:         "1",
-                      invitee_code:         "1"
-                    })
+      Tandem.create(inviter_id:           users[i],
+                    invitee_id:           users[i+1],
+                    invitation_type:      "random",
+                    invitee_participates: true,
+                    inviter_code:         "1",
+                    invitee_code:         "1")
       i = i + 2
     end
 
@@ -118,16 +116,14 @@ namespace :chances do
       if !p.user_id.nil? && !p.user.nil?
         if !p.user.chances.any?
           #create chanche with fake dob
-          chance = Chance.new({
-                                first_name:            p.user_first_name,
-                                user_id:               p.user_id,
-                                last_name:             p.user_last_name,
-                                dob:                   '1900-01-01',
-                                is_child:              false,
-                                confirmed_publication: true,
-                                remember_data:         true,
-                                confirmed:             true
-                              })
+          chance = Chance.new(first_name:            p.user_first_name,
+                              user_id:               p.user_id,
+                              last_name:             p.user_last_name,
+                              dob:                   '1900-01-01',
+                              is_child:              false,
+                              confirmed_publication: true,
+                              remember_data:         true,
+                              confirmed:             true)
           if chance.valid?
             chance.save!
           else
@@ -154,7 +150,7 @@ namespace :chances do
       unless user.nil?
         mailtext = "Hallo, \n\ndie Seite \"Mein Grundeinkommen\" will herausfinden, was mit Menschen passiert, wenn sie ein Bedingungsloses Grundeinkommen erhalten. Dazu verlosen sie regelmäßig an eine Person ein Grundeinkommen, das 1000 €  im Monat beträgt und ein Jahr lang ausgezahlt wird.\n\nFünfzehn Menschen erhalten das Geld schon.\nDieses Mal werden zwei Grundeinkommen an zwei Menschen verlost, die sich kennen.\nIch nehme selbst an der Verlosung teil und lade dich herzlich ein, mein_e Tandempartner_in zu sein. Du musst nichts weiter tun als diesem Link zu folgen und meine Tandem-Einladung zu bestätigen:\n\nhttps:\/\/www.mein-grundeinkommen.de\/tandem?mitdir=#{user.id} \n\nEs kostet nichts und im besten Fall erhalten wir beide ein Jahr lang Grundeinkommen.\n\nLiebe Grüße"
         subject = 'Grundeinkommen für dich und mich'
-        i.update_attributes({invitation_type: 'mail', invitee_email_subject: subject, invitee_email_text: mailtext, invitee_id: nil})
+        i.update_attributes(invitation_type: 'mail', invitee_email_subject: subject, invitee_email_text: mailtext, invitee_id: nil)
       end
     end
 

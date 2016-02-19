@@ -17,7 +17,7 @@ class UsersController < ApplicationController
       end
       if params[:enable_crowdbar]
         Flag.set(@user,{name: 'hasCrowdbar', value: true})
-        Flag.set(@user,{name: 'hasHadCrowdbar', value: true})
+        Flag.set(@user,name: 'hasHadCrowdbar', value: true)
       end
       @user.save
       render json: {user: @user, pw: new_password}

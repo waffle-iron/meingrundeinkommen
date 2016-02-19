@@ -180,12 +180,6 @@ Style/BlockEndNewline:
 # SupportedStyles: braces, no_braces, context_dependent
 Style/BracesAroundHashParameters:
   Exclude:
-    - 'app/controllers/api/twitter_chances_controller.rb'
-    - 'app/controllers/crowdapps_controller.rb'
-    - 'app/controllers/users_controller.rb'
-    - 'app/models/concerns/tweet_support_concern.rb'
-    - 'app/models/concerns/tweet_wish_concern.rb'
-    - 'lib/tasks/chances.rake'
 
 # Offense count: 2
 # Cop supports --auto-correct.

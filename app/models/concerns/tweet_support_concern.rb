@@ -21,7 +21,7 @@ module TweetSupportConcern
       http = Net::HTTP.new(uri.host, uri.port)
 
       request = Net::HTTP::Post.new(uri.request_uri)
-      request.set_form_data({'text' => text, 'hashtag' => 'bge', 'url' => 'http://www.mein-grundeinkommen.de'})
+      request.set_form_data('text' => text, 'hashtag' => 'bge', 'url' => 'http://www.mein-grundeinkommen.de')
       request.basic_auth('Q._BhaDr4y8x&vHU', 'aTJ_:x33hbD6P>}t')
 
       response = http.request(request)
