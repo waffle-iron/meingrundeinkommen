@@ -1,11 +1,11 @@
 class Chance < ActiveRecord::Base
-	strip_attributes :only => [:first_name, :last_name]
+	strip_attributes only: [:first_name, :last_name]
 
 	belongs_to :user
 
 	validates_presence_of :first_name, :last_name, :dob
 
-	validates_uniqueness_of :code, :allow_blank => true, :allow_nil => true
+	validates_uniqueness_of :code, allow_blank: true, allow_nil: true
 
 	validate :unique_entry
 

@@ -6,7 +6,7 @@ class SubscriptionsController < ApplicationController
   		u.update_attribute(:newsletter,false)
   	end
 
-  	render :text => "Die Adresse #{params[:email]} wurde vom Newsletter abgemeldet. Neu-Anmeldung ist jederzeit auf deinem Profil möglich."
+  	render text: "Die Adresse #{params[:email]} wurde vom Newsletter abgemeldet. Neu-Anmeldung ist jederzeit auf deinem Profil möglich."
 
   end
 end

@@ -13,7 +13,7 @@ class Api::StateUsersController < ApplicationController
 
   def update
     current_user.state_users.where(id:params[:id]).first.update_attributes(visibility: params[:visibility])
-    render json: {:success => true}
+    render json: {success: true}
   end
 
 

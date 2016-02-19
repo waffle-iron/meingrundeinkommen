@@ -76,7 +76,7 @@ module Clockwork
     end
 
     if job == "invitations.send"
-        invitations = Tandem.where(:invitee_email_sent => nil, :invitation_type => 'mail')
+        invitations = Tandem.where(invitee_email_sent: nil, invitation_type: 'mail')
         invitations.each do |i|
           user = User.find_by_id(i[:inviter_id])
           unless user.nil?

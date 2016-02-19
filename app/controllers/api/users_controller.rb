@@ -37,7 +37,7 @@ class Api::UsersController < ApplicationController
     if current_user && @user == current_user
       render json: @user.state_users
     else
-      render json: @user.state_users.where(:visibility => true)
+      render json: @user.state_users.where(visibility: true)
     end
     #render json: @user.states.includes(:state_users)
   end
@@ -73,7 +73,7 @@ class Api::UsersController < ApplicationController
 
       iwishes = []
 
-      initial_wishes = Suggestion.where(:email => current_user.email).first
+      initial_wishes = Suggestion.where(email: current_user.email).first
 
       if initial_wishes
         initial_wishes.initial_wishes.split(';').each do |w|
@@ -99,7 +99,7 @@ class Api::UsersController < ApplicationController
 
           #CHECK FOR PERFECT MATCH
 
-          wish = Wish.where(:text => w[:sanitized]).first
+          wish = Wish.where(text: w[:sanitized]).first
           wish = false if wish && !wish.users
 
           if wish

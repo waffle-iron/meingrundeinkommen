@@ -10,7 +10,7 @@ class Api::PaymentsController < ApplicationController
         payment.save!
         render json: payment
       else
-        render json: {:errors => payment.errors}
+        render json: {errors: payment.errors}
       end
     end
   end

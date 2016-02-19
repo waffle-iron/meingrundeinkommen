@@ -6,7 +6,7 @@ class Api::QuestionsController < ApplicationController
 
   def create
     question = Question.where(text:params[:text]).first
-    question = Question.create(:text => params[:text],:category => params[:category]) if !question
+    question = Question.create(text: params[:text],category: params[:category]) if !question
     render json: question if question.save
   end
 
@@ -18,7 +18,7 @@ class Api::QuestionsController < ApplicationController
   def update
     q = Question.find(params[:id])
     if params[:up]
-      q.update_attributes(:votes => q.votes + 1)
+      q.update_attributes(votes: q.votes + 1)
     end
     if current_user && current_user.admin?
       q.update_attributes(params.permit(:text,:category,:answer,:votes))
@@ -36,6 +36,6 @@ class Api::QuestionsController < ApplicationController
   # end
 
   def index
-    render json: Question.all.order(:votes => :desc)
+    render json: Question.all.order(votes: :desc)
   end
 end

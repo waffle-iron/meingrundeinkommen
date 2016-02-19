@@ -26,7 +26,7 @@ module TweetSupportConcern
 
       response = http.request(request)
 
-      self.update_attributes(:tweeted => true)
+      self.update_attributes(tweeted: true)
 
     end
 

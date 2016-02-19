@@ -4,20 +4,20 @@ class Api::TwitterChancesController < ApplicationController
 
   def create
     chance = Chance.new({
-      :first_name => 'twitter_user',
-      :user_id => nil,
-      :last_name => params[:username],
-      :code => params[:code],
-      :dob => '1900-01-01',
-      :is_child => false,
-      :confirmed_publication => true,
-      :remember_data => true,
-      :confirmed => true
+      first_name: 'twitter_user',
+      user_id: nil,
+      last_name: params[:username],
+      code: params[:code],
+      dob: '1900-01-01',
+      is_child: false,
+      confirmed_publication: true,
+      remember_data: true,
+      confirmed: true
     })
     if chance.save
-      render json: {:success => true}
+      render json: {success: true}
     else
-      render json: {:errors => 'already participating'}
+      render json: {errors: 'already participating'}
     end
   end
 

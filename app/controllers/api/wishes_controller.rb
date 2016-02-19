@@ -12,7 +12,7 @@ class Api::WishesController < ApplicationController
     user_wish = current_user.user_wishes.create wish:wish, story:params[:story] if user_wish.blank?
 
     if params[:remove_initial_wish]
-      sugg = Suggestion.where(:email => current_user.email).first
+      sugg = Suggestion.where(email: current_user.email).first
       if sugg
         initial_wishes = sugg.initial_wishes
         initial_wishes_new = initial_wishes.sub!(params[:remove_initial_wish], '')
@@ -36,7 +36,7 @@ class Api::WishesController < ApplicationController
   end
 
   def users
-    render json:Wish.find(params[:id]).users.order(:avatar => :desc)
+    render json:Wish.find(params[:id]).users.order(avatar: :desc)
   end
 
   def stories

@@ -10,7 +10,7 @@ class Api::FlagsController < ApplicationController
 			end
 
 			flag = Flag.set(user,params)
-			render :json => {value: flag.display}
+			render json: {value: flag.display}
 		end
 	end
 
@@ -18,7 +18,7 @@ class Api::FlagsController < ApplicationController
 		if current_user && params[:name]
 		  if params[:increment]
 		  	flag = Flag.increment(current_user,params)
-		  	render :json => {value: flag.display}
+		  	render json: {value: flag.display}
 		  end
 		  # if params[:decrement]
 		  # end
@@ -40,8 +40,8 @@ class Api::FlagsController < ApplicationController
 
 	def destroy
 		if current_user && params[:name]
-			current_user.flags.where(:name => params[:name]).destroy
-			 render json: {:success => true}
+			current_user.flags.where(name: params[:name]).destroy
+			 render json: {success: true}
 		end
 	end
 

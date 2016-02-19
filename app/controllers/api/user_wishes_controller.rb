@@ -13,7 +13,7 @@ class Api::UserWishesController < ApplicationController
       user_wish = current_user.user_wishes.last
 
     if params[:remove_initial_wish]
-      sugg = Suggestion.where(:email => current_user.email).first
+      sugg = Suggestion.where(email: current_user.email).first
       if sugg
         initial_wishes = sugg.initial_wishes
         initial_wishes_new = initial_wishes.sub!(params[:remove_initial_wish], '')
@@ -37,7 +37,7 @@ class Api::UserWishesController < ApplicationController
 
 
     else
-      params[:id] =  current_user.user_wishes.where(:wish_id => params[:wish_id])
+      params[:id] =  current_user.user_wishes.where(wish_id: params[:wish_id])
       destroy
     end
   end
@@ -87,13 +87,13 @@ class Api::UserWishesController < ApplicationController
   def update
     #current_user = User.first
     current_user.user_wishes.where(id:params[:id]).first.update_attributes(story: params[:story])
-    render json: {:success => true}
+    render json: {success: true}
   end
 
   def destroy
     #current_user = User.first
     current_user.user_wishes.where(id:params[:id]).first.destroy
-    render json: {:me_too => false}
+    render json: {me_too: false}
   end
 
 

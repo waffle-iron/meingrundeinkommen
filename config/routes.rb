@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users, :controllers => { registrations: 'registrations', confirmations: 'confirmations', passwords: 'passwords' }
+  devise_for :users, controllers: { registrations: 'registrations', confirmations: 'confirmations', passwords: 'passwords' }
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -76,9 +76,9 @@ Rails.application.routes.draw do
   # Catch all missing templates
   get 'assets/*page' => redirect('assets/missing.html')
 
-  get "/404", :to => "errors#custom"
-  get "/422", :to => "errors#custom"
-  get "/500", :to => "errors#custom"
+  get "/404", to: "errors#custom"
+  get "/422", to: "errors#custom"
+  get "/500", to: "errors#custom"
 
 
   # Angular catch all to allow page refresh

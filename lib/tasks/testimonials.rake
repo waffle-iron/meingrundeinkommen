@@ -1,7 +1,7 @@
 require "rubygems"
 
 namespace :testimonials do
-  task :insert => :environment do
+  task insert: :environment do
     desc "insert crowdbar testimonial statements"
 
 
@@ -22,7 +22,7 @@ namespace :testimonials do
 
     statements.each do |comment|
       s = Support.where("payment_method = 'crowdbar' and comment is null").sample()
-      s.update_attributes(:comment => comment[1], :user_id => comment[0])
+      s.update_attributes(comment: comment[1], user_id: comment[0])
     end
 
 

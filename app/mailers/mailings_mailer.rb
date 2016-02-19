@@ -27,19 +27,19 @@ class MailingsMailer < MassMandrill::MandrillMailer
     #global_merge_vars = [{ name: 'headline', content: 'This is first example notice' }]
     merge_vars = recipients.map do |recipient|
       {
-        :rcpt => recipient.email,
-        :vars => [
-                    { :name => 'name', :content => recipient.name },
-                    { :name => 'uid', :content => recipient.id },
-                    { :name => 'losnummern', :content => recipient.chances.where.not(:code => nil).any? ? recipient.chances.map(&:code).join('; ') : '' },
-                    { :name => 'ch_betrag', :content => !recipient.payment.blank? ? number_with_precision(recipient.payment.amount_total, precision: 2, separator: ',', delimiter: '.') : '' },
-                    { :name => 'ch_id', :content => !recipient.payment.blank? ? recipient.payment.id : '' }
+        rcpt: recipient.email,
+        vars: [
+                    { name: 'name', content: recipient.name },
+                    { name: 'uid', content: recipient.id },
+                    { name: 'losnummern', content: recipient.chances.where.not(code: nil).any? ? recipient.chances.map(&:code).join('; ') : '' },
+                    { name: 'ch_betrag', content: !recipient.payment.blank? ? number_with_precision(recipient.payment.amount_total, precision: 2, separator: ',', delimiter: '.') : '' },
+                    { name: 'ch_id', content: !recipient.payment.blank? ? recipient.payment.id : '' }
                     #{ :name => 'real_first_name', :content => recipient.chances.any? ? !recipient.chances.where(:is_child => false).empty? ? recipient.chances.where(:is_child => false).first.first_name : '' : '' }
                  ]
       }
     end
 
-    template_content = [{ :name => 'body', :content => content }]
+    template_content = [{ name: 'body', content: content }]
 
     mail(to: addresses,
          from: 'Mein Grundeinkommen <micha@meinbge.de>',

@@ -15,16 +15,16 @@ class Api::SupportsController < ApplicationController
       support.save!
       render json: support
     else
-      render json: {:errors => support.errors}
+      render json: {errors: support.errors}
     end
   end
 
   def update
     s = Support.find(params[:id])
     if current_user && current_user.admin? and params[:admin]
-      s.update_attributes(:payment_completed => params[:payment_completed])
+      s.update_attributes(payment_completed: params[:payment_completed])
     else
-      s.update_attributes(:comment => params[:comment], :nickname => params[:nickname])
+      s.update_attributes(comment: params[:comment], nickname: params[:nickname])
     end
     render json: s
   end
@@ -34,12 +34,12 @@ class Api::SupportsController < ApplicationController
   end
 
   def statements
-    render json: Support.where('comment is not null and payment_completed is not null').limit(30).order(:updated_at => :desc)
+    render json: Support.where('comment is not null and payment_completed is not null').limit(30).order(updated_at: :desc)
   end
 
   def index
     if current_user && current_user.admin? and params[:admin]
-     render json: Support.where('payment_method = "bank" or payment_method like "paypal%"').order(:id => :desc)
+     render json: Support.where('payment_method = "bank" or payment_method like "paypal%"').order(id: :desc)
     end
   end
 

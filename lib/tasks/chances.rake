@@ -2,11 +2,11 @@ require "rubygems"
 
 namespace :chances do
 
-  task :SetCodes => :environment do
+  task SetCodes: :environment do
     desc "set random codes for users"
 
     #chances = Chance.where(:code => nil, :confirmed => true).shuffle
-    chances = Chance.where(:confirmed => true,:code=>nil).shuffle
+    chances = Chance.where(confirmed: true,code: nil).shuffle
 
     first_round = false
 
@@ -39,7 +39,7 @@ namespace :chances do
   end
 
 
-  task :SetCodesForTandems => :environment do
+  task SetCodesForTandems: :environment do
     desc "set random codes for tandems"
     #set codes for tandems
 
@@ -85,7 +85,7 @@ namespace :chances do
   end
 
 
-  task :setRandomTandems => :environment do
+  task setRandomTandems: :environment do
     desc "set random tandems for ppl w/o tandem"
 
     q = "is_child = 0 and confirmed = 1 and user_id not in (select inviter_id from tandems where inviter_id != invitee_id and inviter_id is not null and invitee_id is not null and disabled_by is null) and user_id not in (select invitee_id from tandems where inviter_id != invitee_id and inviter_id is not null and invitee_id is not null and disabled_by is null)"
@@ -108,25 +108,25 @@ namespace :chances do
 
   end
 
-  task :confirmSquirrels => :environment do
+  task confirmSquirrels: :environment do
     desc "confirm chance of squirrels or set their chance"
 
     #test query: must be zero after script worked fine:
     #select count(id) from users where id not in (select user_id from chances where confirmed = 1) and id in (select user_id from payments where active = 1);
 
-    Payment.where(:active => true).each do |p|
+    Payment.where(active: true).each do |p|
       if !p.user_id.nil? && !p.user.nil?
         if !p.user.chances.any?
           #create chanche with fake dob
           chance = Chance.new({
-            :first_name => p.user_first_name,
-            :user_id => p.user_id,
-            :last_name => p.user_last_name,
-            :dob => '1900-01-01',
-            :is_child => false,
-            :confirmed_publication => true,
-            :remember_data => true,
-            :confirmed => true
+            first_name: p.user_first_name,
+            user_id: p.user_id,
+            last_name: p.user_last_name,
+            dob: '1900-01-01',
+            is_child: false,
+            confirmed_publication: true,
+            remember_data: true,
+            confirmed: true
           })
           if chance.valid?
             chance.save!
@@ -136,7 +136,7 @@ namespace :chances do
         else
           chances = p.user.chances
           if !chances.first.confirmed
-            chances.update_all(:confirmed => true)
+            chances.update_all(confirmed: true)
           end
 
         end
@@ -146,7 +146,7 @@ namespace :chances do
   end
 
 
-  task :mailinvitees => :environment do
+  task mailinvitees: :environment do
     desc "send mail to mistakenly created invites"
 
     inv = Tandem.where("invitation_type='existing' and invitee_email is not null and invitee_email != '' and inviter_id = invitee_id and invitee_email not in (select email from users)")
@@ -156,14 +156,14 @@ namespace :chances do
       unless user.nil?
         mailtext = "Hallo, \n\ndie Seite \"Mein Grundeinkommen\" will herausfinden, was mit Menschen passiert, wenn sie ein Bedingungsloses Grundeinkommen erhalten. Dazu verlosen sie regelmäßig an eine Person ein Grundeinkommen, das 1000 €  im Monat beträgt und ein Jahr lang ausgezahlt wird.\n\nFünfzehn Menschen erhalten das Geld schon.\nDieses Mal werden zwei Grundeinkommen an zwei Menschen verlost, die sich kennen.\nIch nehme selbst an der Verlosung teil und lade dich herzlich ein, mein_e Tandempartner_in zu sein. Du musst nichts weiter tun als diesem Link zu folgen und meine Tandem-Einladung zu bestätigen:\n\nhttps:\/\/www.mein-grundeinkommen.de\/tandem?mitdir=#{user.id} \n\nEs kostet nichts und im besten Fall erhalten wir beide ein Jahr lang Grundeinkommen.\n\nLiebe Grüße"
         subject = 'Grundeinkommen für dich und mich'
-        i.update_attributes({:invitation_type => 'mail', :invitee_email_subject => subject, :invitee_email_text => mailtext, :invitee_id => nil})
+        i.update_attributes({invitation_type: 'mail', invitee_email_subject: subject, invitee_email_text: mailtext, invitee_id: nil})
       end
     end
 
   end
 
 
-  task :crowdjoker => :environment do
+  task crowdjoker: :environment do
     desc "setup jokers for crowdcard users on location"
 
 
@@ -189,7 +189,7 @@ namespace :chances do
         user.skip_confirmation!
         if user.valid?
           if user.save!
-            user.chances.create(:confirmed_publication => true, :first_name => "vorOrt", :last_name =>"nummerC#{cc}", :dob => "1984-10-01", :confirmed => true)
+            user.chances.create(confirmed_publication: true, first_name: "vorOrt", last_name: "nummerC#{cc}", dob: "1984-10-01", confirmed: true)
           end
         end
       #end

@@ -3,7 +3,7 @@ require 'iban-tools'
 
 namespace :squirrels do
 
-  task :create_sammellastschrift => :environment do
+  task create_sammellastschrift: :environment do
     desc "generates xml for sammellalstschrift"
 
 

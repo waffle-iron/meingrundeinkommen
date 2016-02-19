@@ -28,7 +28,7 @@ class Api::MailingsController < ApplicationController
 			      f.write(queue.to_json)
 			 end
 
-			    render :json=>true
+			    render json: true
 			end
 		else
 			render json: { count: users ? users.count : 0, groups: MailingsMailer.possible_user_groups }

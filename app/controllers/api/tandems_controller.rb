@@ -126,7 +126,7 @@ class Api::TandemsController < ApplicationController
 			tandem[:inviter_grudges_invitee_for] = params[:grudge] if tandem[:inviter_id] == current_user.id
 			tandem.save
 			#InvitationMailer.inform_mail_confirmation(tandem,current_user,User.find(tandem[:inviter_id])).deliver
-			render json: {:success => true}
+			render json: {success: true}
 	end
 
 	def destroy
@@ -135,7 +135,7 @@ class Api::TandemsController < ApplicationController
 		if tandem.inviter_id == current_user.id || tandem.invitee_id == current_user.id
 			tandem.disabled_by = current_user.id
 			tandem.save
-			render json: {:success => true}
+			render json: {success: true}
 		end
 	end
 

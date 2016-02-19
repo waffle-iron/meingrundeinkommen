@@ -5,9 +5,9 @@ class Api::ChancesController < ApplicationController
     chance.confirmed = true
     if chance.valid?
       chance.save!
-      render json: {:chance => chance}
+      render json: {chance: chance}
     else
-      render json: {:errors => chance.errors}
+      render json: {errors: chance.errors}
     end
   end
 
@@ -15,16 +15,16 @@ class Api::ChancesController < ApplicationController
     chance = current_user.chances.find(params[:id])
     params[:confirmed] = true
     if chance.update_attributes(params.permit(:first_name, :last_name, :dob, :city, :confirmed_publication, :remember_data, :crowdcard_code, :confirmed, :mediacoverage, :phone, :affiliate))
-      render json: {:chance => chance}
+      render json: {chance: chance}
     else
-      render json: {:errors => chance.errors, :chance => chance}
+      render json: {errors: chance.errors, chance: chance}
     end
   end
 
   def destroy
     #if !current_user.winner
       current_user.chances.where(id:params[:id]).first.destroy
-      render json: {:success => true}
+      render json: {success: true}
     #end
   end
 

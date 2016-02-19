@@ -16,8 +16,8 @@ class UsersController < ApplicationController
         @user.password = @user.password_confirmation = new_password
       end
       if params[:enable_crowdbar]
-        Flag.set(@user,{:name => 'hasCrowdbar', :value => true})
-        Flag.set(@user,{:name => 'hasHadCrowdbar', :value => true})
+        Flag.set(@user,{name: 'hasCrowdbar', value: true})
+        Flag.set(@user,{name: 'hasHadCrowdbar', value: true})
       end
       @user.save
       render json: {user: @user, pw: new_password}
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   def destroy
     if current_user && current_user.admin?
       User.find(params[:id]).destroy
-      render :nothing => true, :status => 200
+      render nothing: true, status: 200
     end
   end
 

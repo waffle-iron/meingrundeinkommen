@@ -4,7 +4,7 @@ require 'json'
 require 'date'
 
 namespace :comments do
-  task :getFromStartnext => :environment do
+  task getFromStartnext: :environment do
     desc "get all blog post comments from startnext"
 
     wp_startnext = {
@@ -27,12 +27,12 @@ namespace :comments do
           false
                 end
         Comment.create(
-          :text => comment["text"],
-          :commentable_type => 'blogpost',
-          :commentable_id => wp,
-          :static_name => comment["author"]["name"],
-          :static_avatar => image ? image["url"] : false,
-          :created_at => DateTime.strptime(comment["created"].to_s,'%s')
+          text: comment["text"],
+          commentable_type: 'blogpost',
+          commentable_id: wp,
+          static_name: comment["author"]["name"],
+          static_avatar: image ? image["url"] : false,
+          created_at: DateTime.strptime(comment["created"].to_s,'%s')
         )
       end
     end
