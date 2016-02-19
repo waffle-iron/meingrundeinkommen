@@ -96,12 +96,12 @@ namespace :chances do
     while users[i] do
       puts "#{i} of #{users_without_tandem.count}"
       Tandem.create({
-                      inviter_id: users[i],
-                      invitee_id: users[i+1],
-                      invitation_type: "random",
+                      inviter_id:           users[i],
+                      invitee_id:           users[i+1],
+                      invitation_type:      "random",
                       invitee_participates: true,
-                      inviter_code: "1",
-                      invitee_code: "1"
+                      inviter_code:         "1",
+                      invitee_code:         "1"
                     })
       i = i + 2
     end
@@ -119,14 +119,14 @@ namespace :chances do
         if !p.user.chances.any?
           #create chanche with fake dob
           chance = Chance.new({
-                                first_name: p.user_first_name,
-                                user_id: p.user_id,
-                                last_name: p.user_last_name,
-                                dob: '1900-01-01',
-                                is_child: false,
+                                first_name:            p.user_first_name,
+                                user_id:               p.user_id,
+                                last_name:             p.user_last_name,
+                                dob:                   '1900-01-01',
+                                is_child:              false,
                                 confirmed_publication: true,
-                                remember_data: true,
-                                confirmed: true
+                                remember_data:         true,
+                                confirmed:             true
                               })
           if chance.valid?
             chance.save!
@@ -177,11 +177,11 @@ namespace :chances do
       puts "C#{cc}"
       pw = Devise.friendly_token.first(8)
       user_data = {
-        name: "Vor-Ort-Crowdcard Nr. C#{cc}",
-        email: "vorortcrowdcard#{cc}@mein-grundeinkommen.de",
-        password: pw,
+        name:                  "Vor-Ort-Crowdcard Nr. C#{cc}",
+        email:                 "vorortcrowdcard#{cc}@mein-grundeinkommen.de",
+        password:              pw,
         password_confirmation: pw,
-        datenschutz: true
+        datenschutz:           true
       }
       user = User.new(user_data)
       user.skip_confirmation!

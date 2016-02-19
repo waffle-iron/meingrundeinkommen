@@ -13,8 +13,8 @@ class Api::UsersController < ApplicationController
         render json: query.results[0..20].map {|u|
           if u.id != current_user.id
             x = {
-              name: u.name,
-              id: u.id,
+              name:   u.name,
+              id:     u.id,
               avatar: u.avatar
             }
           end
@@ -24,11 +24,11 @@ class Api::UsersController < ApplicationController
       if params[:rand]
         u = User.order("RANDOM()").first
         render json:
-          {
-            name: u.name,
-            id: u.id,
-            avatar: u.avatar
-          }
+                     {
+                       name:   u.name,
+                       id:     u.id,
+                       avatar: u.avatar
+                     }
       end
     end
   end
@@ -52,14 +52,14 @@ class Api::UsersController < ApplicationController
       wish = Wish.where(id:user_wish.wish_id).first
       next if !wish
       x << {
-        id: user_wish.id,
+        id:           user_wish.id,
         others_count: UserWish.where(wish_id:wish.id).count - 1,
-        text: wish.text,
-        wish_id: wish.id,
-        wish_url: Rack::Utils.escape(wish.text),
-        wish: wish.conjugate,
-        story: user_wish.story,
-        me_too: (current_user && current_user.wishes.exists?(wish.id) ? true : false)
+        text:         wish.text,
+        wish_id:      wish.id,
+        wish_url:     Rack::Utils.escape(wish.text),
+        wish:         wish.conjugate,
+        story:        user_wish.story,
+        me_too:       (current_user && current_user.wishes.exists?(wish.id) ? true : false)
         #user: UserWish.where(id:wish.user_wish_ids.sample).first.user.slice(:name, :id, :avatar)
       }
     end
@@ -84,7 +84,7 @@ class Api::UsersController < ApplicationController
           if !n.empty? && n.length > 3 && n.length < 101
             iwishes << {
               original_wish: w,
-              sanitized: n
+              sanitized:     n
             }
           end
         end
@@ -111,13 +111,13 @@ class Api::UsersController < ApplicationController
             end
 
             r << {
-              suggestion: suggestion,
-              id: wish.id,
+              suggestion:   suggestion,
+              id:           wish.id,
               others_count: UserWish.where(wish_id:wish.id).count - 1,
-              text: wish.text,
-              wish_id: wish.id,
-              wish_url: Rack::Utils.escape(wish.text),
-              user: sample_user.slice(:name, :id, :avatar)
+              text:         wish.text,
+              wish_id:      wish.id,
+              wish_url:     Rack::Utils.escape(wish.text),
+              user:         sample_user.slice(:name, :id, :avatar)
             }
 
           else
@@ -139,20 +139,20 @@ class Api::UsersController < ApplicationController
             if wish
               suggestion[:is_similar_only] = true
               r << {
-                suggestion: suggestion,
-                id: wish.id,
+                suggestion:   suggestion,
+                id:           wish.id,
                 others_count: UserWish.where(wish_id:wish.id).count - 1,
-                text: wish.text,
-                wish_id: wish.id,
-                wish_url: Rack::Utils.escape(wish.text),
-                user: UserWish.where(id:wish.user_wish_ids.sample).first.user.slice(:name, :id, :avatar)
+                text:         wish.text,
+                wish_id:      wish.id,
+                wish_url:     Rack::Utils.escape(wish.text),
+                user:         UserWish.where(id:wish.user_wish_ids.sample).first.user.slice(:name, :id, :avatar)
               }
             else
               suggestion[:is_unique] = true
               r << {
                 suggestion: suggestion,
-                text: w[:sanitized],
-                user: current_user.slice(:name, :id, :avatar)
+                text:       w[:sanitized],
+                user:       current_user.slice(:name, :id, :avatar)
               }
             end
           end
@@ -172,12 +172,12 @@ class Api::UsersController < ApplicationController
       Wish.select("wishes.id, wishes.text, count(wishes.id) as ccc").where.not(id: current_user.user_wishes.map(&:wish_id)).joins(:user_wishes).where('user_wishes.user_id'=>user_ids).group(:wish_id).limit(25).order('ccc desc').map do |wish|
         next if !wish
         r << {
-          id: wish.id,
+          id:           wish.id,
           others_count: UserWish.where(wish_id:wish.id).count - 1,
-          text: wish.text,
-          wish_id: wish.id,
-          wish_url: Rack::Utils.escape(wish.text),
-          user: UserWish.where(id:wish.user_wish_ids.sample).first.user.slice(:name, :id, :avatar)
+          text:         wish.text,
+          wish_id:      wish.id,
+          wish_url:     Rack::Utils.escape(wish.text),
+          user:         UserWish.where(id:wish.user_wish_ids.sample).first.user.slice(:name, :id, :avatar)
         }
       end
 

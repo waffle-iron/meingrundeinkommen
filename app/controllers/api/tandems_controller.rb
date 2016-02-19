@@ -26,7 +26,7 @@ class Api::TandemsController < ApplicationController
 
   	   if !tandem.invitee_grudges_inviter_for.nil? && tandem.invitee_grudges_inviter_for != ""
       	 grudges << {
-		      	 grudge: tandem.invitee_grudges_inviter_for,
+		      	 grudge:  tandem.invitee_grudges_inviter_for,
 		      	 grudger: invitee,
 		      	 grudgee: inviter
 		      }
@@ -34,7 +34,7 @@ class Api::TandemsController < ApplicationController
 
   		  if !tandem.inviter_grudges_invitee_for.nil? && tandem.inviter_grudges_invitee_for != ""
   	     grudges << {
-		      	 grudge: tandem.inviter_grudges_invitee_for,
+		      	 grudge:  tandem.inviter_grudges_invitee_for,
 		      	 grudger: inviter,
 		      	 grudgee: invitee
 		      }
@@ -47,15 +47,15 @@ class Api::TandemsController < ApplicationController
   	   x << {
         grudger: {
         	 avatar: grudge[:grudger].avatar,
-        	 id: grudge[:grudger].id,
-        	 name: grudge[:grudger].name
+        	 id:     grudge[:grudger].id,
+        	 name:   grudge[:grudger].name
         },
         grudgee: {
         	 avatar: grudge[:grudgee].avatar,
-        	 id: grudge[:grudgee].id,
-        	 name: grudge[:grudgee].name
+        	 id:     grudge[:grudgee].id,
+        	 name:   grudge[:grudgee].name
         },
-        grudge: grudge[:grudge]
+        grudge:  grudge[:grudge]
       }
   		end
  		 render json: x

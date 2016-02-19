@@ -13,3 +13,4 @@ AllCops:
 
 Style/AlignHash:
   EnforcedHashRocketStyle: key
+  EnforcedColonStyle: key

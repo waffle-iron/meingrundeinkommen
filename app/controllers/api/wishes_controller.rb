@@ -21,15 +21,15 @@ class Api::WishesController < ApplicationController
     end
 
     x = {
-      id: user_wish.id,
+      id:           user_wish.id,
       #similar: similar.results[0..1],
       others_count: UserWish.where(wish_id:wish.id).count - 1,
-      wish_id: wish.id,
-      story: user_wish.story,
-      text: wish.text,
-      wish_url: Rack::Utils.escape(wish.text),
-      wish: wish.conjugate,
-      me_too: (current_user && current_user.wishes.exists?(wish.id) ? true : false)
+      wish_id:      wish.id,
+      story:        user_wish.story,
+      text:         wish.text,
+      wish_url:     Rack::Utils.escape(wish.text),
+      wish:         wish.conjugate,
+      me_too:       (current_user && current_user.wishes.exists?(wish.id) ? true : false)
     }
 
     render json: x
@@ -56,12 +56,12 @@ class Api::WishesController < ApplicationController
       next if !wish
       r << {
         others_count: UserWish.where(wish_id:wish.id).count - 1,
-        wish_id: wish.id,
-        wish_url: Rack::Utils.escape(wish.text),
-        wish: wish.conjugate,
-        text: wish.text,
-        me_too: (current_user && current_user.wishes.exists?(wish.id) ? true : false),
-        user:UserWish.where(id:wish.user_wish_ids.sample).first.user.slice(:name, :id, :avatar)
+        wish_id:      wish.id,
+        wish_url:     Rack::Utils.escape(wish.text),
+        wish:         wish.conjugate,
+        text:         wish.text,
+        me_too:       (current_user && current_user.wishes.exists?(wish.id) ? true : false),
+        user:         UserWish.where(id:wish.user_wish_ids.sample).first.user.slice(:name, :id, :avatar)
       }
     end
     render json:r
@@ -71,15 +71,15 @@ class Api::WishesController < ApplicationController
     wish = Wish.find(params[:id])
     count = UserWish.where(wish_id:wish.id).count
     x = {
-      count: count,
+      count:        count,
       others_count: count -1,
-      wish_id: wish.id,
-      id: wish.id,
-      text: wish.text,
-      wish_url: Rack::Utils.escape(wish.text),
-      wish: wish.conjugate,
-      me_too: (current_user && current_user.wishes.exists?(wish.id) ? true : false),
-      user:UserWish.where(id:wish.user_wish_ids.sample).first.user.slice(:name, :id, :avatar)
+      wish_id:      wish.id,
+      id:           wish.id,
+      text:         wish.text,
+      wish_url:     Rack::Utils.escape(wish.text),
+      wish:         wish.conjugate,
+      me_too:       (current_user && current_user.wishes.exists?(wish.id) ? true : false),
+      user:         UserWish.where(id:wish.user_wish_ids.sample).first.user.slice(:name, :id, :avatar)
     }
     render json: x
   end
@@ -96,16 +96,16 @@ class Api::WishesController < ApplicationController
       user = wish.users.where.not('users.avatar' => nil).sample
       user = wish.users.sample if !user
       x << {
-        others_count:count-1,
-        count: count,
-        wish_id: wish.id,
-        wish_url: Rack::Utils.escape(wish.text),
-        wish: wish.conjugate,
-        text: wish.text,
-        me_too: false,#(current_user && current_user.wishes.exists?(wish.id) ? true : false),
+        others_count: count-1,
+        count:        count,
+        wish_id:      wish.id,
+        wish_url:     Rack::Utils.escape(wish.text),
+        wish:         wish.conjugate,
+        text:         wish.text,
+        me_too:       false,#(current_user && current_user.wishes.exists?(wish.id) ? true : false),
         #user:UserWish.where(id:wish.user_wish_ids.sample).first.user.slice(:name, :id, :avatar),
-        user: user.slice(:name, :id, :avatar),
-        create: false
+        user:         user.slice(:name, :id, :avatar),
+        create:       false
       }
     end
 
@@ -146,22 +146,22 @@ class Api::WishesController < ApplicationController
       user = wish.users.where.not('users.avatar' => nil).sample if !params[:q]
       user = wish.users.sample if !user
       x << {
-        others_count:count-1,
-        count: count,
-        wish_id: wish.id,
-        wish_url: Rack::Utils.escape(wish.text),
-        wish: wish.conjugate,
-        text: wish.text,
-        me_too: false,#(current_user && current_user.wishes.exists?(wish.id) ? true : false),
+        others_count: count-1,
+        count:        count,
+        wish_id:      wish.id,
+        wish_url:     Rack::Utils.escape(wish.text),
+        wish:         wish.conjugate,
+        text:         wish.text,
+        me_too:       false,#(current_user && current_user.wishes.exists?(wish.id) ? true : false),
         #user:UserWish.where(id:wish.user_wish_ids.sample).first.user.slice(:name, :id, :avatar),
-        user: user.slice(:name, :id, :avatar),
-        create: false
+        user:         user.slice(:name, :id, :avatar),
+        create:       false
       }
     end
 
     if params[:q] && !Wish.where(text:params[:q]).first
       x << {
-        text: params[:q],
+        text:   params[:q],
         create: true
       }
     end

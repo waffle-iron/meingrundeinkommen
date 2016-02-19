@@ -27,12 +27,12 @@ namespace :comments do
                   false
                 end
         Comment.create(
-          text: comment["text"],
+          text:             comment["text"],
           commentable_type: 'blogpost',
-          commentable_id: wp,
-          static_name: comment["author"]["name"],
-          static_avatar: image ? image["url"] : false,
-          created_at: DateTime.strptime(comment["created"].to_s,'%s')
+          commentable_id:   wp,
+          static_name:      comment["author"]["name"],
+          static_avatar:    image ? image["url"] : false,
+          created_at:       DateTime.strptime(comment["created"].to_s,'%s')
         )
       end
     end

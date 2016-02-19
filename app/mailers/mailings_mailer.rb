@@ -41,16 +41,16 @@ class MailingsMailer < MassMandrill::MandrillMailer
 
     template_content = [{ name: 'body', content: content }]
 
-    mail(to: addresses,
-         from: 'Mein Grundeinkommen <micha@meinbge.de>',
-         subject: subject,
+    mail(to:               addresses,
+         from:             'Mein Grundeinkommen <micha@meinbge.de>',
+         subject:          subject,
          template_content: template_content,
-         template: template,
+         template:         template,
          #global_merge_vars: global_merge_vars,
-         merge_vars: merge_vars,
-         message_extra: {
+         merge_vars:       merge_vars,
+         message_extra:    {
            track_opens: true,
-           headers: {
+           headers:     {
              "Reply-To" => 'Mein Grundeinkommen <support@mein-grundeinkommen.de>'
            }
          }

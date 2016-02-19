@@ -18,10 +18,10 @@ class Api::MailingsController < ApplicationController
      				 #write to queue
 
      				 queue = {
-      					 groups: params[:groups],
-      					 group_keys: params[:group_keys],
-      					 subject: params[:subject],
-      					 body: params[:body]
+      					 groups:     params[:groups],
+      		    group_keys: params[:group_keys],
+      					 subject:    params[:subject],
+      					 body:       params[:body]
       				}
 
      				 File.open("tmp/mailqueue.json", "w+") do |f|

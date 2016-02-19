@@ -23,14 +23,14 @@ class Api::UserWishesController < ApplicationController
 
 
       x = {
-        id: user_wish.id,
+        id:           user_wish.id,
         others_count: UserWish.where(wish_id:wish.id).count - 1,
-        wish_id: wish.id,
-        story: user_wish.story,
-        text: wish.text,
-        wish_url: Rack::Utils.escape(wish.text),
-        wish: wish.conjugate,
-        me_too: (current_user && current_user.wishes.exists?(wish.id) ? true : false)
+        wish_id:      wish.id,
+        story:        user_wish.story,
+        text:         wish.text,
+        wish_url:     Rack::Utils.escape(wish.text),
+        wish:         wish.conjugate,
+        me_too:       (current_user && current_user.wishes.exists?(wish.id) ? true : false)
       }
 
       render json: x
@@ -49,16 +49,16 @@ class Api::UserWishesController < ApplicationController
       wish = Wish.where(id:user_wish.wish_id).first
       next if !wish
       x << {
-        id: user_wish.id,
+        id:           user_wish.id,
         others_count: UserWish.where(wish_id: user_wish.wish_id).count - 1,
-        wish_id: user_wish.wish_id,
-        wish_url: Rack::Utils.escape(wish.text),
-        wish: wish.conjugate,
-        story: user_wish.story,
-        text: wish.text,
-        time_ago: time_ago_in_words(user_wish.updated_at),
-        me_too: false,#(current_user && current_user.wishes.exists?(wish.id) ? true : false),
-        user: user_wish.user.slice(:name, :id, :avatar)
+        wish_id:      user_wish.wish_id,
+        wish_url:     Rack::Utils.escape(wish.text),
+        wish:         wish.conjugate,
+        story:        user_wish.story,
+        text:         wish.text,
+        time_ago:     time_ago_in_words(user_wish.updated_at),
+        me_too:       false,#(current_user && current_user.wishes.exists?(wish.id) ? true : false),
+        user:         user_wish.user.slice(:name, :id, :avatar)
       }
     end
 
@@ -69,12 +69,12 @@ class Api::UserWishesController < ApplicationController
       if wish
         x << {
           others_count: UserWish.where(wish_id: wish.id).count - 1,
-          wish_id: wish.id,
-          wish_url: Rack::Utils.escape(wish.text),
-          wish: wish.conjugate,
-          text: wish.text,
-          me_too: false,#(current_user && current_user.wishes.exists?(wish.id) ? true : false),
-          user: user.slice(:name, :id, :avatar)
+          wish_id:      wish.id,
+          wish_url:     Rack::Utils.escape(wish.text),
+          wish:         wish.conjugate,
+          text:         wish.text,
+          me_too:       false,#(current_user && current_user.wishes.exists?(wish.id) ? true : false),
+          user:         user.slice(:name, :id, :avatar)
         }
       end
     end

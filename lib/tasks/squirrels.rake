@@ -18618,19 +18618,19 @@ namespace :squirrels do
     	 sdd << SEPA::DirectDebit.new(
  	      # Name of the initiating party and creditor, in German: "Auftraggeber"
  	      # String, max. 70 char
- 	      name:       'Mein Grundeinkommen e.V.',
+ 	      name:                'Mein Grundeinkommen e.V.',
 
  	      # OPTIONAL: Business Identifier Code (SWIFT-Code) of the creditor
  	      # String, 8 or 11 char
- 	      bic:        'GENODEM1GLS',
+ 	      bic:                 'GENODEM1GLS',
 
  	      # International Bank Account Number of the creditor
  	      # String, max. 34 chars
- 	      iban:       'DE76430609671165313800',
+ 	      iban:                'DE76430609671165313800',
 
  	      # Creditor Identifier, in German: Gläubiger-Identifikationsnummer
  	      # String, max. 35 chars
- 	      creditor_identifier: 'DE62ZZZ00001604785'
+        creditor_identifier: 'DE62ZZZ00001604785'
  	    )
 
     	#puts sdd
@@ -18679,7 +18679,7 @@ namespace :squirrels do
 
   		          # OPTIONAL: Unstructured remittance information, in German "Verwendungszweck"
   		          # String, max. 140 char
-  		          remittance_information:    p.amount_bge > 0 ? "#{p.amount_bge} EUR in den Grundeinkommenstopf - #{p.amount_society} EUR Spende an den Verein. Vielen Dank" : "#{p.amount_society} EUR Spende an den Verein. Vielen Dank",
+              remittance_information:    p.amount_bge > 0 ? "#{p.amount_bge} EUR in den Grundeinkommenstopf - #{p.amount_society} EUR Spende an den Verein. Vielen Dank" : "#{p.amount_society} EUR Spende an den Verein. Vielen Dank",
 
   		          # Mandate identifikation, in German "Mandatsreferenz"
   		          # String, max. 35 char
@@ -18688,14 +18688,14 @@ namespace :squirrels do
   		          # Mandate Date of signature, in German "Datum, zu dem das Mandat unterschrieben wurde"
   		          # Date
 
-  		          mandate_date_of_signature: p.created_at.to_date,
+              mandate_date_of_signature: p.created_at.to_date,
 
   		          # Local instrument, in German "Lastschriftart"
   		          # One of these strings:
   		          #   'CORE' ("Basis-Lastschrift")
   		          #   'COR1' ("Basis-Lastschrift mit verkürzter Vorlagefrist")
   		          #   'B2B' ("Firmen-Lastschrift")
-  		          local_instrument: instrument,
+              local_instrument:          instrument,
 
   		          # Sequence type
   		          # One of these strings:
@@ -18706,15 +18706,15 @@ namespace :squirrels do
 
 
   		          #TODO: switch for recurring / first
-  		          sequence_type: p.sent_first_notification_at.nil? ? 'FRST' : 'RCUR',
+  		          sequence_type:             p.sent_first_notification_at.nil? ? 'FRST' : 'RCUR',
 
   		          # OPTIONAL: Requested collection date, in German "Fälligkeitsdatum der Lastschrift"
   		          # Date
-  		          requested_date: due_date[instrument].to_date,
+  		          requested_date:            due_date[instrument].to_date,
 
   		          # OPTIONAL: Enables or disables batch booking, in German "Sammelbuchung / Einzelbuchung"
   		          # True or False
-  		          batch_booking: true
+  		          batch_booking:             true
 
    		       )
   		      else
