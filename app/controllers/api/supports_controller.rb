@@ -21,7 +21,7 @@ class Api::SupportsController < ApplicationController
 
   def update
     s = Support.find(params[:id])
-    if current_user && current_user.admin? and params[:admin]
+    if current_user && current_user.admin? && params[:admin]
       s.update_attributes(payment_completed: params[:payment_completed])
     else
       s.update_attributes(comment: params[:comment], nickname: params[:nickname])
@@ -38,7 +38,7 @@ class Api::SupportsController < ApplicationController
   end
 
   def index
-    if current_user && current_user.admin? and params[:admin]
+    if current_user && current_user.admin? && params[:admin]
       render json: Support.where('payment_method = "bank" or payment_method like "paypal%"').order(id: :desc)
     end
   end

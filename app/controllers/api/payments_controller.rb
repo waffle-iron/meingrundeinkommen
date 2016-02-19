@@ -17,14 +17,14 @@ class Api::PaymentsController < ApplicationController
 
   def update
     p = Payment.find(params[:id])
-    if current_user && ((current_user.admin? and params[:admin]) || (p.user && current_user == p.user))
+    if current_user && ((current_user.admin? && params[:admin]) || (p.user && current_user == p.user))
       p.update_attributes(params[:payment].permit(:user_email, :user_first_name, :user_last_name, :user_street, :user_street_number, :user_city, :user_zip, :amount_total, :amount_society, :amount_bge, :accept, :account_bank, :account_iban, :account_bic, :active))
     end
     render json: p
   end
 
   def index
-    if current_user && current_user.admin? and params[:admin]
+    if current_user && current_user.admin? && params[:admin]
 
       if params[:q]
         query = Payment.search do

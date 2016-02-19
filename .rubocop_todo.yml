@@ -149,9 +149,6 @@ Style/AlignParameters:
 # SupportedStyles: always, conditionals
 Style/AndOr:
   Exclude:
-    - 'app/controllers/api/crowdcards_controller.rb'
-    - 'app/controllers/api/payments_controller.rb'
-    - 'app/controllers/api/supports_controller.rb'
 
 # Offense count: 16
 Style/AsciiComments:

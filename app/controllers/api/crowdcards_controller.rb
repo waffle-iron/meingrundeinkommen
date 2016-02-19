@@ -12,7 +12,7 @@ class Api::CrowdcardsController < ApplicationController
   end
 
   def update
-  	 if current_user && current_user.admin? and params[:admin]
+  	 if current_user && current_user.admin? && params[:admin]
    	  c = Crowdcard.find(params[:id])
  	    c.update_attributes(sent: Date.today)
       render json: c
@@ -20,7 +20,7 @@ class Api::CrowdcardsController < ApplicationController
   end
 
   def index
-  	 if current_user && current_user.admin? and params[:admin]
+  	 if current_user && current_user.admin? && params[:admin]
 
       cc = Crowdcard.all
       cc_unsent = Crowdcard.where(sent: nil)
