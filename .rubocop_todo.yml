@@ -6,31 +6,26 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 1
 Lint/AmbiguousRegexpLiteral:
   Exclude:
     - 'app/helpers/conjugation_helper.rb'
 
-# Offense count: 2
 # Configuration parameters: AllowSafeAssignment.
 Lint/AssignmentInCondition:
   Exclude:
     - 'app/controllers/api/users_controller.rb'
     - 'app/models/flag.rb'
 
-# Offense count: 2
 # Cop supports --auto-correct.
 Lint/BlockAlignment:
   Exclude:
 
-# Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: AlignWith, SupportedStyles, AutoCorrect.
 # SupportedStyles: start_of_line, def
 Lint/DefEndAlignment:
   Enabled: true
 
-# Offense count: 14
 # Cop supports --auto-correct.
 # Configuration parameters: AlignWith, SupportedStyles, AutoCorrect.
 # SupportedStyles: keyword, variable, start_of_line
@@ -91,7 +86,6 @@ Metrics/ClassLength:
 Metrics/CyclomaticComplexity:
   Max: 27
 
-# Offense count: 18930
 # Configuration parameters: AllowHeredoc, AllowURI, URISchemes.
 # URISchemes: http, https
 Metrics/LineLength:
@@ -123,7 +117,6 @@ Metrics/ParameterLists:
 Metrics/PerceivedComplexity:
   Max: 30
 
-# Offense count: 1
 # Cop supports --auto-correct.
 Performance/RedundantMatch:
   Exclude:
@@ -143,7 +136,6 @@ Style/AlignParameters:
   Exclude:
     - 'app/controllers/application_controller.rb'
 
-# Offense count: 6
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 # SupportedStyles: always, conditionals
@@ -159,7 +151,6 @@ Style/AsciiComments:
     - 'lib/tasks/chances.rake'
     - 'lib/tasks/squirrels.rake'
 
-# Offense count: 6
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles, ProceduralMethods, FunctionalMethods, IgnoredMethods.
 # SupportedStyles: line_count_based, semantic, braces_for_chaining
@@ -169,12 +160,10 @@ Style/AsciiComments:
 Style/BlockDelimiters:
   Exclude:
 
-# Offense count: 2
 # Cop supports --auto-correct.
 Style/BlockEndNewline:
   Exclude:
 
-# Offense count: 11
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 # SupportedStyles: braces, no_braces, context_dependent
