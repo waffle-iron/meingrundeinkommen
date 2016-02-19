@@ -44,7 +44,7 @@ module ConjugationHelper
       text.strip if !prefix
       text.gsub! /^((dass|daß).*)$/i do |x| ", "+$1 end if comma #comma if starts with dass/daß
 
-       add_space = false if text.match(/^,\s[dass|daß].*$/i)
+       add_space = false if text =~ /^,\s[dass|daß].*$/i
 
 
       if person == :you || person == :you_too
