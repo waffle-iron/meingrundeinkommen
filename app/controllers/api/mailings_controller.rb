@@ -26,7 +26,7 @@ class Api::MailingsController < ApplicationController
 
 				File.open("tmp/mailqueue.json", "w+") do |f|
 			      f.write(queue.to_json)
-			    end
+			 end
 
 			    render :json=>true
 			end
