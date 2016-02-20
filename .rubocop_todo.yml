@@ -349,18 +349,13 @@ Style/NestedTernaryOperator:
   Exclude:
     - 'app/controllers/confirmations_controller.rb'
 
-# Offense count: 10
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, MinBodyLength, SupportedStyles.
 # SupportedStyles: skip_modifier_ifs, always
 Style/Next:
+  EnforcedStyle: skip_modifier_ifs
+  MinBodyLength: 3
   Exclude:
-    - 'app/controllers/api/user_wishes_controller.rb'
-    - 'app/controllers/api/users_controller.rb'
-    - 'app/mailers/mailings_mailer.rb'
-    - 'app/models/chance.rb'
-    - 'lib/tasks/chances.rake'
-    - 'lib/tasks/squirrels.rake'
 
 # Offense count: 1
 # Cop supports --auto-correct.

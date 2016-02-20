@@ -60,11 +60,10 @@ class Chance < ActiveRecord::Base
       i = 0
       (1..4).each do |c1|
         [2,3,4,6,7,9,10,11,12,13,15,16,17,19,20,22,23,24,25,27,28,29,30,32,33,34].each do |c2|
-          if tandems[i]
-            role = tandems[i].inviter_id == uid ? "inviter" : "invitee"
-            tandems[i].update_attribute("#{role}_code", "#{c1}•#{c2}")
-            i = i + 1
-          end
+          next unless tandems[i]
+          role = tandems[i].inviter_id == uid ? "inviter" : "invitee"
+          tandems[i].update_attribute("#{role}_code", "#{c1}•#{c2}")
+          i = i + 1
         end
       end
     end

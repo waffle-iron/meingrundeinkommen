@@ -79,12 +79,11 @@ class Api::UsersController < ApplicationController
           n = n.strip
           n = n.gsub(/ich würde/i,'')
           n = n.gsub(/ich wuerde/i,'')
-          if !n.empty? && n.length > 3 && n.length < 101
-            iwishes << {
-              original_wish: w,
-              sanitized:     n
-            }
-          end
+          next unless !n.empty? && n.length > 3 && n.length < 101
+          iwishes << {
+            original_wish: w,
+            sanitized:     n
+          }
         end
       end
 
