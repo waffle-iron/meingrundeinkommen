@@ -41,7 +41,7 @@ gem 'sepa_king'
 gem 'strip_attributes'
 gem 'sunspot_rails'
 gem 'sunspot_solr'
-gem 'therubyracer'
+gem 'therubyracer', '~> 0.12.2'
 gem 'uglifier', '>= 1.3.0'
 
 group :production do
