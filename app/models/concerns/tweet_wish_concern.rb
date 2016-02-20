@@ -9,7 +9,6 @@ module TweetWishConcern
   end
 
   def tweetWishText
-
     uri = URI.parse("http://localhost:5000/tweet")
 
     text = self.user.name + ' würde mit Grundeinkommen ' + self.text
@@ -21,7 +20,6 @@ module TweetWishConcern
     request.basic_auth('foo', 'bar')
 
     response = http.request(request)
-
   end
 
 end

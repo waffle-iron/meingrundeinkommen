@@ -22,7 +22,6 @@ class InvitationMailer < ActionMailer::Base
 
     @inviter_name = inviter.name.tr('\(,:;<>[]','')
     mail(from: "#{@inviter_name} via Mein Grundeinkommen<support@mein-grundeinkommen.de>", reply_to: @inviter.email, to: @tandem.invitee_email, subject: @tandem.invitee_email_subject)
-
   end
 
 end

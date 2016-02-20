@@ -85,7 +85,6 @@ class Api::WishesController < ApplicationController
   end
 
   def top
-
     x= []
 
     UserWish.group(:wish_id).limit(8).order('count_all desc').count.map do |id, count|
@@ -112,7 +111,6 @@ class Api::WishesController < ApplicationController
   end
 
   def index
-
     base = UserWish
 
     page = params[:page] ? params[:page].to_i : 1

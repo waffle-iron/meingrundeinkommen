@@ -9,7 +9,6 @@ module TweetSupportConcern
   end
 
   def tweetSupportComment
-
     uri = URI.parse("http://twitter.mein-grundeinkommen.de/tweet")
 
     if self.comment && self.nickname && self.tweeted.nil?
@@ -27,7 +26,6 @@ module TweetSupportConcern
       self.update_attributes(tweeted: true)
 
     end
-
   end
 
 end

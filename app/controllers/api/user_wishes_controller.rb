@@ -39,7 +39,6 @@ class Api::UserWishesController < ApplicationController
   end
 
   def index
-
     x = []
     UserWish.limit(10).order('updated_at desc').map do |user_wish|
       wish = Wish.where(id:user_wish.wish_id).first
@@ -76,7 +75,6 @@ class Api::UserWishesController < ApplicationController
     end
 
     render json: x
-
   end
 
   def update

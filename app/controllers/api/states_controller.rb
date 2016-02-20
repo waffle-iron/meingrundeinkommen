@@ -18,7 +18,6 @@ class Api::StatesController < ApplicationController
   end
 
   def index
-
     query = State.search do
       fulltext params[:q]
     end

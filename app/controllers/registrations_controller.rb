@@ -4,7 +4,6 @@ class RegistrationsController < Devise::RegistrationsController
   respond_to :json
 
   def update
-
     account_update_params = devise_parameter_sanitizer.sanitize(:account_update)
 
     if account_update_params[:password].blank?
@@ -24,11 +23,9 @@ class RegistrationsController < Devise::RegistrationsController
     else
       render json: @user.errors, status: 403
     end
-
   end
 
   def create
-
     account_create_params = devise_parameter_sanitizer.sanitize(:sign_up)
 
     #account_create_params['sign_up_ip'] = request.remote_ip

@@ -6,7 +6,6 @@ class MailingsMailer < MassMandrill::MandrillMailer
   end
 
   def prepare_recipients(groups,group_keys)
-
     users = User
     groups.each_with_index do |g,i|
       g2 = "#{g}#"
@@ -54,7 +53,6 @@ class MailingsMailer < MassMandrill::MandrillMailer
            }
          }
         )
-
   end
 
 end

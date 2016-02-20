@@ -58,7 +58,6 @@ class Api::TandemsController < ApplicationController
      end
 
 	 def create
-
  		 #todo:
 
  		 # grudge = params[:grudge]
@@ -110,7 +109,6 @@ class Api::TandemsController < ApplicationController
  		 # end
 
     #   	render json: {:tandem => r }
-
  	end
 
 	 def update
@@ -123,7 +121,6 @@ class Api::TandemsController < ApplicationController
  	end
 
 	 def destroy
-
  		 tandem = Tandem.find(params[:id])
  		 if tandem.inviter_id == current_user.id || tandem.invitee_id == current_user.id
   			 tandem.disabled_by = current_user.id

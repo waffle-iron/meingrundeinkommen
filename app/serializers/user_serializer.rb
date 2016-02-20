@@ -90,7 +90,6 @@ class UserSerializer < ActiveModel::Serializer
   end
 
   def tandems
-
     r = []
     if !object.tandems.nil?
       object.tandems.each do |c|

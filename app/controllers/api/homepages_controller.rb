@@ -16,7 +16,6 @@ class Api::HomepagesController < ApplicationController
   caches_page :show
 
   def show
-
     crowdfunding_supporter = 2900 + 140 + 18  #startnext + untracked paypal + kto
     crowdfunding_amount = 3058.85 + 380.25 #untracked paypal + untracked kto
     startnext = 47630.52
@@ -133,7 +132,6 @@ class Api::HomepagesController < ApplicationController
     else
       render json: homepage_data
     end
-
   end
 
 end

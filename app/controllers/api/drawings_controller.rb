@@ -80,7 +80,6 @@ class Api::DrawingsController < ApplicationController
       render json: data
 
     end
-
   end
 
 end

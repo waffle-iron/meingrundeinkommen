@@ -2,7 +2,6 @@ class Api::MailingsController < ApplicationController
   #require 'mailers/massmailer'
 
   def create
-
   	 if current_user.admin?
 
  	  	 if params[:groups]

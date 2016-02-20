@@ -61,7 +61,6 @@ class User < ActiveRecord::Base
   scope :last_squirrel_id, ->(last_squirrel_id) { includes(:payment).where(payments: { id: 0..last_squirrel_id.to_i }) }
 
   def self.all_newsletter_receipients
-
   end
 
   def tandems

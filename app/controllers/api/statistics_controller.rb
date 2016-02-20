@@ -2,7 +2,6 @@ class Api::StatisticsController < ApplicationController
   require 'csv'
 
   def index
-
     queries = {
       #:participantsConfirmed => "(user_id in (select user_id from flags where name like 'CrowdcardNumber') or user_id in (select user_id from flags where name like 'hasHadCrowdbar') or user_id in (select user_id from flags where name like 'crowdAppVisits'))",
       #:participantsConfirmedByCrowdcard => "user_id in (select user_id from flags where name like 'CrowdcardNumber')",
@@ -99,7 +98,6 @@ class Api::StatisticsController < ApplicationController
         end
       end
     end
-
   end
 
 end

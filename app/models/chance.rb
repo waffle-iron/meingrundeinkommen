@@ -28,7 +28,6 @@ class Chance < ActiveRecord::Base
  	end
 
 	 def validate_birthday
-
  	  if !self.dob
  	    errors.add(:dob, "Bitte gib bei Tag, Monat und Jahr nur Ziffern, keine Buchstaben, ein.")
  	  	 return false
@@ -45,7 +44,6 @@ class Chance < ActiveRecord::Base
  	end
 
 	 def generatetandemcodes
-
  		 uid = user_id
  		 tandems = Tandem.where("((inviter_id = #{uid} and inviter_code is null) or (invitee_id = #{uid} and invitee_code is null)) and inviter_id in (select user_id from chances where confirmed=1) and invitee_id in (select user_id from chances where confirmed=1)  and inviter_id != invitee_id and inviter_id is not null and invitee_id is not null and disabled_by is null").limit(100)
 
