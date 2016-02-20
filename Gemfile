@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 # rails
-#gem 'rails', '~> 4.1', '>= 4.1.14.1'
 gem 'rails', '>= 4.1.14.1', '< 4.2'
 
 # database & models
@@ -12,7 +11,7 @@ gem 'mysql2', '~> 0.3.18'
 # authentication/authorization
 gem 'bcrypt'
 gem 'devise', '3.2.4'
-#gem 'rack-timeout', '~> 0.3.2'
+
 # misc
 gem 'actionpack-page_caching'
 gem 'angular-ui-bootstrap-rails'
@@ -37,6 +36,7 @@ gem 'less-rails-bootstrap', '~> 3.3', '>= 3.3.5.0'
 gem 'mailjet'
 gem 'mass_mandrill'
 gem 'mini_magick'
+gem 'rack-timeout', '~> 0.3.2'
 gem 'sass-rails'
 gem 'sepa_king'
 gem 'strip_attributes'
