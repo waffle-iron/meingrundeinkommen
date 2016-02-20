@@ -7,7 +7,6 @@ class Api::DrawingsController < ApplicationController
       data = params[:d]
 
       data.each_with_index do |drawing,i|
-
         winner = false
         number = ""
 
@@ -72,7 +71,6 @@ class Api::DrawingsController < ApplicationController
         #     data[i][:tandem] = false
         #   end
         # end
-
       end
 
       File.open("public/currentdrawing.json","w") do |f|

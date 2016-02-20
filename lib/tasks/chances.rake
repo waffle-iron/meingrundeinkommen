@@ -1,7 +1,6 @@
 require "rubygems"
 
 namespace :chances do
-
   task SetCodes: :environment do
     desc "set random codes for users"
 
@@ -30,7 +29,6 @@ namespace :chances do
               end
               #i = i + 1
             end
-
           end
         end
       end
@@ -78,7 +76,6 @@ namespace :chances do
         users_without_tandem << uid
       end
     end
-
   end
 
   task setRandomTandems: :environment do
@@ -99,7 +96,6 @@ namespace :chances do
                     invitee_code:         "1")
       i = i + 2
     end
-
   end
 
   task confirmSquirrels: :environment do
@@ -132,7 +128,6 @@ namespace :chances do
         end
       end
     end
-
   end
 
   task mailinvitees: :environment do
@@ -148,7 +143,6 @@ namespace :chances do
         i.update_attributes(invitation_type: 'mail', invitee_email_subject: subject, invitee_email_text: mailtext, invitee_id: nil)
       end
     end
-
   end
 
   task crowdjoker: :environment do
@@ -181,5 +175,4 @@ namespace :chances do
       #end
     end
   end
-
 end

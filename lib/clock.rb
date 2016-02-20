@@ -11,7 +11,6 @@ module Clockwork
   end
 
   handler do |job|
-
     if job == "cache.news"
 
       response = HTTParty.get('http://blog.meinbge.de/wp-json/wp/v2/posts?filter[posts_per_page]=500')
@@ -28,7 +27,6 @@ module Clockwork
         author = JSON.parse(HTTParty.get("http://blog.meinbge.de/wp-json/wp/v2/users/#{opost['author']}").body)
         post['authorname'] = author['name'] if author['name']
         posts << post
-
       end
 
       File.open("../public/news.json", "w+") do |f|
@@ -89,7 +87,6 @@ module Clockwork
     #     sql = "update tandems set invitee_participates=1 where invitation_type='existing' and inviter_id != invitee_id and inviter_id is not null and invitee_id is not null and invitee_id in (select user_id from chances where confirmed=1);"
     #     ActiveRecord::Base.connection.execute(sql)
     # end
-
   end
 
   every(3.minutes, 'cache.news')

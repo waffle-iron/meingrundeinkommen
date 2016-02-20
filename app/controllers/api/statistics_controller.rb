@@ -20,7 +20,6 @@ class Api::StatisticsController < ApplicationController
 
     respond_to do |format|
       format.json do
-
         # newsletter_only = ''
         # base     = "select users.email, REPLACE(users.name,',','') from users, chances where users.id = chances.user_id #{newsletter_only} and is_child = 0 and "
         # base_not = "select users.email, REPLACE(users.name,',','') from users where users.id not in (select user_id from chances) #{newsletter_only} "

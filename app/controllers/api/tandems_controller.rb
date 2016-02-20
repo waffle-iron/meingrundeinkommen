@@ -13,7 +13,6 @@ class Api::TandemsController < ApplicationController
   						 inviter_grudges_invitee_for !='')
 
   		)").sample(50).map do |tandem|
-
   	   inviter = User.find_by_id(tandem.inviter_id)
   	   invitee = User.find_by_id(tandem.invitee_id)
 

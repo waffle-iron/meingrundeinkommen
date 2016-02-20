@@ -221,25 +221,11 @@ Style/EmptyLines:
 Style/EmptyLinesAroundAccessModifier:
   Exclude:
 
-# Offense count: 28
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 # SupportedStyles: empty_lines, no_empty_lines
 Style/EmptyLinesAroundBlockBody:
   Exclude:
-    - 'app/controllers/api/drawings_controller.rb'
-    - 'app/controllers/api/statistics_controller.rb'
-    - 'app/controllers/api/tandems_controller.rb'
-    - 'app/controllers/api/users_controller.rb'
-    - 'app/serializers/user_serializer.rb'
-    - 'config/routes.rb'
-    - 'db/migrate/20141209000300_create_notifications.rb'
-    - 'db/schema.rb'
-    - 'lib/clock.rb'
-    - 'lib/tasks/chances.rake'
-    - 'lib/tasks/comments.rake'
-    - 'lib/tasks/squirrels.rake'
-    - 'lib/tasks/testimonials.rake'
 
 # Offense count: 80
 # Cop supports --auto-correct.
