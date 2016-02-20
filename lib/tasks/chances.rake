@@ -25,7 +25,7 @@ namespace :chances do
             # •
             puts "#{i} - #{c1}•#{c2}•#{c3}•#{c4}"
             chances[i].update_attribute(:code, "#{c1}•#{c2}•#{c3}•#{c4}")
-            i = i + 1
+            i += 1
             # i = i + 1
           end
         end
@@ -42,7 +42,7 @@ namespace :chances do
     i                    = 0
 
     allchances.each do |chance|
-      i       = i + 1
+      i      += 1
       uid     = chance.user.id
       tandems = Tandem.where("(inviter_id = #{uid} or invitee_id = #{uid}) and inviter_id in (select user_id from chances where confirmed=1) and invitee_id in (select user_id from chances where confirmed=1)  and inviter_id != invitee_id and inviter_id is not null and invitee_id is not null and disabled_by is null").limit(100)
 
@@ -55,7 +55,7 @@ namespace :chances do
           tandems.each do |t|
             role = t.inviter_id == uid ? "inviter" : "invitee"
             t.update_attribute("#{role}_code", "#{code}")
-            code = code + 1
+            code += 1
           end
         else
           i = 0
@@ -64,7 +64,7 @@ namespace :chances do
               next unless tandems[i]
               role = tandems[i].inviter_id == uid ? "inviter" : "invitee"
               tandems[i].update_attribute("#{role}_code", "#{c1}•#{c2}")
-              i = i + 1
+              i += 1
             end
           end
         end
@@ -91,7 +91,7 @@ namespace :chances do
                     invitee_participates: true,
                     inviter_code:         "1",
                     invitee_code:         "1")
-      i = i + 2
+      i += 2
     end
   end
 

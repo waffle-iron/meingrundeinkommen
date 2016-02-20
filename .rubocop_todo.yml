@@ -420,13 +420,9 @@ Style/RedundantSelf:
 Style/RescueModifier:
   Exclude:
 
-# Offense count: 8
 # Cop supports --auto-correct.
 Style/SelfAssignment:
   Exclude:
-    - 'app/helpers/conjugation_helper.rb'
-    - 'app/models/chance.rb'
-    - 'lib/tasks/chances.rake'
 
 # Offense count: 1
 # Cop supports --auto-correct.

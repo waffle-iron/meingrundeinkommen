@@ -54,7 +54,7 @@ class Chance < ActiveRecord::Base
       tandems.each do |t|
         role = t.inviter_id == uid ? "inviter" : "invitee"
         t.update_attribute("#{role}_code", "#{code}")
-        code = code + 1
+        code += 1
       end
     else
       i = 0
@@ -63,7 +63,7 @@ class Chance < ActiveRecord::Base
           next unless tandems[i]
           role = tandems[i].inviter_id == uid ? "inviter" : "invitee"
           tandems[i].update_attribute("#{role}_code", "#{c1}•#{c2}")
-          i = i + 1
+          i += 1
         end
       end
     end
