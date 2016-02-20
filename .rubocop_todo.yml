@@ -262,7 +262,6 @@ Style/GuardClause:
     - 'app/serializers/comment_serializer.rb'
     - 'app/serializers/support_serializer.rb'
 
-# Offense count: 304
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles, UseHashRocketsWithSymbolValues.
 # SupportedStyles: ruby19, ruby19_no_mixed_keys, hash_rockets
@@ -280,34 +279,29 @@ Style/IfInsideElse:
     - 'app/controllers/crowdapps_controller.rb'
     - 'app/serializers/user_serializer.rb'
 
-# Offense count: 3
 # Cop supports --auto-correct.
 # Configuration parameters: MaxLineLength.
 Style/IfUnlessModifier:
   Exclude:
 
-# Offense count: 2
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles, IndentationWidth.
 # SupportedStyles: special_inside_parentheses, consistent, align_brackets
 Style/IndentArray:
   Enabled: true
 
-# Offense count: 16
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles, IndentationWidth.
 # SupportedStyles: special_inside_parentheses, consistent, align_braces
 Style/IndentHash:
   Enabled: true
 
-# Offense count: 36
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 # SupportedStyles: normal, rails
 Style/IndentationConsistency:
   Enabled: true
 
-# Offense count: 116
 # Cop supports --auto-correct.
 # Configuration parameters: Width.
 Style/IndentationWidth:
