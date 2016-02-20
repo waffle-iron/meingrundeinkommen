@@ -6,5 +6,5 @@ class Payment < ActiveRecord::Base
     text :account_bic
     text :user_id
   end
-	 belongs_to :user
+  belongs_to :user
 end

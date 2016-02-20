@@ -529,10 +529,9 @@ Style/SymbolProc:
     - 'app/mailers/mailings_mailer.rb'
     - 'db/migrate/20141209000300_create_notifications.rb'
 
-# Offense count: 441
 # Cop supports --auto-correct.
 Style/Tab:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 35
 # Cop supports --auto-correct.

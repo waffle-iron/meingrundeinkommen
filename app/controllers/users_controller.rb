@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def update
-  	 if params[:admin] && current_user && current_user.admin?
+    if params[:admin] && current_user && current_user.admin?
       @user = User.find(params[:id])
       @user.skip_confirmation! if params[:confirm_user]
       if params[:reset_pw]
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
       end
       @user.save
       render json: {user: @user, pw: new_password}
-     end
+    end
   end
 
   def destroy

@@ -1,53 +1,53 @@
 class Chance < ActiveRecord::Base
-	 strip_attributes only: [:first_name, :last_name]
+  strip_attributes only: [:first_name, :last_name]
 
-	 belongs_to :user
+  belongs_to :user
 
-	 validates_presence_of :first_name, :last_name, :dob
+  validates_presence_of :first_name, :last_name, :dob
 
-	 validates_uniqueness_of :code, allow_blank: true, allow_nil: true
+  validates_uniqueness_of :code, allow_blank: true, allow_nil: true
 
-	 validate :unique_entry
+  validate :unique_entry
 
-	 validate :no_winner
+  validate :no_winner
 
-	 validate :validate_birthday
+  validate :validate_birthday
 
-	 def unique_entry
- 		 matched_entry = Chance.where(['LOWER(last_name) = LOWER(?) AND LOWER(first_name) = LOWER(?) AND dob = ? AND confirmed = 1', last_name, first_name, dob]).first
- 		 if matched_entry && (matched_entry.id != id)
-  			 errors.add(:last_name, 'Jemand mit deinem Namen und deinem Geburtsdatum nimmt bereits teil. Falls dies nicht du bist, kontaktiere bitte support@mein-grundeinkommen.de - sehr viel wahrscheinlicher ist aber, dass du aus Versehen zwei User-Accounts bei uns hast und bereits mit dem anderen teilnimmst. Oft passiert das, wenn du z.b. eine E-Mail-Adresse mit @gmail.com hast, dich aber mit @googlemail.com eingeloggt hast (oder andersrum).')
-  			 return false
-  		end
- 	end
+  def unique_entry
+    matched_entry = Chance.where(['LOWER(last_name) = LOWER(?) AND LOWER(first_name) = LOWER(?) AND dob = ? AND confirmed = 1', last_name, first_name, dob]).first
+    if matched_entry && (matched_entry.id != id)
+      errors.add(:last_name, 'Jemand mit deinem Namen und deinem Geburtsdatum nimmt bereits teil. Falls dies nicht du bist, kontaktiere bitte support@mein-grundeinkommen.de - sehr viel wahrscheinlicher ist aber, dass du aus Versehen zwei User-Accounts bei uns hast und bereits mit dem anderen teilnimmst. Oft passiert das, wenn du z.b. eine E-Mail-Adresse mit @gmail.com hast, dich aber mit @googlemail.com eingeloggt hast (oder andersrum).')
+      return false
+    end
+  end
 
-	 def no_winner
- 		 if user.winner != 0
-  			 errors.add(:last_name, 'Du hast bereits einmal Grundeinkommen gewonnen und kannst deshalb nicht erneut teilnehmen.')
-  		end
- 	end
+  def no_winner
+    if user.winner != 0
+      errors.add(:last_name, 'Du hast bereits einmal Grundeinkommen gewonnen und kannst deshalb nicht erneut teilnehmen.')
+    end
+  end
 
-	 def validate_birthday
- 	  unless dob
- 	    errors.add(:dob, 'Bitte gib bei Tag, Monat und Jahr nur Ziffern, keine Buchstaben, ein.')
- 	  	 return false
- 	  end
+  def validate_birthday
+    unless dob
+      errors.add(:dob, 'Bitte gib bei Tag, Monat und Jahr nur Ziffern, keine Buchstaben, ein.')
+      return false
+    end
 
- 	  if is_child && dob < DateTime.new(2016,2,3) - 14.years
- 	    errors.add(:dob, "Du kannst nur für dein Kind teilnehmen, wenn es am Tag des Gewinnspielendes das 14. Lebensjahr noch nicht vollendet hat. Dein Kind ist alt genug und kann eigenständig (mit einem eigenen Profil) am Gewinnspiel teilnehmen.")
- 	    return false
- 	  end
- 	  if !is_child && dob > DateTime.new(2016,2,3) - 14.years
- 	    errors.add(:dob, "Du musst 14 Jahre alt sein, um teilnehmen zu können. Ein_e Erziehungsberechtigte_r kann aber für dich am Gewinnspiel teilnehmen indem er oder sie hier unten auf 'Mein Kind hinzufügen' klickt.")
- 	    return false
- 	  end
- 	end
+    if is_child && dob < DateTime.new(2016,2,3) - 14.years
+      errors.add(:dob, "Du kannst nur für dein Kind teilnehmen, wenn es am Tag des Gewinnspielendes das 14. Lebensjahr noch nicht vollendet hat. Dein Kind ist alt genug und kann eigenständig (mit einem eigenen Profil) am Gewinnspiel teilnehmen.")
+      return false
+    end
+    if !is_child && dob > DateTime.new(2016,2,3) - 14.years
+      errors.add(:dob, "Du musst 14 Jahre alt sein, um teilnehmen zu können. Ein_e Erziehungsberechtigte_r kann aber für dich am Gewinnspiel teilnehmen indem er oder sie hier unten auf 'Mein Kind hinzufügen' klickt.")
+      return false
+    end
+  end
 
-	 def generatetandemcodes
- 		 uid     = user_id
- 		 tandems = Tandem.where("((inviter_id = #{uid} and inviter_code is null) or (invitee_id = #{uid} and invitee_code is null)) and inviter_id in (select user_id from chances where confirmed=1) and invitee_id in (select user_id from chances where confirmed=1)  and inviter_id != invitee_id and inviter_id is not null and invitee_id is not null and disabled_by is null").limit(100)
+  def generatetandemcodes
+    uid     = user_id
+    tandems = Tandem.where("((inviter_id = #{uid} and inviter_code is null) or (invitee_id = #{uid} and invitee_code is null)) and inviter_id in (select user_id from chances where confirmed=1) and invitee_id in (select user_id from chances where confirmed=1)  and inviter_id != invitee_id and inviter_id is not null and invitee_id is not null and disabled_by is null").limit(100)
 
- 		 # tandems = Tandem.where("((inviter_id = #{uid} and inviter_code is null) or (invitee_id = #{uid} and invitee_code is null))").limit(100)
+    # tandems = Tandem.where("((inviter_id = #{uid} and inviter_code is null) or (invitee_id = #{uid} and invitee_code is null))").limit(100)
 
     if tandems.count < 7
       code = 1
@@ -68,6 +68,6 @@ class Chance < ActiveRecord::Base
       end
     end
     return true
- 	end
+  end
 
 end
