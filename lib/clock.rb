@@ -47,7 +47,11 @@ module Clockwork
 
     if job == "clear.cache"
       cache_dir = ActionController::Base.page_cache_directory
-      FileUtils.rm_r(Dir.glob(cache_dir+"/*")) rescue Errno::ENOENT
+      begin
+        FileUtils.rm_r(Dir.glob(cache_dir+"/*"))
+      rescue
+        Errno::ENOENT
+      end
     end
 
     if job == "bank.check"

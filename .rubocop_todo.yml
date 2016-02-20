@@ -416,11 +416,9 @@ Style/RedundantReturn:
 Style/RedundantSelf:
   Exclude:
 
-# Offense count: 1
 # Cop supports --auto-correct.
 Style/RescueModifier:
   Exclude:
-    - 'lib/clock.rb'
 
 # Offense count: 8
 # Cop supports --auto-correct.
