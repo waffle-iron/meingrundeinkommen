@@ -1,18 +1,15 @@
 # encoding: UTF-8
 module ConjugationHelper
 
-
   # GERMAN RULEZ
 
   BEGINNING_FIRST_PERSON_REGEXP = /^(mich|mir)\s/i
   THIRD_PERSON = 'sich'
   PRAEPOS = %w{ bei aus an hinter von mit für zu }
 
-
   def has_name_prefix?(name)
     return !name.downcase.match(/^mich\s.*$/).nil? || !name.downcase.match(/^mir\s.*$/).nil?
   end
-
 
   #refactore for other persons
   def without_person(todo, person = :me, gender = :male)
@@ -45,7 +42,6 @@ module ConjugationHelper
     text.gsub! /^((dass|daß).*)$/i do |x| ", "+$1 end if comma #comma if starts with dass/daß
 
     add_space = false if text =~ /^,\s[dass|daß].*$/i
-
 
     if person == :you || person == :you_too
 
@@ -96,7 +92,6 @@ module ConjugationHelper
       text = text.gsub(/(#{PRAEPOS.join('|')})\s+(mir|mich)\s/i, '\1 sich ') #replaces first mich with sich
       text = text.gsub(/^mir\s/i, " ") #replaces first mir with sich
 
-
       text = text.gsub(/^mich\s/i, "sich ") #replaces first mich with sich
       text = text.gsub(/^mir\s/i, "sich ") #replaces first mir with sich
 
@@ -105,12 +100,8 @@ module ConjugationHelper
       pronoun = gender == :male ? "ihm/ihr" : "ihr"
       text = text.gsub(/\smir\s/i, " #{pronoun} ").gsub(/\smir$/i, " #{pronoun}") #replaces other mir with ihm/ihr
 
-
-
       #text = has_name_prefix?(text) ? text : text if prefix
       #text = has_name_prefix?(text) ? text : text #if prefix
-
-
 
     elsif person == :they || person == :they2
 

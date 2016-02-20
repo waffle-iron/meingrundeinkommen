@@ -3,7 +3,6 @@ class Api::UsersController < ApplicationController
 
   before_action :load_user, only:[:show,:states, :wishes]
 
-
   def index
     if current_user
       if params[:q]
@@ -65,7 +64,6 @@ class Api::UsersController < ApplicationController
     end
     render json:x
   end
-
 
   def suggestions
     if current_user
@@ -157,12 +155,8 @@ class Api::UsersController < ApplicationController
             end
           end
 
-
-
         end
       end
-
-
 
       user_ids = []
       current_user.user_wishes.each do |user_wish|
@@ -185,7 +179,6 @@ class Api::UsersController < ApplicationController
     end
   end
 
-
   def show
 
     if @user == current_user
@@ -195,7 +188,6 @@ class Api::UsersController < ApplicationController
       current_user.os += ", tablet" if browser.tablet?
       current_user.save
     end
-
 
     render json: @user, serializer: UserSerializer
   end

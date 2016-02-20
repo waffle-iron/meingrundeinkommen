@@ -1,9 +1,7 @@
 class Api::UserWishesController < ApplicationController
   include ActionView::Helpers::DateHelper
 
-
   caches_page :index
-
 
   def create
     #current_user = User.first
@@ -21,7 +19,6 @@ class Api::UserWishesController < ApplicationController
         end
       end
 
-
       x = {
         id:           user_wish.id,
         others_count: UserWish.where(wish_id:wish.id).count - 1,
@@ -34,7 +31,6 @@ class Api::UserWishesController < ApplicationController
       }
 
       render json: x
-
 
     else
       params[:id] =  current_user.user_wishes.where(wish_id: params[:wish_id])
@@ -79,7 +75,6 @@ class Api::UserWishesController < ApplicationController
       end
     end
 
-
     render json: x
 
   end
@@ -95,7 +90,5 @@ class Api::UserWishesController < ApplicationController
     current_user.user_wishes.where(id:params[:id]).first.destroy
     render json: {me_too: false}
   end
-
-
 
 end

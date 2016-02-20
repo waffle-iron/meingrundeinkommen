@@ -23,7 +23,6 @@ class Api::StatesController < ApplicationController
       fulltext params[:q]
     end
 
-
     if current_user
       r = []
       query.results.each do |result|
@@ -35,6 +34,5 @@ class Api::StatesController < ApplicationController
 
     render json: r
   end
-
 
 end

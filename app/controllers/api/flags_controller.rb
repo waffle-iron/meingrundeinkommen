@@ -37,7 +37,6 @@ class Api::FlagsController < ApplicationController
      end
  	end
 
-
 	 def destroy
  		 if current_user && params[:name]
   			 current_user.flags.where(name: params[:name]).destroy

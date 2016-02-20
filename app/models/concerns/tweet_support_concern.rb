@@ -4,7 +4,6 @@ module TweetSupportConcern
   require 'net/http'
   require 'uri'
 
-
   included do
     after_save :tweetSupportComment
   end
@@ -12,7 +11,6 @@ module TweetSupportConcern
   def tweetSupportComment
 
     uri = URI.parse("http://twitter.mein-grundeinkommen.de/tweet")
-
 
     if self.comment && self.nickname && self.tweeted.nil?
 
@@ -30,8 +28,6 @@ module TweetSupportConcern
 
     end
 
-
   end
-
 
 end

@@ -4,7 +4,6 @@ module TweetWishConcern
   require 'net/http'
   require 'uri'
 
-
   included do
     after_create :tweetWishText
   end
@@ -24,6 +23,5 @@ module TweetWishConcern
     response = http.request(request)
 
   end
-
 
 end

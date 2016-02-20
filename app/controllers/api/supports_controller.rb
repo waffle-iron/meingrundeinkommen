@@ -2,7 +2,6 @@ class Api::SupportsController < ApplicationController
 
   caches_page :crowdbar, :statements
 
-
   def create
     support = Support.create(params.permit(:amount_total, :amount_for_income, :amount_internal, :payment_method, :recurring))
 
@@ -46,6 +45,5 @@ class Api::SupportsController < ApplicationController
   def show
     render json: Support.find(params[:id])
   end
-
 
 end

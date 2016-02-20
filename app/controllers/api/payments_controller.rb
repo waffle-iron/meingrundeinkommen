@@ -49,5 +49,4 @@ class Api::PaymentsController < ApplicationController
     end
   end
 
-
 end

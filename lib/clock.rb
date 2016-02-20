@@ -37,7 +37,6 @@ module Clockwork
 
     end
 
-
     if job == "crowdbar.stats"
 
       response = HTTParty.get('http://bar.mein-grundeinkommen.de/crowd_bar_stats.json')
@@ -48,7 +47,6 @@ module Clockwork
       end
 
     end
-
 
     if job == "clear.cache"
       cache_dir = ActionController::Base.page_cache_directory
@@ -91,8 +89,6 @@ module Clockwork
     #     sql = "update tandems set invitee_participates=1 where invitation_type='existing' and inviter_id != invitee_id and inviter_id is not null and invitee_id is not null and invitee_id in (select user_id from chances where confirmed=1);"
     #     ActiveRecord::Base.connection.execute(sql)
     # end
-
-
 
   end
 

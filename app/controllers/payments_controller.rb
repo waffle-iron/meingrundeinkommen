@@ -33,9 +33,6 @@ class PaymentsController < ApplicationController
     render nothing: true
   end
 
-
-
-
   protected
   def validate_IPN_notification(raw, test)
     uri = URI.parse('https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate')
@@ -53,6 +50,5 @@ class PaymentsController < ApplicationController
                          'User-Agent'     => "My custom user agent"
                         ).body
   end
-
 
 end

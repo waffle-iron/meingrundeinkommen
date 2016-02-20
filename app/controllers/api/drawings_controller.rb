@@ -6,7 +6,6 @@ class Api::DrawingsController < ApplicationController
       #characters = ['1','2','3','4','5','6','A','B']
       data = params[:d]
 
-
       data.each_with_index do |drawing,i|
 
         winner = false
@@ -14,13 +13,9 @@ class Api::DrawingsController < ApplicationController
 
         digits = []
 
-
-
         drawing[:digets].each_with_index do |d,i|
           digits << d[:value] if d[:value] && d[:value] != ""
         end
-
-
 
         # if digits.count == 3
         #   t = '1-12'  if digits[2] <= 12
@@ -62,7 +57,6 @@ class Api::DrawingsController < ApplicationController
 
         data[i][:number] = number
 
-
         # if winner
 
         #   #generate tandem codes
@@ -79,15 +73,11 @@ class Api::DrawingsController < ApplicationController
         #   end
         # end
 
-
       end
-
-
 
       File.open("public/currentdrawing.json","w") do |f|
         f.write(data.to_json)
       end
-
 
       render json: data
 

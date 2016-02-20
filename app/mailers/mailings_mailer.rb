@@ -21,7 +21,6 @@ class MailingsMailer < MassMandrill::MandrillMailer
     return users
   end
 
-
   def transactionmail(recipients,subject,content,template = 'transactionmail')
     addresses = recipients.map { |recipient| recipient.email }
     #global_merge_vars = [{ name: 'headline', content: 'This is first example notice' }]

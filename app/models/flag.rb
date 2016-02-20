@@ -40,6 +40,4 @@ class Flag < ActiveRecord::Base
  		 return self.value_date    unless self.value_date.nil?
  	end
 
-
-
 end

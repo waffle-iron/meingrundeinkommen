@@ -213,10 +213,9 @@ Style/EachWithObject:
 Style/ElseAlignment:
   Exclude:
 
-# Offense count: 126
 # Cop supports --auto-correct.
 Style/EmptyLines:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 2
 # Cop supports --auto-correct.

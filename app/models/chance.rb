@@ -73,6 +73,4 @@ class Chance < ActiveRecord::Base
     return true
  	end
 
-
-
 end

@@ -37,9 +37,5 @@ namespace :comments do
       end
     end
 
-
-
-
-
   end
 end

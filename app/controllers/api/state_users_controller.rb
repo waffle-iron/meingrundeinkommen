@@ -16,6 +16,4 @@ class Api::StateUsersController < ApplicationController
     render json: {success: true}
   end
 
-
-
 end

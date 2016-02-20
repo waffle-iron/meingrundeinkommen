@@ -31,13 +31,11 @@ namespace :chances do
               #i = i + 1
             end
 
-
           end
         end
       end
     end
   end
-
 
   task SetCodesForTandems: :environment do
     desc "set random codes for tandems"
@@ -81,9 +79,7 @@ namespace :chances do
       end
     end
 
-
   end
-
 
   task setRandomTandems: :environment do
     desc "set random tandems for ppl w/o tandem"
@@ -139,7 +135,6 @@ namespace :chances do
 
   end
 
-
   task mailinvitees: :environment do
     desc "send mail to mistakenly created invites"
 
@@ -156,15 +151,12 @@ namespace :chances do
 
   end
 
-
   task crowdjoker: :environment do
     desc "setup jokers for crowdcard users on location"
-
 
     #cc_no = []
     #cc_no = (1..300).to_a
     #cc_no << (12626..12750).to_a
-
 
     #C160 bis C219
 
@@ -189,6 +181,5 @@ namespace :chances do
       #end
     end
   end
-
 
 end

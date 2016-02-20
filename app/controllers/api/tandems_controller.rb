@@ -1,6 +1,5 @@
 class Api::TandemsController < ApplicationController
 
-
 	 def index
  		 x = []
  		 Tandem.where("invitee_id != inviter_id AND
@@ -15,10 +14,8 @@ class Api::TandemsController < ApplicationController
 
   		)").sample(50).map do |tandem|
 
-
   	   inviter = User.find_by_id(tandem.inviter_id)
   	   invitee = User.find_by_id(tandem.invitee_id)
-
 
   	   next if inviter.nil? || invitee.nil? || (!inviter.nil? && (inviter.avatar.nil? || inviter.avatar.url == "/assets/team/team-member.jpg")) || (!invitee.nil? && (invitee.avatar.nil? || invitee.avatar.url == "/assets/team/team-member.jpg"))
 
@@ -61,8 +58,6 @@ class Api::TandemsController < ApplicationController
  		 render json: x
      end
 
-
-
 	 def create
 
  		 #todo:
@@ -92,7 +87,6 @@ class Api::TandemsController < ApplicationController
  		 # 			tandem[:invitee_id] == partner.id
  		 # 		end
  		 # 	end
-
 
  		 # 	if tandem[:invitation_type] == 'link'
  		 # 		tandem[:invitation_accepted_at] = Time.now

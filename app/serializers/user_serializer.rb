@@ -89,7 +89,6 @@ class UserSerializer < ActiveModel::Serializer
     end
   end
 
-
   def tandems
 
     r = []

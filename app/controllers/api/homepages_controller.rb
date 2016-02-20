@@ -77,7 +77,6 @@ class Api::HomepagesController < ApplicationController
     prediction[:date] = Time.now + (prediction[:days].to_i).days
     number_of_participants = Chance.count()
 
-
     homepage_data = {
       number_of_users:                 number_with_precision(User.count, precision: 0, delimiter: '.'),
       number_of_wishes:                number_with_precision(UserWish.count, precision: 0, delimiter: '.'),
@@ -111,9 +110,7 @@ class Api::HomepagesController < ApplicationController
         crowdbar_users: number_with_precision(crowdbar_users, precision: 0, delimiter: '.')
       }
 
-
     }
-
 
     if params[:kpi]
 

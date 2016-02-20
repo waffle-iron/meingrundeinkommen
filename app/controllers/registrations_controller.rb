@@ -17,7 +17,6 @@ class RegistrationsController < Devise::RegistrationsController
       Chance.where(user_id: current_user.id).update_all(crowdbar_verified: true)
     end
 
-
     #account updates
     @user = User.find(current_user.id)
     if @user.update_attributes(account_update_params)
@@ -27,7 +26,6 @@ class RegistrationsController < Devise::RegistrationsController
     end
 
   end
-
 
   def create
 

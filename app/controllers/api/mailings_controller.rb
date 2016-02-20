@@ -9,7 +9,6 @@ class Api::MailingsController < ApplicationController
   		  	 users = MailingsMailer.prepare_recipients(params[:groups],params[:group_keys])
   		end
 
-
  		   if params[:send]
     			 if params[:test]
      				 #send it

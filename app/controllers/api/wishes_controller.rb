@@ -84,7 +84,6 @@ class Api::WishesController < ApplicationController
     render json: x
   end
 
-
   def top
 
     x= []
@@ -111,7 +110,6 @@ class Api::WishesController < ApplicationController
 
     render json:x
   end
-
 
   def index
 

@@ -69,7 +69,6 @@ Rails.application.routes.draw do
   resource :crowdapp
   resources :subscriptions
 
-
   # Temp for the german language
   get 'languages/deDE.json', to: 'languages#de'
 
@@ -79,7 +78,6 @@ Rails.application.routes.draw do
   get "/404", to: "errors#custom"
   get "/422", to: "errors#custom"
   get "/500", to: "errors#custom"
-
 
   # Angular catch all to allow page refresh
   get '*page' => "websites#show"

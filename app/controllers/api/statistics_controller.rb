@@ -18,7 +18,6 @@ class Api::StatisticsController < ApplicationController
       #:notParticipatingButCrowdToolUser => " and (id in (select user_id from flags where name like 'CrowdcardNumber') or id in (select user_id from flags where name like 'hasHadCrowdbar') or id in (select user_id from flags where name like 'crowdAppVisits'))"
     }
 
-
     respond_to do |format|
       format.json do
 
@@ -87,12 +86,8 @@ class Api::StatisticsController < ApplicationController
           #   q = "and id in (select user_id from chances where confirmed = 1)"
           # end
 
-
-
-
           # end
           # end
-
 
           r = CSV.generate() do |csv|
             ActiveRecord::Base.connection.execute("#{b} #{q}").each do |row|
@@ -105,7 +100,6 @@ class Api::StatisticsController < ApplicationController
         end
       end
     end
-
 
   end
 

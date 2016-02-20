@@ -1,11 +1,9 @@
 class WebsitesController < ApplicationController
 
-
   def show
 
     b = request.env['HTTP_USER_AGENT']
   	 if b.include?('facebookexternalhit') || b.include?('Twitterbot') # || b.include?('Mozilla')
-
 
       if request.fullpath == '/tandem'
         @title = "#bgeMitDir - Die neue Tandemverlosung"
@@ -14,7 +12,6 @@ class WebsitesController < ApplicationController
         render layout: "preview"
         return
       end
-
 
       if params[:mitdir]
   			   u = User.find(params[:mitdir])
