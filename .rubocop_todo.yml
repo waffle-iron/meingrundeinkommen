@@ -331,7 +331,8 @@ Style/MethodDefParentheses:
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 # SupportedStyles: snake_case, camelCase
 Style/MethodName:
-  Enabled: false
+  Enabled: true
+  EnforcedStyle: snake_case
 
 # Offense count: 2
 # Cop supports --auto-correct.
