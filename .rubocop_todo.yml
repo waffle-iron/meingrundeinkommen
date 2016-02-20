@@ -88,7 +88,7 @@ Metrics/CyclomaticComplexity:
 # Configuration parameters: AllowHeredoc, AllowURI, URISchemes.
 # URISchemes: http, https
 Metrics/LineLength:
-  Max: 80
+  Max: 1000
   # To make it possible to copy or click on URIs in the code, we allow lines
   # containing a URI to be longer than Max.
   AllowHeredoc: true
@@ -141,14 +141,9 @@ Style/AlignParameters:
 Style/AndOr:
   Exclude:
 
-# Offense count: 16
 Style/AsciiComments:
   Enabled: false
   Exclude:
-    - 'app/controllers/api/drawings_controller.rb'
-    - 'app/helpers/conjugation_helper.rb'
-    - 'lib/tasks/chances.rake'
-    - 'lib/tasks/squirrels.rake'
 
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles, ProceduralMethods, FunctionalMethods, IgnoredMethods.
@@ -181,12 +176,9 @@ Style/CaseIndentation:
 Style/ClassAndModuleChildren:
   Enabled: false
 
-# Offense count: 2
 # Cop supports --auto-correct.
 Style/ClosingParenthesisIndentation:
   Exclude:
-    - 'app/controllers/payments_controller.rb'
-    - 'app/mailers/mailings_mailer.rb'
 
 # Cop supports --auto-correct.
 # Configuration parameters: Keywords.
@@ -201,7 +193,6 @@ Style/CommentIndentation:
 # Cop supports --auto-correct.
 # Configuration parameters: SingleLineConditionsOnly.
 Style/ConditionalAssignment:
-  SingleLineConditionalsOnly: true
   Exclude:
 
 # Offense count: 118

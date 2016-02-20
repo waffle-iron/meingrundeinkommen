@@ -51,7 +51,7 @@ class PaymentsController < ApplicationController
     response = http.post(uri.request_uri, raw,
                          'Content-Length' => "#{raw.size}",
                          'User-Agent'     => "My custom user agent"
-                       ).body
+                        ).body
   end
 
 

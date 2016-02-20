@@ -54,7 +54,7 @@ class MailingsMailer < MassMandrill::MandrillMailer
              "Reply-To" => 'Mein Grundeinkommen <support@mein-grundeinkommen.de>'
            }
          }
-         )
+        )
 
   end
 
