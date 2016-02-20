@@ -4,7 +4,7 @@ require 'csv'
 include ActionView::Helpers::NumberHelper
 
 class Float
-  def round_down n =0
+  def round_down(n =0)
     s              = self.to_s
     l              = s.index('.') + 1 + n
     s.length <= l ? self : s[0,l].to_f

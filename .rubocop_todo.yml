@@ -320,14 +320,12 @@ Style/LeadingCommentSpace:
 Style/MethodCallParentheses:
   Exclude:
 
-# Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 # SupportedStyles: require_parentheses, require_no_parentheses, require_no_parentheses_except_multiline
 Style/MethodDefParentheses:
-  Enabled: false
+  Enabled: true
 
-# Offense count: 3
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 # SupportedStyles: snake_case, camelCase
 Style/MethodName:
