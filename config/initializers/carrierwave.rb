@@ -25,14 +25,14 @@ CarrierWave.configure do |config|
   end
 
   # TODO
-  #config.s3_cnamed = true
-  #config.s3_bucket = 'bucketname.domain.tld'
+  # config.s3_cnamed = true
+  # config.s3_bucket = 'bucketname.domain.tld'
 
   config.cache_dir = "#{Rails.root}/tmp/uploads" # To let CarrierWave work on heroku
 
   config.fog_directory = ENV['S3_BUCKET_NAME']
   # TODO
-  #config.fog_host         = "#{ENV['S3_ASSET_URL']}/#{ENV['S3_BUCKET_NAME']}"
-  #fog_use_ssl_for_aws   = true,
-  #config.fog_public = false
+  # config.fog_host         = "#{ENV['S3_ASSET_URL']}/#{ENV['S3_BUCKET_NAME']}"
+  # fog_use_ssl_for_aws   = true,
+  # config.fog_public = false
 end

@@ -22,7 +22,7 @@ class MailingsMailer < MassMandrill::MandrillMailer
 
   def transactionmail(recipients,subject,content,template = 'transactionmail')
     addresses                                             = recipients.map { |recipient| recipient.email }
-    #global_merge_vars = [{ name: 'headline', content: 'This is first example notice' }]
+    # global_merge_vars = [{ name: 'headline', content: 'This is first example notice' }]
     merge_vars = recipients.map do |recipient|
       {
         rcpt: recipient.email,
@@ -32,7 +32,7 @@ class MailingsMailer < MassMandrill::MandrillMailer
           { name: 'losnummern', content: recipient.chances.where.not(code: nil).any? ? recipient.chances.map(&:code).join('; ') : '' },
           { name: 'ch_betrag', content: !recipient.payment.blank? ? number_with_precision(recipient.payment.amount_total, precision: 2, separator: ',', delimiter: '.') : '' },
           { name: 'ch_id', content: !recipient.payment.blank? ? recipient.payment.id : '' }
-          #{ :name => 'real_first_name', :content => recipient.chances.any? ? !recipient.chances.where(:is_child => false).empty? ? recipient.chances.where(:is_child => false).first.first_name : '' : '' }
+          # { :name => 'real_first_name', :content => recipient.chances.any? ? !recipient.chances.where(:is_child => false).empty? ? recipient.chances.where(:is_child => false).first.first_name : '' : '' }
         ]
       }
     end
@@ -44,7 +44,7 @@ class MailingsMailer < MassMandrill::MandrillMailer
          subject:          subject,
          template_content: template_content,
          template:         template,
-         #global_merge_vars: global_merge_vars,
+         # global_merge_vars: global_merge_vars,
          merge_vars:       merge_vars,
          message_extra:    {
            track_opens: true,

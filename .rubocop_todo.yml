@@ -312,10 +312,9 @@ Style/IndentationWidth:
 Style/Lambda:
   Exclude:
 
-# Offense count: 141
 # Cop supports --auto-correct.
 Style/LeadingCommentSpace:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 5
 # Cop supports --auto-correct.

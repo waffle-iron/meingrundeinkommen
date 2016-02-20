@@ -3,7 +3,7 @@ class Api::DrawingsController < ApplicationController
 
   def create
     if current_user && current_user.id = 1
-      #characters = ['1','2','3','4','5','6','A','B']
+      # characters = ['1','2','3','4','5','6','A','B']
       data = params[:d]
 
       data.each_with_index do |drawing,i|
@@ -29,7 +29,7 @@ class Api::DrawingsController < ApplicationController
 
         number = digits.join("•") # • digits[0..3].join("•")
 
-        #drawing[:tandemcode] = digits[4..-1].join("•") if digits[4]
+        # drawing[:tandemcode] = digits[4..-1].join("•") if digits[4]
 
         query = Chance.where("code LIKE ?", "#{number}%")
 

@@ -1,5 +1,5 @@
 class UserWish < ActiveRecord::Base
-  #include TweetWishConcern
+  # include TweetWishConcern
   belongs_to :wish
   belongs_to :user
 end

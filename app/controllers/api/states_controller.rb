@@ -1,7 +1,7 @@
 class Api::StatesController < ApplicationController
 
   def create
-    #current_user = User.first
+    # current_user = User.first
     state      = State.where(text:params[:text]).first
     state      = State.create(params.permit(:text)) if !state
     user_state = current_user.state_users.where(state:state)

@@ -5,7 +5,7 @@ class Api::WishesController < ApplicationController
   caches_page :top
 
   def create
-    #current_user = User.first
+    # current_user = User.first
     wish      = Wish.where(text:params[:text]).first
     wish      = Wish.create(params.permit(:text)) if !wish
     user_wish = current_user.user_wishes.where(wish:wish)
@@ -22,7 +22,7 @@ class Api::WishesController < ApplicationController
 
     x = {
       id:           user_wish.id,
-      #similar: similar.results[0..1],
+      # similar: similar.results[0..1],
       others_count: UserWish.where(wish_id:wish.id).count - 1,
       wish_id:      wish.id,
       story:        user_wish.story,
@@ -100,8 +100,8 @@ class Api::WishesController < ApplicationController
         wish_url:     Rack::Utils.escape(wish.text),
         wish:         wish.conjugate,
         text:         wish.text,
-        me_too:       false,#(current_user && current_user.wishes.exists?(wish.id) ? true : false),
-        #user:UserWish.where(id:wish.user_wish_ids.sample).first.user.slice(:name, :id, :avatar),
+        me_too:       false,# (current_user && current_user.wishes.exists?(wish.id) ? true : false),
+        # user:UserWish.where(id:wish.user_wish_ids.sample).first.user.slice(:name, :id, :avatar),
         user:         user.slice(:name, :id, :avatar),
         create:       false
       }
@@ -148,8 +148,8 @@ class Api::WishesController < ApplicationController
         wish_url:     Rack::Utils.escape(wish.text),
         wish:         wish.conjugate,
         text:         wish.text,
-        me_too:       false,#(current_user && current_user.wishes.exists?(wish.id) ? true : false),
-        #user:UserWish.where(id:wish.user_wish_ids.sample).first.user.slice(:name, :id, :avatar),
+        me_too:       false,# (current_user && current_user.wishes.exists?(wish.id) ? true : false),
+        # user:UserWish.where(id:wish.user_wish_ids.sample).first.user.slice(:name, :id, :avatar),
         user:         user.slice(:name, :id, :avatar),
         create:       false
       }

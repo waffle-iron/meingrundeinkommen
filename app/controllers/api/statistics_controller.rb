@@ -36,21 +36,21 @@ class Api::StatisticsController < ApplicationController
         stats['crowdcardsOrdered']        = Crowdcard.sum(:number_of_cards)
         stats['participantsWithChildren'] = Chance.where(confirmed: 1).count
         stats['participants']             = Chance.where(is_child: 0, confirmed: 1).count
-        #stats['participants_mail_unconfirmed'] = 0
-        #stats['participants_squirrel'] = 0
-        #stats['participants_no_squirrel'] = 0
-        #stats['not_participating'] = 0
+        # stats['participants_mail_unconfirmed'] = 0
+        # stats['participants_squirrel'] = 0
+        # stats['participants_no_squirrel'] = 0
+        # stats['not_participating'] = 0
         stats['Accounts']                = User.count
         stats['activeAccounts']          = User.where('confirmed_at is not null').count
         stats['newsletterSubscriptions'] = User.where('confirmed_at is not null and newsletter = 1').count
-        #stats['newsletterRatio'] = (stats['newsletterSubscriptions'] / stats['activeAccounts']) * 100
+        # stats['newsletterRatio'] = (stats['newsletterSubscriptions'] / stats['activeAccounts']) * 100
         render json: stats
       end
       format.csv do
         if current_user && current_user.admin? && params[:stat]
           newsletter_only = " and confirmed_at is not null and newsletter = 1 "
-          #base     = "select users.email, REPLACE(users.name,',','') from users, chances where users.id = chances.user_id #{newsletter_only} and is_child = 0 and "
-          #base_not = "select users.email, REPLACE(users.name,',','') from users where id not in (select user_id from chances) #{newsletter_only} "
+          # base     = "select users.email, REPLACE(users.name,',','') from users, chances where users.id = chances.user_id #{newsletter_only} and is_child = 0 and "
+          # base_not = "select users.email, REPLACE(users.name,',','') from users where id not in (select user_id from chances) #{newsletter_only} "
 
           b = "select email, REPLACE(name,',','') from users where confirmed_at is not null and newsletter = 1 "
 

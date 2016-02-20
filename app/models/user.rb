@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  #chances
+  # chances
   has_many :chances, dependent: :destroy
 
   has_many :supports
@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
     text :id
   end
 
-  #validates_presence_of   :avatar
+  # validates_presence_of   :avatar
   validates_integrity_of  :avatar
   validates_processing_of :avatar
   validates :datenschutz, inclusion: [true]

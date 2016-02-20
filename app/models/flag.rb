@@ -4,7 +4,7 @@ class Flag < ActiveRecord::Base
 
 	 validates_presence_of :name
 
-	 #validates_uniqueness_of :user_id + :name
+	 # validates_uniqueness_of :user_id + :name
 
 	 def self.flagformat(value)
  		 return :value_boolean if !!value == value

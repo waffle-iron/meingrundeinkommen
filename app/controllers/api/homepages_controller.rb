@@ -16,8 +16,8 @@ class Api::HomepagesController < ApplicationController
   caches_page :show
 
   def show
-    crowdfunding_supporter = 2900 + 140 + 18 #startnext + untracked paypal + kto
-    crowdfunding_amount    = 3058.85 + 380.25 #untracked paypal + untracked kto
+    crowdfunding_supporter = 2900 + 140 + 18 # startnext + untracked paypal + kto
+    crowdfunding_amount    = 3058.85 + 380.25 # untracked paypal + untracked kto
     startnext              = 47630.52
 
     own_supporter = Support.where(payment_completed: true).where.not(payment_method: :crowdbar).count
@@ -35,10 +35,10 @@ class Api::HomepagesController < ApplicationController
     own_funding_query = Support.select('created_at,amount_for_income').where("payment_method = 'bank' AND payment_completed IS NOT NULL")
     own_funding       = own_funding_query.sum(:amount_for_income)
 
-    #Crowdcard
-    #crowdcard = JSON.parse(File.read('public/crowdcard.json'))
+    # Crowdcard
+    # crowdcard = JSON.parse(File.read('public/crowdcard.json'))
 
-    #temp
+    # temp
     crowdcard_total  = 9008
     crowdcard_amount = crowdcard_total * 0.9
 
@@ -49,12 +49,12 @@ class Api::HomepagesController < ApplicationController
     # end
     # crowdcard_average = crowdcard_sum / 7
 
-    #if now - date(day before) < 24h
-    #gelddiff / 24h * stunden
-    #else
-    #crowdbar_amount = crowdbar_yesterday
+    # if now - date(day before) < 24h
+    # gelddiff / 24h * stunden
+    # else
+    # crowdbar_amount = crowdbar_yesterday
 
-    #crowdbar
+    # crowdbar
     cb_json = JSON.parse(File.read('public/crowdbar.json'))
 
     crowdbar_amount = cb_json["total_commission"] * 0.9
@@ -65,10 +65,10 @@ class Api::HomepagesController < ApplicationController
 
     confirmed_users = User.where.not(confirmed_at: nil).count
 
-    #Prognose:
-    #last_synced_day = Support.where(:payment_completed => true, :payment_method => 'crowdbar').order(created_at: :desc).limit(1).first
+    # Prognose:
+    # last_synced_day = Support.where(:payment_completed => true, :payment_method => 'crowdbar').order(created_at: :desc).limit(1).first
     prediction = {}
-    #temp_q = Support.where(:created_at => (last_synced_day.created_at - 13.days).beginning_of_day..last_synced_day.created_at.end_of_day, :payment_method => :crowdbar)
+    # temp_q = Support.where(:created_at => (last_synced_day.created_at - 13.days).beginning_of_day..last_synced_day.created_at.end_of_day, :payment_method => :crowdbar)
     temp_q2                                    = Support.where(created_at: (Time.now - 15.days).beginning_of_day..(Time.now - 2.days).end_of_day, payment_completed: true).where.not(payment_method: :crowdbar)
     prediction[:avg_daily_commission]          = cb_json["seven_day_commission"] / 7 + temp_q2.sum(:amount_for_income) / 14
     prediction[:avg_daily_commission_crowdbar] = cb_json["seven_day_commission"] / 7

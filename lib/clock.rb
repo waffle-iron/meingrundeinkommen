@@ -94,5 +94,5 @@ module Clockwork
   every(3.minutes, 'crowdbar.stats')
   every(10.minutes, 'clear.cache')
   every(20.minutes, 'bank.check')
-  #every(25.minutes, 'tandem.statusupdate')
+  # every(25.minutes, 'tandem.statusupdate')
 end

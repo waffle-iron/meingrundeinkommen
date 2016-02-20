@@ -11,12 +11,12 @@ class RegistrationsController < Devise::RegistrationsController
       account_update_params.delete("password_confirmation")
     end
 
-    #if has crowdbar -> save it
+    # if has crowdbar -> save it
     if account_update_params[:has_crowdbar] == true && !current_user.chances.empty?
       Chance.where(user_id: current_user.id).update_all(crowdbar_verified: true)
     end
 
-    #account updates
+    # account updates
     @user = User.find(current_user.id)
     if @user.update_attributes(account_update_params)
       render json: @user
@@ -28,14 +28,14 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     account_create_params = devise_parameter_sanitizer.sanitize(:sign_up)
 
-    #account_create_params['sign_up_ip'] = request.remote_ip
+    # account_create_params['sign_up_ip'] = request.remote_ip
     signups = if cookies[:sign_ups]
                 cookies[:sign_ups].to_i + 1
               else
                 1
               end
     cookies[:sign_ups] = signups
-    #account_create_params['number_of_signups'] = signups
+    # account_create_params['number_of_signups'] = signups
 
     super
   end

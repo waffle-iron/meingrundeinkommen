@@ -81,7 +81,7 @@ Rails.application.routes.draw do
   # Angular catch all to allow page refresh
   get '*page' => "websites#show"
 
-  #get '*path' => "websites#show"
+  # get '*path' => "websites#show"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

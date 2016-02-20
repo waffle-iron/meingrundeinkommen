@@ -58,7 +58,7 @@ class Api::TandemsController < ApplicationController
      end
 
 	 def create
- 		 #todo:
+ 		 # todo:
 
  		 # grudge = params[:grudge]
  		 # tandem = params[:tandem].permit(:invitee_email, :invitee_name, :invitee_id, :inviter_id, :purpose, :invitation_type, :invitee_email_subject, :invitee_email_text)
@@ -116,7 +116,7 @@ class Api::TandemsController < ApplicationController
  			tandem[:invitee_grudges_inviter_for] = params[:grudge] if tandem[:invitee_id] == current_user.id
  			tandem[:inviter_grudges_invitee_for] = params[:grudge] if tandem[:inviter_id] == current_user.id
  			tandem.save
- 			#InvitationMailer.inform_mail_confirmation(tandem,current_user,User.find(tandem[:inviter_id])).deliver
+ 			# InvitationMailer.inform_mail_confirmation(tandem,current_user,User.find(tandem[:inviter_id])).deliver
  			render json: {success: true}
  	end
 

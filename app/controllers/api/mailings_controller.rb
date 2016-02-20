@@ -1,5 +1,5 @@
 class Api::MailingsController < ApplicationController
-  #require 'mailers/massmailer'
+  # require 'mailers/massmailer'
 
   def create
   	 if current_user.admin?
@@ -10,10 +10,10 @@ class Api::MailingsController < ApplicationController
 
  		   if params[:send]
     			 if params[:test]
-     				 #send it
+     				 # send it
      				 render json: MailingsMailer.transactionmail([User.find(current_user.id)],params[:subject],params[:body]).deliver
      			else
-     				 #write to queue
+     				 # write to queue
 
      				 queue = {
       					 groups:     params[:groups],

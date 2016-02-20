@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-  #before_filter :authenticate_user!
+  # before_filter :authenticate_user!
 
   before_action :load_user, only:[:show,:states, :wishes]
 
@@ -38,11 +38,11 @@ class Api::UsersController < ApplicationController
     else
       render json: @user.state_users.where(visibility: true)
     end
-    #render json: @user.states.includes(:state_users)
+    # render json: @user.states.includes(:state_users)
   end
 
   def wishes
-    #render json: @user.user_wishes.includes(:wish)
+    # render json: @user.user_wishes.includes(:wish)
 
     x = []
 
@@ -59,7 +59,7 @@ class Api::UsersController < ApplicationController
         wish:         wish.conjugate,
         story:        user_wish.story,
         me_too:       (current_user && current_user.wishes.exists?(wish.id) ? true : false)
-        #user: UserWish.where(id:wish.user_wish_ids.sample).first.user.slice(:name, :id, :avatar)
+        # user: UserWish.where(id:wish.user_wish_ids.sample).first.user.slice(:name, :id, :avatar)
       }
     end
     render json:x
@@ -95,7 +95,7 @@ class Api::UsersController < ApplicationController
             is_suggestion_for: w[:original_wish]
           }
 
-          #CHECK FOR PERFECT MATCH
+          # CHECK FOR PERFECT MATCH
 
           wish = Wish.where(text: w[:sanitized]).first
           wish = false if wish && !wish.users

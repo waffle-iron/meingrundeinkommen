@@ -4,7 +4,7 @@ namespace :chances do
   task SetCodes: :environment do
     desc "set random codes for users"
 
-    #chances = Chance.where(:code => nil, :confirmed => true).shuffle
+    # chances = Chance.where(:code => nil, :confirmed => true).shuffle
     chances = Chance.where(confirmed: true,code: nil).shuffle
 
     first_round = false
@@ -27,7 +27,7 @@ namespace :chances do
                 chances[i].update_attribute(:code, "#{c1}•#{c2}•#{c3}•#{c4}")
                 i = i + 1
               end
-              #i = i + 1
+              # i = i + 1
             end
           end
         end
@@ -37,7 +37,7 @@ namespace :chances do
 
   task SetCodesForTandems: :environment do
     desc "set random codes for tandems"
-    #set codes for tandems
+    # set codes for tandems
 
     users_without_tandem = []
     allchances           = Chance.where('is_child = 0 and confirmed = 1 and code is not null')
@@ -101,13 +101,13 @@ namespace :chances do
   task confirmSquirrels: :environment do
     desc "confirm chance of squirrels or set their chance"
 
-    #test query: must be zero after script worked fine:
-    #select count(id) from users where id not in (select user_id from chances where confirmed = 1) and id in (select user_id from payments where active = 1);
+    # test query: must be zero after script worked fine:
+    # select count(id) from users where id not in (select user_id from chances where confirmed = 1) and id in (select user_id from payments where active = 1);
 
     Payment.where(active: true).each do |p|
       if !p.user_id.nil? && !p.user.nil?
         if !p.user.chances.any?
-          #create chanche with fake dob
+          # create chanche with fake dob
           chance = Chance.new(first_name:            p.user_first_name,
                               user_id:               p.user_id,
                               last_name:             p.user_last_name,
@@ -148,14 +148,14 @@ namespace :chances do
   task crowdjoker: :environment do
     desc "setup jokers for crowdcard users on location"
 
-    #cc_no = []
-    #cc_no = (1..300).to_a
-    #cc_no << (12626..12750).to_a
+    # cc_no = []
+    # cc_no = (1..300).to_a
+    # cc_no << (12626..12750).to_a
 
-    #C160 bis C219
+    # C160 bis C219
 
     (120..259).each do |cc|
-      #blub.each do |cc|
+      # blub.each do |cc|
       puts "C#{cc}"
       pw        = Devise.friendly_token.first(8)
       user_data = {
@@ -172,7 +172,7 @@ namespace :chances do
           user.chances.create(confirmed_publication: true, first_name: "vorOrt", last_name: "nummerC#{cc}", dob: "1984-10-01", confirmed: true)
         end
       end
-      #end
+      # end
     end
   end
 end
