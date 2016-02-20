@@ -21,7 +21,7 @@ class Api::UserWishesController < ApplicationController
 
       x = {
         id:           user_wish.id,
-        others_count: UserWish.where(wish_id:wish.id).count - 1,
+        others_count: UserWish.where(wish_id: wish.id).count - 1,
         wish_id:      wish.id,
         story:        user_wish.story,
         text:         wish.text,
@@ -41,7 +41,7 @@ class Api::UserWishesController < ApplicationController
   def index
     x = []
     UserWish.limit(10).order('updated_at desc').map do |user_wish|
-      wish = Wish.where(id:user_wish.wish_id).first
+      wish = Wish.where(id: user_wish.wish_id).first
       next unless wish
       x << {
         id:           user_wish.id,
@@ -78,13 +78,13 @@ class Api::UserWishesController < ApplicationController
 
   def update
     # current_user = User.first
-    current_user.user_wishes.where(id:params[:id]).first.update_attributes(story: params[:story])
+    current_user.user_wishes.where(id: params[:id]).first.update_attributes(story: params[:story])
     render json: {success: true}
   end
 
   def destroy
     # current_user = User.first
-    current_user.user_wishes.where(id:params[:id]).first.destroy
+    current_user.user_wishes.where(id: params[:id]).first.destroy
     render json: {me_too: false}
   end
 

@@ -5,7 +5,7 @@ class Api::QuestionsController < ApplicationController
   caches_page :index
 
   def create
-    question = Question.where(text:params[:text]).first
+    question = Question.where(text: params[:text]).first
     question = Question.create(text: params[:text],category: params[:category]) unless question
     render json: question if question.save
   end

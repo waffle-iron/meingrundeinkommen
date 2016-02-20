@@ -2,19 +2,19 @@ class Api::StatesController < ApplicationController
 
   def create
     # current_user = User.first
-    state      = State.where(text:params[:text]).first
+    state      = State.where(text: params[:text]).first
     state      = State.create(params.permit(:text)) unless state
-    user_state = current_user.state_users.where(state:state)
-    user_state = current_user.state_users.create state:state, visibility:params[:visibility] if user_state.blank?
-    render json:user_state
+    user_state = current_user.state_users.where(state: state)
+    user_state = current_user.state_users.create state: state, visibility: params[:visibility] if user_state.blank?
+    render json: user_state
   end
 
   def users
-    render json:State.find(params[:id]).users
+    render json: State.find(params[:id]).users
   end
 
   def stories
-    render json:States.find(params[:id]).state_users.where('story is not null').order('created_at desc')
+    render json: States.find(params[:id]).state_users.where('story is not null').order('created_at desc')
   end
 
   def index

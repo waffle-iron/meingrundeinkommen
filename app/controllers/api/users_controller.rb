@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
   # before_filter :authenticate_user!
 
-  before_action :load_user, only:[:show,:states, :wishes]
+  before_action :load_user, only: [:show,:states, :wishes]
 
   def index
     if current_user
@@ -48,11 +48,11 @@ class Api::UsersController < ApplicationController
 
     @user.user_wishes.order('created_at desc').map do |user_wish|
       next unless user_wish
-      wish = Wish.where(id:user_wish.wish_id).first
+      wish = Wish.where(id: user_wish.wish_id).first
       next unless wish
       x << {
         id:           user_wish.id,
-        others_count: UserWish.where(wish_id:wish.id).count - 1,
+        others_count: UserWish.where(wish_id: wish.id).count - 1,
         text:         wish.text,
         wish_id:      wish.id,
         wish_url:     Rack::Utils.escape(wish.text),
@@ -62,7 +62,7 @@ class Api::UsersController < ApplicationController
         # user: UserWish.where(id:wish.user_wish_ids.sample).first.user.slice(:name, :id, :avatar)
       }
     end
-    render json:x
+    render json: x
   end
 
   def suggestions
@@ -101,7 +101,7 @@ class Api::UsersController < ApplicationController
 
           if wish
 
-            sample_user = if exists = UserWish.where(id:wish.user_wish_ids.sample).first
+            sample_user = if exists = UserWish.where(id: wish.user_wish_ids.sample).first
                             exists.user
                           else
                             current_user
@@ -110,7 +110,7 @@ class Api::UsersController < ApplicationController
             r << {
               suggestion:   suggestion,
               id:           wish.id,
-              others_count: UserWish.where(wish_id:wish.id).count - 1,
+              others_count: UserWish.where(wish_id: wish.id).count - 1,
               text:         wish.text,
               wish_id:      wish.id,
               wish_url:     Rack::Utils.escape(wish.text),
@@ -138,11 +138,11 @@ class Api::UsersController < ApplicationController
               r << {
                 suggestion:   suggestion,
                 id:           wish.id,
-                others_count: UserWish.where(wish_id:wish.id).count - 1,
+                others_count: UserWish.where(wish_id: wish.id).count - 1,
                 text:         wish.text,
                 wish_id:      wish.id,
                 wish_url:     Rack::Utils.escape(wish.text),
-                user:         UserWish.where(id:wish.user_wish_ids.sample).first.user.slice(:name, :id, :avatar)
+                user:         UserWish.where(id: wish.user_wish_ids.sample).first.user.slice(:name, :id, :avatar)
               }
             else
               suggestion[:is_unique] = true
@@ -165,15 +165,15 @@ class Api::UsersController < ApplicationController
         next unless wish
         r << {
           id:           wish.id,
-          others_count: UserWish.where(wish_id:wish.id).count - 1,
+          others_count: UserWish.where(wish_id: wish.id).count - 1,
           text:         wish.text,
           wish_id:      wish.id,
           wish_url:     Rack::Utils.escape(wish.text),
-          user:         UserWish.where(id:wish.user_wish_ids.sample).first.user.slice(:name, :id, :avatar)
+          user:         UserWish.where(id: wish.user_wish_ids.sample).first.user.slice(:name, :id, :avatar)
         }
       end
 
-      render json:r
+      render json: r
     end
   end
 

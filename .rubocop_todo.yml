@@ -424,12 +424,10 @@ Style/RescueModifier:
 Style/SelfAssignment:
   Exclude:
 
-# Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: AllowAsExpressionSeparator.
 Style/Semicolon:
   Exclude:
-    - 'app/models/wish.rb'
 
 # Offense count: 1
 # Configuration parameters: Methods.
@@ -438,17 +436,9 @@ Style/SingleLineBlockParams:
   Exclude:
     - 'app/models/wish.rb'
 
-# Offense count: 51
 # Cop supports --auto-correct.
 Style/SpaceAfterColon:
   Exclude:
-    - 'app/controllers/api/chances_controller.rb'
-    - 'app/controllers/api/questions_controller.rb'
-    - 'app/controllers/api/state_users_controller.rb'
-    - 'app/controllers/api/states_controller.rb'
-    - 'app/controllers/api/user_wishes_controller.rb'
-    - 'app/controllers/api/users_controller.rb'
-    - 'app/controllers/api/wishes_controller.rb'
 
 # Offense count: 154
 # Cop supports --auto-correct.

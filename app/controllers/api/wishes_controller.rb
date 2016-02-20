@@ -6,10 +6,10 @@ class Api::WishesController < ApplicationController
 
   def create
     # current_user = User.first
-    wish      = Wish.where(text:params[:text]).first
+    wish      = Wish.where(text: params[:text]).first
     wish      = Wish.create(params.permit(:text)) unless wish
-    user_wish = current_user.user_wishes.where(wish:wish)
-    user_wish = current_user.user_wishes.create wish:wish, story:params[:story] if user_wish.blank?
+    user_wish = current_user.user_wishes.where(wish: wish)
+    user_wish = current_user.user_wishes.create wish: wish, story: params[:story] if user_wish.blank?
 
     if params[:remove_initial_wish]
       sugg = Suggestion.where(email: current_user.email).first
@@ -23,7 +23,7 @@ class Api::WishesController < ApplicationController
     x = {
       id:           user_wish.id,
       # similar: similar.results[0..1],
-      others_count: UserWish.where(wish_id:wish.id).count - 1,
+      others_count: UserWish.where(wish_id: wish.id).count - 1,
       wish_id:      wish.id,
       story:        user_wish.story,
       text:         wish.text,
@@ -36,17 +36,17 @@ class Api::WishesController < ApplicationController
   end
 
   def users
-    render json:Wish.find(params[:id]).users.order(avatar: :desc)
+    render json: Wish.find(params[:id]).users.order(avatar: :desc)
   end
 
   def stories
-    render json:Wish.find(params[:id]).user_wishes.where('story is not null and story != ""').order('created_at desc')
+    render json: Wish.find(params[:id]).user_wishes.where('story is not null and story != ""').order('created_at desc')
   end
 
   def states
     user_ids = Wish.find(params[:id]).user_ids
     r        = State.select("states.id, states.text, count(states.id) as ccc").joins(:state_users).where('state_users.user_id'=>user_ids).group(:state_id).limit(25).order('ccc desc')
-    render json:r
+    render json: r
   end
 
   def wishes
@@ -55,21 +55,21 @@ class Api::WishesController < ApplicationController
     Wish.select("wishes.id, wishes.text, count(wishes.id) as ccc").joins(:user_wishes).where('user_wishes.user_id'=>user_ids).where.not('wishes.id' => params[:id]).group(:wish_id).limit(25).order('ccc desc').map do |wish|
       next unless wish
       r << {
-        others_count: UserWish.where(wish_id:wish.id).count - 1,
+        others_count: UserWish.where(wish_id: wish.id).count - 1,
         wish_id:      wish.id,
         wish_url:     Rack::Utils.escape(wish.text),
         wish:         wish.conjugate,
         text:         wish.text,
         me_too:       (current_user && current_user.wishes.exists?(wish.id) ? true : false),
-        user:         UserWish.where(id:wish.user_wish_ids.sample).first.user.slice(:name, :id, :avatar)
+        user:         UserWish.where(id: wish.user_wish_ids.sample).first.user.slice(:name, :id, :avatar)
       }
     end
-    render json:r
+    render json: r
   end
 
   def show
     wish  = Wish.find(params[:id])
-    count = UserWish.where(wish_id:wish.id).count
+    count = UserWish.where(wish_id: wish.id).count
     x     = {
       count:        count,
       others_count: count -1,
@@ -79,7 +79,7 @@ class Api::WishesController < ApplicationController
       wish_url:     Rack::Utils.escape(wish.text),
       wish:         wish.conjugate,
       me_too:       (current_user && current_user.wishes.exists?(wish.id) ? true : false),
-      user:         UserWish.where(id:wish.user_wish_ids.sample).first.user.slice(:name, :id, :avatar)
+      user:         UserWish.where(id: wish.user_wish_ids.sample).first.user.slice(:name, :id, :avatar)
     }
     render json: x
   end
@@ -89,7 +89,7 @@ class Api::WishesController < ApplicationController
 
     UserWish.group(:wish_id).limit(8).order('count_all desc').count.map do |id, count|
       next unless id
-      wish = Wish.where(id:id).first
+      wish = Wish.where(id: id).first
       next unless wish
       user = wish.users.where.not('users.avatar' => nil).sample
       user = wish.users.sample unless user
@@ -107,7 +107,7 @@ class Api::WishesController < ApplicationController
       }
     end
 
-    render json:x
+    render json: x
   end
 
   def index
@@ -127,9 +127,9 @@ class Api::WishesController < ApplicationController
       end
 
       base = if current_user
-               base.where(wish_id:query.results.map(&:id)).where.not(wish_id: current_user.user_wishes.map(&:wish_id))
+               base.where(wish_id: query.results.map(&:id)).where.not(wish_id: current_user.user_wishes.map(&:wish_id))
              else
-               base.where(wish_id:query.results.map(&:id))
+               base.where(wish_id: query.results.map(&:id))
              end
     end
 
@@ -137,7 +137,7 @@ class Api::WishesController < ApplicationController
 
     base.group(:wish_id).limit(limit).offset(limit*(page-1)).order('count_all desc').count.map do |id, count|
       next unless id
-      wish = Wish.where(id:id).first
+      wish = Wish.where(id: id).first
       next unless wish
       user = wish.users.where.not('users.avatar' => nil).sample unless params[:q]
       user = wish.users.sample unless user
@@ -155,14 +155,14 @@ class Api::WishesController < ApplicationController
       }
     end
 
-    if params[:q] && !Wish.where(text:params[:q]).first
+    if params[:q] && !Wish.where(text: params[:q]).first
       x << {
         text:   params[:q],
         create: true
       }
     end
 
-    render json:x
+    render json: x
   end
 
 end

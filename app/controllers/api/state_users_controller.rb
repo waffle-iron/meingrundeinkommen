@@ -7,12 +7,12 @@ class Api::StateUsersController < ApplicationController
   end
 
   def destroy
-    current_user.state_users.where(id:params[:id]).first.destroy
-    render json:{}
+    current_user.state_users.where(id: params[:id]).first.destroy
+    render json: {}
   end
 
   def update
-    current_user.state_users.where(id:params[:id]).first.update_attributes(visibility: params[:visibility])
+    current_user.state_users.where(id: params[:id]).first.update_attributes(visibility: params[:visibility])
     render json: {success: true}
   end
 

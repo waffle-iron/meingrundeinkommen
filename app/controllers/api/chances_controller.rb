@@ -23,7 +23,7 @@ class Api::ChancesController < ApplicationController
 
   def destroy
     # if !current_user.winner
-    current_user.chances.where(id:params[:id]).first.destroy
+    current_user.chances.where(id: params[:id]).first.destroy
     render json: {success: true}
     # end
   end
