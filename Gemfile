@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
 # rails
-gem 'rails', '~> 4.1', '>= 4.1.14.1'
+#gem 'rails', '~> 4.1', '>= 4.1.14.1'
+gem 'rails', '>= 4.1.14.1', '< 4.2'
 
 # database & models
 gem 'active_model_serializers', '0.8.1'
@@ -11,7 +12,7 @@ gem 'mysql2', '~> 0.3.18'
 # authentication/authorization
 gem 'bcrypt'
 gem 'devise', '3.2.4'
-
+#gem 'rack-timeout', '~> 0.3.2'
 # misc
 gem 'actionpack-page_caching'
 gem 'angular-ui-bootstrap-rails'
