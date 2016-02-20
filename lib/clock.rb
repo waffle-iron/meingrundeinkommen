@@ -5,7 +5,6 @@ require 'httparty'
 require 'csv'
 
 module Clockwork
-
   configure do |config|
     config[:logger] = Logger.new("../log/clock.log")
   end
@@ -96,5 +95,4 @@ module Clockwork
   every(10.minutes, 'clear.cache')
   every(20.minutes, 'bank.check')
   #every(25.minutes, 'tandem.statusupdate')
-
 end

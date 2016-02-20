@@ -1,6 +1,5 @@
 # encoding: UTF-8
 module ConjugationHelper
-
   # GERMAN RULEZ
 
   BEGINNING_FIRST_PERSON_REGEXP = /^(mich|mir)\s/i

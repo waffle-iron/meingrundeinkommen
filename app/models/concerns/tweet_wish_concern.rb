@@ -21,5 +21,4 @@ module TweetWishConcern
 
     response = http.request(request)
   end
-
 end

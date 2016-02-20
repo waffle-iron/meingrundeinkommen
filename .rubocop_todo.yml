@@ -238,16 +238,11 @@ Style/EmptyLinesAroundClassBody:
 Style/EmptyLinesAroundMethodBody:
   Enabled: true
 
-# Offense count: 5
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 # SupportedStyles: empty_lines, no_empty_lines
 Style/EmptyLinesAroundModuleBody:
   Exclude:
-    - 'app/helpers/conjugation_helper.rb'
-    - 'app/models/concerns/tweet_support_concern.rb'
-    - 'app/models/concerns/tweet_wish_concern.rb'
-    - 'lib/clock.rb'
 
 # Offense count: 12
 # Cop supports --auto-correct.

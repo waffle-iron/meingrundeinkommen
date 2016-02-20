@@ -27,5 +27,4 @@ module TweetSupportConcern
 
     end
   end
-
 end
