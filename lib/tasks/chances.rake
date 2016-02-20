@@ -40,12 +40,12 @@ namespace :chances do
     #set codes for tandems
 
     users_without_tandem = []
-    allchances = Chance.where('is_child = 0 and confirmed = 1 and code is not null')
-    i = 0
+    allchances           = Chance.where('is_child = 0 and confirmed = 1 and code is not null')
+    i                    = 0
 
     allchances.each do |chance|
-      i = i + 1
-      uid = chance.user.id
+      i       = i + 1
+      uid     = chance.user.id
       tandems = Tandem.where("(inviter_id = #{uid} or invitee_id = #{uid}) and inviter_id in (select user_id from chances where confirmed=1) and invitee_id in (select user_id from chances where confirmed=1)  and inviter_id != invitee_id and inviter_id is not null and invitee_id is not null and disabled_by is null").limit(100)
 
       if tandems.any?
@@ -81,11 +81,11 @@ namespace :chances do
   task setRandomTandems: :environment do
     desc "set random tandems for ppl w/o tandem"
 
-    q = "is_child = 0 and confirmed = 1 and user_id not in (select inviter_id from tandems where inviter_id != invitee_id and inviter_id is not null and invitee_id is not null and disabled_by is null) and user_id not in (select invitee_id from tandems where inviter_id != invitee_id and inviter_id is not null and invitee_id is not null and disabled_by is null)"
+    q                    = "is_child = 0 and confirmed = 1 and user_id not in (select inviter_id from tandems where inviter_id != invitee_id and inviter_id is not null and invitee_id is not null and disabled_by is null) and user_id not in (select invitee_id from tandems where inviter_id != invitee_id and inviter_id is not null and invitee_id is not null and disabled_by is null)"
     users_without_tandem = Chance.where(q).map(&:user_id)
 
     users = users_without_tandem.shuffle
-    i = 0
+    i     = 0
     while users[i] do
       puts "#{i} of #{users_without_tandem.count}"
       Tandem.create(inviter_id:           users[i],
@@ -139,7 +139,7 @@ namespace :chances do
       user = User.find_by_id(i[:inviter_id])
       unless user.nil?
         mailtext = "Hallo, \n\ndie Seite \"Mein Grundeinkommen\" will herausfinden, was mit Menschen passiert, wenn sie ein Bedingungsloses Grundeinkommen erhalten. Dazu verlosen sie regelmäßig an eine Person ein Grundeinkommen, das 1000 €  im Monat beträgt und ein Jahr lang ausgezahlt wird.\n\nFünfzehn Menschen erhalten das Geld schon.\nDieses Mal werden zwei Grundeinkommen an zwei Menschen verlost, die sich kennen.\nIch nehme selbst an der Verlosung teil und lade dich herzlich ein, mein_e Tandempartner_in zu sein. Du musst nichts weiter tun als diesem Link zu folgen und meine Tandem-Einladung zu bestätigen:\n\nhttps:\/\/www.mein-grundeinkommen.de\/tandem?mitdir=#{user.id} \n\nEs kostet nichts und im besten Fall erhalten wir beide ein Jahr lang Grundeinkommen.\n\nLiebe Grüße"
-        subject = 'Grundeinkommen für dich und mich'
+        subject  = 'Grundeinkommen für dich und mich'
         i.update_attributes(invitation_type: 'mail', invitee_email_subject: subject, invitee_email_text: mailtext, invitee_id: nil)
       end
     end
@@ -157,7 +157,7 @@ namespace :chances do
     (120..259).each do |cc|
       #blub.each do |cc|
       puts "C#{cc}"
-      pw = Devise.friendly_token.first(8)
+      pw        = Devise.friendly_token.first(8)
       user_data = {
         name:                  "Vor-Ort-Crowdcard Nr. C#{cc}",
         email:                 "vorortcrowdcard#{cc}@mein-grundeinkommen.de",

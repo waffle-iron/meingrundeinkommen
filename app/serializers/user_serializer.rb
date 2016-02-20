@@ -101,7 +101,7 @@ class UserSerializer < ActiveModel::Serializer
 
         if object.id == c.inviter_id && c.invitee_id
           t[:grudge] = t[:inviter_grudges_invitee_for]
-          u = User.find_by_id(c.invitee_id)
+          u          = User.find_by_id(c.invitee_id)
           unless u.nil?
             t[:details] = { name: u.name, avatar: u.avatar, code: t[:inviter_code] }
           end
@@ -117,7 +117,7 @@ class UserSerializer < ActiveModel::Serializer
         end
         if object.id == c.invitee_id && c.inviter_id
           t[:grudge] = t[:invitee_grudges_inviter_for]
-          u = User.find_by_id(c.inviter_id)
+          u          = User.find_by_id(c.inviter_id)
           unless u.nil?
             t[:details] = { name: u.name, avatar: u.avatar, code: t[:invitee_code] }
           end

@@ -4,9 +4,9 @@ require 'csv'
 include ActionView::Helpers::NumberHelper
 
 class Float
-  def round_down n=0
-    s = self.to_s
-    l = s.index('.') + 1 + n
+  def round_down n =0
+    s              = self.to_s
+    l              = s.index('.') + 1 + n
     s.length <= l ? self : s[0,l].to_f
   end
 end
@@ -16,9 +16,9 @@ class Api::HomepagesController < ApplicationController
   caches_page :show
 
   def show
-    crowdfunding_supporter = 2900 + 140 + 18  #startnext + untracked paypal + kto
-    crowdfunding_amount = 3058.85 + 380.25 #untracked paypal + untracked kto
-    startnext = 47630.52
+    crowdfunding_supporter = 2900 + 140 + 18 #startnext + untracked paypal + kto
+    crowdfunding_amount    = 3058.85 + 380.25 #untracked paypal + untracked kto
+    startnext              = 47630.52
 
     own_supporter = Support.where(payment_completed: true).where.not(payment_method: :crowdbar).count
 
@@ -28,18 +28,18 @@ class Api::HomepagesController < ApplicationController
 
     own_funding_paypal_q = Support.where("payment_completed IS NOT NULL AND payment_method LIKE ?","paypal%",)
 
-    own_funding_paypal = own_funding_paypal_q.sum(:amount_for_income)
+    own_funding_paypal  = own_funding_paypal_q.sum(:amount_for_income)
     own_funding_paypal -= own_funding_paypal * 0.019
     own_funding_paypal -= own_funding_paypal_q.count * 0.19
 
     own_funding_query = Support.select('created_at,amount_for_income').where("payment_method = 'bank' AND payment_completed IS NOT NULL")
-    own_funding = own_funding_query.sum(:amount_for_income)
+    own_funding       = own_funding_query.sum(:amount_for_income)
 
     #Crowdcard
     #crowdcard = JSON.parse(File.read('public/crowdcard.json'))
 
     #temp
-    crowdcard_total = 9008
+    crowdcard_total  = 9008
     crowdcard_amount = crowdcard_total * 0.9
 
     # crowdcard_daily = JSON.parse(File.read('public/crowdcard_daily.json'))
@@ -69,12 +69,12 @@ class Api::HomepagesController < ApplicationController
     #last_synced_day = Support.where(:payment_completed => true, :payment_method => 'crowdbar').order(created_at: :desc).limit(1).first
     prediction = {}
     #temp_q = Support.where(:created_at => (last_synced_day.created_at - 13.days).beginning_of_day..last_synced_day.created_at.end_of_day, :payment_method => :crowdbar)
-    temp_q2 = Support.where(created_at: (Time.now - 15.days).beginning_of_day..(Time.now - 2.days).end_of_day, payment_completed: true).where.not(payment_method: :crowdbar)
-    prediction[:avg_daily_commission] = cb_json["seven_day_commission"] / 7 + temp_q2.sum(:amount_for_income) / 14
+    temp_q2                                    = Support.where(created_at: (Time.now - 15.days).beginning_of_day..(Time.now - 2.days).end_of_day, payment_completed: true).where.not(payment_method: :crowdbar)
+    prediction[:avg_daily_commission]          = cb_json["seven_day_commission"] / 7 + temp_q2.sum(:amount_for_income) / 14
     prediction[:avg_daily_commission_crowdbar] = cb_json["seven_day_commission"] / 7
-    prediction[:days] = ((12000 - (total_amount % 12000)) / prediction[:avg_daily_commission]).round
-    prediction[:date] = Time.now + (prediction[:days].to_i).days
-    number_of_participants = Chance.count()
+    prediction[:days]                          = ((12000 - (total_amount % 12000)) / prediction[:avg_daily_commission]).round
+    prediction[:date]                          = Time.now + (prediction[:days].to_i).days
+    number_of_participants                     = Chance.count()
 
     homepage_data = {
       number_of_users:                 number_with_precision(User.count, precision: 0, delimiter: '.'),
@@ -120,7 +120,7 @@ class Api::HomepagesController < ApplicationController
         kpi_social_groups_distribution:     State.joins(:state_users).select('count(state_users.id)').group("states.text").order('count_state_users_id desc').count('state_users.id')
       }
 
-      csv = CSV.generate() do |csv|
+      csv       = CSV.generate() do |csv|
         columns = ['Date']
         columns << params[:kpi].to_s
         csv << columns

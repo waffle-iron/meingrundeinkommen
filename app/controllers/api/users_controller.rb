@@ -181,9 +181,9 @@ class Api::UsersController < ApplicationController
   def show
     if @user == current_user
       current_user.browser = "#{browser.name} #{browser.full_version}"
-      current_user.os = browser.platform.to_s
-      current_user.os += ", mobile" if browser.mobile?
-      current_user.os += ", tablet" if browser.tablet?
+      current_user.os      = browser.platform.to_s
+      current_user.os     += ", mobile" if browser.mobile?
+      current_user.os     += ", tablet" if browser.tablet?
       current_user.save
     end
 

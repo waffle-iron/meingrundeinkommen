@@ -43,7 +43,7 @@ class Api::DrawingsController < ApplicationController
               #   data[i][:user] = { :name => "Twitter-Nutzer @#{winner.last_name}", :id => 0 }
               # end
 
-              data[i][:isChild] = winner.is_child
+              data[i][:isChild]   = winner.is_child
               data[i][:childName] = winner.first_name
             end
           else
@@ -51,7 +51,7 @@ class Api::DrawingsController < ApplicationController
             end
         else
           data[i][:niete] = true
-          data[i][:user] = false
+          data[i][:user]  = false
         end
 
         data[i][:number] = number

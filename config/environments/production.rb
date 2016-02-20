@@ -4,7 +4,7 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
 
-  config.action_controller.perform_caching = true
+  config.action_controller.perform_caching      = true
   config.action_controller.page_cache_directory = "#{Rails.root}/public/cache"
 
   # Eager load code on boot. This eager loads most of Rails and
@@ -21,7 +21,7 @@ Rails.application.configure do
   config.action_mailer.default_options = { from: "\"Mein Grundeinkommen\" <micha@meinbge.de>" }
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
+  config.action_mailer.smtp_settings   = {
     address:              "smtp.mandrillapp.com",
     port:                 587, # ports 587 and 2525 are also supported with STARTTLS
     enable_starttls_auto: true, # detects and uses STARTTLS

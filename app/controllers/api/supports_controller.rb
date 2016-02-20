@@ -7,7 +7,7 @@ class Api::SupportsController < ApplicationController
 
     if current_user
       support.nickname = current_user.name
-      support.email = current_user.email
+      support.email    = current_user.email
     end
 
     if support.valid?

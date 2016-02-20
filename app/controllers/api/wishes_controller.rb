@@ -6,15 +6,15 @@ class Api::WishesController < ApplicationController
 
   def create
     #current_user = User.first
-    wish = Wish.where(text:params[:text]).first
-    wish = Wish.create(params.permit(:text)) if !wish
+    wish      = Wish.where(text:params[:text]).first
+    wish      = Wish.create(params.permit(:text)) if !wish
     user_wish = current_user.user_wishes.where(wish:wish)
     user_wish = current_user.user_wishes.create wish:wish, story:params[:story] if user_wish.blank?
 
     if params[:remove_initial_wish]
       sugg = Suggestion.where(email: current_user.email).first
       if sugg
-        initial_wishes = sugg.initial_wishes
+        initial_wishes     = sugg.initial_wishes
         initial_wishes_new = initial_wishes.sub!(params[:remove_initial_wish], '')
         Suggestion.find(sugg.id).update_attributes(initial_wishes: initial_wishes_new )
       end
@@ -45,13 +45,13 @@ class Api::WishesController < ApplicationController
 
   def states
     user_ids = Wish.find(params[:id]).user_ids
-    r = State.select("states.id, states.text, count(states.id) as ccc").joins(:state_users).where('state_users.user_id'=>user_ids).group(:state_id).limit(25).order('ccc desc')
+    r        = State.select("states.id, states.text, count(states.id) as ccc").joins(:state_users).where('state_users.user_id'=>user_ids).group(:state_id).limit(25).order('ccc desc')
     render json:r
   end
 
   def wishes
     user_ids = Wish.find(params[:id]).user_ids
-    r = []
+    r        = []
     Wish.select("wishes.id, wishes.text, count(wishes.id) as ccc").joins(:user_wishes).where('user_wishes.user_id'=>user_ids).where.not('wishes.id' => params[:id]).group(:wish_id).limit(25).order('ccc desc').map do |wish|
       next if !wish
       r << {
@@ -68,9 +68,9 @@ class Api::WishesController < ApplicationController
   end
 
   def show
-    wish = Wish.find(params[:id])
+    wish  = Wish.find(params[:id])
     count = UserWish.where(wish_id:wish.id).count
-    x = {
+    x     = {
       count:        count,
       others_count: count -1,
       wish_id:      wish.id,
@@ -119,8 +119,8 @@ class Api::WishesController < ApplicationController
 
     if params[:q]
       params[:q] = params[:q].gsub(/ich würde/i,'')
-      limit = 5
-      query = Wish.search do
+      limit      = 5
+      query      = Wish.search do
         fulltext params[:q] do
           minimum_match 1
         end

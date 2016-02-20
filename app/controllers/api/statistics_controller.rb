@@ -32,16 +32,16 @@ class Api::StatisticsController < ApplicationController
         #   stats[key] = ActiveRecord::Base.connection.execute("#{base_not} #{query}").count
         # end
 
-        stats['crowdcardOrders'] = Crowdcard.all.count
-        stats['crowdcardsOrdered'] = Crowdcard.sum(:number_of_cards)
+        stats['crowdcardOrders']          = Crowdcard.all.count
+        stats['crowdcardsOrdered']        = Crowdcard.sum(:number_of_cards)
         stats['participantsWithChildren'] = Chance.where(confirmed: 1).count
-        stats['participants'] = Chance.where(is_child: 0, confirmed: 1).count
+        stats['participants']             = Chance.where(is_child: 0, confirmed: 1).count
         #stats['participants_mail_unconfirmed'] = 0
         #stats['participants_squirrel'] = 0
         #stats['participants_no_squirrel'] = 0
         #stats['not_participating'] = 0
-        stats['Accounts'] = User.count
-        stats['activeAccounts'] = User.where('confirmed_at is not null').count
+        stats['Accounts']                = User.count
+        stats['activeAccounts']          = User.where('confirmed_at is not null').count
         stats['newsletterSubscriptions'] = User.where('confirmed_at is not null and newsletter = 1').count
         #stats['newsletterRatio'] = (stats['newsletterSubscriptions'] / stats['activeAccounts']) * 100
         render json: stats

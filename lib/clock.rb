@@ -13,17 +13,17 @@ module Clockwork
     if job == "cache.news"
 
       response = HTTParty.get('http://blog.meinbge.de/wp-json/wp/v2/posts?filter[posts_per_page]=500')
-      json = JSON.parse(response.body)
-      posts = []
+      json     = JSON.parse(response.body)
+      posts    = []
       puts json.length
       json.each do |opost|
-        post = opost
+        post  = opost
         thumb = JSON.parse(HTTParty.get("http://blog.meinbge.de/wp-json/wp/v2/media/#{opost['featured_image']}").body)
         if thumb['media_details']
           post['thumb'] = thumb['media_details']['sizes']['post-thumbnail']['source_url'] if thumb['media_details']['sizes']['post-thumbnail']
           post['image'] = thumb['media_details']['sizes']['large']['source_url']          if thumb['media_details']['sizes']['large']
         end
-        author = JSON.parse(HTTParty.get("http://blog.meinbge.de/wp-json/wp/v2/users/#{opost['author']}").body)
+        author             = JSON.parse(HTTParty.get("http://blog.meinbge.de/wp-json/wp/v2/users/#{opost['author']}").body)
         post['authorname'] = author['name'] if author['name']
         posts << post
       end
@@ -37,7 +37,7 @@ module Clockwork
     if job == "crowdbar.stats"
 
       response = HTTParty.get('http://bar.mein-grundeinkommen.de/crowd_bar_stats.json')
-      json = JSON.parse(response.body)
+      json     = JSON.parse(response.body)
 
       File.open("../public/crowdbar.json", "w+") do |f|
         f.write(json.to_json)

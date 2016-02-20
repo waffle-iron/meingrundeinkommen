@@ -14,7 +14,7 @@ class Flag < ActiveRecord::Base
  	end
 
 	 def self.set(current_user,params)
- 		 format = Flag.flagformat(params[:value])
+ 		 format      = Flag.flagformat(params[:value])
  		 if existing = current_user.flags.where(name: params[:name]).first
   			 existing.update_attribute(format,params[:value])
   			 existing.update_attribute(:value_boolean, true)  if format != :value_boolean && params[:value]
@@ -28,7 +28,7 @@ class Flag < ActiveRecord::Base
  	end
 
 	 def self.increment(current_user,params)
- 		 old = current_user.flags.where(name: params[:name]).first
+ 		 old            = current_user.flags.where(name: params[:name]).first
  	  params[:value] = old ? old.value_integer + 1 : 1
  	  self.set(current_user,params)
  	end

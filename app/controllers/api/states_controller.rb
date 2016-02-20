@@ -2,8 +2,8 @@ class Api::StatesController < ApplicationController
 
   def create
     #current_user = User.first
-    state = State.where(text:params[:text]).first
-    state = State.create(params.permit(:text)) if !state
+    state      = State.where(text:params[:text]).first
+    state      = State.create(params.permit(:text)) if !state
     user_state = current_user.state_users.where(state:state)
     user_state = current_user.state_users.create state:state, visibility:params[:visibility] if user_state.blank?
     render json:user_state

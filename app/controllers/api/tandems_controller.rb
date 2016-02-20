@@ -112,7 +112,7 @@ class Api::TandemsController < ApplicationController
  	end
 
 	 def update
- 			tandem = Tandem.find(params[:id])
+ 			tandem                               = Tandem.find(params[:id])
  			tandem[:invitee_grudges_inviter_for] = params[:grudge] if tandem[:invitee_id] == current_user.id
  			tandem[:inviter_grudges_invitee_for] = params[:grudge] if tandem[:inviter_id] == current_user.id
  			tandem.save

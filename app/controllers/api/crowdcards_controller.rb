@@ -22,7 +22,7 @@ class Api::CrowdcardsController < ApplicationController
   def index
   	 if current_user && current_user.admin? && params[:admin]
 
-      cc = Crowdcard.all
+      cc        = Crowdcard.all
       cc_unsent = Crowdcard.where(sent: nil)
 
    	  respond_to do |format|

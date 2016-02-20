@@ -14,10 +14,10 @@ class PaymentsController < ApplicationController
           Rails.logger.info support.payment_completed
           if params[:payment_status] == 'Completed'
             support.payment_completed = true
-            support.email = params[:payer_email] if !support.email && params[:payer_email]
-            support.nickname = params[:first_name] if !support.nickname && params[:first_name]
-            support.city = params[:address_city] if params[:address_city]
-            support.country = params[:address_country] if params[:address_country]
+            support.email             = params[:payer_email] if !support.email && params[:payer_email]
+            support.nickname          = params[:first_name] if !support.nickname && params[:first_name]
+            support.city              = params[:address_city] if params[:address_city]
+            support.country           = params[:address_country] if params[:address_country]
             support.save
             Rails.logger.info support.payment_completed
             support_test = Support.find(params[:custom].to_i)
@@ -39,11 +39,11 @@ class PaymentsController < ApplicationController
     uri = URI.parse('https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate')
     uri = URI.parse('https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_notify-validate') if test
     Rails.logger.info uri.host
-    http = Net::HTTP.new(uri.host, uri.port)
+    http              = Net::HTTP.new(uri.host, uri.port)
     http.open_timeout = 60
     http.read_timeout = 60
-    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-    http.use_ssl = true
+    http.verify_mode  = OpenSSL::SSL::VERIFY_NONE
+    http.use_ssl      = true
     Rails.logger.info uri.request_uri
     Rails.logger.info raw
     response = http.post(uri.request_uri, raw,

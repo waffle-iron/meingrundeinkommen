@@ -13,7 +13,7 @@ class Api::UserWishesController < ApplicationController
       if params[:remove_initial_wish]
         sugg = Suggestion.where(email: current_user.email).first
         if sugg
-          initial_wishes = sugg.initial_wishes
+          initial_wishes     = sugg.initial_wishes
           initial_wishes_new = initial_wishes.sub!(params[:remove_initial_wish], '')
           Suggestion.find(sugg.id).update_attributes(initial_wishes: initial_wishes_new )
         end
@@ -33,7 +33,7 @@ class Api::UserWishesController < ApplicationController
       render json: x
 
     else
-      params[:id] =  current_user.user_wishes.where(wish_id: params[:wish_id])
+      params[:id] = current_user.user_wishes.where(wish_id: params[:wish_id])
       destroy
     end
   end

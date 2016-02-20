@@ -244,17 +244,16 @@ Style/EmptyLinesAroundMethodBody:
 Style/EmptyLinesAroundModuleBody:
   Exclude:
 
-# Offense count: 12
 # Cop supports --auto-correct.
 # Configuration parameters: AllowForAlignment, ForceEqualSignAlignment.
 Style/ExtraSpacing:
+  # When true, allows most uses of extra spacing if the intent is to align
+  # things with the previous or next line, not counting empty lines or comment
+  # lines.
+  AllowForAlignment: true
+  # When true, forces the alignment of = in assignments on consecutive lines.
+  ForceEqualSignAlignment: true
   Exclude:
-    - 'app/controllers/api/homepages_controller.rb'
-    - 'app/controllers/api/user_wishes_controller.rb'
-    - 'bin/rails'
-    - 'config.ru'
-    - 'db/migrate/20131228003152_devise_create_users.rb'
-    - 'db/schema.rb'
 
 # Offense count: 4
 # Configuration parameters: MinBodyLength.

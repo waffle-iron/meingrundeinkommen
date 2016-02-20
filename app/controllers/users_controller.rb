@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       @user.skip_confirmation! if params[:confirm_user]
       if params[:reset_pw]
-        new_password = SecureRandom.hex(6)
+        new_password   = SecureRandom.hex(6)
         @user.password = @user.password_confirmation = new_password
       end
       if params[:enable_crowdbar]
