@@ -100,7 +100,7 @@ class Api::WishesController < ApplicationController
         wish_url:     Rack::Utils.escape(wish.text),
         wish:         wish.conjugate,
         text:         wish.text,
-        me_too:       false,# (current_user && current_user.wishes.exists?(wish.id) ? true : false),
+        me_too:       false, # (current_user && current_user.wishes.exists?(wish.id) ? true : false),
         # user:UserWish.where(id:wish.user_wish_ids.sample).first.user.slice(:name, :id, :avatar),
         user:         user.slice(:name, :id, :avatar),
         create:       false
@@ -148,7 +148,7 @@ class Api::WishesController < ApplicationController
         wish_url:     Rack::Utils.escape(wish.text),
         wish:         wish.conjugate,
         text:         wish.text,
-        me_too:       false,# (current_user && current_user.wishes.exists?(wish.id) ? true : false),
+        me_too:       false, # (current_user && current_user.wishes.exists?(wish.id) ? true : false),
         # user:UserWish.where(id:wish.user_wish_ids.sample).first.user.slice(:name, :id, :avatar),
         user:         user.slice(:name, :id, :avatar),
         create:       false

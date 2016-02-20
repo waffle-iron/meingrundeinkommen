@@ -481,13 +481,9 @@ Style/SpaceBeforeComma:
   Exclude:
     - 'app/controllers/api/homepages_controller.rb'
 
-# Offense count: 5
 # Cop supports --auto-correct.
 Style/SpaceBeforeComment:
   Exclude:
-    - 'app/controllers/api/user_wishes_controller.rb'
-    - 'app/controllers/api/wishes_controller.rb'
-    - 'db/migrate/20141216122608_create_crowdcards.rb'
 
 # Offense count: 14
 # Cop supports --auto-correct.
