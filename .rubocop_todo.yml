@@ -336,27 +336,13 @@ Style/MethodName:
 Style/MultilineBlockLayout:
   Exclude:
 
-# Offense count: 2
 # Cop supports --auto-correct.
 Style/MutableConstant:
   Exclude:
-    - 'app/helpers/conjugation_helper.rb'
 
-# Offense count: 26
 # Cop supports --auto-correct.
 Style/NegatedIf:
   Exclude:
-    - 'app/controllers/api/crowdcards_controller.rb'
-    - 'app/controllers/api/questions_controller.rb'
-    - 'app/controllers/api/states_controller.rb'
-    - 'app/controllers/api/user_wishes_controller.rb'
-    - 'app/controllers/api/users_controller.rb'
-    - 'app/controllers/api/wishes_controller.rb'
-    - 'app/controllers/crowdapps_controller.rb'
-    - 'app/helpers/conjugation_helper.rb'
-    - 'app/models/chance.rb'
-    - 'app/serializers/user_serializer.rb'
-    - 'lib/tasks/chances.rake'
 
 # Offense count: 1
 Style/NestedTernaryOperator:

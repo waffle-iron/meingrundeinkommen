@@ -47,9 +47,9 @@ class Api::UsersController < ApplicationController
     x = []
 
     @user.user_wishes.order('created_at desc').map do |user_wish|
-      next if !user_wish
+      next unless user_wish
       wish = Wish.where(id:user_wish.wish_id).first
-      next if !wish
+      next unless wish
       x << {
         id:           user_wish.id,
         others_count: UserWish.where(wish_id:wish.id).count - 1,
@@ -88,7 +88,7 @@ class Api::UsersController < ApplicationController
         end
       end
 
-      if !iwishes.empty?
+      unless iwishes.empty?
 
         iwishes.each do |w|
           suggestion = {
@@ -163,7 +163,7 @@ class Api::UsersController < ApplicationController
       end
 
       Wish.select("wishes.id, wishes.text, count(wishes.id) as ccc").where.not(id: current_user.user_wishes.map(&:wish_id)).joins(:user_wishes).where('user_wishes.user_id'=>user_ids).group(:wish_id).limit(25).order('ccc desc').map do |wish|
-        next if !wish
+        next unless wish
         r << {
           id:           wish.id,
           others_count: UserWish.where(wish_id:wish.id).count - 1,

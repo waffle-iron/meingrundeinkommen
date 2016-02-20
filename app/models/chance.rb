@@ -28,7 +28,7 @@ class Chance < ActiveRecord::Base
  	end
 
 	 def validate_birthday
- 	  if !self.dob
+ 	  unless self.dob
  	    errors.add(:dob, "Bitte gib bei Tag, Monat und Jahr nur Ziffern, keine Buchstaben, ein.")
  	  	 return false
  	  end

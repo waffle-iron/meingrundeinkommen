@@ -7,7 +7,7 @@ class Api::WishesController < ApplicationController
   def create
     # current_user = User.first
     wish      = Wish.where(text:params[:text]).first
-    wish      = Wish.create(params.permit(:text)) if !wish
+    wish      = Wish.create(params.permit(:text)) unless wish
     user_wish = current_user.user_wishes.where(wish:wish)
     user_wish = current_user.user_wishes.create wish:wish, story:params[:story] if user_wish.blank?
 
@@ -53,7 +53,7 @@ class Api::WishesController < ApplicationController
     user_ids = Wish.find(params[:id]).user_ids
     r        = []
     Wish.select("wishes.id, wishes.text, count(wishes.id) as ccc").joins(:user_wishes).where('user_wishes.user_id'=>user_ids).where.not('wishes.id' => params[:id]).group(:wish_id).limit(25).order('ccc desc').map do |wish|
-      next if !wish
+      next unless wish
       r << {
         others_count: UserWish.where(wish_id:wish.id).count - 1,
         wish_id:      wish.id,
@@ -88,11 +88,11 @@ class Api::WishesController < ApplicationController
     x= []
 
     UserWish.group(:wish_id).limit(8).order('count_all desc').count.map do |id, count|
-      next if !id
+      next unless id
       wish = Wish.where(id:id).first
-      next if !wish
+      next unless wish
       user = wish.users.where.not('users.avatar' => nil).sample
-      user = wish.users.sample if !user
+      user = wish.users.sample unless user
       x << {
         others_count: count-1,
         count:        count,
@@ -136,11 +136,11 @@ class Api::WishesController < ApplicationController
     x= []
 
     base.group(:wish_id).limit(limit).offset(limit*(page-1)).order('count_all desc').count.map do |id, count|
-      next if !id
+      next unless id
       wish = Wish.where(id:id).first
-      next if !wish
-      user = wish.users.where.not('users.avatar' => nil).sample if !params[:q]
-      user = wish.users.sample if !user
+      next unless wish
+      user = wish.users.where.not('users.avatar' => nil).sample unless params[:q]
+      user = wish.users.sample unless user
       x << {
         others_count: count-1,
         count:        count,

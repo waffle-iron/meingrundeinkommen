@@ -6,7 +6,7 @@ class Api::QuestionsController < ApplicationController
 
   def create
     question = Question.where(text:params[:text]).first
-    question = Question.create(text: params[:text],category: params[:category]) if !question
+    question = Question.create(text: params[:text],category: params[:category]) unless question
     render json: question if question.save
   end
 

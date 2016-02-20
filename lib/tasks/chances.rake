@@ -20,7 +20,7 @@ namespace :chances do
             # if first_round && c1 == 9 && c2 == 22 && c3 == 30 && c4 == 4
             #   first_round = false
             # end
-            if !first_round
+            unless first_round
               if chances[i]
                 # •
                 puts "#{i} - #{c1}•#{c2}•#{c3}•#{c4}"
@@ -123,7 +123,7 @@ namespace :chances do
           end
         else
           chances = p.user.chances
-          chances.update_all(confirmed: true) if !chances.first.confirmed
+          chances.update_all(confirmed: true) unless chances.first.confirmed
 
         end
       end

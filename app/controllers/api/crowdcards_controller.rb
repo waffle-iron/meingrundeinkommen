@@ -1,7 +1,7 @@
 class Api::CrowdcardsController < ApplicationController
 
   def create
-    crowdcard = Crowdcard.create(params.permit(:first_name, :last_name, :street, :house_number, :city, :zip_code, :country, :number_of_cards)) if !current_user
+    crowdcard = Crowdcard.create(params.permit(:first_name, :last_name, :street, :house_number, :city, :zip_code, :country, :number_of_cards)) unless current_user
     crowdcard = current_user.crowdcards.create(params.permit(:first_name, :last_name, :street, :house_number, :city, :zip_code, :country, :number_of_cards)) if current_user
     if crowdcard.valid?
       crowdcard.save!

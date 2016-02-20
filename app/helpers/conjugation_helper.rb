@@ -3,8 +3,8 @@ module ConjugationHelper
   # GERMAN RULEZ
 
   BEGINNING_FIRST_PERSON_REGEXP = /^(mich|mir)\s/i
-  THIRD_PERSON                  = 'sich'
-  PRAEPOS                       = %w{ bei aus an hinter von mit für zu }
+  THIRD_PERSON                  = 'sich'.freeze
+  PRAEPOS                       = %w{ bei aus an hinter von mit für zu }.freeze
 
   def has_name_prefix?(name)
     return !name.downcase.match(/^mich\s.*$/).nil? || !name.downcase.match(/^mir\s.*$/).nil?
@@ -35,9 +35,9 @@ module ConjugationHelper
   # Alle Leute, die -- :they
   # TODO: ENGLISH VERSION
   def conjugate_sentence(text, person = :me, comma=true, prefix = true, gender = :male, add_space = false)
-    return "" if !text
-    text.gsub!(BEGINNING_FIRST_PERSON_REGEXP," ") if !prefix
-    text.strip if !prefix
+    return "" unless text
+    text.gsub!(BEGINNING_FIRST_PERSON_REGEXP," ") unless prefix
+    text.strip unless prefix
     text.gsub! /^((dass|daß).*)$/i do |x| ", "+$1 end if comma # comma if starts with dass/daß
 
     add_space = false if text =~ /^,\s[dass|daß].*$/i

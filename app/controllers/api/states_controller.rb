@@ -3,7 +3,7 @@ class Api::StatesController < ApplicationController
   def create
     # current_user = User.first
     state      = State.where(text:params[:text]).first
-    state      = State.create(params.permit(:text)) if !state
+    state      = State.create(params.permit(:text)) unless state
     user_state = current_user.state_users.where(state:state)
     user_state = current_user.state_users.create state:state, visibility:params[:visibility] if user_state.blank?
     render json:user_state
@@ -25,7 +25,7 @@ class Api::StatesController < ApplicationController
     if current_user
       r = []
       query.results.each do |result|
-        r << result.text if !current_user.state_users.map(&:state_id).include?(result.id)
+        r << result.text unless current_user.state_users.map(&:state_id).include?(result.id)
       end
     else
       r = query.results.map(&:text)
