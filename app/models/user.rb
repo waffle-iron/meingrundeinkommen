@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
 
   has_many :flags, dependent: :destroy
 
-  scope :with_flag, ->(flag, value) { joins(:flags).where("flags.name = ? and flags.value_boolean = ?", flag, value)}
+  scope :with_flag, ->(flag, value) { joins(:flags).where('flags.name = ? and flags.value_boolean = ?', flag, value)}
 
   #   # the participations in user_todos:
   has_many :user_wishes, dependent: :destroy

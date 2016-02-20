@@ -1,14 +1,14 @@
 class PaymentsController < ApplicationController
-  require "uri"
-  require "net/http"
+  require 'uri'
+  require 'net/http'
 
   protect_from_forgery except: [:create] # Otherwise the request from PayPal wouldn't make it to the controller
 
   def create
     response = validate_IPN_notification(request.raw_post, false )
     case response
-      when "VERIFIED"
-        Rails.logger.info "VERIFIED"
+      when 'VERIFIED'
+        Rails.logger.info 'VERIFIED'
         support = Support.find(params[:custom].to_i) if params[:custom]
         if support
           Rails.logger.info support.payment_completed
@@ -24,10 +24,10 @@ class PaymentsController < ApplicationController
             Rails.logger.info support_test.payment_completed
           end
         end
-      when "INVALID"
-        Rails.logger.info "invalid"
+      when 'INVALID'
+        Rails.logger.info 'invalid'
       else
-        Rails.logger.info "error"
+        Rails.logger.info 'error'
       end
 
     render nothing: true
@@ -48,7 +48,7 @@ class PaymentsController < ApplicationController
     Rails.logger.info raw
     response = http.post(uri.request_uri, raw,
                          'Content-Length' => "#{raw.size}",
-                         'User-Agent'     => "My custom user agent"
+                         'User-Agent'     => 'My custom user agent'
                         ).body
   end
 

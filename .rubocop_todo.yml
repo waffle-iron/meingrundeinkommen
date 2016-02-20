@@ -514,12 +514,11 @@ Style/SpaceInsideParens:
     - 'app/controllers/payments_controller.rb'
     - 'app/models/mailing.rb'
 
-# Offense count: 505
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles, ConsistentQuotesInMultiline.
 # SupportedStyles: single_quotes, double_quotes
 Style/StringLiterals:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 2
 # Cop supports --auto-correct.

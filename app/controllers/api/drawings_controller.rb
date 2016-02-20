@@ -8,12 +8,12 @@ class Api::DrawingsController < ApplicationController
 
       data.each_with_index do |drawing,i|
         winner = false
-        number = ""
+        number = ''
 
         digits = []
 
         drawing[:digets].each_with_index do |d,i|
-          digits << d[:value] if d[:value] && d[:value] != ""
+          digits << d[:value] if d[:value] && d[:value] != ''
         end
 
         # if digits.count == 3
@@ -31,7 +31,7 @@ class Api::DrawingsController < ApplicationController
 
         # drawing[:tandemcode] = digits[4..-1].join("•") if digits[4]
 
-        query = Chance.where("code LIKE ?", "#{number}%")
+        query = Chance.where('code LIKE ?', "#{number}%")
 
         if query.present?
           data[i][:niete] = false
@@ -73,7 +73,7 @@ class Api::DrawingsController < ApplicationController
         # end
       end
 
-      File.open("public/currentdrawing.json","w") do |f|
+      File.open('public/currentdrawing.json','w') do |f|
         f.write(data.to_json)
       end
 

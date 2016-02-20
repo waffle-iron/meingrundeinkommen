@@ -16,11 +16,11 @@ class Api::TandemsController < ApplicationController
   	   inviter = User.find_by_id(tandem.inviter_id)
   	   invitee = User.find_by_id(tandem.invitee_id)
 
-  	   next if inviter.nil? || invitee.nil? || (!inviter.nil? && (inviter.avatar.nil? || inviter.avatar.url == "/assets/team/team-member.jpg")) || (!invitee.nil? && (invitee.avatar.nil? || invitee.avatar.url == "/assets/team/team-member.jpg"))
+  	   next if inviter.nil? || invitee.nil? || (!inviter.nil? && (inviter.avatar.nil? || inviter.avatar.url == '/assets/team/team-member.jpg')) || (!invitee.nil? && (invitee.avatar.nil? || invitee.avatar.url == '/assets/team/team-member.jpg'))
 
   	   grudges = []
 
-  	   if !tandem.invitee_grudges_inviter_for.nil? && tandem.invitee_grudges_inviter_for != ""
+  	   if !tandem.invitee_grudges_inviter_for.nil? && tandem.invitee_grudges_inviter_for != ''
       	 grudges << {
 		      	 grudge:  tandem.invitee_grudges_inviter_for,
 		      	 grudger: invitee,
@@ -28,7 +28,7 @@ class Api::TandemsController < ApplicationController
 		      }
 	  end
 
-  		  if !tandem.inviter_grudges_invitee_for.nil? && tandem.inviter_grudges_invitee_for != ""
+  		  if !tandem.inviter_grudges_invitee_for.nil? && tandem.inviter_grudges_invitee_for != ''
   	     grudges << {
 		      	 grudge:  tandem.inviter_grudges_invitee_for,
 		      	 grudger: inviter,

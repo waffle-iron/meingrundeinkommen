@@ -1,5 +1,5 @@
 class InvitationMailer < ActionMailer::Base
-  default from: "Mein Grundeinkommen | Tandem-Verlosung<support@mein-grundeinkommen.de>"
+  default from: 'Mein Grundeinkommen | Tandem-Verlosung<support@mein-grundeinkommen.de>'
 
   def invite_existing(tandem,inviter,invitee)
     @tandem  = tandem

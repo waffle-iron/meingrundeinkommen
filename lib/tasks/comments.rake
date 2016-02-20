@@ -1,11 +1,11 @@
-require "rubygems"
+require 'rubygems'
 require 'open-uri'
 require 'json'
 require 'date'
 
 namespace :comments do
   task getFromStartnext: :environment do
-    desc "get all blog post comments from startnext"
+    desc 'get all blog post comments from startnext'
 
     wp_startnext = {
       10 => 40389,
@@ -20,19 +20,19 @@ namespace :comments do
 
     wp_startnext.each do |wp,startnext|
       post_comments = JSON.parse(open("https://api.startnext.de/v1.1/projects/updates/#{startnext}/comments?client_id=82142814552425").read)
-      post_comments["comments"].each do |comment|
-        image = if comment["author"]["image"]
-                  comment["author"]["image"].length > 0 ? comment["author"]["image"].last : comment["author"]["image"]
+      post_comments['comments'].each do |comment|
+        image = if comment['author']['image']
+                  comment['author']['image'].length > 0 ? comment['author']['image'].last : comment['author']['image']
                 else
                   false
                 end
         Comment.create(
-          text:             comment["text"],
+          text:             comment['text'],
           commentable_type: 'blogpost',
           commentable_id:   wp,
-          static_name:      comment["author"]["name"],
-          static_avatar:    image ? image["url"] : false,
-          created_at:       DateTime.strptime(comment["created"].to_s,'%s')
+          static_name:      comment['author']['name'],
+          static_avatar:    image ? image['url'] : false,
+          created_at:       DateTime.strptime(comment['created'].to_s,'%s')
         )
       end
     end

@@ -48,7 +48,7 @@ class Api::StatisticsController < ApplicationController
       end
       format.csv do
         if current_user && current_user.admin? && params[:stat]
-          newsletter_only = " and confirmed_at is not null and newsletter = 1 "
+          newsletter_only = ' and confirmed_at is not null and newsletter = 1 '
           # base     = "select users.email, REPLACE(users.name,',','') from users, chances where users.id = chances.user_id #{newsletter_only} and is_child = 0 and "
           # base_not = "select users.email, REPLACE(users.name,',','') from users where id not in (select user_id from chances) #{newsletter_only} "
 
@@ -63,12 +63,12 @@ class Api::StatisticsController < ApplicationController
           #     b = base_not
           #   else
 
-          if params[:stat] == "participants"
-            q = "and id in (select user_id from chances where confirmed = 1)"
+          if params[:stat] == 'participants'
+            q = 'and id in (select user_id from chances where confirmed = 1)'
           end
 
-          if params[:stat] == "notParticipating"
-            q = " and id not in (select user_id from chances where confirmed = 1)"
+          if params[:stat] == 'notParticipating'
+            q = ' and id not in (select user_id from chances where confirmed = 1)'
           end
 
           # if params[:stat] == "participantsSquirrel"

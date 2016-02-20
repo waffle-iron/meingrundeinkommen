@@ -21,7 +21,7 @@ class Api::UsersController < ApplicationController
         }
       end
       if params[:rand]
-        u = User.order("RANDOM()").first
+        u = User.order('RANDOM()').first
         render json:
                      {
                        name:   u.name,
@@ -161,7 +161,7 @@ class Api::UsersController < ApplicationController
         user_ids << Wish.find(user_wish.wish_id).user_ids if user_wish.wish_id
       end
 
-      Wish.select("wishes.id, wishes.text, count(wishes.id) as ccc").where.not(id: current_user.user_wishes.map(&:wish_id)).joins(:user_wishes).where('user_wishes.user_id'=>user_ids).group(:wish_id).limit(25).order('ccc desc').map do |wish|
+      Wish.select('wishes.id, wishes.text, count(wishes.id) as ccc').where.not(id: current_user.user_wishes.map(&:wish_id)).joins(:user_wishes).where('user_wishes.user_id'=>user_ids).group(:wish_id).limit(25).order('ccc desc').map do |wish|
         next unless wish
         r << {
           id:           wish.id,
@@ -181,8 +181,8 @@ class Api::UsersController < ApplicationController
     if @user == current_user
       current_user.browser = "#{browser.name} #{browser.full_version}"
       current_user.os      = browser.platform.to_s
-      current_user.os     += ", mobile" if browser.mobile?
-      current_user.os     += ", tablet" if browser.tablet?
+      current_user.os     += ', mobile' if browser.mobile?
+      current_user.os     += ', tablet' if browser.tablet?
       current_user.save
     end
 

@@ -26,7 +26,7 @@ class Api::HomepagesController < ApplicationController
 
     supporter = crowdfunding_supporter + own_supporter + crowdbar_users
 
-    own_funding_paypal_q = Support.where("payment_completed IS NOT NULL AND payment_method LIKE ?","paypal%",)
+    own_funding_paypal_q = Support.where('payment_completed IS NOT NULL AND payment_method LIKE ?','paypal%',)
 
     own_funding_paypal  = own_funding_paypal_q.sum(:amount_for_income)
     own_funding_paypal -= own_funding_paypal * 0.019
@@ -57,11 +57,11 @@ class Api::HomepagesController < ApplicationController
     # crowdbar
     cb_json = JSON.parse(File.read('public/crowdbar.json'))
 
-    crowdbar_amount = cb_json["total_commission"] * 0.9
+    crowdbar_amount = cb_json['total_commission'] * 0.9
 
     total_amount = startnext + crowdfunding_amount + own_funding_paypal + own_funding + crowdbar_amount + crowdcard_amount
 
-    donations = Support.where("payment_completed IS NOT NULL").sum(:amount_internal) + cb_json["total_commission"] * 0.1 + crowdcard_total * 0.1
+    donations = Support.where('payment_completed IS NOT NULL').sum(:amount_internal) + cb_json['total_commission'] * 0.1 + crowdcard_total * 0.1
 
     confirmed_users = User.where.not(confirmed_at: nil).count
 
@@ -70,8 +70,8 @@ class Api::HomepagesController < ApplicationController
     prediction = {}
     # temp_q = Support.where(:created_at => (last_synced_day.created_at - 13.days).beginning_of_day..last_synced_day.created_at.end_of_day, :payment_method => :crowdbar)
     temp_q2                                    = Support.where(created_at: (Time.now - 15.days).beginning_of_day..(Time.now - 2.days).end_of_day, payment_completed: true).where.not(payment_method: :crowdbar)
-    prediction[:avg_daily_commission]          = cb_json["seven_day_commission"] / 7 + temp_q2.sum(:amount_for_income) / 14
-    prediction[:avg_daily_commission_crowdbar] = cb_json["seven_day_commission"] / 7
+    prediction[:avg_daily_commission]          = cb_json['seven_day_commission'] / 7 + temp_q2.sum(:amount_for_income) / 14
+    prediction[:avg_daily_commission_crowdbar] = cb_json['seven_day_commission'] / 7
     prediction[:days]                          = ((12000 - (total_amount % 12000)) / prediction[:avg_daily_commission]).round
     prediction[:date]                          = Time.now + (prediction[:days].to_i).days
     number_of_participants                     = Chance.count
@@ -99,9 +99,9 @@ class Api::HomepagesController < ApplicationController
       number_of_participants:          number_with_precision(number_of_participants, precision: 0, delimiter: '.'),
       supports:                        Support.where(comment: true, payment_completed: false).order(created_at: :desc).limit(12),
       kpi_per_day:                     {
-        registered_confirmed_users_by_date: User.select('count(users.id) as anzahl, created_at, confirmed_at').where.not(confirmed_at: nil).group_by{|x| x.created_at.strftime("%Y-%m-%d")} ,
-        donations_by_date:                  Support.select('payment_completed, created_at, sum(amount_internal) as summe').where("payment_completed IS NOT NULL").group_by{|x| x.created_at.strftime("%Y-%m-%d")} ,
-        basic_income_funding_by_month:      own_funding_query.group_by{|x| x.created_at.strftime("%Y-%m-%d")} ,
+        registered_confirmed_users_by_date: User.select('count(users.id) as anzahl, created_at, confirmed_at').where.not(confirmed_at: nil).group_by{|x| x.created_at.strftime('%Y-%m-%d')} ,
+        donations_by_date:                  Support.select('payment_completed, created_at, sum(amount_internal) as summe').where('payment_completed IS NOT NULL').group_by{|x| x.created_at.strftime('%Y-%m-%d')} ,
+        basic_income_funding_by_month:      own_funding_query.group_by{|x| x.created_at.strftime('%Y-%m-%d')} ,
       },
       kpi:                             {
         clv_donations:  donations/confirmed_users,
@@ -114,10 +114,10 @@ class Api::HomepagesController < ApplicationController
     if params[:kpi]
 
       kpi_per_day = {
-        registered_confirmed_users_by_date: User.all.where.not(confirmed_at: nil).group("DATE(created_at)").count,
-        donations_by_date:                  Support.all.where("payment_completed IS NOT NULL").group("DATE(created_at)").sum(:amount_internal) ,
-        basic_income_funding_by_date:       Support.all.where("payment_completed IS NOT NULL").group("DATE(created_at)").sum(:amount_for_income) ,
-        kpi_social_groups_distribution:     State.joins(:state_users).select('count(state_users.id)').group("states.text").order('count_state_users_id desc').count('state_users.id')
+        registered_confirmed_users_by_date: User.all.where.not(confirmed_at: nil).group('DATE(created_at)').count,
+        donations_by_date:                  Support.all.where('payment_completed IS NOT NULL').group('DATE(created_at)').sum(:amount_internal) ,
+        basic_income_funding_by_date:       Support.all.where('payment_completed IS NOT NULL').group('DATE(created_at)').sum(:amount_for_income) ,
+        kpi_social_groups_distribution:     State.joins(:state_users).select('count(state_users.id)').group('states.text').order('count_state_users_id desc').count('state_users.id')
       }
 
       csv       = CSV.generate do |csv|

@@ -74,12 +74,12 @@ Rails.application.routes.draw do
   # Catch all missing templates
   get 'assets/*page' => redirect('assets/missing.html')
 
-  get "/404", to: "errors#custom"
-  get "/422", to: "errors#custom"
-  get "/500", to: "errors#custom"
+  get '/404', to: 'errors#custom'
+  get '/422', to: 'errors#custom'
+  get '/500', to: 'errors#custom'
 
   # Angular catch all to allow page refresh
-  get '*page' => "websites#show"
+  get '*page' => 'websites#show'
 
   # get '*path' => "websites#show"
 

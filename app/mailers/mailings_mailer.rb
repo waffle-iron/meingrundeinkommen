@@ -48,7 +48,7 @@ class MailingsMailer < MassMandrill::MandrillMailer
          message_extra:    {
            track_opens: true,
            headers:     {
-             "Reply-To" => 'Mein Grundeinkommen <support@mein-grundeinkommen.de>'
+             'Reply-To' => 'Mein Grundeinkommen <support@mein-grundeinkommen.de>'
            }
          }
         )

@@ -23,13 +23,13 @@ class Chance < ActiveRecord::Base
 
 	 def no_winner
  		 if user.winner != 0
-  			 errors.add(:last_name, "Du hast bereits einmal Grundeinkommen gewonnen und kannst deshalb nicht erneut teilnehmen.")
+  			 errors.add(:last_name, 'Du hast bereits einmal Grundeinkommen gewonnen und kannst deshalb nicht erneut teilnehmen.')
   		end
  	end
 
 	 def validate_birthday
  	  unless dob
- 	    errors.add(:dob, "Bitte gib bei Tag, Monat und Jahr nur Ziffern, keine Buchstaben, ein.")
+ 	    errors.add(:dob, 'Bitte gib bei Tag, Monat und Jahr nur Ziffern, keine Buchstaben, ein.')
  	  	 return false
  	  end
 
@@ -52,7 +52,7 @@ class Chance < ActiveRecord::Base
     if tandems.count < 7
       code = 1
       tandems.each do |t|
-        role = t.inviter_id == uid ? "inviter" : "invitee"
+        role = t.inviter_id == uid ? 'inviter' : 'invitee'
         t.update_attribute("#{role}_code", "#{code}")
         code += 1
       end
@@ -61,7 +61,7 @@ class Chance < ActiveRecord::Base
       (1..4).each do |c1|
         [2,3,4,6,7,9,10,11,12,13,15,16,17,19,20,22,23,24,25,27,28,29,30,32,33,34].each do |c2|
           next unless tandems[i]
-          role = tandems[i].inviter_id == uid ? "inviter" : "invitee"
+          role = tandems[i].inviter_id == uid ? 'inviter' : 'invitee'
           tandems[i].update_attribute("#{role}_code", "#{c1}•#{c2}")
           i += 1
         end

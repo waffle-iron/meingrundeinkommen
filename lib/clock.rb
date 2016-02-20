@@ -6,11 +6,11 @@ require 'csv'
 
 module Clockwork
   configure do |config|
-    config[:logger] = Logger.new("../log/clock.log")
+    config[:logger] = Logger.new('../log/clock.log')
   end
 
   handler do |job|
-    if job == "cache.news"
+    if job == 'cache.news'
 
       response = HTTParty.get('http://blog.meinbge.de/wp-json/wp/v2/posts?filter[posts_per_page]=500')
       json     = JSON.parse(response.body)
@@ -28,53 +28,53 @@ module Clockwork
         posts << post
       end
 
-      File.open("../public/news.json", "w+") do |f|
+      File.open('../public/news.json', 'w+') do |f|
         f.write(posts.to_json)
       end
 
     end
 
-    if job == "crowdbar.stats"
+    if job == 'crowdbar.stats'
 
       response = HTTParty.get('http://bar.mein-grundeinkommen.de/crowd_bar_stats.json')
       json     = JSON.parse(response.body)
 
-      File.open("../public/crowdbar.json", "w+") do |f|
+      File.open('../public/crowdbar.json', 'w+') do |f|
         f.write(json.to_json)
       end
 
     end
 
-    if job == "clear.cache"
+    if job == 'clear.cache'
       cache_dir = ActionController::Base.page_cache_directory
       begin
-        FileUtils.rm_r(Dir.glob(cache_dir+"/*"))
+        FileUtils.rm_r(Dir.glob(cache_dir+'/*'))
       rescue
         Errno::ENOENT
       end
     end
 
-    if job == "bank.check"
+    if job == 'bank.check'
       results = `/home/hibiscus/scripts/enter_umsatz.pl`
       puts results
     end
 
-    if job == "newsletter.send"
+    if job == 'newsletter.send'
       path_to_file = '../tmp/mailqueue.json'
 
       if File.exist?(path_to_file)
         params = JSON.parse(File.read(path_to_file))
         File.delete(path_to_file)
 
-        users = MailingsMailer.prepare_recipients(params["groups"],params["group_keys"])
+        users = MailingsMailer.prepare_recipients(params['groups'],params['group_keys'])
 
         users.each_slice(10).to_a.each do |user_group|
-          puts MailingsMailer.transactionmail(user_group,params["subject"],params["body"]).deliver
+          puts MailingsMailer.transactionmail(user_group,params['subject'],params['body']).deliver
         end
       end
     end
 
-    if job == "invitations.send"
+    if job == 'invitations.send'
       invitations = Tandem.where(invitee_email_sent: nil, invitation_type: 'mail')
       invitations.each do |i|
         user = User.find_by_id(i[:inviter_id])

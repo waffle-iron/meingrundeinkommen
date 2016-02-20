@@ -1,8 +1,8 @@
-require "rubygems"
+require 'rubygems'
 
 namespace :chances do
   task SetCodes: :environment do
-    desc "set random codes for users"
+    desc 'set random codes for users'
 
     # chances = Chance.where(:code => nil, :confirmed => true).shuffle
     chances = Chance.where(confirmed: true,code: nil).shuffle
@@ -34,7 +34,7 @@ namespace :chances do
   end
 
   task SetCodesForTandems: :environment do
-    desc "set random codes for tandems"
+    desc 'set random codes for tandems'
     # set codes for tandems
 
     users_without_tandem = []
@@ -53,7 +53,7 @@ namespace :chances do
         if tandems.count < 7
           code = 1
           tandems.each do |t|
-            role = t.inviter_id == uid ? "inviter" : "invitee"
+            role = t.inviter_id == uid ? 'inviter' : 'invitee'
             t.update_attribute("#{role}_code", "#{code}")
             code += 1
           end
@@ -62,7 +62,7 @@ namespace :chances do
           (1..4).each do |c1|
             [2,3,4,6,7,9,10,11,12,13,15,16,17,19,20,22,23,24,25,27,28,29,30,32,33,34].each do |c2|
               next unless tandems[i]
-              role = tandems[i].inviter_id == uid ? "inviter" : "invitee"
+              role = tandems[i].inviter_id == uid ? 'inviter' : 'invitee'
               tandems[i].update_attribute("#{role}_code", "#{c1}•#{c2}")
               i += 1
             end
@@ -76,9 +76,9 @@ namespace :chances do
   end
 
   task setRandomTandems: :environment do
-    desc "set random tandems for ppl w/o tandem"
+    desc 'set random tandems for ppl w/o tandem'
 
-    q                    = "is_child = 0 and confirmed = 1 and user_id not in (select inviter_id from tandems where inviter_id != invitee_id and inviter_id is not null and invitee_id is not null and disabled_by is null) and user_id not in (select invitee_id from tandems where inviter_id != invitee_id and inviter_id is not null and invitee_id is not null and disabled_by is null)"
+    q                    = 'is_child = 0 and confirmed = 1 and user_id not in (select inviter_id from tandems where inviter_id != invitee_id and inviter_id is not null and invitee_id is not null and disabled_by is null) and user_id not in (select invitee_id from tandems where inviter_id != invitee_id and inviter_id is not null and invitee_id is not null and disabled_by is null)'
     users_without_tandem = Chance.where(q).map(&:user_id)
 
     users = users_without_tandem.shuffle
@@ -87,16 +87,16 @@ namespace :chances do
       puts "#{i} of #{users_without_tandem.count}"
       Tandem.create(inviter_id:           users[i],
                     invitee_id:           users[i+1],
-                    invitation_type:      "random",
+                    invitation_type:      'random',
                     invitee_participates: true,
-                    inviter_code:         "1",
-                    invitee_code:         "1")
+                    inviter_code:         '1',
+                    invitee_code:         '1')
       i += 2
     end
   end
 
   task confirmSquirrels: :environment do
-    desc "confirm chance of squirrels or set their chance"
+    desc 'confirm chance of squirrels or set their chance'
 
     # test query: must be zero after script worked fine:
     # select count(id) from users where id not in (select user_id from chances where confirmed = 1) and id in (select user_id from payments where active = 1);
@@ -127,7 +127,7 @@ namespace :chances do
   end
 
   task mailinvitees: :environment do
-    desc "send mail to mistakenly created invites"
+    desc 'send mail to mistakenly created invites'
 
     inv = Tandem.where("invitation_type='existing' and invitee_email is not null and invitee_email != '' and inviter_id = invitee_id and invitee_email not in (select email from users)")
 
@@ -141,7 +141,7 @@ namespace :chances do
   end
 
   task crowdjoker: :environment do
-    desc "setup jokers for crowdcard users on location"
+    desc 'setup jokers for crowdcard users on location'
 
     # cc_no = []
     # cc_no = (1..300).to_a
@@ -164,7 +164,7 @@ namespace :chances do
       user.skip_confirmation!
       next unless user.valid?
       if user.save!
-        user.chances.create(confirmed_publication: true, first_name: "vorOrt", last_name: "nummerC#{cc}", dob: "1984-10-01", confirmed: true)
+        user.chances.create(confirmed_publication: true, first_name: 'vorOrt', last_name: "nummerC#{cc}", dob: '1984-10-01', confirmed: true)
       end
       # end
     end

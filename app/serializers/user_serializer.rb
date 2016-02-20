@@ -107,7 +107,7 @@ class UserSerializer < ActiveModel::Serializer
           end
         else
           t[:grudge] = t[:inviter_grudges_invitee_for]
-          if object.id == c.inviter_id && t[:invitee_name] && t[:invitee_name] != ""
+          if object.id == c.inviter_id && t[:invitee_name] && t[:invitee_name] != ''
             t[:details] = { name: t[:invitee_name], avatar: nil }
           else
             if object.id == c.inviter_id && t[:invitee_email]

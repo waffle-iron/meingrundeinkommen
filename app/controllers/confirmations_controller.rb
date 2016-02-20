@@ -9,7 +9,7 @@ class ConfirmationsController < Devise::ConfirmationsController
 	   if resource.errors.empty?
    		 respond_with_navigational(resource){ redirect_to after_confirmation_path_for(resource_name, resource) }
    	else
-   		 respond_with_navigational(resource){ redirect_to current_user ? "/boarding?trigger=confirmed" : resource.email && !resource.email.empty? ? "/login?email=#{resource.email}&confirmation_error=true" : "/login?confirmation_error=true" }
+   		 respond_with_navigational(resource){ redirect_to current_user ? '/boarding?trigger=confirmed' : resource.email && !resource.email.empty? ? "/login?email=#{resource.email}&confirmation_error=true" : '/login?confirmation_error=true' }
    	end
   end
 
@@ -17,7 +17,7 @@ class ConfirmationsController < Devise::ConfirmationsController
 
   def after_confirmation_path_for(resource_name, resource)
   	 if current_user
- 	    "/boarding?trigger=confirmed"
+ 	    '/boarding?trigger=confirmed'
  	  else
       "/login?email=#{resource.email}&confirmed=true"
      end

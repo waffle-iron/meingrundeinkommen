@@ -9,7 +9,7 @@ module TweetSupportConcern
   end
 
   def tweetSupportComment
-    uri = URI.parse("http://twitter.mein-grundeinkommen.de/tweet")
+    uri = URI.parse('http://twitter.mein-grundeinkommen.de/tweet')
 
     if comment && nickname && tweeted.nil?
 
