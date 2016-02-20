@@ -332,11 +332,9 @@ Style/MethodName:
   Enabled: true
   EnforcedStyle: snake_case
 
-# Offense count: 2
 # Cop supports --auto-correct.
 Style/MultilineBlockLayout:
   Exclude:
-    - 'app/controllers/application_controller.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.
