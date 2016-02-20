@@ -533,12 +533,11 @@ Style/SymbolProc:
 Style/Tab:
   Enabled: true
 
-# Offense count: 35
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 # SupportedStyles: final_newline, final_blank_line
 Style/TrailingBlankLines:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 1
 # Cop supports --auto-correct.
