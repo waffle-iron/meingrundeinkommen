@@ -9,7 +9,7 @@ class MailingsMailer < MassMandrill::MandrillMailer
     users = User
     groups.each_with_index do |g,i|
       g2 = "#{g}#"
-      next unless self.possible_user_groups.include?(g) || self.possible_user_groups.include?(g2)
+      next unless possible_user_groups.include?(g) || possible_user_groups.include?(g2)
       users = if group_keys[i].empty?
                 users.send(g)
               else

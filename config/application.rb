@@ -8,7 +8,7 @@ Bundler.require(*Rails.groups)
 module Grundeinkommen
   class Application < Rails::Application
 
-    config.exceptions_app = self.routes
+    config.exceptions_app = routes
 
     config.secret_key_base = ENV['SECRET_KEY_BASE']
 

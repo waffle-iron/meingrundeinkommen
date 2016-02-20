@@ -30,14 +30,14 @@ class Flag < ActiveRecord::Base
 	 def self.increment(current_user,params)
  		 old            = current_user.flags.where(name: params[:name]).first
  	  params[:value] = old ? old.value_integer + 1 : 1
- 	  self.set(current_user,params)
+ 	  set(current_user,params)
  	end
 
 	 def display
- 		 return self.value_integer unless self.value_integer.nil?
- 		 return self.value_text    unless self.value_text.nil?
- 		 return self.value_boolean unless self.value_boolean.nil?
- 		 return self.value_date    unless self.value_date.nil?
+ 		 return value_integer unless value_integer.nil?
+ 		 return value_text    unless value_text.nil?
+ 		 return value_boolean unless value_boolean.nil?
+ 		 return value_date    unless value_date.nil?
  	end
 
 end

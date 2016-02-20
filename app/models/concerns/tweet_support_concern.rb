@@ -11,9 +11,9 @@ module TweetSupportConcern
   def tweetSupportComment
     uri = URI.parse("http://twitter.mein-grundeinkommen.de/tweet")
 
-    if self.comment && self.nickname && self.tweeted.nil?
+    if comment && nickname && tweeted.nil?
 
-      text = self.nickname + ' hat ' + self.amount_total.round(0).to_s + '€ für das BGE gespendet: ' + self.comment
+      text = nickname + ' hat ' + amount_total.round(0).to_s + '€ für das BGE gespendet: ' + comment
 
       http = Net::HTTP.new(uri.host, uri.port)
 
@@ -23,7 +23,7 @@ module TweetSupportConcern
 
       response = http.request(request)
 
-      self.update_attributes(tweeted: true)
+      update_attributes(tweeted: true)
 
     end
   end

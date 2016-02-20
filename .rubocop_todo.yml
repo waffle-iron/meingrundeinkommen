@@ -357,7 +357,6 @@ Style/Next:
   MinBodyLength: 3
   Exclude:
 
-# Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: IncludeSemanticChanges.
 Style/NonNilCheck:
@@ -413,19 +412,9 @@ Style/RedundantReturn:
     - 'app/mailers/mailings_mailer.rb'
     - 'app/models/chance.rb'
 
-# Offense count: 37
 # Cop supports --auto-correct.
 Style/RedundantSelf:
   Exclude:
-    - 'app/controllers/api/homepages_controller.rb'
-    - 'app/mailers/mailings_mailer.rb'
-    - 'app/models/chance.rb'
-    - 'app/models/concerns/tweet_support_concern.rb'
-    - 'app/models/concerns/tweet_wish_concern.rb'
-    - 'app/models/flag.rb'
-    - 'app/models/tandem.rb'
-    - 'app/serializers/user_wish_serializer.rb'
-    - 'config/application.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.

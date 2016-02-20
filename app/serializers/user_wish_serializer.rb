@@ -25,7 +25,7 @@ class UserWishSerializer < ActiveModel::Serializer
   end
 
   def he_text
-    conjugate_sentence(self.text, :he)
+    conjugate_sentence(text, :he)
   end
 
 end
