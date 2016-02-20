@@ -555,13 +555,9 @@ Style/TrailingCommaInLiteral:
   Exclude:
     - 'app/controllers/api/homepages_controller.rb'
 
-# Offense count: 3
 # Cop supports --auto-correct.
 Style/UnneededInterpolation:
   Exclude:
-    - 'app/controllers/payments_controller.rb'
-    - 'app/models/chance.rb'
-    - 'lib/tasks/chances.rake'
 
 # Offense count: 1
 # Cop supports --auto-correct.

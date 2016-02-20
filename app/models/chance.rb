@@ -53,7 +53,7 @@ class Chance < ActiveRecord::Base
       code = 1
       tandems.each do |t|
         role = t.inviter_id == uid ? 'inviter' : 'invitee'
-        t.update_attribute("#{role}_code", "#{code}")
+        t.update_attribute("#{role}_code", code.to_s)
         code += 1
       end
     else
