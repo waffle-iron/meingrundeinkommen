@@ -34,6 +34,7 @@ class PaymentsController < ApplicationController
   end
 
   protected
+
   def validate_IPN_notification(raw, test)
     uri = URI.parse('https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate')
     uri = URI.parse('https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_notify-validate') if test

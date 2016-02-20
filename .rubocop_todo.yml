@@ -217,12 +217,9 @@ Style/ElseAlignment:
 Style/EmptyLines:
   Enabled: true
 
-# Offense count: 2
 # Cop supports --auto-correct.
 Style/EmptyLinesAroundAccessModifier:
   Exclude:
-    - 'app/controllers/api/todos_controller.rb'
-    - 'app/controllers/payments_controller.rb'
 
 # Offense count: 28
 # Cop supports --auto-correct.
