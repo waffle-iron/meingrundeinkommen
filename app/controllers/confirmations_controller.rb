@@ -18,8 +18,8 @@ class ConfirmationsController < Devise::ConfirmationsController
   def after_confirmation_path_for(resource_name, resource)
   	 if current_user
  	    "/boarding?trigger=confirmed"
- 	else
-    "/login?email=#{resource.email}&confirmed=true"
+ 	  else
+      "/login?email=#{resource.email}&confirmed=true"
      end
   end
 

@@ -52,8 +52,8 @@ class Api::DrawingsController < ApplicationController
               data[i][:isChild] = winner.is_child
               data[i][:childName] = winner.first_name
             end
-            else
-              data[i][:user] = false
+          else
+            data[i][:user] = false
             end
         else
           data[i][:niete] = true

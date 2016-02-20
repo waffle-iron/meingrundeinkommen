@@ -209,15 +209,9 @@ Style/EachWithObject:
   Exclude:
     - 'app/models/wish.rb'
 
-# Offense count: 5
 # Cop supports --auto-correct.
 Style/ElseAlignment:
   Exclude:
-    - 'app/controllers/api/drawings_controller.rb'
-    - 'app/controllers/confirmations_controller.rb'
-    - 'app/controllers/crowdapps_controller.rb'
-    - 'app/serializers/support_serializer.rb'
-    - 'app/serializers/user_serializer.rb'
 
 # Offense count: 126
 # Cop supports --auto-correct.

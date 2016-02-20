@@ -5,8 +5,8 @@ class SupportSerializer < ActiveModel::Serializer
   	 u = User.find_by_email(object.email)
   	 if u && u.avatar
  	    return u.avatar
- 	else
- 	  return false
+ 	  else
+ 	    return false
  	 end
   end
 

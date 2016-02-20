@@ -98,8 +98,8 @@ class UserSerializer < ActiveModel::Serializer
 
         t = if (current_user && object == current_user) || (current_user && current_user.admin?)
               {id: c.id, inviter_grudges_invitee_for: c.inviter_grudges_invitee_for, invitee_grudges_inviter_for: c.invitee_grudges_inviter_for, disabled_by: c.disabled_by, invitation_type: c.invitation_type, inviter_id: c.inviter_id, invitee_id: c.invitee_id, invitee_name: c.invitee_name, invitee_email: c.invitee_email, invitation_accepted_at: c.invitation_accepted_at, invitee_participates: c.invitee_participates, inviter_code: c.inviter_code, invitee_code: c.invitee_code}
-        else
-          {id: c.id, inviter_grudges_invitee_for: c.inviter_grudges_invitee_for, invitee_grudges_inviter_for: c.invitee_grudges_inviter_for, inviter_id: c.inviter_id, invitee_id: c.invitee_id, invitee_name: c.invitee_name, invitation_accepted_at: c.invitation_accepted_at, invitee_participates: c.invitee_participates, inviter_code: c.inviter_code, invitee_code: c.invitee_code}
+            else
+              {id: c.id, inviter_grudges_invitee_for: c.inviter_grudges_invitee_for, invitee_grudges_inviter_for: c.invitee_grudges_inviter_for, inviter_id: c.inviter_id, invitee_id: c.invitee_id, invitee_name: c.invitee_name, invitation_accepted_at: c.invitation_accepted_at, invitee_participates: c.invitee_participates, inviter_code: c.inviter_code, invitee_code: c.invitee_code}
             end
 
         if object.id == c.inviter_id && c.invitee_id
@@ -112,10 +112,10 @@ class UserSerializer < ActiveModel::Serializer
           t[:grudge] = t[:inviter_grudges_invitee_for]
           if object.id == c.inviter_id && t[:invitee_name] && t[:invitee_name] != ""
             t[:details] = { name: t[:invitee_name], avatar: nil }
-            else
-              if object.id == c.inviter_id && t[:invitee_email]
-                t[:details] = { name: t[:invitee_email], avatar: nil }
-              end
+          else
+            if object.id == c.inviter_id && t[:invitee_email]
+              t[:details] = { name: t[:invitee_email], avatar: nil }
+            end
           end
         end
         if object.id == c.invitee_id && c.inviter_id
