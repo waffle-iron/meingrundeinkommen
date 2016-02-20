@@ -1,7 +1,7 @@
 class Api::CrowdbarsController < ApplicationController
 
 	 def show
- 	  sign_out() if current_user && params[:logout]
+ 	  sign_out if current_user && params[:logout]
 
  	  @user    = current_user ? current_user : false
  	  @shop_id = params[:shop_id] || false

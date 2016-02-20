@@ -316,14 +316,9 @@ Style/Lambda:
 Style/LeadingCommentSpace:
   Enabled: true
 
-# Offense count: 5
 # Cop supports --auto-correct.
 Style/MethodCallParentheses:
   Exclude:
-    - 'app/controllers/api/crowdbars_controller.rb'
-    - 'app/controllers/api/homepages_controller.rb'
-    - 'app/controllers/api/statistics_controller.rb'
-    - 'lib/tasks/testimonials.rake'
 
 # Offense count: 1
 # Cop supports --auto-correct.

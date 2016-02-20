@@ -87,7 +87,7 @@ class Api::StatisticsController < ApplicationController
           # end
           # end
 
-          r = CSV.generate() do |csv|
+          r = CSV.generate do |csv|
             ActiveRecord::Base.connection.execute("#{b} #{q}").each do |row|
               csv << row
             end

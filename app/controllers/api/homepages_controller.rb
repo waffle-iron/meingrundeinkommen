@@ -74,7 +74,7 @@ class Api::HomepagesController < ApplicationController
     prediction[:avg_daily_commission_crowdbar] = cb_json["seven_day_commission"] / 7
     prediction[:days]                          = ((12000 - (total_amount % 12000)) / prediction[:avg_daily_commission]).round
     prediction[:date]                          = Time.now + (prediction[:days].to_i).days
-    number_of_participants                     = Chance.count()
+    number_of_participants                     = Chance.count
 
     homepage_data = {
       number_of_users:                 number_with_precision(User.count, precision: 0, delimiter: '.'),
@@ -120,7 +120,7 @@ class Api::HomepagesController < ApplicationController
         kpi_social_groups_distribution:     State.joins(:state_users).select('count(state_users.id)').group("states.text").order('count_state_users_id desc').count('state_users.id')
       }
 
-      csv       = CSV.generate() do |csv|
+      csv       = CSV.generate do |csv|
         columns = ['Date']
         columns << params[:kpi].to_s
         csv << columns
