@@ -559,11 +559,9 @@ Style/TrailingCommaInLiteral:
 Style/UnneededInterpolation:
   Exclude:
 
-# Offense count: 1
 # Cop supports --auto-correct.
 Style/WhileUntilDo:
   Exclude:
-    - 'lib/tasks/chances.rake'
 
 # Offense count: 7
 # Cop supports --auto-correct.

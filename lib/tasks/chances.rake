@@ -83,7 +83,7 @@ namespace :chances do
 
     users = users_without_tandem.shuffle
     i     = 0
-    while users[i] do
+    while users[i]
       puts "#{i} of #{users_without_tandem.count}"
       Tandem.create(inviter_id:           users[i],
                     invitee_id:           users[i+1],
