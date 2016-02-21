@@ -290,6 +290,7 @@ GEM
     multi_xml (0.5.5)
     multipart-post (2.0.0)
     mysql2 (0.3.18)
+    net-ssh (3.0.2)
     netrc (0.10.3)
     newrelic_rpm (3.11.2.286)
     nokogiri (1.6.7.2)
@@ -479,6 +480,7 @@ DEPENDENCIES
   mass_mandrill
   mini_magick
   mysql2 (~> 0.3.18)
+  net-ssh (~> 3.0, >= 3.0.2)
   newrelic_rpm
   progress_bar
   puma (~> 2.16)

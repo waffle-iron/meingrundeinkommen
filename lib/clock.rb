@@ -3,6 +3,7 @@ require '../config/boot'
 require '../config/environment'
 require 'httparty'
 require 'csv'
+require 'net/ssh'
 
 module Clockwork
   configure do |config|
@@ -54,8 +55,9 @@ module Clockwork
       end
     end
 
+
     if job == 'bank.check'
-      results = `/home/hibiscus/scripts/enter_umsatz.pl`
+      results = Net::SSH.start(ENV['HIBISCUS_HOST'], 'hibiscus', keys: ENV['HIBISCUS_SSH_KEY']).exec!('/home/hibiscus/scripts/enter_umsatz.pl')
       puts results
     end
 
