@@ -206,6 +206,8 @@ GEM
       nokogiri (~> 1.5, >= 1.5.11)
     font-awesome-rails (4.3.0.0)
       railties (>= 3.2, < 5.0)
+    font_assets (0.1.12)
+      rack
     formatador (0.2.5)
     google-api-client (0.8.2)
       activesupport (>= 3.2)
@@ -462,6 +464,7 @@ DEPENDENCIES
   figaro
   fog (~> 1.37)
   font-awesome-rails
+  font_assets (~> 0.1.12)
   google_drive
   haml-rails
   httparty
