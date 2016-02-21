@@ -44,7 +44,6 @@ gem 'sass-rails'
 gem 'sepa_king'
 gem 'strip_attributes'
 gem 'sunspot_rails'
-gem 'sunspot_solr'
 gem 'therubyracer', '~> 0.12.2'
 gem 'uglifier', '>= 1.3.0'
 
@@ -72,4 +71,5 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'simplecov'
   gem 'sqlite3'
+  gem 'sunspot_solr'
 end
