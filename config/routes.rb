@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: 'registrations', confirmations: 'confirmations', passwords: 'passwords' }
+
+  resources :settings
+
+  resources :codes
+
+  devise_for :users, :controllers => { registrations: 'registrations', confirmations: 'confirmations', passwords: 'passwords' }
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -12,6 +17,8 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
     resource :crowdbar
     resources :tandems
+    resources :settings
+    resources :codes
     resources :crowdcards
     resources :flags
     resources :statistics
@@ -68,20 +75,22 @@ Rails.application.routes.draw do
   resource :crowdapp
   resources :subscriptions
 
+
   # Temp for the german language
   get 'languages/deDE.json', to: 'languages#de'
 
   # Catch all missing templates
   get 'assets/*page' => redirect('assets/missing.html')
 
-  get '/404', to: 'errors#custom'
-  get '/422', to: 'errors#custom'
-  get '/500', to: 'errors#custom'
+  get "/404", :to => "errors#custom"
+  get "/422", :to => "errors#custom"
+  get "/500", :to => "errors#custom"
+
 
   # Angular catch all to allow page refresh
-  get '*page' => 'websites#show'
+  get '*page' => "websites#show"
 
-  # get '*path' => "websites#show"
+  #get '*path' => "websites#show"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
