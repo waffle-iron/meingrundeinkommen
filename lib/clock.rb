@@ -1,6 +1,8 @@
 require 'clockwork'
 require '/app/config/boot'
 require '/app/config/environment'
+#require './config/boot'
+#require './config/environment'
 require 'httparty'
 require 'csv'
 require 'net/ssh'
@@ -12,7 +14,6 @@ module Clockwork
 
   handler do |job|
     if job == 'cache.news'
-
       response = HTTParty.get('http://blog.meinbge.de/wp-json/wp/v2/posts?filter[posts_per_page]=500')
       json     = JSON.parse(response.body)
       posts    = []
@@ -32,9 +33,8 @@ module Clockwork
       File.open('/tmp/news.json', 'w+') do |f|
         f.write(posts.to_json)
       end
-
       storage = StorageUploader.new
-      storage.store!('/tmp/news.json')
+      storage.store!(File.open('/tmp/news.json'))
     end
 
     if job == 'crowdbar.stats'
@@ -97,11 +97,11 @@ module Clockwork
     # end
   end
 
-  every(3.minutes, 'cache.news')
-  every(5.minutes, 'invitations.send')
-  every(5.minutes, 'newsletter.send')
-  every(3.minutes, 'crowdbar.stats')
-  every(10.minutes, 'clear.cache')
-  every(20.minutes, 'bank.check')
+  every(1.minutes, 'cache.news')
+  #every(5.minutes, 'invitations.send')
+  #every(5.minutes, 'newsletter.send')
+  #every(3.minutes, 'crowdbar.stats')
+  #every(10.minutes, 'clear.cache')
+  #every(20.minutes, 'bank.check')
   # every(25.minutes, 'tandem.statusupdate')
 end
