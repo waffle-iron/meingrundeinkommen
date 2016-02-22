@@ -97,11 +97,11 @@ module Clockwork
     # end
   end
 
-  every(1.minutes, 'cache.news')
+  every(3.minutes, 'cache.news')
   #every(5.minutes, 'invitations.send')
   #every(5.minutes, 'newsletter.send')
-  #every(3.minutes, 'crowdbar.stats')
+  every(3.minutes, 'crowdbar.stats')
   #every(10.minutes, 'clear.cache')
-  #every(20.minutes, 'bank.check')
+  every(20.minutes, 'bank.check')
   # every(25.minutes, 'tandem.statusupdate')
 end
