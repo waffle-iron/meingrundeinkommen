@@ -91,8 +91,6 @@ GEM
       i18n (~> 0.5)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
-    figaro (1.1.0)
-      thor (~> 0.14)
     fission (0.5.0)
       CFPropertyList (~> 2.2)
     fog (1.37.0)
@@ -273,10 +271,6 @@ GEM
       railties (>= 3)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
-    mailjet (1.0.2)
-      activesupport (>= 3.1.0)
-      rack (>= 1.4.0)
-      rest-client
     mandrill-api (1.0.53)
       excon (>= 0.16.0, < 1.0)
       json (>= 1.7.7, < 2.0)
@@ -291,7 +285,6 @@ GEM
     multipart-post (2.0.0)
     mysql2 (0.3.18)
     net-ssh (3.0.2)
-    netrc (0.10.3)
     newrelic_rpm (3.11.2.286)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
@@ -346,9 +339,6 @@ GEM
       nokogiri (>= 1.4.1)
       trollop
     ref (2.0.0)
-    rest-client (1.7.3)
-      mime-types (>= 1.16, < 3.0)
-      netrc (~> 0.7)
     retriable (1.4.1)
     rsolr (1.0.12)
       builder (>= 2.1.2)
@@ -385,11 +375,6 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (~> 1.1)
-    sepa_king (0.4.0)
-      activemodel (>= 3.0.0)
-      builder
-      i18n
-      iban-tools
     sexp_processor (4.5.0)
     shoulda-matchers (2.8.0)
       activesupport (>= 3.0.0)
@@ -462,7 +447,6 @@ DEPENDENCIES
   devise (= 3.2.4)
   fabrication
   faker
-  figaro
   fog (~> 1.37)
   font-awesome-rails
   font_assets (~> 0.1.12)
@@ -476,7 +460,6 @@ DEPENDENCIES
   less-rails-bootstrap (~> 3.3, >= 3.3.5.0)
   letter_opener
   lograge
-  mailjet
   mass_mandrill
   mini_magick
   mysql2 (~> 0.3.18)
@@ -491,7 +474,6 @@ DEPENDENCIES
   rspec-rails
   rubocop (~> 0.37.2)
   sass-rails
-  sepa_king
   shoulda-matchers
   simplecov
   sqlite3
