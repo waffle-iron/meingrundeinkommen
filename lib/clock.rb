@@ -33,6 +33,7 @@ module Clockwork
       File.open('/tmp/news.json', 'w+') do |f|
         f.write(posts.to_json)
       end
+
       storage = StorageUploader.new
       storage.store!(File.open('/tmp/news.json'))
     end
@@ -47,7 +48,7 @@ module Clockwork
       end
 
       storage = StorageUploader.new
-      storage.store!('/tmp/crowdbar.json')
+      storage.store!(File.open('/tmp/crowdbar.json'))
     end
 
     if job == 'clear.cache'
