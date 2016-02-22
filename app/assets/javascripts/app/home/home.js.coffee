@@ -53,7 +53,8 @@ angular.module("home", ["Wish","Support","Winner","rails"])
 
   $scope.pagination = []
 
-  url = "https://d27upe1ug8gwpm.cloudfront.net/storage/news.json"
+  #url = "https://d27upe1ug8gwpm.cloudfront.net/storage/news.json"
+  url = "https://s3.eu-central-1.amazonaws.com/mge-rails/storage/news.json"
   $http.get(url).success (data) ->
     $scope.news = []
     i = 0
