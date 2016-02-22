@@ -1,9 +1,9 @@
 class S3Store
-  BUCKET = "app-uploads".freeze
+  BUCKET = 'app-uploads'.freeze
 
-  def initialize file
-    @file = file
-    @s3 = AWS::S3.new
+  def initialize(file)
+    @file   = file
+    @s3     = AWS::S3.new
     @bucket = @s3.buckets[BUCKET]
   end
 

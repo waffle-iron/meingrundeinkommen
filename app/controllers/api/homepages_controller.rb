@@ -56,8 +56,8 @@ class Api::HomepagesController < ApplicationController
 
     # crowdbar
     response = HTTParty.get('https://d27upe1ug8gwpm.cloudfront.net/storage/crowdbar.json')
-    cb_json = JSON.parse(response.body)
-    #cb_json = JSON.parse(File.read('public/crowdbar.json'))
+    cb_json  = JSON.parse(response.body)
+    # cb_json = JSON.parse(File.read('public/crowdbar.json'))
 
     crowdbar_amount = cb_json['total_commission'] * 0.9
 

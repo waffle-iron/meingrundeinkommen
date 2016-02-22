@@ -1,8 +1,8 @@
 require 'clockwork'
 require '/app/config/boot'
 require '/app/config/environment'
-#require './config/boot'
-#require './config/environment'
+# require './config/boot'
+# require './config/environment'
 require 'httparty'
 require 'csv'
 require 'net/ssh'
@@ -99,10 +99,10 @@ module Clockwork
   end
 
   every(3.minutes, 'cache.news')
-  #every(5.minutes, 'invitations.send')
-  #every(5.minutes, 'newsletter.send')
+  # every(5.minutes, 'invitations.send')
+  # every(5.minutes, 'newsletter.send')
   every(3.minutes, 'crowdbar.stats')
-  #every(10.minutes, 'clear.cache')
+  # every(10.minutes, 'clear.cache')
   every(20.minutes, 'bank.check')
   # every(25.minutes, 'tandem.statusupdate')
 end
