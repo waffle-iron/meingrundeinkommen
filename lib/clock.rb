@@ -1,13 +1,13 @@
 require 'clockwork'
-require '../config/boot'
-require '../config/environment'
+require '/app/config/boot'
+require '/app/config/environment'
 require 'httparty'
 require 'csv'
 require 'net/ssh'
 
 module Clockwork
   configure do |config|
-    config[:logger] = Logger.new('../log/clock.log')
+    config[:logger] = Logger.new('/app/log/clock.log')
   end
 
   handler do |job|
@@ -29,10 +29,12 @@ module Clockwork
         posts << post
       end
 
-      File.open('../public/news.json', 'w+') do |f|
+      File.open('/tmp/news.json', 'w+') do |f|
         f.write(posts.to_json)
       end
 
+      storage = StorageUploader.new
+      storage.store!('/tmp/news.json')
     end
 
     if job == 'crowdbar.stats'
@@ -40,10 +42,12 @@ module Clockwork
       response = HTTParty.get('http://bar.mein-grundeinkommen.de/crowd_bar_stats.json')
       json     = JSON.parse(response.body)
 
-      File.open('../public/crowdbar.json', 'w+') do |f|
+      File.open('/tmp/crowdbar.json', 'w+') do |f|
         f.write(json.to_json)
       end
 
+      storage = StorageUploader.new
+      storage.store!('/tmp/crowdbar.json')
     end
 
     if job == 'clear.cache'
@@ -55,38 +59,37 @@ module Clockwork
       end
     end
 
-
     if job == 'bank.check'
       results = Net::SSH.start(ENV['HIBISCUS_HOST'], 'hibiscus', keys: ENV['HIBISCUS_SSH_KEY']).exec!('/home/hibiscus/scripts/enter_umsatz.pl')
       puts results
     end
 
-    if job == 'newsletter.send'
-      path_to_file = '../tmp/mailqueue.json'
+    # if job == 'newsletter.send'
+    # path_to_file = '../tmp/mailqueue.json'
 
-      if File.exist?(path_to_file)
-        params = JSON.parse(File.read(path_to_file))
-        File.delete(path_to_file)
+    # if File.exist?(path_to_file)
+    # params = JSON.parse(File.read(path_to_file))
+    # File.delete(path_to_file)
 
-        users = MailingsMailer.prepare_recipients(params['groups'],params['group_keys'])
+    # users = MailingsMailer.prepare_recipients(params['groups'],params['group_keys'])
 
-        users.each_slice(10).to_a.each do |user_group|
-          puts MailingsMailer.transactionmail(user_group,params['subject'],params['body']).deliver
-        end
-      end
-    end
+    # users.each_slice(10).to_a.each do |user_group|
+    # puts MailingsMailer.transactionmail(user_group,params['subject'],params['body']).deliver
+    # end
+    # end
+    # end
 
-    if job == 'invitations.send'
-      invitations = Tandem.where(invitee_email_sent: nil, invitation_type: 'mail')
-      invitations.each do |i|
-        user = User.find_by_id(i[:inviter_id])
-        unless user.nil?
-          puts InvitationMailer.invite_new(i,user).deliver
-          i.update_attribute(:invitee_email_sent,Time.now)
-        end
-      end
+    # if job == 'invitations.send'
+    # invitations = Tandem.where(invitee_email_sent: nil, invitation_type: 'mail')
+    # invitations.each do |i|
+    # user = User.find_by_id(i[:inviter_id])
+    # unless user.nil?
+    # puts InvitationMailer.invite_new(i,user).deliver
+    # i.update_attribute(:invitee_email_sent,Time.now)
+    # end
+    # end
 
-    end
+    # end
 
     # if job == "tandem.statusupdate"
     #     sql = "update tandems set invitee_participates=1 where invitation_type='existing' and inviter_id != invitee_id and inviter_id is not null and invitee_id is not null and invitee_id in (select user_id from chances where confirmed=1);"
