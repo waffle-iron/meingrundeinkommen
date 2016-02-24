@@ -1,5 +1,6 @@
 require 'action_view'
 require 'httparty'
+require 'addressable/uri'
 require 'csv'
 include ActionView::Helpers::NumberHelper
 
@@ -55,7 +56,10 @@ class Api::HomepagesController < ApplicationController
     # crowdbar_amount = crowdbar_yesterday
 
     # crowdbar
-    response = HTTParty.get('https://d27upe1ug8gwpm.cloudfront.net/storage/crowdbar.json')
+    url = "https://#{ENV['CDN_URL']}/crowdbar.json"
+    # Make sure we get don't get a bad URI
+    uri = Addressable::URI.parse(url)
+    response = HTTParty.get(uri)
     cb_json  = JSON.parse(response.body)
     # cb_json = JSON.parse(File.read('public/crowdbar.json'))
 
