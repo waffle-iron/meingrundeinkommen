@@ -56,7 +56,7 @@ class Api::HomepagesController < ApplicationController
     # crowdbar_amount = crowdbar_yesterday
 
     # crowdbar
-    url = "https://#{ENV['CDN_URL']}/crowdbar.json"
+    url = "#{ENV['CDN_URL']}/storage/crowdbar.json"
     # Make sure we get don't get a bad URI
     uri = Addressable::URI.parse(url)
     response = HTTParty.get(uri)
