@@ -13,7 +13,6 @@ gem 'mysql2', '~> 0.3.18'
 gem 'bcrypt'
 gem 'devise', '3.2.4'
 
-gem 'pry'
 # misc
 gem 'actionpack-page_caching'
 gem 'angular-ui-bootstrap-rails'
@@ -64,6 +63,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'fabrication'
   gem 'faker'
+  gem 'jazz_hands2', '~> 1.0', '>= 1.0.2'
   gem 'letter_opener'
   gem 'progress_bar'
   gem 'railroady', '~> 1.4', '>= 1.4.2' # Visualize model and controller as UML and output to SVG
