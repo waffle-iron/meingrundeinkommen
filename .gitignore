@@ -177,7 +177,6 @@ crashlytics-build.properties
 
 .bundle
 
-config/environments/development.rb
 config/initializers/mailjet.rb
 coverage/
 db/*.sqlite3
