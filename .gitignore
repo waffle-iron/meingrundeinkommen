@@ -179,7 +179,6 @@ crashlytics-build.properties
 
 config/environments/development.rb
 config/initializers/mailjet.rb
-config/sunspot.yml
 coverage/
 db/*.sqlite3
 lib/tasks/data.rake
