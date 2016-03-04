@@ -16,8 +16,8 @@ module Clockwork
     if job == 'cache.news'
       response = HTTParty.get('http://blog.meinbge.de/wp-json/wp/v2/posts?filter[posts_per_page]=500')
       response.body.gsub!('http:\\/\\/blog.meinbge.de','https:\\/\\/blog.meinbge.de')
-      json     = JSON.parse(response.body)
-      posts    = []
+      json  = JSON.parse(response.body)
+      posts = []
       puts json.length
       json.each do |opost|
         post  = opost

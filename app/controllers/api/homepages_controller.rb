@@ -6,8 +6,8 @@ include ActionView::Helpers::NumberHelper
 
 class Float
   def round_down(n =0)
-    s = to_s
-    l = s.index('.') + 1 + n
+    s              = to_s
+    l              = s.index('.') + 1 + n
     s.length <= l ? self : s[0,l].to_f
   end
 end
@@ -58,7 +58,7 @@ class Api::HomepagesController < ApplicationController
     # crowdbar
     url = "#{ENV['CDN_URL']}/storage/crowdbar.json"
     # Make sure we get don't get a bad URI
-    uri = Addressable::URI.parse(url)
+    uri      = Addressable::URI.parse(url)
     response = HTTParty.get(uri)
     cb_json  = JSON.parse(response.body)
     # cb_json = JSON.parse(File.read('public/crowdbar.json'))

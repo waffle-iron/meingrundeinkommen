@@ -4,9 +4,8 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
 
-
-  config.action_controller.perform_caching = true
-  config.action_controller.page_cache_directory = "#{Rails.root.to_s}/public/cache"
+  config.action_controller.perform_caching      = true
+  config.action_controller.page_cache_directory = "#{Rails.root}/public/cache"
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both thread web servers
@@ -80,7 +79,7 @@ Rails.application.configure do
   # config.cache_store = :mem_cache_store
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  #config.action_controller.asset_host = ENV['CDN_URL']
+  # config.action_controller.asset_host = ENV['CDN_URL']
 
   # Set up CORS HTTP Headers headers to allow serving of fonts via cloudfront
   config.font_assets.origin = '*'
