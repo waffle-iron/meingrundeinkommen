@@ -28,7 +28,7 @@ function nuke(){
 
 while true; do
     read -p "This will completely nuke your rbenv ruby and associated gems AND your ./vendor/bundle\n
-    There is to fix some specific problems on OSX.\n
+    This is to fix some specific problems on OSX.\n
     Are you sure you wish to continue? " yn
     case $yn in
         [Yy]* ) nuke ; break;;
