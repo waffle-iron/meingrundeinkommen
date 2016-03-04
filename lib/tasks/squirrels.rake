@@ -1,9 +1,8 @@
 require "rubygems"
-require 'iban-tools'
 
 namespace :squirrels do
 
-  task create_sammellastschrift: :environment do
+  task :create_sammellastschrift => :environment do
     desc "generates xml for sammellalstschrift"
 
 
@@ -14,14 +13,16 @@ namespace :squirrels do
 100196101Dexia Kommunalbank Deutschland                            10969Berlin                             Dexia Berlin                    DXIADEBBXXX09055273U000000000
 100202001BHF-BANK                                                  10117Berlin                             BHF-BANK Berlin            25155BHFBDEFF10060004794U000000000
 100205001Bank für Sozialwirtschaft                                 10178Berlin                             Bank für Sozialwirtschaft  25013BFSWDE33BER09000530U000000000
+100205101Bank für Sozialwirtschaft                                 10178Berlin                             Sozialbank Berlin               BFSWDE33B1009056659U000000000
+100205201Bank für Sozialwirtschaft                                 10178Berlin                             Sozialbank Berlin               BFSWDE33B2009056662U000000000
 100208901UniCredit Bank - HypoVereinsbank                          10896Berlin                             UniCredit Bank-HypoVereinbk22014HYVEDEMM48899039785U000000000
 100208902UniCredit Bank - HypoVereinsbank                          14532Kleinmachnow                       UniCredit Bank-HypoVereinbk22014HYVEDEMM48899049352U000000000
 100208902UniCredit Bank - HypoVereinsbank                          16515Oranienburg                        UniCredit Bank-HypoVereinbk22014HYVEDEMM48899049745U000000000
 100208902UniCredit Bank - HypoVereinsbank                          14776Brandenburg an der Havel           UniCredit Bank-HypoVereinbk22014HYVEDEMM48899049746U000000000
 100208902UniCredit Bank - HypoVereinsbank                          15711Königs Wusterhausen                UniCredit Bank-HypoVereinbk22014HYVEDEMM48899049747U000000000
-100208902UniCredit Bank - HypoVereinsbank                          15517Fürstenwalde /Spree                UniCredit Bank-HypoVereinbk22014HYVEDEMM48899050515U000000000
+100208902UniCredit Bank - HypoVereinsbank                          15517Fürstenwalde /Spree                UniCredit Bank-HypoVereinbk22014HYVEDEMM48899050515D000000000
 100302001Berlin Hyp                                                10787Berlin                             Berlin Hyp                 26706BHYPDEB2XXX09037413U000000000
-100304001ABK-Kreditbank                                            10115Berlin                             ABK-Kreditbank Berlin      25686ABKBDEB1XXX09044427U000000000
+100304001ABK Allgemeine Beamten Bank                               10115Berlin                             ABK Bank Berlin            25686ABKBDEB1XXX09044427U000000000
 100305001Bankhaus Löbbecke                                         10117Berlin                             Bankhaus Löbbecke Berlin   26225LOEBDEBBXXX09043961U000000000
 100306001North Channel Bank                                        55118Mainz a Rhein                      North Channel Bank Mainz   26205GENODEF1OGK88000532U000000000
 100307001Eurocity Bank                                             60311Frankfurt am Main                  Eurocity Bank              26535DLGHDEB1XXX16044339U000000000
@@ -39,12 +40,12 @@ namespace :squirrels do
 100500051Landesbank Berlin - E 1 -                                 10889Berlin                             Landesbank Berlin - E 1 -  51005BELADEB1DB5C6047222U000000000
 100500061Landesbank Berlin - E 2 -                                 10889Berlin                             Landesbank Berlin - E 2 -  51006BELADEB1DB6D1047223U000000000
 100500071Landesbank Berlin - E 3 -                                 10889Berlin                             Landesbank Berlin - E 3 -  51007BELADEB1DB7D4055701U000000000
-100500081Landesbank Berlin - E 4 -                                 10889Berlin                             Landesbank Berlin - E 4 -  51008BELADEB1DB809055699U000000000
+100500081Landesbank Berlin - E 4 -                                 10889Berlin                             Landesbank Berlin - E 4 -  51008BELADEB1DB8E2055699U000000000
 100500201LBB S-Kreditpartner, Berlin                               10715Berlin                             LBB S-Kreditpartner, Berlin     SKPADEB1XXXB8055974U000000000
 100505001LBS Ost Berlin                                            10405Berlin                             LBS Ost Berlin                  LBSODEB1BLN09046141U000000000
 100509991DekaBank Berlin                                           10249Berlin                             DekaBank Berlin                 DGZFDEFFBER09004788U000000000
 100601981Pax-Bank                                                  14005Berlin                             Pax-Bank Berlin            61335GENODED1PA606047622U137060193
-100602371Evangelische Darlehnsgenossenschaft -alt-                 10249Berlin                             EDG Berlin -alt-           61330GENODEF1EDG33046278M100000000
+100602371Evangelische Darlehnsgenossenschaft -alt-                 10249Berlin                             EDG Berlin -alt-           61330GENODEF1EDG33046278U100000000
 100610061Bank für Kirche und Diakonie - KD-Bank Gf Sonder-BLZ      10117Berlin                             KD-Bank Berlin                  GENODED1KDB09055270U000000000
 100700001Deutsche Bank Fil Berlin                                  10883Berlin                             Deutsche Bank Fil Berlin   27060DEUTDEBBXXX63004787U000000000
 100700002Deutsche Bank Fil Berlin Gf P2                            10883Berlin                             Deutsche Bank Fil Berlin   27703           63055917U000000000
@@ -70,7 +71,6 @@ namespace :squirrels do
 100892601Commerzbank vormals Dresdner Bank ITGK                    10877Berlin                             Commerzbank ITGK Berlin         DRESDEFFI1409050474U000000000
 100899991Commerzbank vormals Dresdner Bank ITGK 2                  10117Berlin                             Commerzbank ITGK 2 Berlin       DRESDEFFI9909052938U000000000
 100900001Berliner Volksbank                                        10892Berlin                             Berliner VB Berlin         91001BEVODEBBXXX06023299U000000000
-100900002Berliner Volksbank                                        14612Falkensee                          Berliner VB Falkensee      91001           06044918U000000000
 100900002Berliner Volksbank                                        15711Königs Wusterhausen                Berliner VB Königs Wusterhs91001           06044951U000000000
 100900002Berliner Volksbank                                        14979Großbeeren                         Berliner VB Großbeeren     91001           06044952U000000000
 100900002Berliner Volksbank                                        16816Neuruppin                          Berliner VB Neuruppin      91001           06044970U000000000
@@ -105,7 +105,7 @@ namespace :squirrels do
 100900002Berliner Volksbank                                        15366Neuenhagen b Berlin                Berliner VB Neuenhagen     91001           06053326U000000000
 100900002Berliner Volksbank                                        16548Glienicke /Nordbahn                Berliner VB Glienicke      91001           06053327U000000000
 100900002Berliner Volksbank (Gf P2)                                10892Berlin                             Berliner VB Berlin         81001           06053669U000000000
-100900002Berliner Volksbank                                        14552Michendorf                         Berliner VB Michendorf     91001           06055750U000000000
+100900002Berliner Volksbank                                        14612Falkensee                          Berliner VB Falkensee      91001           06056636U000000000
 100903001Bank für Schiffahrt (BFS) Fil d Ostfr VB Leer             13353Berlin                             Bk f Schiffahrt BFS Berlin      GENODEF1BSB09021629U100000000
 100906031apoBank                                                   10593Berlin                             apoBank Berlin             91006DAAEDED1003A4030360U000000000
 100906032apoBank                                                   19061Schwerin, Meckl                    apoBank Schwerin           91006DAAEDED1042A4046110U000000000
@@ -127,7 +127,7 @@ namespace :squirrels do
 101308001BIW Bank                                                  47877Willich                            BIW Bank                   25185BIWBDE33XXX01050620U000000000
 102205001Bank of Scotland Ndl Berlin                               10178Berlin                             Bank of Scotland Berlin         BOFSDEB1XXX00056412U000000000
 102206001Sydbank Filiale Berlin                                    14193Berlin                             Sydbank Berlin                  SYBKDE22BER19056217U000000000
-103106001Tradegate Wertpapierhandelsbank Berlin                    10711Berlin                             Tradegate Berlin                TRDADEB1PBK09055068U000000000
+103106001Tradegate Wertpapierhandelsbank Berlin                    10711Berlin                             Tradegate Berlin           25257TRDADEB1PBK09055068U000000000
 120168361KfW Kreditanstalt für Wiederaufbau                        10117Berlin                             KfW Berlin                      KFWIDEFF10009045444U000000000
 120300001Deutsche Kreditbank Berlin                                10117Berlin                             Deutsche Kreditbank Berlin 51011BYLADEM100100046023U000000000
 120300002Deutsche Kreditbank                                       09111Chemnitz, Sachs                    Deutsche Kreditbk Chemnitz 51011           00049243U000000000
@@ -447,7 +447,6 @@ namespace :squirrels do
 150400682Commerzbank                                               17181Waren (Müritz)                     Commerzbank Waren          24151           13056037U000000000
 150400682Commerzbank                                               17302Pasewalk                           Commerzbank Pasewalk       24151           13056038U000000000
 150501001Müritz-Sparkasse                                          17181Waren (Müritz)                     Müritz-Sparkasse Waren     51514NOLADE21WRN20045257U000000000
-150501002Müritz-Sparkasse Fil                                      17207Röbel /Müritz                      Müritz-Sparkasse Röbel     51514           20045256D000000000
 150502001Sparkasse Neubrandenburg-Demmin                           17041Neubrandenburg, Meckl              Spk Neubrandenburg-Demmin  51515NOLADE21NBS20047492U000000000
 150502002Sparkasse Neubrandenburg-Demmin                           17153Stavenhagen, Reuterstadt           Spk Neubrandenburg-Demmin  51515           20052195U000000000
 150502002Sparkasse Neubrandenburg-Demmin                           17154Neukalen                           Spk Neubrandenburg-Demmin  51515           20052196U000000000
@@ -530,7 +529,6 @@ namespace :squirrels do
 150616382Volksbank Raiffeisenbank                                  17087Altentreptow                       Volksbank Raiffeisenbank   61265           32045945U000000000
 150616382Volksbank Raiffeisenbank                                  17398Ducherow                           Volksbank Raiffeisenbank   61265           32046611U000000000
 150616382Volksbank Raiffeisenbank                                  17358Torgelow, Vorpommern               Volksbank Raiffeisenbank   61265           32046630U000000000
-150616382Volksbank Raiffeisenbank                                  17379Ferdinandshof, Vorpommern          Volksbank Raiffeisenbank   61265           32046646D000000000
 150616382Volksbank Raiffeisenbank                                  17367Eggesin                            Volksbank Raiffeisenbank   61265           32046647U000000000
 150616382Volksbank Raiffeisenbank (Gf P2)                          17462Greifswald, Hansestadt             Volksbank Raiffeisenbank   71265           32053678U000000000
 150616382Volksbank Raiffeisenbank                                  17509Lubmin                             Volksbank Raiffeisenbank   61265           32055054U000000000
@@ -591,10 +589,8 @@ namespace :squirrels do
 160500001Mittelbrandenburgische Sparkasse in Potsdam               14459Potsdam                            Mittelbrandenbg Sparkasse  51699WELADED1PMB20047629U000000000
 160501011Sparkasse Prignitz                                        16921Pritzwalk                          Sparkasse Prignitz         51698WELADED1PRP20048170U000000000
 160501012Sparkasse Prignitz                                        19336Bad Wilsnack                       Spk Prignitz Bad Wilsnack  51698           20048327U000000000
-160501012Sparkasse Prignitz                                        19322Breese b Wittenberge, Prignitz     Spk Prignitz Breese        51698           20048329U000000000
 160501012Sparkasse Prignitz                                        19339Plattenburg                        Spk Prignitz Glöwen        51698           20048330U000000000
 160501012Sparkasse Prignitz                                        19357Karstädt, Prignitz                 Spk Prignitz Karstädt      51698           20048331U000000000
-160501012Sparkasse Prignitz                                        16928Groß Pankow (Prignitz)             Spk Prignitz Lindenberg    51698           20048332U000000000
 160501012Sparkasse Prignitz                                        16945Meyenburg, Prignitz                Spk Prignitz Meyenburg     51698           20048333U000000000
 160501012Sparkasse Prignitz                                        19348Perleberg                          Spk Prignitz Perleberg     51698           20048334U000000000
 160501012Sparkasse Prignitz                                        19322Wittenberge, Prignitz              Spk Prignitz Wittenberge   51698           20048336U000000000
@@ -623,8 +619,6 @@ namespace :squirrels do
 160619381Raiffeisenbank Ostprignitz-Ruppin                         16803Neuruppin                          Raiffeisenbank Ostpr-Ruppin61259GENODEF1NPP32045723U000000000
 160619382Raiffeisenbank Ostprignitz-Ruppin                         16866Kyritz, Prignitz                   Raiffeisenbank Ostpr-Ruppin61259           32045082U000000000
 160619382Raiffeisenbank Ostprignitz-Ruppin                         16833Fehrbellin                         Raiffeisenbank Ostpr-Ruppin61259           32046039U000000000
-160619382Raiffeisenbank Ostprignitz-Ruppin                         16845Wildberg b Neustadt, Dosse         Raiffeisenbank Ostpr-Ruppin61259           32049098U000000000
-160619382Raiffeisenbank Ostprignitz-Ruppin                         16818Wustrau                            Raiffeisenbank Ostpr-Ruppin61259           32049103U000000000
 160619382Raiffeisenbank Ostprignitz-Ruppin                         16868Wusterhausen                       Raiffeisenbank Ostpr-Ruppin61259           32049752U000000000
 160619382Raiffeisenbank Ostprignitz-Ruppin                         16845Neustadt (Dosse)                   Raiffeisenbank Ostpr-Ruppin61259           32049753U000000000
 160619382Raiffeisenbank Ostprignitz-Ruppin                         16845Breddin                            Raiffeisenbank Ostpr-Ruppin61259           32049754U000000000
@@ -700,7 +694,6 @@ namespace :squirrels do
 170924042VR Bank Fürstenwalde Seelow Wriezen                       16259Neulewin                           VR Bank Fürstenwalde       91049           32049338U000000000
 170924042VR Bank Fürstenwalde Seelow Wriezen                       15374Müncheberg                         VR Bank Fürstenwalde       91049           32050576U000000000
 170924042VR Bank Fürstenwalde Seelow Wriezen                       15528Spreenhagen                        VR Bank Fürstenwalde       91049           32050577U000000000
-170924042VR Bank Fürstenwalde Seelow Wriezen                       15326Podelzig                           VR Bank Fürstenwalde       91049           32050578U000000000
 170924042VR Bank Fürstenwalde Seelow Wriezen                       15326Zeschdorf                          VR Bank Fürstenwalde       91049           32050635U000000000
 170924042VR Bank Fürstenwalde Seelow Wriezen                       16269Wriezen                            VR Bank Fürstenwalde       91049           32052379U000000000
 170924042VR Bank Fürstenwalde Seelow Wriezen (Gf P2)               15501Fürstenwalde /Spree                VR Bank Fürstenwalde       81049           32053689U000000000
@@ -760,67 +753,67 @@ namespace :squirrels do
 200209001Signal Iduna Bauspar                                      20351Hamburg                            Signal Iduna Bauspar            SIBSDEHHXXX09043598U000000000
 200300001UniCredit Bank - HypoVereinsbank                          20454Hamburg                            UniCredit Bank-HypoVereinbk29260HYVEDEMM30068011342U000000000
 200300002UniCredit Bank - HypoVereinsbank                          21465Reinbek                            UniCredit Bank-HypoVereinbk29260HYVEDEMM30068011204U000000000
-200300002UniCredit Bank - HypoVereinsbank                          22880Wedel                              UniCredit Bank-HypoVereinbk29260HYVEDEMM30068011208U000000000
-200300002UniCredit Bank - HypoVereinsbank                          22941Bargteheide                        UniCredit Bank-HypoVereinbk29260HYVEDEMM30068011213U000000000
+200300002UniCredit Bank - HypoVereinsbank                          22880Wedel                              UniCredit Bank-HypoVereinbk29260HYVEDEMM30068011208D000000000
+200300002UniCredit Bank - HypoVereinsbank                          22941Bargteheide                        UniCredit Bank-HypoVereinbk29260HYVEDEMM30068011213D000000000
 200300002UniCredit Bank - HypoVereinsbank                          22902Ahrensburg                         UniCredit Bank-HypoVereinbk29260HYVEDEMM30068011216U000000000
 200300002UniCredit Bank - HypoVereinsbank                          22850Norderstedt                        UniCredit Bank-HypoVereinbk29260HYVEDEMM30068011348U000000000
 200300002UniCredit Bank - HypoVereinsbank                          23843Bad Oldesloe                       UniCredit Bank-HypoVereinbk29260HYVEDEMM30068013626U000000000
 200300002UniCredit Bank - HypoVereinsbank                          21502Geesthacht                         UniCredit Bank-HypoVereinbk29260HYVEDEMM30068013658U000000000
-200300002UniCredit Bank - HypoVereinsbank                          25469Halstenbek, Holst                  UniCredit Bank-HypoVereinbk29260HYVEDEMM30068013665U000000000
+200300002UniCredit Bank - HypoVereinsbank                          25469Halstenbek, Holst                  UniCredit Bank-HypoVereinbk29260HYVEDEMM30068013665D000000000
 200300002UniCredit Bank - HypoVereinsbank                          25421Pinneberg                          UniCredit Bank-HypoVereinbk29260HYVEDEMM30068013724U000000000
-200300002UniCredit Bank - HypoVereinsbank                          25451Quickborn, Kr Pinneberg            UniCredit Bank-HypoVereinbk29260HYVEDEMM30068013727U000000000
-200300002UniCredit Bank - HypoVereinsbank                          21493Schwarzenbek                       UniCredit Bank-HypoVereinbk29260HYVEDEMM30068013743U000000000
+200300002UniCredit Bank - HypoVereinsbank                          25451Quickborn, Kr Pinneberg            UniCredit Bank-HypoVereinbk29260HYVEDEMM30068013727D000000000
+200300002UniCredit Bank - HypoVereinsbank                          21493Schwarzenbek                       UniCredit Bank-HypoVereinbk29260HYVEDEMM30068013743D000000000
 200300002UniCredit Bank - HypoVereinsbank                          39104Magdeburg                          UniCredit Bank-HypoVereinbk29260HYVEDEMM30068046481U000000000
 200300002UniCredit Bank - HypoVereinsbank                          18055Rostock                            UniCredit Bank-HypoVereinbk29260HYVEDEMM30068046482U000000000
 200300002UniCredit Bank - HypoVereinsbank                          19053Schwerin, Meckl                    UniCredit Bank-HypoVereinbk29260HYVEDEMM30068046483U000000000
-200300002UniCredit Bank - HypoVereinsbank                          23966Wismar, Meckl                      UniCredit Bank-HypoVereinbk29260HYVEDEMM30068046715U000000000
+200300002UniCredit Bank - HypoVereinsbank                          23966Wismar, Meckl                      UniCredit Bank-HypoVereinbk29260HYVEDEMM30068046715D000000000
 200300002UniCredit Bank - HypoVereinsbank                          18439Stralsund                          UniCredit Bank-HypoVereinbk29260HYVEDEMM30068046716U000000000
-200300002UniCredit Bank - HypoVereinsbank                          17489Greifswald, Hansestadt             UniCredit Bank-HypoVereinbk29260HYVEDEMM30068046781U000000000
-200300002UniCredit Bank - HypoVereinsbank                          18273Güstrow                            UniCredit Bank-HypoVereinbk29260HYVEDEMM30068046823U000000000
-200300002UniCredit Bank - HypoVereinsbank                          39576Stendal                            UniCredit Bank-HypoVereinbk29260HYVEDEMM30068046824U000000000
+200300002UniCredit Bank - HypoVereinsbank                          17489Greifswald, Hansestadt             UniCredit Bank-HypoVereinbk29260HYVEDEMM30068046781D000000000
+200300002UniCredit Bank - HypoVereinsbank                          18273Güstrow                            UniCredit Bank-HypoVereinbk29260HYVEDEMM30068046823D000000000
+200300002UniCredit Bank - HypoVereinsbank                          39576Stendal                            UniCredit Bank-HypoVereinbk29260HYVEDEMM30068046824D000000000
 200300002UniCredit Bank - HypoVereinsbank                          38820Halberstadt                        UniCredit Bank-HypoVereinbk29260HYVEDEMM30068046825U000000000
 200300002UniCredit Bank - HypoVereinsbank                          49074Osnabrück                          UniCredit Bank-HypoVereinbk29260HYVEDEMM30068048912U000000000
-200300002UniCredit Bank - HypoVereinsbank                          29525Uelzen, Lüneburger Heide           UniCredit Bank-HypoVereinbk29260HYVEDEMM30068049735U000000000
+200300002UniCredit Bank - HypoVereinsbank                          29525Uelzen, Lüneburger Heide           UniCredit Bank-HypoVereinbk29260HYVEDEMM30068049735D000000000
 200300002UniCredit Bank - HypoVereinsbank                          17033Neubrandenburg, Meckl              UniCredit Bank-HypoVereinbk29260HYVEDEMM30068050494U000000000
 200300002UniCredit Bank - HypoVereinsbank                          39218Schönebeck (Elbe)                  UniCredit Bank-HypoVereinbk29260HYVEDEMM30068050520U000000000
 200300002UniCredit Bank - HypoVereinsbank                          21220Seevetal                           UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052619U000000000
-200300002UniCredit Bank - HypoVereinsbank                          21629Neu Wulmstorf, Niederelbe          UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052620U000000000
-200300002UniCredit Bank - HypoVereinsbank                          27356Rotenburg (Wümme)                  UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052621U000000000
+200300002UniCredit Bank - HypoVereinsbank                          21629Neu Wulmstorf, Niederelbe          UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052620D000000000
+200300002UniCredit Bank - HypoVereinsbank                          27356Rotenburg (Wümme)                  UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052621D000000000
 200300002UniCredit Bank - HypoVereinsbank                          21244Buchholz in der Nordheide          UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052622U000000000
-200300002UniCredit Bank - HypoVereinsbank                          21435Stelle, Kr Harburg                 UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052623U000000000
-200300002UniCredit Bank - HypoVereinsbank                          21635Jork, Niederelbe                   UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052624U000000000
-200300002UniCredit Bank - HypoVereinsbank                          27404Zeven                              UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052625U000000000
+200300002UniCredit Bank - HypoVereinsbank                          21435Stelle, Kr Harburg                 UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052623D000000000
+200300002UniCredit Bank - HypoVereinsbank                          21635Jork, Niederelbe                   UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052624D000000000
+200300002UniCredit Bank - HypoVereinsbank                          27404Zeven                              UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052625D000000000
 200300002UniCredit Bank - HypoVereinsbank                          24119Kronshagen                         UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052626U000000000
-200300002UniCredit Bank - HypoVereinsbank                          24226Heikendorf                         UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052627U000000000
+200300002UniCredit Bank - HypoVereinsbank                          24226Heikendorf                         UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052627D000000000
 200300002UniCredit Bank - HypoVereinsbank                          24217Schönberg (Holstein)               UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052629U000000000
 200300002UniCredit Bank - HypoVereinsbank                          23795Bad Segeberg                       UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052630U000000000
-200300002UniCredit Bank - HypoVereinsbank                          24568Kaltenkirchen, Holst               UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052631U000000000
-200300002UniCredit Bank - HypoVereinsbank                          24782Büdelsdorf                         UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052632U000000000
-200300002UniCredit Bank - HypoVereinsbank                          24589Nortorf b Neumünster               UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052634U000000000
-200300002UniCredit Bank - HypoVereinsbank                          24790Schacht-Audorf                     UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052635U000000000
-200300002UniCredit Bank - HypoVereinsbank                          24955Harrislee                          UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052638U000000000
+200300002UniCredit Bank - HypoVereinsbank                          24568Kaltenkirchen, Holst               UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052631D000000000
+200300002UniCredit Bank - HypoVereinsbank                          24782Büdelsdorf                         UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052632D000000000
+200300002UniCredit Bank - HypoVereinsbank                          24589Nortorf b Neumünster               UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052634D000000000
+200300002UniCredit Bank - HypoVereinsbank                          24790Schacht-Audorf                     UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052635D000000000
+200300002UniCredit Bank - HypoVereinsbank                          24955Harrislee                          UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052638D000000000
 200300002UniCredit Bank - HypoVereinsbank                          25821Bredstedt                          UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052640U000000000
 200300002UniCredit Bank - HypoVereinsbank                          25840Friedrichstadt, Eider              UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052641U000000000
-200300002UniCredit Bank - HypoVereinsbank                          25436Uetersen                           UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052645U000000000
-200300002UniCredit Bank - HypoVereinsbank                          25355Barmstedt                          UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052646U000000000
-200300002UniCredit Bank - HypoVereinsbank                          25551Hohenlockstedt                     UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052647U000000000
-200300002UniCredit Bank - HypoVereinsbank                          21762Otterndorf, Niederelbe             UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052648U000000000
-200300002UniCredit Bank - HypoVereinsbank                          21781Cadenberge                         UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052649U000000000
+200300002UniCredit Bank - HypoVereinsbank                          25436Uetersen                           UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052645D000000000
+200300002UniCredit Bank - HypoVereinsbank                          25355Barmstedt                          UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052646D000000000
+200300002UniCredit Bank - HypoVereinsbank                          25551Hohenlockstedt                     UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052647D000000000
+200300002UniCredit Bank - HypoVereinsbank                          21762Otterndorf, Niederelbe             UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052648D000000000
+200300002UniCredit Bank - HypoVereinsbank                          21781Cadenberge                         UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052649D000000000
 200300002UniCredit Bank - HypoVereinsbank                          21614Buxtehude                          UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052650U000000000
 200300002UniCredit Bank - HypoVereinsbank                          21682Stade, Niederelbe                  UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052651U000000000
 200300002UniCredit Bank - HypoVereinsbank                          21423Winsen (Luhe)                      UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052652U000000000
 200300002UniCredit Bank - HypoVereinsbank                          24103Kiel                               UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052653U000000000
 200300002UniCredit Bank - HypoVereinsbank                          24340Eckernförde                        UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052654U000000000
 200300002UniCredit Bank - HypoVereinsbank                          24211Preetz, Holst                      UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052655U000000000
-200300002UniCredit Bank - HypoVereinsbank                          24232Schönkirchen, Holst                UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052656U000000000
+200300002UniCredit Bank - HypoVereinsbank                          24232Schönkirchen, Holst                UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052656D000000000
 200300002UniCredit Bank - HypoVereinsbank                          23701Eutin                              UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052657U000000000
 200300002UniCredit Bank - HypoVereinsbank                          24534Neumünster, Holst                  UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052658U000000000
 200300002UniCredit Bank - HypoVereinsbank                          24576Bad Bramstedt                      UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052659U000000000
-200300002UniCredit Bank - HypoVereinsbank                          24768Rendsburg                          UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052660U000000000
-200300002UniCredit Bank - HypoVereinsbank                          24937Flensburg                          UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052661U000000000
+200300002UniCredit Bank - HypoVereinsbank                          24768Rendsburg                          UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052660D000000000
+200300002UniCredit Bank - HypoVereinsbank                          24937Flensburg                          UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052661D000000000
 200300002UniCredit Bank - HypoVereinsbank                          24837Schleswig                          UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052662U000000000
 200300002UniCredit Bank - HypoVereinsbank                          24376Kappeln, Schlei                    UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052663U000000000
-200300002UniCredit Bank - HypoVereinsbank                          24392Süderbrarup                        UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052664U000000000
+200300002UniCredit Bank - HypoVereinsbank                          24392Süderbrarup                        UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052664D000000000
 200300002UniCredit Bank - HypoVereinsbank                          25813Husum, Nordsee                     UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052665U000000000
 200300002UniCredit Bank - HypoVereinsbank                          25836Garding                            UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052666U000000000
 200300002UniCredit Bank - HypoVereinsbank                          25899Niebüll                            UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052667U000000000
@@ -831,23 +824,25 @@ namespace :squirrels do
 200300002UniCredit Bank - HypoVereinsbank                          25541Brunsbüttel                        UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052672U000000000
 200300002UniCredit Bank - HypoVereinsbank                          25761Büsum                              UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052673U000000000
 200300002UniCredit Bank - HypoVereinsbank                          25709Marne, Holst                       UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052674U000000000
-200300002UniCredit Bank - HypoVereinsbank                          25704Meldorf                            UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052675U000000000
+200300002UniCredit Bank - HypoVereinsbank                          25704Meldorf                            UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052675D000000000
 200300002UniCredit Bank - HypoVereinsbank                          25764Wesselburen                        UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052676U000000000
 200300002UniCredit Bank - HypoVereinsbank                          25335Elmshorn                           UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052677U000000000
 200300002UniCredit Bank - HypoVereinsbank                          25524Itzehoe                            UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052678U000000000
-200300002UniCredit Bank - HypoVereinsbank                          25348Glückstadt                         UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052679U000000000
-200300002UniCredit Bank - HypoVereinsbank                          25548Kellinghusen                       UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052680U000000000
+200300002UniCredit Bank - HypoVereinsbank                          25348Glückstadt                         UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052679D000000000
+200300002UniCredit Bank - HypoVereinsbank                          25548Kellinghusen                       UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052680D000000000
 200300002UniCredit Bank - HypoVereinsbank                          25554Wilster                            UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052682U000000000
 200300002UniCredit Bank - HypoVereinsbank                          23552Lübeck                             UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052683U000000000
 200300002UniCredit Bank - HypoVereinsbank                          21335Lüneburg                           UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052684U000000000
 200300002UniCredit Bank - HypoVereinsbank                          27474Cuxhaven                           UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052685U000000000
 200300002UniCredit Bank - HypoVereinsbank                          30159Hannover                           UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052686U000000000
-200300002UniCredit Bank - HypoVereinsbank                          31785Hameln                             UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052687U000000000
-200300002UniCredit Bank - HypoVereinsbank                          29221Celle                              UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052688U000000000
-200300002UniCredit Bank - HypoVereinsbank                          31134Hildesheim                         UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052689U000000000
-200300002UniCredit Bank - HypoVereinsbank                          37073Göttingen, Niedersachs             UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052690U000000000
+200300002UniCredit Bank - HypoVereinsbank                          31785Hameln                             UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052687D000000000
+200300002UniCredit Bank - HypoVereinsbank                          29221Celle                              UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052688D000000000
+200300002UniCredit Bank - HypoVereinsbank                          31134Hildesheim                         UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052689D000000000
+200300002UniCredit Bank - HypoVereinsbank                          37073Göttingen, Niedersachs             UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052690D000000000
 200300002UniCredit Bank - HypoVereinsbank                          38100Braunschweig                       UniCredit Bank-HypoVereinbk29260HYVEDEMM30068052691U000000000
 200300002UniCredit Bank - HypoVereinsbank                          25826Sankt Peter-Ording                 UniCredit Bank-HypoVereinbk29260HYVEDEMM30068056405U000000000
+200300002UniCredit Bank - HypoVereinsbank                          24937Flensburg                          UniCredit Bank-HypoVereinbk29260HYVEDEMM30068056702A000000000
+200300002UniCredit Bank - HypoVereinsbank                          24768Rendsburg                          UniCredit Bank-HypoVereinbk29260HYVEDEMM30068056703A000000000
 200301331Varengold Bank                                            22767Hamburg                            Varengold Bank                  VGAGDEHHXXX10056413U000000000
 200303001DONNER & REUSCHEL                                         20095Hamburg                            DONNER & REUSCHEL          99010CHDBDEHHXXX09013477U000000000
 200304001Marcard, Stein & Co Bankiers                              20095Hamburg                            Marcardbank Hamburg        26230MCRDDEHHXXXC3013492U000000000
@@ -877,7 +872,7 @@ namespace :squirrels do
 200411331comdirect bank                                            25449Quickborn, Kr Pinneberg            comdirect bank Quickborn   24222COBADEHD00113050565U000000000
 200411441comdirect bank                                            25449Quickborn, Kr Pinneberg            comdirect bank Quickborn   24224COBADEHD04413053523U000000000
 200411551comdirect bank                                            25449Quickborn, Kr Pinneberg            comdirect bank             24225COBADEHD05513053524U000000000
-200500001HSH Nordbank Hamburg                                      20095Hamburg                            HSH Nordbank Hamburg       52000HSHNDEHH200C5011954M000000000
+200500001HSH Nordbank Hamburg                                      20095Hamburg                            HSH Nordbank Hamburg       52000HSHNDEHH200C5011954U000000000
 200505501Hamburger Sparkasse                                       20454Hamburg                            Haspa Hamburg              52001HASPDEHHXXX00011973U000000000
 200505502Hamburger Sparkasse                                       22926Ahrensburg                         Haspa Ahrensburg           52001HASPDEHH20000040980U000000000
 200505502Hamburger Sparkasse                                       21465Wentorf bei Hamburg                Haspa Wentorf Hamburg      52001           00040981U000000000
@@ -1029,7 +1024,7 @@ namespace :squirrels do
 200906021apoBank                                                   20009Hamburg                            apoBank Hamburg            92050DAAEDED1002A4031107U000000000
 200907001Edekabank                                                 22297Hamburg                            Edekabank Hamburg          92055EDEKDEHHXXX50024638U000000000
 200907002Edekabank (Gf P2)                                         22297Hamburg                            Edekabank Hamburg          82055           50053711U000000000
-200907451EBANK Gf Cash                                             22297Hamburg                            EBANK Gf Cash Hamburg      92165EDEKDEHHXXX50053288M000000000
+200907451EBANK Gf Cash                                             22297Hamburg                            EBANK Gf Cash Hamburg      92165EDEKDEHHXXX50053288U000000000
 200909001PSD Bank Nord                                             22023Hamburg                            PSD Bank Nord Hamburg      92063GENODEF1P0891024634U000000000
 201100221Postbank (Spar)                                           22283Hamburg                            Postbank -Spar- Hamburg         PBNKDEFFXXX09034811U000000000
 201107001Bank of Tokyo-Mitsubishi UFJ, The -                       20302Hamburg                            BTMU Hamburg               29605BOTKDEH1XXX09013488U000000000
@@ -1041,7 +1036,6 @@ namespace :squirrels do
 201206001Goyer & Göppel                                            20354Hamburg                            Goyer & Göppel Hamburg     26145GOGODEH1XXX09013512U000000000
 201207001Hanseatic Bank                                            22177Hamburg                            Hanseatic Bank Hamburg     26175HSTBDEHHXXX16041187U000000000
 201304001GRENKE BANK                                               76532Baden-Baden                        GRENKE BANK                99047GREBDEH1XXX00013513U000000000
-201304121GRENKE BANK Asset Backed Securities                       20354Hamburg                            GRENKE BANK Hamburg                        00052867D000000000
 201306001Barclaycard Barclays Bank                                 22761Hamburg                            Barclaycard                29665BARCDEHAXXX09046484U000000000
 201306002Barclaycard (Gf P2)                                       22761Hamburg                            Barclaycard (Gf P2)        23210           09055709U000000000
 201333001Santander Consumer Bank                                   20095Hamburg                            Santander Bank Hamburg     29412SCFBDE33XXX09055977U000000000
@@ -1060,7 +1054,7 @@ namespace :squirrels do
 201901092Volksbank Stormarn                                        21465Reinbek                            VB Stormarn                92038           48022772U000000000
 201901092Volksbank Stormarn                                        22926Ahrensburg                         Volksbank Stormarn         92038           48025056U000000000
 201901092Volksbank Stormarn                                        23858Reinfeld (Holstein)                Volksbank Stormarn         92038           48041529U000000000
-201901092Volksbank Stormarn                                        23847Lasbek, Kr Stormarn                VB Stormarn                92038           48052440U000000000
+201901092Volksbank Stormarn                                        23847Lasbek, Kr Stormarn                VB Stormarn                92038           48052440D000000000
 201901092Volksbank Stormarn                                        23815Westerrade                         VB Stormarn                92038           48052441U000000000
 201901092Volksbank Stormarn                                        23845Bühnsdorf                          VB Stormarn                92038           48052442U000000000
 201901092Volksbank Stormarn (Gf P2)                                23831Bad Oldesloe                       VB Stormarn                82038           48053713U000000000
@@ -1136,13 +1130,13 @@ namespace :squirrels do
 207500002Sparkasse Harburg-Buxtehude                               21435Stelle, Kr Harburg                 Spk Harburg-Buxtehude      52002           00012321U000000000
 207500002Sparkasse Harburg-Buxtehude                               21255Tostedt                            Spk Harburg-Buxtehude      52002           00012324U000000000
 207500002Sparkasse Harburg-Buxtehude                               21445Wulfsen                            Spk Harburg-Buxtehude      52002           00012329U000000000
-210000001Bundesbank                                                24100Kiel                               BBk Kiel                   20210MARKDEF121009011384U000000000
+210000001Bundesbank eh Kiel                                        22772Hamburg                            BBk Hamburg eh Kiel        20210MARKDEF121009011384M100000000
 210101111SEB                                                       24103Kiel                               SEB Kiel                   25852ESSEDE5F21013005643U000000000
 210206001Sydbank Filiale Kiel                                      24103Kiel                               Sydbank Fil. Kiel               SYBKDE22KIE19053328U000000000
 210400101Commerzbank                                               24100Kiel                               Commerzbank Kiel           24210COBADEFFXXX13006134U000000000
 210400102Commerzbank                                               24821Schleswig                          Commerzbank Schleswig      24210           13007015U000000000
 210420761Commerzbank                                               24331Eckernförde                        Commerzbank Eckernförde    24211COBADEFFXXX13005081U000000000
-210500001HSH Nordbank Hamburg, Kiel                                20095Hamburg                            HSH Nordbank Hamburg       52150HSHNDEHHXXXC5008581M000000000
+210500001HSH Nordbank Hamburg, Kiel                                20095Hamburg                            HSH Nordbank Hamburg       52150HSHNDEHHXXXC5008581U000000000
 210501701Förde Sparkasse                                           24103Kiel                               Förde Sparkasse            52177NOLADE21KIE74001974U000000000
 210501702Förde Sparkasse                                           24301Plön                               Förde Sparkasse            52177           74053456U000000000
 210501702Förde Sparkasse                                           24340Eckernförde                        Förde Sparkasse            52177           74053457U000000000
@@ -1289,7 +1283,6 @@ namespace :squirrels do
 213900082VR Bank Ostholstein Nord-Plön                             24235Laboe                              VR Bk Ostholstein Nord-Plön92005           32055583U000000000
 213922181Volksbank Eutin Raiffeisenbank                            23693Eutin                              Volksbank Eutin            92135GENODEF1EUT33021481U000000000
 213922182Volksbank Eutin Raiffeisenbank                            23827Wensin                             Volksbank Eutin            92135           33016824U000000000
-213922182Volksbank Eutin Raiffeisenbank                            23719Glasau                             Volksbank Eutin            92135           33017012U000000000
 213922182Volksbank Eutin Raiffeisenbank                            23714Malente                            Volksbank Eutin            92135           33022060U000000000
 213922182Volksbank Eutin Raiffeisenbank                            23662Timmendorfer Strand                Volksbank Eutin            92135           33022534U000000000
 213922182Volksbank Eutin Raiffeisenbank                            23683Scharbeutz                         Volksbank Eutin            92135           33022648U000000000
@@ -1375,56 +1368,42 @@ namespace :squirrels do
 217416741Commerzbank                                               25899Niebüll                            Commerzbank Niebüll        24215COBADEFFXXX13006114U000000000
 217418251Commerzbank                                               25961Sylt                               Commerzbank Westerland     24216COBADEFFXXX13007064U000000000
 217500001Nord-Ostsee Sparkasse                                     24837Schleswig                          Nord-Ostsee Spk Schleswig  52175NOLADE21NOSC8001954U000000000
-217500002Nord-Ostsee Sparkasse                                     25992List, Sylt                         Nord-Ostsee Spk Schleswig  52175           C8001789U000000000
 217500002Nord-Ostsee Sparkasse                                     25837Friedrichstadt, Eider              Nord-Ostsee Spk Schleswig  52175           C8001909U000000000
 217500002Nord-Ostsee Sparkasse                                     25833Garding                            Nord-Ostsee Spk Schleswig  52175           C8001913U000000000
 217500002Nord-Ostsee Sparkasse                                     25822Sankt Peter-Ording                 Nord-Ostsee Spk Schleswig  52175           C8002111U000000000
 217500002Nord-Ostsee Sparkasse                                     25969Sylt                               Nord-Ostsee Spk Schleswig  52175           C8002258U000000000
-217500002Nord-Ostsee Sparkasse                                     25849Pellworm                           Nord-Ostsee Spk Schleswig  52175           C8005179U000000000
-217500002Nord-Ostsee Sparkasse                                     25876Schwabstedt                        Nord-Ostsee Spk Schleswig  52175           C8005867U000000000
-217500002Nord-Ostsee Sparkasse                                     25923Süderlügum                         Nord-Ostsee Spk Schleswig  52175           C8005897U000000000
+217500002Nord-Ostsee Sparkasse                                     25849Pellworm                           Nord-Ostsee Spk Schleswig  52175           C8005179D000000000
 217500002Nord-Ostsee Sparkasse                                     25827Tönning                            Nord-Ostsee Spk Schleswig  52175           C8006374U000000000
 217500002Nord-Ostsee Sparkasse                                     25884Viöl                               Nord-Ostsee Spk Schleswig  52175           C8006382U000000000
-217500002Nord-Ostsee Sparkasse                                     25885Wester-Ohrstedt                    Nord-Ostsee Spk Schleswig  52175           C8006564U000000000
-217500002Nord-Ostsee Sparkasse                                     25927Neukirchen b Niebüll               Nord-Ostsee Spk Schleswig  52175           C8007385U000000000
+217500002Nord-Ostsee Sparkasse                                     25885Wester-Ohrstedt                    Nord-Ostsee Spk Schleswig  52175           C8006564D000000000
 217500002Nord-Ostsee Sparkasse                                     25938Wyk auf Föhr                       Nord-Ostsee Spk Schleswig  52175           C8007758U000000000
-217500002Nord-Ostsee Sparkasse                                     25920Risum-Lindholm                     Nord-Ostsee Spk Schleswig  52175           C8007893U000000000
 217500002Nord-Ostsee Sparkasse                                     25911Leck                               Nord-Ostsee Spk Schleswig  52175           C8007906U000000000
 217500002Nord-Ostsee Sparkasse                                     25894Niebüll                            Nord-Ostsee Spk Schleswig  52175           C8008037U000000000
-217500002Nord-Ostsee Sparkasse                                     25938Nieblum                            Nord-Ostsee Spk Schleswig  52175           C8008038U000000000
-217500002Nord-Ostsee Sparkasse                                     25866Mildstedt                          Nord-Ostsee Spk Schleswig  52175           C8008680U000000000
-217500002Nord-Ostsee Sparkasse                                     25845Nordstrand                         Nord-Ostsee Spk Schleswig  52175           C8008707U000000000
-217500002Nord-Ostsee Sparkasse                                     25856Hattstedt                          Nord-Ostsee Spk Schleswig  52175           C8008735U000000000
-217500002Nord-Ostsee Sparkasse                                     25872Ostenfeld (Husum)                  Nord-Ostsee Spk Schleswig  52175           C8008807U000000000
+217500002Nord-Ostsee Sparkasse                                     25866Mildstedt                          Nord-Ostsee Spk Schleswig  52175           C8008680D000000000
+217500002Nord-Ostsee Sparkasse                                     25845Nordstrand                         Nord-Ostsee Spk Schleswig  52175           C8008707D000000000
+217500002Nord-Ostsee Sparkasse                                     25856Hattstedt                          Nord-Ostsee Spk Schleswig  52175           C8008735D000000000
+217500002Nord-Ostsee Sparkasse                                     25872Ostenfeld (Husum)                  Nord-Ostsee Spk Schleswig  52175           C8008807D000000000
 217500002Nord-Ostsee Sparkasse                                     25946Norddorf auf Amrum                 Nord-Ostsee Spk Schleswig  52175           C8009388U000000000
 217500002Nord-Ostsee Sparkasse                                     25946Wittdün auf Amrum                  Nord-Ostsee Spk Schleswig  52175           C8040703U000000000
 217500002Nord-Ostsee Sparkasse                                     25805Husum, Nordsee                     Nord-Ostsee Spk Schleswig  52175           C8051487U000000000
 217500002Nord-Ostsee Sparkasse                                     24960Glücksburg (Ostsee)                Nord-Ostsee Spk Schleswig  52175           C8051490U000000000
-217500002Nord-Ostsee Sparkasse                                     24969Großenwiehe                        Nord-Ostsee Spk Schleswig  52175           C8051492U000000000
-217500002Nord-Ostsee Sparkasse                                     24866Busdorf b Schleswig                Nord-Ostsee Spk Schleswig  52175           C8051493U000000000
-217500002Nord-Ostsee Sparkasse                                     24803Erfde                              Nord-Ostsee Spk Schleswig  52175           C8051494U000000000
+217500002Nord-Ostsee Sparkasse                                     24866Busdorf b Schleswig                Nord-Ostsee Spk Schleswig  52175           C8051493D000000000
 217500002Nord-Ostsee Sparkasse                                     24393Gelting, Angeln                    Nord-Ostsee Spk Schleswig  52175           C8051495U000000000
 217500002Nord-Ostsee Sparkasse                                     24852Eggebek                            Nord-Ostsee Spk Schleswig  52175           C8051496U000000000
 217500002Nord-Ostsee Sparkasse                                     24392Süderbrarup                        Nord-Ostsee Spk Schleswig  52175           C8051497U000000000
 217500002Nord-Ostsee Sparkasse                                     24983Handewitt                          Nord-Ostsee Spk Schleswig  52175           C8051498U000000000
 217500002Nord-Ostsee Sparkasse                                     24860Böklund                            Nord-Ostsee Spk Schleswig  52175           C8051499U000000000
-217500002Nord-Ostsee Sparkasse                                     24850Schuby b Schleswig                 Nord-Ostsee Spk Schleswig  52175           C8051501U000000000
+217500002Nord-Ostsee Sparkasse                                     24850Schuby b Schleswig                 Nord-Ostsee Spk Schleswig  52175           C8051501D000000000
 217500002Nord-Ostsee Sparkasse                                     24963Tarp                               Nord-Ostsee Spk Schleswig  52175           C8051502U000000000
 217500002Nord-Ostsee Sparkasse                                     24980Schafflund                         Nord-Ostsee Spk Schleswig  52175           C8051503U000000000
-217500002Nord-Ostsee Sparkasse                                     24997Wanderup                           Nord-Ostsee Spk Schleswig  52175           C8051504U000000000
 217500002Nord-Ostsee Sparkasse                                     24975Husby b Flensburg                  Nord-Ostsee Spk Schleswig  52175           C8051505U000000000
-217500002Nord-Ostsee Sparkasse                                     24996Sterup                             Nord-Ostsee Spk Schleswig  52175           C8051506U000000000
-217500002Nord-Ostsee Sparkasse                                     24989Dollerup                           Nord-Ostsee Spk Schleswig  52175           C8051507U000000000
 217500002Nord-Ostsee Sparkasse                                     24848Kropp b Schleswig                  Nord-Ostsee Spk Schleswig  52175           C8051508U000000000
 217500002Nord-Ostsee Sparkasse                                     24955Harrislee                          Nord-Ostsee Spk Schleswig  52175           C8051509U000000000
-217500002Nord-Ostsee Sparkasse                                     25879Süderstapel                        Nord-Ostsee Spk Schleswig  52175           C8051510U000000000
-217500002Nord-Ostsee Sparkasse                                     24855Jübek                              Nord-Ostsee Spk Schleswig  52175           C8051512U000000000
 217500002Nord-Ostsee Sparkasse                                     24376Kappeln, Schlei                    Nord-Ostsee Spk Schleswig  52175           C8051513U000000000
 217500002Nord-Ostsee Sparkasse                                     24910Flensburg                          Nord-Ostsee Spk Schleswig  52175           C8051514U000000000
 217500002Nord-Ostsee Sparkasse                                     24986Mittelangeln                       Nord-Ostsee Spk Schleswig  52175           C8051516U000000000
 217500002Nord-Ostsee Sparkasse                                     24970Steinbergkirche                    Nord-Ostsee Spk Schleswig  52175           C8051517U000000000
 217500002Nord-Ostsee Sparkasse                                     24887Silberstedt                        Nord-Ostsee Spk Schleswig  52175           C8051518U000000000
-217500002Nord-Ostsee Sparkasse                                     24966Sörup                              Nord-Ostsee Spk Schleswig  52175           C8051520U000000000
 217512301Spar- und Leihkasse zu Bredstedt -alt-                    25821Bredstedt                          Spk Bredstedt -alt-        52172NOLADE21BRD00006657U000000000
 217512302Spar- und Leihkasse zu Bredstedt                          25842Langenhorn b Husum, Nordsee        Spk Langenhorn             52172           00008808U000000000
 217625501Husumer Volksbank                                         25803Husum, Nordsee                     Husumer Volksbank          62132GENODEF1HUM32022145U000000000
@@ -1437,7 +1416,6 @@ namespace :squirrels do
 217625502Husumer Volksbank                                         25849Pellworm                           Husumer Volksbank          62132           32017283U000000000
 217625502Husumer Volksbank                                         25872Ostenfeld (Husum)                  Husumer Volksbank          62132           32017896U000000000
 217625502Husumer Volksbank                                         25845Nordstrand                         Husumer Volksbank          62132           32017955U000000000
-217625502Husumer Volksbank                                         25873Rantrum b Husum, Nordsee           Husumer Volksbank          62132           32017968U000000000
 217625502Husumer Volksbank                                         25859Hallig Hooge                       Husumer Volksbank          62132           32018136U000000000
 217625502Husumer Volksbank                                         25836Garding                            Husumer Volksbank          62132           32051226U000000000
 217625502Husumer Volksbank                                         25870Oldenswort                         Husumer Volksbank          62132           32051227U000000000
@@ -1509,7 +1487,7 @@ namespace :squirrels do
 221414281Commerzbank                                               25402Pinneberg                          Commerzbank Pinneberg      24209COBADEFFXXX13007006U000000000
 221416281Commerzbank                                               25429Uetersen                           Commerzbank Uetersen       24198COBADEFFXXX13006996U000000000
 221500001Sparkasse Elmshorn                                        25335Elmshorn                           Spk Elmshorn               52238NOLADE21ELHA2002033U000000000
-221517301Stadtsparkasse Wedel                                      22870Wedel                              St Spk Wedel               52283NOLADE21WEDD6010006U000000000
+221517301Stadtsparkasse Wedel                                      22880Wedel                              St Spk Wedel               52283NOLADE21WEDD6010006U000000000
 221631141Raiffeisenbank Elbmarsch                                  25492Heist                              Raiffbk Elbmarsch Heist    62602GENODEF1HTE33016874U000000000
 221631142Raiffeisenbank Elbmarsch Heist                            25489Haseldorf                          Raiffbk Elbmarsch Heist    62602           33016858U000000000
 221631142Raiffeisenbank Elbmarsch Heist                            25491Hetlingen                          Raiffbk Elbmarsch Heist    62602           33016881U000000000
@@ -1517,7 +1495,7 @@ namespace :squirrels do
 221631142Raiffeisenbank Elbmarsch (Gf P2)                          25492Heist                              Raiffbk Elbmarsch Heist    72602           33053735U000000000
 221800001Commerzbank vormals Dresdner Bank                         25302Elmshorn                           Commerzbank Elmshorn       28221DRESDEFF22176034822U000000000
 221814001Commerzbank vormals Dresdner Bank                         25403Pinneberg                          Commerzbank Pinneberg      28224DRESDEFF20676006763U000000000
-221900301Volksbank Elmshorn -alt-                                  25311Elmshorn                           Volksbank Elmshorn -alt-   92019GENODEF1ELM48021445M000000000
+221900301Volksbank Elmshorn -alt-                                  25311Elmshorn                           Volksbank Elmshorn -alt-   92019GENODEF1ELM48021445U000000000
 221900302Volksbank Glückstadt Zw d VB Elmshorn                     25348Glückstadt                         VB Elmshorn Glückstadt     92019           48021357U000000000
 221900302Volksbank Barmstedt Zw d VB Elmshorn                      25355Barmstedt                          Volksbank Elmshorn         92019           48021596U000000000
 221900302Volksbank Wilster Zw d VB Elmshorn                        25554Wilster                            Volksbank Elmshorn         92019           48022418U000000000
@@ -1526,19 +1504,19 @@ namespace :squirrels do
 221900302Volksbank Horst Zw d VB Elmshorn                          25358Horst (Holstein)                   Volksbank Elmshorn         92019           48034393U000000000
 221900302Volksbank Elmshorn (Gf P2)                                25311Elmshorn                           Volksbank Elmshorn         82019           48053736U000000000
 221900302Volksbank Hörnerkirchen Zw d VB Elmshorn                  25364Brande-Hörnerkirchen               Volksbank Elmshorn         92019           48054917U000000000
-221914051Volksbank Pinneberg-Elmshorn                              25421Pinneberg                          VB Pinneberg-Elmshorn      92095GENODEF1PIN48022732M000000000
-221914052Volksbank Pinneberg-Elmshorn                              25474Bönningstedt                       VB Pinneberg-Elmshorn      92095           48016782M000000000
-221914052Volksbank Pinneberg-Elmshorn                              25474Hasloh                             VB Pinneberg-Elmshorn      92095           48016862M000000000
-221914052Volksbank Pinneberg-Elmshorn                              25474Ellerbek, Kr Pinneberg             VB Pinneberg-Elmshorn      92095           48021442M000000000
-221914052Volksbank Pinneberg-Elmshorn                              25436Moorrege b Uetersen                VR Pinneberg-Elmshorn      92095           48021833M000000000
-221914052Volksbank Pinneberg-Elmshorn                              25436Tornesch                           VB Pinneberg-Elmshorn      92095           48022539M000000000
-221914052Volksbank Pinneberg-Elmshorn                              25436Uetersen                           VB Pinneberg-Elmshorn      92095           48022552M000000000
-221914052Volksbank Pinneberg-Elmshorn                              25462Rellingen                          VB Pinneberg-Elmshorn      92095           48022775M000000000
-221914052Volksbank Pinneberg-Elmshorn                              25479Ellerau, Holst                     VB Pinneberg-Elmshorn      92095           48038101M000000000
-221914052Volksbank Pinneberg-Elmshorn                              25451Quickborn, Kr Pinneberg            VB Pinneberg-Elmshorn      92095           48052451M000000000
-221914052Volksbank Pinneberg-Elmshorn (Gf P2)                      25421Pinneberg                          VB Pinneberg-Elmshorn      82095           48053737M000000000
-221914052Volksbank Pinneberg-Elmshorn                              25469Halstenbek, Holst                  VB Pinneberg-Elmshorn      92095           48055710M000000000
-221914052Volksbank Pinneberg-Elmshorn                              22869Schenefeld, Bz Hamburg             VB Pinneberg-Elmshorn      92095           48055711M000000000
+221914051Volksbank Pinneberg-Elmshorn                              25421Pinneberg                          VB Pinneberg-Elmshorn      92095GENODEF1PIN48022732U000000000
+221914052Volksbank Pinneberg-Elmshorn                              25474Bönningstedt                       VB Pinneberg-Elmshorn      92095           48016782U000000000
+221914052Volksbank Pinneberg-Elmshorn                              25474Hasloh                             VB Pinneberg-Elmshorn      92095           48016862U000000000
+221914052Volksbank Pinneberg-Elmshorn                              25474Ellerbek, Kr Pinneberg             VB Pinneberg-Elmshorn      92095           48021442U000000000
+221914052Volksbank Pinneberg-Elmshorn                              25436Moorrege                           VB Pinneberg-Elmshorn      92095           48021833U000000000
+221914052Volksbank Pinneberg-Elmshorn                              25436Tornesch                           VB Pinneberg-Elmshorn      92095           48022539U000000000
+221914052Volksbank Pinneberg-Elmshorn                              25436Uetersen                           VB Pinneberg-Elmshorn      92095           48022552U000000000
+221914052Volksbank Pinneberg-Elmshorn                              25462Rellingen                          VB Pinneberg-Elmshorn      92095           48022775U000000000
+221914052Volksbank Pinneberg-Elmshorn                              25479Ellerau, Holst                     VB Pinneberg-Elmshorn      92095           48038101U000000000
+221914052Volksbank Pinneberg-Elmshorn                              25451Quickborn, Kr Pinneberg            VB Pinneberg-Elmshorn      92095           48052451U000000000
+221914052Volksbank Pinneberg-Elmshorn (Gf P2)                      25421Pinneberg                          VB Pinneberg-Elmshorn      82095           48053737U000000000
+221914052Volksbank Pinneberg-Elmshorn                              25469Halstenbek, Holst                  VB Pinneberg-Elmshorn      92095           48055710U000000000
+221914052Volksbank Pinneberg-Elmshorn                              22869Schenefeld, Bz Hamburg             VB Pinneberg-Elmshorn      92095           48055711U000000000
 222400731Commerzbank                                               25502Itzehoe                            Commerzbank Itzehoe        24205COBADEFFXXX13006106U000000000
 222500201Sparkasse Westholstein                                    25509Itzehoe                            Spk Westholstein           52231NOLADE21WHOA2001959U000000000
 222500202Sparkasse Westholstein                                    25566Lägerdorf                          Spk Westholstein           52231           A2001774U000000000
@@ -1595,7 +1573,7 @@ namespace :squirrels do
 222900312Volksbank Raiffeisenbank Itzehoe (Gf P2)                  25524Itzehoe                            VB Raiffbk Itzehoe         82020           10053738U000000000
 222900312Volksbank Raiffeisenbank Itzehoe                          24594Hohenwestedt                       VB Raiffbk Itzehoe         92020           10054910U000000000
 222900312Volksbank Raiffeisenbank Itzehoe                          25576Brokdorf, Holst                    VB Raiffbk Itzehoe         92020           10055990U000000000
-230000001Bundesbank eh Lübeck                                      22772Hamburg                            BBk Hamburg eh Lübeck      20230MARKDEF123009011394M000000000
+230000001Bundesbank eh Lübeck                                      22772Hamburg                            BBk Hamburg eh Lübeck      20230MARKDEF123009011394U100000000
 230101111SEB                                                       23558Lübeck                             SEB Lübeck                 25860ESSEDE5F23013005657U000000000
 230101112SEB                                                       23611Bad Schwartau                      SEB Bad Schwartau          25860ESSEDE5F23113043724U000000000
 230400221Commerzbank                                               23547Lübeck                             Commerzbank Lübeck         24230COBADEFFXXX13006181U000000000
@@ -1615,7 +1593,7 @@ namespace :squirrels do
 230510302Sparkasse Südholstein                                     23812Wahlstedt                          Spk Südholstein Neumünster 52307           A2002125U000000000
 230510302Sparkasse Südholstein                                     24610Trappenkamp                        Spk Südholstein Neumünster 52307           A2002196U000000000
 230510302Sparkasse Südholstein                                     22846Norderstedt                        Spk Südholstein Neumünster 52307           A2032602U000000000
-230510302Sparkasse Südholstein                                     25421Pinneberg                          Spk Südholstein Neumünster 52307           A2052061M000000000
+230510302Sparkasse Südholstein                                     25421Pinneberg                          Spk Südholstein Neumünster 52307           A2052061U000000000
 230510302Sparkasse Südholstein                                     22869Schenefeld, Bz Hamburg             Spk Südholstein Neumünster 52307           A2052064U000000000
 230510302Sparkasse Südholstein                                     25337Kölln-Reisiek                      Spk Südholstein Neumünster 52307           A2052065U000000000
 230510302Sparkasse Südholstein                                     25355Barmstedt                          Spk Südholstein Neumünster 52307           A2052066U000000000
@@ -1786,7 +1764,7 @@ namespace :squirrels do
 241512352Sparkasse Rotenburg-Bremervörde                           27438Gnarrenburg                        Spk Rotenburg-Bremervörde  52418           00008887U000000000
 241512352Sparkasse Rotenburg-Bremervörde                           27432Basdahl                            Spk Rotenburg-Bremervörde  52418           00010996U000000000
 241512352Sparkasse Rotenburg-Bremervörde                           27404Heeslingen                         Spk Rotenburg-Bremervörde  52418           00032231U000000000
-241512352Sparkasse Rotenburg-Bremervörde                           27341Rotenburg (Wümme)                  Spk Rotenburg-Bremervörde  52418           00042952U000000000
+241512352Sparkasse Rotenburg-Bremervörde                           27344Rotenburg (Wümme)                  Spk Rotenburg-Bremervörde  52418           00042952U000000000
 241615941Zevener Volksbank                                         27404Zeven                              Zevener Volksbank          62077GENODEF1SIT28026350U000000000
 241615942Zevener Volksbank                                         27412Tarmstedt                          Zevener Volksbank          62077           28022526U000000000
 241615942Zevener Volksbank                                         27446Selsingen                          Zevener Volksbank          62077           28026348U000000000
@@ -1875,53 +1853,53 @@ namespace :squirrels do
 250400662Commerzbank                                               30883Barsinghausen                      Commerzbank Barsinghausen  24250           13056053U000000000
 250400662Commerzbank                                               30929Burgwedel                          Commerzbank Burgwedel      24250           13056054U000000000
 250500001Norddeutsche Landesbank Girozentrale                      30002Hannover                           Nord LB Hannover           52500NOLADE2HXXX27008522U000000000
-250500002Norddeutsche Landesbank Girozentrale                      38729Lutter am Barenberge               NORD/LB Landessparkasse    52500           27004906U000000000
-250500002Norddeutsche Landesbank Girozentrale                      37581Bad Gandersheim                    NORD/LB Landessparkasse    52500           27011619U000000000
-250500002Norddeutsche Landesbank Girozentrale                      38656Bad Harzburg                       NORD/LB Landessparkasse    52500           27011620U000000000
-250500002Norddeutsche Landesbank Girozentrale                      37639Bevern, Kr Holzminden              NORD/LB Landessparkasse    52500           27011631U000000000
-250500002Norddeutsche Landesbank Girozentrale                      38312Börßum                             NORD/LB Landessparkasse    52500           27011636U000000000
-250500002Norddeutsche Landesbank Girozentrale                      37691Boffzen                            NORD/LB Landessparkasse    52500           27011637U000000000
-250500002Norddeutsche Landesbank Girozentrale                      38700Braunlage                          NORD/LB Landessparkasse    52500           27011645U000000000
+250500002Norddeutsche Landesbank Girozentrale                      38729Lutter am Barenberge               NORD/LB Landessparkasse    52500           27004906D000000000
+250500002Norddeutsche Landesbank Girozentrale                      37581Bad Gandersheim                    NORD/LB Landessparkasse    52500           27011619D000000000
+250500002Norddeutsche Landesbank Girozentrale                      38656Bad Harzburg                       NORD/LB Landessparkasse    52500           27011620D000000000
+250500002Norddeutsche Landesbank Girozentrale                      37639Bevern, Kr Holzminden              NORD/LB Landessparkasse    52500           27011631D000000000
+250500002Norddeutsche Landesbank Girozentrale                      38312Börßum                             NORD/LB Landessparkasse    52500           27011636D000000000
+250500002Norddeutsche Landesbank Girozentrale                      37691Boffzen                            NORD/LB Landessparkasse    52500           27011637D000000000
+250500002Norddeutsche Landesbank Girozentrale                      38700Braunlage                          NORD/LB Landessparkasse    52500           27011645D000000000
 250500002Norddeutsche Landesbank Girozentrale                      38023Braunschweig                       NORD/LB Landessparkasse    52500           27011646U000000000
-250500002Norddeutsche Landesbank Girozentrale                      38162Cremlingen                         NORD/LB Landessparkasse    52500           27011656U000000000
-250500002Norddeutsche Landesbank Girozentrale                      31073Delligsen                          NORD/LB Landessparkasse    52500           27011660U000000000
-250500002Norddeutsche Landesbank Girozentrale                      37632Eschershausen, Ith                 NORD/LB Landessparkasse    52500           27011677U000000000
-250500002Norddeutsche Landesbank Girozentrale                      37699Fürstenberg, Weser                 NORD/LB Landessparkasse    52500           27011682U000000000
-250500002Norddeutsche Landesbank Girozentrale                      37640Golmbach                           NORD/LB Landessparkasse    52500           27011690U000000000
-250500002Norddeutsche Landesbank Girozentrale                      38368Grasleben                          NORD/LB Landessparkasse    52500           27011692U000000000
-250500002Norddeutsche Landesbank Girozentrale                      38321Denkte                             NORD/LB Landessparkasse    52500           27011698U000000000
-250500002Norddeutsche Landesbank Girozentrale                      38464Groß Twülpstedt                    NORD/LB Landessparkasse    52500           27011702U000000000
-250500002Norddeutsche Landesbank Girozentrale                      38729Hahausen                           NORD/LB Landessparkasse    52500           27011706U000000000
-250500002Norddeutsche Landesbank Girozentrale                      38331Helmstedt                          NORD/LB Landessparkasse    52500           27011717U000000000
-250500002Norddeutsche Landesbank Girozentrale                      37593Holzminden                         NORD/LB Landessparkasse    52500           27011726U000000000
-250500002Norddeutsche Landesbank Girozentrale                      38381Jerxheim                           NORD/LB Landessparkasse    52500           27011731U000000000
-250500002Norddeutsche Landesbank Girozentrale                      38324Kissenbrück                        NORD/LB Landessparkasse    52500           27011737U000000000
-250500002Norddeutsche Landesbank Girozentrale                      38154Königslutter am Elm                NORD/LB Landessparkasse    52500           27011742U000000000
-250500002Norddeutsche Landesbank Girozentrale                      37541Einbeck                            NORD/LB Landessparkasse    52500           27011743U000000000
-250500002Norddeutsche Landesbank Girozentrale                      38685Langelsheim                        NORD/LB Landessparkasse    52500           27011745U000000000
-250500002Norddeutsche Landesbank Girozentrale                      38165Lehre                              NORD/LB Landessparkasse    52500           27011747U000000000
-250500002Norddeutsche Landesbank Girozentrale                      37697Lauenförde                         NORD/LB Landessparkasse    52500           27011763U000000000
-250500002Norddeutsche Landesbank Girozentrale                      38372Büddenstedt                        NORD/LB Landessparkasse    52500           27011766U000000000
-250500002Norddeutsche Landesbank Girozentrale                      38173Sickte                             NORD/LB Landessparkasse    52500           27011770U000000000
-250500002Norddeutsche Landesbank Girozentrale Oker                 38642Goslar                             NORD/LB Landessparkasse    52500           27011774U000000000
-250500002Norddeutsche Landesbank Girozentrale                      38205Salzgitter                         NORD/LB Landessparkasse    52500           27011801U000000000
-250500002Norddeutsche Landesbank Girozentrale                      38713Seesen, Harz                       NORD/LB Landessparkasse    52500           27011809U000000000
-250500002Norddeutsche Landesbank Girozentrale                      38373Süpplingen, Kr Helmstedt           NORD/LB Landessparkasse    52500           27011815U000000000
-250500002Norddeutsche Landesbank Girozentrale                      38364Schöningen                         NORD/LB Landessparkasse    52500           27011821U000000000
-250500002Norddeutsche Landesbank Girozentrale                      38170Schöppenstedt                      NORD/LB Landessparkasse    52500           27011822U000000000
-250500002Norddeutsche Landesbank Girozentrale                      37627Stadtoldendorf                     NORD/LB Landessparkasse    52500           27011823U000000000
-250500002Norddeutsche Landesbank Girozentrale                      38159Vechelde                           NORD/LB Landessparkasse    52500           27011834U000000000
-250500002Norddeutsche Landesbank Girozentrale                      38458Velpke, Niedersachs                NORD/LB Landessparkasse    52500           27011835U000000000
-250500002Norddeutsche Landesbank Girozentrale                      38448Wolfsburg                          NORD/LB Landessparkasse    52500           27011841U000000000
-250500002Norddeutsche Landesbank Girozentrale                      37445Walkenried                         NORD/LB Landessparkasse    52500           27011844U000000000
-250500002Norddeutsche Landesbank Girozentrale                      38378Warberg, Kr Helmstedt              NORD/LB Landessparkasse    52500           27011846U000000000
-250500002Norddeutsche Landesbank Girozentrale                      37447Wieda                              NORD/LB Landessparkasse    52500           27011858U000000000
-250500002Norddeutsche Landesbank Girozentrale                      38170Winnigstedt                        NORD/LB Landessparkasse    52500           27011860U000000000
-250500002Norddeutsche Landesbank Girozentrale                      38286Wolfenbüttel, Niedersachs          NORD/LB Landessparkasse    52500           27011863U000000000
-250500002Norddeutsche Landesbank Girozentrale                      37449Zorge                              NORD/LB Landessparkasse    52500           27011868U000000000
-250500002Norddeutsche Landesbank Girozentrale                      31073Grünenplan, Flecken Delligsen      NORD/LB Landessparkasse    52500           27044416U000000000
-250500002Norddeutsche Landesbank Girozentrale                      06108Halle (Saale)                      Nord LB Halle              52500           27044881U000000000
-250500002Norddeutsche Landesbank Girozentrale                      04105Leipzig                            Nord LB Leipzig            52500           27044882U000000000
+250500002Norddeutsche Landesbank Girozentrale                      38162Cremlingen                         NORD/LB Landessparkasse    52500           27011656D000000000
+250500002Norddeutsche Landesbank Girozentrale                      31073Delligsen                          NORD/LB Landessparkasse    52500           27011660D000000000
+250500002Norddeutsche Landesbank Girozentrale                      37632Eschershausen, Ith                 NORD/LB Landessparkasse    52500           27011677D000000000
+250500002Norddeutsche Landesbank Girozentrale                      37699Fürstenberg, Weser                 NORD/LB Landessparkasse    52500           27011682D000000000
+250500002Norddeutsche Landesbank Girozentrale                      37640Golmbach                           NORD/LB Landessparkasse    52500           27011690D000000000
+250500002Norddeutsche Landesbank Girozentrale                      38368Grasleben                          NORD/LB Landessparkasse    52500           27011692D000000000
+250500002Norddeutsche Landesbank Girozentrale                      38321Denkte                             NORD/LB Landessparkasse    52500           27011698D000000000
+250500002Norddeutsche Landesbank Girozentrale                      38464Groß Twülpstedt                    NORD/LB Landessparkasse    52500           27011702D000000000
+250500002Norddeutsche Landesbank Girozentrale                      38729Hahausen                           NORD/LB Landessparkasse    52500           27011706D000000000
+250500002Norddeutsche Landesbank Girozentrale                      38331Helmstedt                          NORD/LB Landessparkasse    52500           27011717D000000000
+250500002Norddeutsche Landesbank Girozentrale                      37593Holzminden                         NORD/LB Landessparkasse    52500           27011726D000000000
+250500002Norddeutsche Landesbank Girozentrale                      38381Jerxheim                           NORD/LB Landessparkasse    52500           27011731D000000000
+250500002Norddeutsche Landesbank Girozentrale                      38324Kissenbrück                        NORD/LB Landessparkasse    52500           27011737D000000000
+250500002Norddeutsche Landesbank Girozentrale                      38154Königslutter am Elm                NORD/LB Landessparkasse    52500           27011742D000000000
+250500002Norddeutsche Landesbank Girozentrale                      37541Einbeck                            NORD/LB Landessparkasse    52500           27011743D000000000
+250500002Norddeutsche Landesbank Girozentrale                      38685Langelsheim                        NORD/LB Landessparkasse    52500           27011745D000000000
+250500002Norddeutsche Landesbank Girozentrale                      38165Lehre                              NORD/LB Landessparkasse    52500           27011747D000000000
+250500002Norddeutsche Landesbank Girozentrale                      37697Lauenförde                         NORD/LB Landessparkasse    52500           27011763D000000000
+250500002Norddeutsche Landesbank Girozentrale                      38372Büddenstedt                        NORD/LB Landessparkasse    52500           27011766D000000000
+250500002Norddeutsche Landesbank Girozentrale                      38173Sickte                             NORD/LB Landessparkasse    52500           27011770D000000000
+250500002Norddeutsche Landesbank Girozentrale Oker                 38642Goslar                             NORD/LB Landessparkasse    52500           27011774D000000000
+250500002Norddeutsche Landesbank Girozentrale                      38205Salzgitter                         NORD/LB Landessparkasse    52500           27011801D000000000
+250500002Norddeutsche Landesbank Girozentrale                      38713Seesen, Harz                       NORD/LB Landessparkasse    52500           27011809D000000000
+250500002Norddeutsche Landesbank Girozentrale                      38373Süpplingen, Kr Helmstedt           NORD/LB Landessparkasse    52500           27011815D000000000
+250500002Norddeutsche Landesbank Girozentrale                      38364Schöningen                         NORD/LB Landessparkasse    52500           27011821D000000000
+250500002Norddeutsche Landesbank Girozentrale                      38170Schöppenstedt                      NORD/LB Landessparkasse    52500           27011822D000000000
+250500002Norddeutsche Landesbank Girozentrale                      37627Stadtoldendorf                     NORD/LB Landessparkasse    52500           27011823D000000000
+250500002Norddeutsche Landesbank Girozentrale                      38159Vechelde                           NORD/LB Landessparkasse    52500           27011834D000000000
+250500002Norddeutsche Landesbank Girozentrale                      38458Velpke, Niedersachs                NORD/LB Landessparkasse    52500           27011835D000000000
+250500002Norddeutsche Landesbank Girozentrale                      38448Wolfsburg                          NORD/LB Landessparkasse    52500           27011841D000000000
+250500002Norddeutsche Landesbank Girozentrale                      37445Walkenried                         NORD/LB Landessparkasse    52500           27011844D000000000
+250500002Norddeutsche Landesbank Girozentrale                      38378Warberg, Kr Helmstedt              NORD/LB Landessparkasse    52500           27011846D000000000
+250500002Norddeutsche Landesbank Girozentrale                      37447Wieda                              NORD/LB Landessparkasse    52500           27011858D000000000
+250500002Norddeutsche Landesbank Girozentrale                      38170Winnigstedt                        NORD/LB Landessparkasse    52500           27011860D000000000
+250500002Norddeutsche Landesbank Girozentrale                      38286Wolfenbüttel, Niedersachs          NORD/LB Landessparkasse    52500           27011863D000000000
+250500002Norddeutsche Landesbank Girozentrale                      37449Zorge                              NORD/LB Landessparkasse    52500           27011868D000000000
+250500002Norddeutsche Landesbank Girozentrale                      31073Grünenplan, Flecken Delligsen      NORD/LB Landessparkasse    52500           27044416D000000000
+250500002Norddeutsche Landesbank Girozentrale                      06108Halle (Saale)                      Nord LB Halle              52500           27044881D000000000
+250500002Norddeutsche Landesbank Girozentrale                      04105Leipzig                            Nord LB Leipzig            52500           27044882D000000000
 250500002Norddeutsche Landesbank Girozentrale                      39011Magdeburg                          Nord LB Magdeburg          52500           27044884U000000000
 250500002Norddeutsche Landesbank Girozentrale                      19006Schwerin, Meckl                    Nord LB Schwerin           52500           27048388U000000000
 250500002Norddeutsche Landesbank Girozentrale                      20408Hamburg                            Nord LB Hamburg            52500           27049195U000000000
@@ -1952,7 +1930,6 @@ namespace :squirrels do
 250600001DZ BANK                                                   30002Hannover                           DZ BANK                    62003GENODEFF25009026097U000000000
 250600002DZ BANK                                                   26016Oldenburg (Oldb)                   DZ BANK Hannover           62003GENODEFF28009014820U000000000
 250601801Bankhaus Hallbaum                                         30159Hannover                           Bankhaus Hallbaum          25223HALLDE2HXXXC3026096U000000000
-250607011Evangelische Kreditgenossenschaft Filiale Hannover -alt-  30018Hannover                           EKK Hannover -alt-         62029GENODEF1EK332037009U152060410
 250691681Volks- und Raiffeisenbank Leinebergland                   31069Delligsen                          VB u RB Leinebgld Delligsen62297GENODEF1DES28026078U000000000
 250691682Volks- und Raiffbk Leinebergland Delligsen                31036Eime                               VB u RB Leinebgld Delligsen62297           28025976U000000000
 250691682Volks- und Raiffbk Leinebergland Delligsen                31008Elze, Leine                        VB u RB Leinebgld Delligsen62297           28028702U000000000
@@ -2043,17 +2020,15 @@ namespace :squirrels do
 251900012Hannoversche Volksbank                                    30952Ronnenberg                         Hannoversche Volksbank     92001           28052323U000000000
 251900012Hannoversche Volksbank                                    30917Seelze                             Hannoversche Volksbank     92001           28052324U000000000
 251900012Hannoversche Volksbank                                    30938Burgwedel                          Hannoversche Volksbank     92001           28053030U000000000
-251900012Hannoversche Volksbank                                    31275Lehrte b Hannover                  Hannoversche Volksbank     92001           28053031D000000000
 251900012Hannoversche Volksbank                                    31311Uetze                              Hannoversche Volksbank     92001           28053032U000000000
 251900012Hannoversche Volksbank                                    30916Isernhagen                         Hannoversche Volksbank     92001           28053033U000000000
-251900012Hannoversche Volksbank                                    31234Edemissen b Peine                  Hannoversche Volksbank     92001           28053034D000000000
 251900012Hannoversche Volksbank                                    30900Wedemark                           Hannoversche Volksbank     92001           28053035U000000000
 251900012Volksbank Celle Ndl. Hannoversche Volksbank               29201Celle                              Volksbank Celle            92001           28053036U000000000
 251900012Hannoversche Volksbank                                    31291Burgdorf, Kr Hannover              Hannoversche Volksbank     92001           28053037U000000000
 251900012Hannoversche Volksbank                                    29690Lindwedel                          Hannoversche VB            92001           28053166U000000000
 251900012Hannoversche Volksbank                                    31515Wunstorf                           Hannoversche VB            92001           28053167U000000000
 251900012Hannoversche Volksbank (Gf P2)                            30159Hannover                           Hannoversche Volksbank     82001           28053756U000000000
-251900881Hannoversche Volksbank GS nur für GAA                     29690Lindwedel                          HanVB - GS nur für GAA          VOHADE2HXXX28056595A000000000
+251900881Hannoversche Volksbank GS nur für GAA                     29690Lindwedel                          HanVB - GS nur für GAA          VOHADE2HXXX28056595U000000000
 251933311Volksbank                                                 30982Pattensen b Hannover               Volksbank                  92152GENODEF1PAT28022714U000000000
 251933312Volksbank                                                 30989Gehrden, Han                       Volksbank Gehrden, Han     92152           28021328U000000000
 251933312Volksbank                                                 30870Laatzen b Hannover                 Volksbank Laatzen          92152           28021969U000000000
@@ -2090,8 +2065,8 @@ namespace :squirrels do
 254501102Sparkasse Weserbergland                                   31013Salzhemmendorf                     Spk Weserbergland Salzhemm 52508           00035263U000000000
 254501102Sparkasse Weserbergland                                   31841Bad Münder am Deister              Spk Weserbergland B Münder 52508           00039774U000000000
 254513451Stadtsparkasse Bad Pyrmont                                31797Bad Pyrmont                        St Spk Bad Pyrmont         52510NOLADE21PMT00011235U000000000
-254514501Sparkasse Weserbergland                                   37615Bodenwerder                        Spk Weserbergland Bodenwerd52511NOLADE21BOW00011233U000000000
-254516551Sparkasse Weserbergland                                   31833Hessisch Oldendorf                 Spk Weserbergland Hess Old 52512NOLADE21HEO00009957U000000000
+254514501Sparkasse Weserbergland -alt-                             37615Bodenwerder                        Spk Weserbergland -alt-    52511NOLADE21BOW00011233D000000000
+254516551Sparkasse Weserbergland -alt-                             31833Hessisch Oldendorf                 Spk Weserbergland -alt-    52512NOLADE21HEO00009957D000000000
 254621601Volksbank Hameln-Stadthagen                               31763Hameln                             VB Hameln-Stadthagen       62107GENODEF1HMP28029693U000000000
 254621602Volksbank Hameln-Stadthagen                               31812Bad Pyrmont                        VB Hameln-Stadthagen       62107           28021571U000000000
 254621602Volksbank Hameln-Stadthagen                               37616Bodenwerder                        VB Hameln-Stadthagen       62107           28021659U000000000
@@ -2142,16 +2117,12 @@ namespace :squirrels do
 255514802Sparkasse Schaumburg                                      31688Nienstädt b Stadthagen             Sparkasse Schaumburg       52515           00009667U000000000
 255514802Sparkasse Schaumburg                                      31655Stadthagen                         Sparkasse Schaumburg       52515           00009673U000000000
 255514802Sparkasse Schaumburg                                      31698Lindhorst b Stadthagen             Sparkasse Schaumburg       52515           00009675U000000000
-255514802Sparkasse Schaumburg                                      31556Wölpinghausen                      Sparkasse Schaumburg       52515           00009717D000000000
 255514802Sparkasse Schaumburg                                      31683Obernkirchen                       Sparkasse Schaumburg       52515           00009969U000000000
 255514802Sparkasse Schaumburg                                      31707Bad Eilsen                         Sparkasse Schaumburg       52515           00010815U000000000
 255514802Sparkasse Schaumburg                                      31542Bad Nenndorf                       Sparkasse Schaumburg       52515           00010912U000000000
 255514802Sparkasse Schaumburg                                      31552Apelern                            Sparkasse Schaumburg       52515           00012062U000000000
 255514802Sparkasse Schaumburg                                      31559Haste b Wunstorf                   Sparkasse Schaumburg       52515           00044133U000000000
-255514802Sparkasse Schaumburg                                      31718Pollhagen                          Sparkasse Schaumburg       52515           00044608D000000000
 255514802Sparkasse Schaumburg                                      31699Beckedorf b Stadthagen             Sparkasse Schaumburg       52515           00044609U000000000
-255514802Sparkasse Schaumburg                                      31714Lauenhagen b Stadthagen            Sparkasse Schaumburg       52515           00044611D000000000
-255514802Sparkasse Schaumburg                                      31712Niedernwöhren                      Sparkasse Schaumburg       52515           00044612D000000000
 255914131Volksbank in Schaumburg                                   31737Rinteln                            Volksbank in Schaumburg    92096GENODEF1BCK28021709U000000000
 255914132Volksbank in Schaumburg                                   31707Bad Eilsen                         Volksbank in Schaumburg    92096           28021434U000000000
 255914132Volksbank in Schaumburg                                   32457Porta Westfalica                   Volksbank in Schaumburg    92096           28022213U000000000
@@ -2172,24 +2143,18 @@ namespace :squirrels do
 256501061Sparkasse Nienburg                                        31567Nienburg (Weser)                   Sparkasse Nienburg         52517NOLADE21NIB00009157U000000000
 256501062Sparkasse Nienburg                                        31627Rohrsen, Kr Nienburg, Weser        Sparkasse Nienburg         52517           00007968U000000000
 256501062Sparkasse Nienburg                                        31613Wietzen                            Sparkasse Nienburg         52517           00008169U000000000
-256501062Sparkasse Nienburg                                        27318Hilgermissen                       Sparkasse Nienburg         52517           00008196U000000000
 256501062Sparkasse Nienburg                                        27324Eystrup                            Sparkasse Nienburg         52517           00008943U000000000
 256501062Sparkasse Nienburg                                        27318Hoya, Weser                        Sparkasse Nienburg         52517           00008996U000000000
 256501062Sparkasse Nienburg                                        31634Steimbke                           Sparkasse Nienburg         52517           00009366U000000000
 256501062Sparkasse Nienburg                                        31618Liebenau, Kr Nienburg, Weser       Sparkasse Nienburg         52517           00009489U000000000
 256501062Sparkasse Nienburg                                        31608Marklohe                           Sparkasse Nienburg         52517           00009497U000000000
 256501062Sparkasse Nienburg                                        27333Bücken b Hoya, Weser               Sparkasse Nienburg         52517           00010987U000000000
-256501062Sparkasse Nienburg                                        27324Hassel (Weser)                     Sparkasse Nienburg         52517           00032942U000000000
 256501062Sparkasse Nienburg                                        31637Rodewald                           Sparkasse Nienburg         52517           00039781U000000000
-256501062Sparkasse Nienburg                                        31626Haßbergen                          Sparkasse Nienburg         52517           00049140U000000000
 256501062Sparkasse Nienburg                                        31632Husum, Kr Nienburg, Weser          Sparkasse Nienburg         52517           00049141U000000000
 256501062Sparkasse Nienburg                                        31592Stolzenau, Weser                   Spk Nienburg               52517           00052761U000000000
 256501062Sparkasse Nienburg                                        31628Landesbergen                       Spk Nienburg               52517           00052762U000000000
-256501062Sparkasse Nienburg                                        31633Leese, Weser                       Spk Nienburg               52517           00052763U000000000
-256501062Sparkasse Nienburg                                        31604Raddestorf                         Spk Nienburg               52517           00052764U000000000
 256501062Sparkasse Nienburg                                        31547Rehburg-Loccum                     Spk Nienburg               52517           00052765U000000000
 256501062Sparkasse Nienburg                                        31595Steyerberg                         Spk Nienburg               52517           00052766U000000000
-256501062Sparkasse Nienburg                                        31719Wiedensahl                         Spk Nienburg               52517           00052767U000000000
 256501062Sparkasse Nienburg                                        31600Uchte                              Spk Nienburg               52517           00052768U000000000
 256501062Sparkasse Nienburg                                        31603Diepenau                           Spk Nienburg               52517           00052769U000000000
 256501062Sparkasse Nienburg                                        31606Warmsen                            Spk Nienburg               52517           00052770U000000000
@@ -2220,7 +2185,7 @@ namespace :squirrels do
 256625402Volksbank Steyerberg                                      31618Liebenau, Kr Nienburg, Weser       Volksbank Steyerberg       62131           28028453U000000000
 256625402Volksbank Steyerberg                                      31547Rehburg-Loccum                     Volksbank Steyerberg       62131           28028462U000000000
 256625402Volksbank Steyerberg                                      31592Stolzenau, Weser                   Volksbank Steyerberg       62131           28029646U000000000
-256625402Volksbank Steyerberg                                      31629Estorf, Weser                      Volksbank Steyerberg       62131           28037880U000000000
+256625402Volksbank Steyerberg                                      31629Estorf, Weser                      Volksbank Steyerberg       62131           28037880D000000000
 256625402Volksbank (Gf P2)                                         31593Steyerberg                         Volksbank Steyerberg       72131           28053764U000000000
 256625402Volksbank Steyerberg                                      31604Raddestorf                         Volksbank Steyerberg       62131           28054919U000000000
 256635841Volksbank Aller-Weser                                     27318Hoya, Weser                        Volksbank Aller-Weser      62172GENODEF1HOY28022139U000000000
@@ -2349,10 +2314,8 @@ namespace :squirrels do
 258619902Volksbank Clenze-Hitzacker (Gf P2)                        29459Clenze                             Volksbank Clenze-Hitzacker 72105           28053771U000000000
 258619902Volksbank Clenze-Hitzacker                                29456Hitzacker (Elbe)                   Volksbank Clenze-Hitzacker 62105           28055972U000000000
 258622921Volksbank Uelzen-Salzwedel                                29525Uelzen, Lüneburger Heide           Volksbank Uelzen-Salzwedel 62115GENODEF1EUB28025967U000000000
-258622922Volksbank Uelzen-Salzwedel                                29575Altenmedingen                      Volksbank Uelzen-Salzwedel 62115           28025796U000000000
 258622922Volksbank Uelzen-Salzwedel                                29549Bad Bevensen                       Volksbank Uelzen-Salzwedel 62115           28025856U000000000
 258622922Volksbank Uelzen-Salzwedel                                29553Bienenbüttel                       Volksbank Uelzen-Salzwedel 62115           28025862U000000000
-258622922Volksbank Uelzen-Salzwedel                                29584Himbergen, Göhrde                  Volksbank Uelzen-Salzwedel 62115           28026170U000000000
 258622922Volksbank Uelzen-Salzwedel                                29571Rosche                             Volksbank Uelzen-Salzwedel 62115           28026325U000000000
 258622922Volksbank Uelzen-Salzwedel                                29565Wriedel                            Volksbank Uelzen-Salzwedel 62115           28026418U000000000
 258622922Volksbank Uelzen-Salzwedel                                29556Suderburg                          Volksbank Uelzen-Salzwedel 62115           28029658U000000000
@@ -2360,7 +2323,6 @@ namespace :squirrels do
 258622922Volksbank Uelzen-Salzwedel                                29574Ebstorf                            Volksbank Uelzen-Salzwedel 62115           28034847U000000000
 258622922Volksbank Uelzen-Salzwedel                                29410Salzwedel, Hansestadt              Volksbank Uelzen-Salzwedel 62115           28053347U000000000
 258622922Volksbank Uelzen-Salzwedel                                29389Bad Bodenteich                     Volksbank Uelzen-Salzwedel 62115           28053348U000000000
-258622922Volksbank Uelzen-Salzwedel                                29562Suhlendorf                         Volksbank Uelzen-Salzwedel 62115           28053350U000000000
 258622922Volksbank Uelzen-Salzwedel (Gf P2)                        29525Uelzen, Lüneburger Heide           Volksbank Uelzen-Salzwedel 72115           28053772U000000000
 258634891Volksbank Osterburg-Lüchow-Dannenberg                     29447Dannenberg (Elbe)                  VB Osterbg-Lüchow-Dannenbg 62168GENODEF1WOT28029825U000000000
 258634892Volksbank Osterburg-Lüchow-Dannenberg                     39615Seehausen (Altmark)                VB Osterbg-Lüchow-Dannenbg 62168           28046072U000000000
@@ -2423,7 +2385,7 @@ namespace :squirrels do
 259900112Volksbank Hildesheim                                      31171Nordstemmen                        Volksbank Hildesheim       92007           28051073U000000000
 259900112Volksbank Hildesheim                                      31191Algermissen                        Volksbank Hildesheim       92007           28051982U000000000
 259900112Volksbank Hildesheim (Gf P2)                              31113Hildesheim                         Volksbank Hildesheim       82007           28053775U000000000
-259900112Volksbank Hildesheim                                      31177Harsum                             Volksbank Hildesheim       92007           28056603A000000000
+259900112Volksbank Hildesheim                                      31177Harsum                             Volksbank Hildesheim       92007           28056603U000000000
 259915281Volksbank Hildesheimer Börde                              31185Söhlde                             VB Hildesheimer Börde      92104GENODEF1SLD28022117U000000000
 259915282Volksbank Hildesheimer Börde (Gf P2)                      31185Söhlde                             VB Hildesheimer Börde      82104           28053776U000000000
 260000001Bundesbank                                                37016Göttingen, Niedersachs             BBk Göttingen              20260MARKDEF126009011406U000000000
@@ -2499,7 +2461,7 @@ namespace :squirrels do
 262616931Volksbank Solling                                         37177Hardegsen                          Volksbank Solling Hardegsen62083GENODEF1HDG28026098U000000000
 262616932Volksbank Solling                                         37192Bodenfelde                         Volksbank Solling Hardegsen62083           28025873U000000000
 262616932Volksbank Solling                                         37182Moringen                           Volksbank Solling Hardegsen62083           28028733U000000000
-262616932Volksbank Uslar Ndl d Volksbank Solling                   37170Uslar                              Volksbank Solling Hardegsen62083           28029713U000000000
+262616932Volksbank Solling                                         37170Uslar                              Volksbank Solling Hardegsen62083           28029713U000000000
 262616932Volksbank Solling Zw Harste                               37120Bovenden                           Volksbank Solling Hardegsen62083           28049240U000000000
 262616932Volksbank Solling (Gf P2)                                 37177Hardegsen                          Volksbank Solling Hardegsen72083           28053784U000000000
 262714241Deutsche Bank Privat und Geschäftskunden                  37553Einbeck                            Deutsche Bank PGK Einbeck  21673DEUTDEDB26263049874U000000000
@@ -2675,11 +2637,11 @@ namespace :squirrels do
 266500012Sparkasse Emsland                                         26903Surwold                            Spk Emsland                52613           00052406U000000000
 266500012Sparkasse Emsland                                         49767Twist, Emsl                        Spk Emsland                52613           00052407U000000000
 266500012Sparkasse Emsland                                         49754Werlte, Emsl                       Spk Emsland                52613           00052408U000000000
-266600601Volksbank Lingen                                          49791Lingen (Ems)                       Volksbank Lingen Ems       62009GENODEF1LIG28029412U000000000
+266600601Volksbank Lingen                                          49791Lingen (Ems)                       Volksbank Lingen           62009GENODEF1LIG28029412U000000000
 266600602Volksbank Lingen                                          49844Bawinkel                           Volksbank Lingen           62009           28025838U000000000
 266600602Volksbank Lingen                                          49835Wietmarschen                       Volksbank Lingen           62009           28028498U000000000
 266600602Volksbank Lingen                                          49744Geeste                             Volksbank Lingen           62009           28029110U000000000
-266600602Volksbank Lingen (Gf P2)                                  49791Lingen (Ems)                       Volksbank Lingen Ems       72009           28053793U000000000
+266600602Volksbank Lingen (Gf P2)                                  49791Lingen (Ems)                       Volksbank Lingen           72009           28053793U000000000
 266613801Volksbank Haselünne                                       49734Haselünne                          Volksbank Haselünne        62052GENODEF1HLN28026102U000000000
 266613802Volksbank Haselünne                                       49774Lähden                             Volksbank Haselünne        62052           28032235U000000000
 266613802Volksbank Haselünne                                       49768Herzlake                           Volksbank Haselünne        62052           28052295U000000000
@@ -2855,10 +2817,8 @@ namespace :squirrels do
 270925551Volksbank Wolfenbüttel-Salzgitter                         38289Wolfenbüttel, Niedersachs          VB Wolfenbüttel-Salzgitter 92143GENODEF1WFV28022427U000000000
 270925552Volksbank Wolfenbüttel-Salzgitter                         38170Schöppenstedt                      VB Wolfenbüttel-Salzgitter 92143           28022669U000000000
 270925552Volksbank Wolfenbüttel-Salzgitter                         38268Lengede                            VB Wolfenbüttel-Salzgitter 92143           28025829U000000000
-270925552Volksbank Wolfenbüttel-Salzgitter                         38312Flöthe                             VB Wolfenbüttel-Salzgitter 92143           28026066U000000000
 270925552Volksbank Wolfenbüttel-Salzgitter                         38271Baddeckenstedt                     VB Wolfenbüttel-Salzgitter 92143           28028131U000000000
 270925552Volksbank Wolfenbüttel-Salzgitter                         38319Remlingen, Kr Wolfenbüttel         VB Wolfenbüttel-Salzgitter 92143           28028655U000000000
-270925552Volksbank Wolfenbüttel-Salzgitter                         38206Salzgitter                         VB Wolfenbüttel-Salzgitter 92143           28028874U000000000
 270925552Volksbank Wolfenbüttel-Salzgitter                         38162Cremlingen                         VB Wolfenbüttel-Salzgitter 92143           28029109U000000000
 270925552Volksbank Wolfenbüttel-Salzgitter                         38126Braunschweig                       VB Wolfenbüttel-Salzgitter 92143           28048413U000000000
 270925552Volksbank Wolfenbüttel-Salzgitter (Gf P2)                 38289Wolfenbüttel, Niedersachs          VB Wolfenbüttel-Salzgitter 82143           28053802U000000000
@@ -2961,7 +2921,7 @@ namespace :squirrels do
 280232242Oldenburgische Landesbank AG                              26687Apen                               Oldb Landesbank Apen       25450           61011286U000000000
 280233251Oldenburgische Landesbank AG                              27782Wildeshausen                       Oldb Ldbank Wildeshausen   25451OLBODEH2XXX61010347U000000000
 280233252Oldenburgische Landesbank AG                              26190Großenkneten                       Oldb Ldbank Großenkneten   25451           61010273U000000000
-280303001W. Fortmann & Söhne, Zndl der Oldenburgische Landesbank AG26122Oldenburg (Oldb)                   W. Fortmann & Söhne        26410FORTDEH4XXX09014935M000000000
+280303001W. Fortmann & Söhne, Zndl der Oldenburgische Landesbank AG26122Oldenburg (Oldb)                   W. Fortmann & Söhne        26410FORTDEH4XXX09014935U000000000
 280400461Commerzbank                                               26016Oldenburg (Oldb)                   Commerzbank Oldenburg      24280COBADEFFXXX13006984U000000000
 280428651Commerzbank                                               49360Vechta                             Commerzbank Vechta         24246COBADEFFXXX13006993U000000000
 280501001Landessparkasse zu Oldenburg                              26016Oldenburg (Oldb)                   Landessparkasse Oldenburg  52801BRLADE21LZO00003051U000000000
@@ -3017,7 +2977,7 @@ namespace :squirrels do
 280641792Volksbank Vechta                                          27248Ehrenburg b Sulingen               Volksbank Vechta           62185           28055521U000000000
 280642411Raiffeisen-Volksbank Varel-Nordenham                      26945Nordenham                          Raiff-VB Varel-Nordenham   62186GENODEF1NHE28014753U000000000
 280650611Volksbank Löningen                                        49619Löningen                           Volksbank Löningen         62200GENODEF1LOG28014801U000000000
-280650612Volksbank Loeningen                                       49697Lindern (Oldenburg)                Volksbank Loeningen        62200           28053378U000000000
+280650612Volksbank Löningen                                        49697Lindern (Oldenburg)                Volksbank Löningen         62200           28053378U000000000
 280650612Volksbank Löningen (Gf P2)                                49619Löningen                           Volksbank Löningen         72200           28053822U000000000
 280651081VR-Bank Dinklage-Steinfeld                                49407Dinklage                           VR-Bank Dinklage-Steinfeld 62202GENODEF1DIK28014743U000000000
 280651082VR-Bank Dinklage-Steinfeld                                49436Steinfeld (Oldenburg)              VR-Bank Dinklage-Steinfeld 62202           28051321U000000000
@@ -3028,7 +2988,7 @@ namespace :squirrels do
 280661031Volksbank Visbek                                          49425Visbek, Kr Vechta                  Volksbank Visbek           62214GENODEF1VIS28014857U000000000
 280661032Volksbank Visbek (Gf P2)                                  49425Visbek, Kr Vechta                  Volksbank Visbek           72214           28053825U000000000
 280662141Volksbank Wildeshauser Geest                              27793Wildeshausen                       VB Wildeshauser Geest      62545GENODEF1WDH28014865U000000000
-280662142Volksbank Wildeshauser Geest (Gf P2)                      27783Wildeshausen                       VB Wildeshauser Geest      72545           28053826U000000000
+280662142Volksbank Wildeshauser Geest (Gf P2)                      27793Wildeshausen                       VB Wildeshauser Geest      72545           28053826M000000000
 280666201Spar- und Darlehnskasse Friesoythe                        26169Friesoythe                         Spar-u Darlehnskasse       62562GENODEF1FOY28014758U000000000
 280666202Spar- und Darlehnskasse Friesoythe                        26676Barßel                             Spar-u Darlehnskasse       62562           28014724U000000000
 280666202Spar- und Darlehnskasse Friesoythe (Gf P2)                26169Friesoythe                         Spar-u Darlehnskasse       72562           28053827U000000000
@@ -3084,12 +3044,11 @@ namespace :squirrels do
 280699262Volksbank Niedergrafschaft                                49849Wilsum b Emlichheim                VB Niedergrafschaft        62511           28029810U000000000
 280699262Volksbank Niedergrafschaft                                49847Itterbeck                          VB Niedergrafschaft        62511           28032596U000000000
 280699262Volksbank Niedergrafschaft (Gf P2)                        49839Uelsen                             VB Niedergrafschaft        72511           28053842U000000000
-280699301Volksbank Langen-Gersten                                  49838Langen, Emsl                       VB Langen-Gersten          62514GENODEF1LAG28028417U000000000
+280699301Volksbank Langen-Gersten -alt-                            49838Langen                             VB Langen-Gersten -alt-    62514GENODEF1LAG28028417M000000000
 280699302Volksbank Langen-Gersten                                  49838Gersten                            VB Langen-Gersten          62514           28028299U000000000
 280699302Volksbank Langen-Gersten (Gf P2)                          49838Langen, Emsl                       VB Langen-Gersten          72514           28053843U000000000
 280699351Raiffeisenbank Lorup                                      26900Lorup                              Raiffeisenbank Lorup       62518GENODEF1LRU28028467U000000000
 280699352Raiffeisenbank Lorup (Gf P2)                              26900Lorup                              Raiffeisenbank Lorup       72518           28053844U000000000
-280699551Volksbank Uelsen                                          49839Uelsen                             Volksbank Uelsen           62525GENODEF1UEL28029697U000000000
 280699561Grafschafter Volksbank                                    48511Nordhorn                           Grafschafter Volksbank     62526GENODEF1NEV28029467U000000000
 280699562Grafschafter Volksbank                                    49824Laar, Vechte                       Grafschafter Volksbank     62526           28042866U000000000
 280699562Grafschafter Volksbank                                    49820Emlichheim                         Grafschafter Volksbank     62526           28051322U000000000
@@ -3272,12 +3231,12 @@ namespace :squirrels do
 285916542Volksbank Westrhauderfehn As Bockhorst                    26897Bockhorst, Hümmling                Volksbank Westrhauderfehn  92118           28021656U000000000
 285916542Volksbank Westrhauderfehn Zw Ostrhauderfehn               26842Ostrhauderfehn                     Volksbank Westrhauderfehn  92118           28021814U000000000
 285916542Volksbank Westrhauderfehn (Gf P2)                         26813Rhauderfehn                        Volksbank Westrhauderfehn  82118           28053857U000000000
-290000001Bundesbank                                                28078Bremen                             BBk Bremen                 20290MARKDEF129009011421U000000000
+290000001Bundesbank eh Bremen                                      30002Hannover                           BBk Hannover eh Bremen     20290MARKDEF129009011421M100000000
 290101111SEB                                                       28195Bremen                             SEB Bremen                 25811ESSEDE5F29013005355U000000000
 290104001Deutsche Schiffsbank                                      28062Bremen                             Deutsche Schiffsbank Bremen     DESBDE22XXX09048755U000000000
 290200001Bankhaus Neelmeyer                                        28074Bremen                             Bankhaus Neelmeyer Bremen  25325NEELDE22XXX45013553U000000000
 290201001Bremer Kreditbank                                         28195Bremen                             Bremer Kreditbank          25130BANVDEHBXXX18013555U000000000
-290202001NordFinanz Bank                                           28028Bremen                             NF Bank Bremen             99018NFHBDE21XXX09043882U000000000
+290202001Greensill Bank                                            28028Bremen                             Greensill Bank Bremen      99018NFHBDE21XXX09043882U000000000
 290204001Deutsche Factoring Bank                                   28195Bremen                             Factoring Bank Bremen           DFABDE21XXX09044367U000000000
 290304001Bankhaus Carl F. Plump & CO                               28195Bremen                             Plumpbank Bremen           26280PLUMDE29XXXC4013557U000000000
 290400601Commerzbank CC                                            28195Bremen                             Commerzbank CC Bremen           COBADEFFXXX09055809U000000000
@@ -3412,52 +3371,17 @@ namespace :squirrels do
 292101111SEB                                                       27568Bremerhaven                        SEB Bremerhaven            25812ESSEDE5F29213005354U000000000
 292400241Commerzbank                                               27515Bremerhaven                        Commerzbank Bremerhaven    24291COBADEFFXXX13005032U000000000
 292500001Weser-Elbe Sparkasse                                      27568Bremerhaven                        Weser-Elbe Sparkasse, BHV  52941BRLADE21BRS10002779U000000000
-292501501Kreissparkasse Wesermünde-Hadeln                          27570Bremerhaven                        Kr Spk Wesermünde-Hadeln   52942BRLADE21BRK10002778U000000000
-292501502Kreissparkasse Wesermünde-Hadeln                          27616Beverstedt                         Kr Spk Wesermünde-Hadeln   52942           10002758U000000000
-292501502Kreissparkasse Wesermünde-Hadeln                          27624Geestland                          Kr Spk Wesermünde-Hadeln   52942           10002760M000000000
-292501502Kreissparkasse Wesermünde-Hadeln                          27628Hagen im Bremischen                Kr Spk Wesermünde-Hadeln   52942           10002811U000000000
-292501502Kreissparkasse Wesermünde-Hadeln                          27632Dorum b Bremerhaven                Kr Spk Wesermünde-Hadeln   52942           10002934D000000000
-292501502Kreissparkasse Wesermünde-Hadeln                          27607Langen b Bremerhaven               Kr Spk Wesermünde-Hadeln   52942           10002980D000000000
-292501502Kreissparkasse Wesermünde-Hadeln                          27612Loxstedt                           Kr Spk Wesermünde-Hadeln   52942           10003140U000000000
-292501502Kreissparkasse Wesermünde-Hadeln                          27632Midlum b Bremerhaven               Kr Spk Wesermünde-Hadeln   52942           10003144D000000000
-292501502Kreissparkasse Wesermünde-Hadeln                          27637Nordholz b Bremerhaven             Kr Spk Wesermünde-Hadeln   52942           10003153D000000000
-292501502Kreissparkasse Wesermünde-Hadeln                          27638Wremen                             Kr Spk Wesermünde-Hadeln   52942           10003245D000000000
-292501502Kreissparkasse Wesermünde-Hadeln                          27619Schiffdorf                         Kr Spk Wesermünde-Hadeln   52942           10003249U000000000
-292501502Kreissparkasse Wesermünde-Hadeln                          21776Wanna                              Kr Spk Wesermünde-Hadeln   52942           10008201U000000000
-292501502Kreissparkasse Wesermünde-Hadeln                          21785Neuhaus (Oste)                     Kr Spk Wesermünde-Hadeln   52942           10009178U000000000
-292501502Kreissparkasse Wesermünde-Hadeln                          21775Ihlienworth                        Kr Spk Wesermünde-Hadeln   52942           10009221U000000000
-292501502Kreissparkasse Wesermünde-Hadeln                          21762Otterndorf, Niederelbe             Kr Spk Wesermünde-Hadeln   52942           10009235U000000000
-292501502Kreissparkasse Wesermünde-Hadeln                          21756Osten, Oste                        Kr Spk Wesermünde-Hadeln   52942           10009243U000000000
-292501502Kreissparkasse Wesermünde-Hadeln                          21787Oberndorf, Oste                    Kr Spk Wesermünde-Hadeln   52942           10009265U000000000
-292501502Kreissparkasse Wesermünde-Hadeln                          21769Lamstedt                           Kr Spk Wesermünde-Hadeln   52942           10009402U000000000
-292501502Kreissparkasse Wesermünde-Hadeln                          21781Cadenberge                         Kr Spk Wesermünde-Hadeln   52942           10010910U000000000
-292501502Kreissparkasse Wesermünde-Hadeln                          21782Bülkau                             Kr Spk Wesermünde-Hadeln   52942           10010984U000000000
-292501502Kreissparkasse Wesermünde-Hadeln                          21745Hemmoor                            Kr Spk Wesermünde-Hadeln   52942           10030484U000000000
-292501502Kreissparkasse Wesermünde-Hadeln                          21763Neuenkirchen, Land Hadeln          Kr Spk Wesermünde-Hadeln   52942           10031472U000000000
-292501502Kreissparkasse Wesermünde-Hadeln                          21789Wingst                             Kr Spk Wesermünde-Hadeln   52942           10031565U000000000
-292501502Kreissparkasse Wesermünde-Hadeln                          21755Hechthausen                        Kr Spk Wesermünde-Hadeln   52942           10031602U000000000
-292627221Volksbank Geeste-Nord                                     27607Geestland                          Volksbank Geeste-Nord      62435GENODEF1BRV28025937M000000000
+292501501Kreissparkasse Wesermünde-Hadeln -alt-                    27570Bremerhaven                        Kr Spk Wesermünde-Hadeln   52942BRLADE21BRK10002778U000000000
+292627221Volksbank Geeste-Nord                                     27607Geestland                          Volksbank Geeste-Nord      62435GENODEF1BRV28025937U000000000
 292627222Volksbank Geeste-Nord                                     27619Schiffdorf                         Volksbank Geeste-Nord      62435           28029622U000000000
-292627222Volksbank Geeste-Nord (Gf P2)                             27607Geestland                          Volksbank Geeste-Nord      72435           28053867M000000000
+292627222Volksbank Geeste-Nord (Gf P2)                             27607Geestland                          Volksbank Geeste-Nord      72435           28053867U000000000
 292657471Volksbank Bremerhaven-Cuxland                             27613Beverstedt                         VB Bremerhaven-Cuxland     62605GENODEF1BEV28025859U000000000
-292657472Volksbank Bremerhaven-Cuxland                             27624Drangstedt                         VB Bremerhaven-Cuxland     62605           28025955D000000000
-292657472Volksbank Bremerhaven-Cuxland                             27624Elmlohe                            VB Bremerhaven-Cuxland     62605           28025985D000000000
-292657472Volksbank Bremerhaven-Cuxland                             27624Flögeln                            VB Bremerhaven-Cuxland     62605           28026014D000000000
 292657472Volksbank Bremerhaven-Cuxland                             27625Hagen im Bremischen                VB Bremerhaven-Cuxland     62605           28026086U000000000
-292657472Volksbank Bremerhaven-Cuxland                             27624Köhlen b Bremerhaven               VB Bremerhaven-Cuxland     62605           28028377D000000000
-292657472Volksbank Bremerhaven-Cuxland                             27624Kührstedt                          VB Bremerhaven-Cuxland     62605           28028398D000000000
-292657472Volksbank Bremerhaven-Cuxland                             27624Lintig                             VB Bremerhaven-Cuxland     62605           28028458D000000000
 292657472Volksbank Bremerhaven-Cuxland                             27608Loxstedt                           VB Bremerhaven-Cuxland     62605           28028468U000000000
-292657472Volksbank Bremerhaven-Cuxland                             27624Ringstedt                          VB Bremerhaven-Cuxland     62605           28028674D000000000
 292657472Volksbank Bremerhaven-Cuxland                             28790Schwanewede                        VB Bremerhaven-Cuxland     62605           28028718U000000000
 292657472Volksbank Bremerhaven-Cuxland                             21775Steinau, Niederelbe                VB Bremerhaven-Cuxland     62605           28029634U000000000
 292657472Volksbank Bremerhaven-Cuxland                             27619Schiffdorf                         VB Bremerhaven-Cuxland     62605           28035886U000000000
-292657472Volksbank Bremerhaven-Cuxland                             27620Bad Bederkesa                      VB Bremerhaven-Cuxland     62605           28052426D000000000
-292657472Volksbank Bremerhaven-Cuxland                             27607Geestland                          VB Bremerhaven-Cuxland     62605           28053609M000000000
-292657472Volksbank Bremerhaven-Cuxland                             27632Dorum b Bremerhaven                VB Bremerhaven-Cuxland     62605           28053610D000000000
-292657472Volksbank Bremerhaven-Cuxland                             27637Nordholz b Bremerhaven             VB Bremerhaven-Cuxland     62605           28053611D000000000
-292657472Volksbank Bremerhaven-Cuxland                             27638Wremen                             VB Bremerhaven-Cuxland     62605           28053612D000000000
-292657472Volksbank Bremerhaven-Cuxland                             27632Midlum b Bremerhaven               VB Bremerhaven-Cuxland     62605           28053613D000000000
+292657472Volksbank Bremerhaven-Cuxland                             27607Geestland                          VB Bremerhaven-Cuxland     62605           28053609U000000000
 292657472Volksbank Bremerhaven-Cuxland                             27539Bremerhaven                        VB Bremerhaven-Cuxland     62605           28053614U000000000
 292657472Volksbank Bremerhaven-Cuxland (Gf P2)                     27613Beverstedt                         VB Bremerhaven-Cuxland     72605           28053868U000000000
 292800111Commerzbank vormals Dresdner Bank                         27502Bremerhaven                        Commerzbank Bremerhaven    28292DRESDEFF29276004764U000000000
@@ -3558,8 +3482,8 @@ namespace :squirrels do
 300893001Commerzbank vormals Dresdner Bank ITGK I                  40002Düsseldorf                         Commerzbk ITGK I Düsseldf       DRESDEFFI0209051085U000000000
 300893021Commerzbank vormals Dresdner Bank ITGK II                 40002Düsseldorf                         Commerzbk ITGK II Düsseld       DRESDEFFI0309051084U000000000
 301103001Sumitomo Mitsui Banking Corporation                       40510Düsseldorf                         SMBC Düsseldorf            29810SMBCDEDDXXX09032360U000000000
-301205001Bremer Kreditbank                                         28195Bremen                             Bremer Kreditbank               BANVDEHB30018044577M000000000
-301301001Demir-Halk Bank (Nederland)                               40213Düsseldorf                         Demir-Halk Bank Düsseldorf      DHBNDEDDXXX09049412U000000000
+301205001Bremer Kreditbank                                         28195Bremen                             Bremer Kreditbank               BANVDEHB30018044577U000000000
+301301001Demir-Halk Bank (Nederland)                               40212Düsseldorf                         Demir-Halk Bank Düsseldorf      DHBNDEDDXXX09049412U000000000
 301302001GarantiBank International                                 40213Düsseldorf                         GarantiBank Int Düsseldorf      UGBIDEDDXXX09049673U000000000
 301306001Isbank Fil Düsseldorf                                     40210Düsseldorf                         Isbank Düsseldorf          29901ISBKDEFXDUS06048324U000000000
 301308001Düsseldorfer Hypothekenbank                               40212Düsseldorf                         Düsseldorfer Hypothekenbank     DHYPDEDDXXX09051034U000000000
@@ -3573,12 +3497,12 @@ namespace :squirrels do
 301602132Volksbank Düsseldorf Neuss Zw Ratingen                    40878Ratingen                           VB Düsseldorf Neuss        63027           06043502U000000000
 301602132Volksbank Düsseldorf Neuss (Gf P2)                        40012Düsseldorf                         VB Düsseldorf Neuss        73027           06053872U000000000
 302201901UniCredit Bank - HypoVereinsbank                          40212Düsseldorf                         UniCredit Bank-HypoVereinbk22024HYVEDEMM41499043025U000000000
-302201902UniCredit Bank - HypoVereinsbank                          48003Münster, Westf                     UniCredit Bank-HypoVereinbk22024HYVEDEMM41499044498U000000000
-302201902UniCredit Bank - HypoVereinsbank                          47753Krefeld                            UniCredit Bank-HypoVereinbk22024HYVEDEMM41499044559U000000000
-302201902UniCredit Bank - HypoVereinsbank                          44879Bochum                             UniCredit Bank-HypoVereinbk22024HYVEDEMM41499049347U000000000
-302201902UniCredit Bank - HypoVereinsbank                          45657Recklinghausen, Westf              UniCredit Bank-HypoVereinbk22024HYVEDEMM41499050557U000000000
+302201902UniCredit Bank - HypoVereinsbank                          48003Münster, Westf                     UniCredit Bank-HypoVereinbk22024HYVEDEMM41499044498D000000000
+302201902UniCredit Bank - HypoVereinsbank                          47753Krefeld                            UniCredit Bank-HypoVereinbk22024HYVEDEMM41499044559D000000000
+302201902UniCredit Bank - HypoVereinsbank                          44879Bochum                             UniCredit Bank-HypoVereinbk22024HYVEDEMM41499049347D000000000
+302201902UniCredit Bank - HypoVereinsbank                          45657Recklinghausen, Westf              UniCredit Bank-HypoVereinbk22024HYVEDEMM41499050557D000000000
 302201902UniCredit Bank - HypoVereinsbank                          41061Mönchengladbach                    UniCredit Bank-HypoVereinbk22024HYVEDEMM41499050558U000000000
-302201902UniCredit Bank - HypoVereinsbank                          40667Meerbusch                          UniCredit Bank-HypoVereinbk22024HYVEDEMM41499050613U000000000
+302201902UniCredit Bank - HypoVereinsbank                          40667Meerbusch                          UniCredit Bank-HypoVereinbk22024HYVEDEMM41499050613D000000000
 303308001BIW Bank für Investments und Wertpapiere                  47877Willich                            BIW Bank                        BIWBDE3330301056398U000000000
 303512201Stadt-Sparkasse Haan                                      42781Haan, Rheinl                       St Spk Haan                53041WELADED1HAA00006638U000000000
 305200001RCI Banque Niederlassung Deutschland                      41468Neuss                              RCI Banque Ndl Deutschland      RCIDDE3NXXX09044723U000000000
@@ -3792,10 +3716,6 @@ namespace :squirrels do
 324400232Commerzbank                                               46422Emmerich am Rhein                  Commerzbank Emmerich       24342           13005077U000000000
 324400232Commerzbank                                               46450Rees                               Commerzbank Rees           24342           13007069U000000000
 324500001Sparkasse Kleve                                           47515Kleve, Niederrhein                 Sparkasse Kleve            53075WELADED1KLE00010012U000000000
-324500002Sparkasse Kleve                                           47587Uedem                              Sparkasse Kleve            53075           00006052U000000000
-324500002Sparkasse Kleve                                           47546Kalkar, Niederrhein                Sparkasse Kleve            53075           00008309U000000000
-324500002Sparkasse Kleve                                           47553Kranenburg, Niederrhein            Sparkasse Kleve            53075           00008361U000000000
-324500002Sparkasse Kleve                                           47551Bedburg-Hau                        Sparkasse Kleve            53075           00044321U000000000
 324604221Volksbank Kleverland                                      47533Kleve, Niederrhein                 Volksbank Kleverland       63043GENODED1KLL06014208U000000000
 324604222Volksbank Kleverland Zw                                   46509Xanten                             Volksbank Kleverland       63043           06013838U000000000
 324604222Volksbank Kleverland Hzw                                  47546Kalkar, Niederrhein                Volksbank Kleverland       63043           06014183U000000000
@@ -3913,7 +3833,7 @@ namespace :squirrels do
 350101111SEB                                                       47051Duisburg                           SEB Duisburg               25818ESSEDE5F35013005363U000000000
 350101112SEB                                                       46399Bocholt                            SEB Bocholt                25818ESSEDE5F35113032465U000000000
 350101112SEB                                                       47441Moers                              SEB Moers                  25818ESSEDE5F35313037277U000000000
-350200301National-Bank -alt-                                       47010Duisburg                           National-Bank Duisburg -alt25316NBAGDE3EXXX10011117U136020030
+350200301National-Bank -alt-                                       47010Duisburg                           National-Bank Duisburg -alt25316NBAGDE3EXXX10011117D036020030
 350400381Commerzbank                                               47002Duisburg                           Commerzbank Duisburg       24350COBADEFFXXX13005065U000000000
 350400382Commerzbank                                               47403Moers                              Commerzbank Moers          24350           13007027U000000000
 350400851Commerzbank, Gf Web-K                                     47002Duisburg                           Commerzbank Gf WK, Duisburg     COBADEFFXXX13056369U000000000
@@ -3999,8 +3919,8 @@ namespace :squirrels do
 360101112SEB                                                       46045Oberhausen, Rheinl                 SEB Oberhausen             25822ESSEDE5F36113006692U000000000
 360102001VON ESSEN Bankgesellschaft                                45007Essen, Ruhr                        VON ESSEN Bankges Essen    26035VONEDE33XXX09041505U000000000
 360104241Aareal Bank                                               45009Essen, Ruhr                        Aareal Bank Essen          26913AARBDE5W36009004846U000000000
-360106001NIBC Bank Deutschland                                     60311Frankfurt am Main                  NIBC Bank Deutschland      99019GABKDE31XXX06032894M000000000
-360106991NIBC Bank Deutschland Asset Backed Securities             60311Frankfurt am Main                  NIBC Bank Deutschland           GABKDE3169906055700M000000000
+360106001NIBC Bank Deutschland                                     60311Frankfurt am Main                  NIBC Bank Deutschland      99019GABKDE31XXX06032894U000000000
+360106991NIBC Bank Deutschland Asset Backed Securities             60311Frankfurt am Main                  NIBC Bank Deutschland           GABKDE3169906055700U000000000
 360200301National-Bank Essen                                       45027Essen, Ruhr                        National-Bank Essen        25317NBAGDE3EXXX10011118U000000000
 360200302National-Bank Gladbeck                                    45953Gladbeck                           National-Bank Gladbeck     25317           10025271U000000000
 360200302National-Bank Hattingen                                   45502Hattingen, Ruhr                    National-Bank Hattingen    25317           10040443U000000000
@@ -4057,13 +3977,13 @@ namespace :squirrels do
 360800851Commerzbank vormals Dresdner Bank, PCC DCC-ITGK  2        45357Essen, Ruhr                        Commerzbank ITGK2 Essen         DRESDEFFI6609055101U000000000
 360893211Commerzbank vormals Dresdner Bank ITGK                    45008Essen, Ruhr                        Commerzbank ITGK Essen          DRESDEFFI1709050777U000000000
 362101111SEB                                                       45468Mülheim an der Ruhr                SEB Mülheim Ruhr           25870ESSEDE5F36213006707U000000000
-362200301National-Bank -alt-                                       45414Mülheim an der Ruhr                National-Bank Mülheim-alt- 25318NBAGDE3EXXX10011115U136020030
+362200301National-Bank -alt-                                       45414Mülheim an der Ruhr                National-Bank Mülheim-alt- 25318NBAGDE3EXXX10011115D036020030
 362400451Commerzbank                                               45403Mülheim an der Ruhr                Commerzbank Mülheim Ruhr   24362COBADEFFXXX13007024U000000000
 362500001Sparkasse Mülheim an der Ruhr                             45466Mülheim an der Ruhr                Spk Mülheim an der Ruhr    53362SPMHDE3EXXX06009983U000000000
 362700241Deutsche Bank Privat und Geschäftskunden                  45404Mülheim an der Ruhr                Deutsche Bank PGK Mülheim  21388DEUTDEDB36263049969U000000000
 362700481Deutsche Bank                                             45404Mülheim an der Ruhr                Deutsche Bank Mülheim, Ruhr27388DEUTDEDE36263006901U000000000
 362800711Commerzbank vormals Dresdner Bank                         45404Mülheim an der Ruhr                Commerzbank Mülheim Ruhr   28362DRESDEFF36276006782U000000000
-365200301National-Bank -alt-                                       46012Oberhausen, Rheinl                 National-Bank Oberhsn -alt-25319NBAGDE3EXXX10011116U136020030
+365200301National-Bank -alt-                                       46012Oberhausen, Rheinl                 National-Bank Oberhsn -alt-25319NBAGDE3EXXX10011116D036020030
 365400461Commerzbank                                               46003Oberhausen, Rheinl                 Commerzbank Oberhausen     24352COBADEFFXXX13006988U000000000
 365500001Stadtsparkasse Oberhausen                                 46014Oberhausen, Rheinl                 St Spk Oberhausen          53421WELADED1OBH00010000U000000000
 365700241Deutsche Bank Privat und Geschäftskunden                  46003Oberhausen, Rheinl                 Deutsche Bank PGK Oberhause21389DEUTDEDB36563049970U000000000
@@ -4074,8 +3994,8 @@ namespace :squirrels do
 370101111SEB                                                       50667Köln                               SEB Köln                   25854ESSEDE5F37013005641U000000000
 370101112SEB                                                       51373Leverkusen                         SEB Leverkusen             25854ESSEDE5F37213005650U000000000
 370101112SEB                                                       50321Brühl, Rheinl                      SEB Brühl Rheinl           25854ESSEDE5F37113046925U000000000
-370106001BNP Paribas Niederlassung Deutschland                     60327Frankfurt am Main                  BNP Paribas Ndl Deutschland26195GEBADE33XXX09014924M000000000
-370106991BNP Paribas Niederlassung Deutschland                     60327Frankfurt am Main                  BNP Paribas Ndl Deutschland     GEBADE33XXX09056512M000000000
+370106001BNP Paribas Niederlassung Deutschland                     60327Frankfurt am Main                  BNP Paribas Ndl Deutschland26195GEBADE33XXX09014924U000000000
+370106991BNP Paribas Niederlassung Deutschland                     60327Frankfurt am Main                  BNP Paribas Ndl Deutschland     GEBADE33XXX09056512U000000000
 370110001Deutsche Postbank Easytrade                               51149Köln                               Deutsche Postbank Easytrade     PBNKDEFFXXX24050540U000000000
 370130301Deutsche Post Zahlungsdienste                             53113Bonn                               DPZ Bonn                        DEZMDE31XXX01055942U000000000
 370200901UniCredit Bank - HypoVereinsbank                          50443Köln                               UniCredit Bank-HypoVereinbk22046HYVEDEMM42999044319U000000000
@@ -4243,11 +4163,11 @@ namespace :squirrels do
 370694012Raiffeisenbank Junkersdorf (Gf P2)                        50841Köln                               Raiffeisenbank Junkersdorf 73165           06053914U000000000
 370694051Raiffeisenbank Kaarst                                     41564Kaarst                             Raiffeisenbank Kaarst      63166GENODED1KAA06014181U000000000
 370694052Raiffeisenbank Kaarst (Gf P2)                             41564Kaarst                             Raiffeisenbank Kaarst      73166           06053915U000000000
-370694121Raiffeisenbank                                            52518Heinsberg, Rheinl                  Raiffeisenbank Heinsberg   63168GENODED1HRB06014043U000000000
-370694122Raiffeisenbank Heinsberg Gs Birgelen                      41849Wassenberg                         Raiffeisenbank Heinsberg   63168           06014198U000000000
-370694122Raiffeisenbank Heinsberg                                  52525Waldfeucht                         Raiffeisenbank Heinsberg   63168           06014367U000000000
-370694122Raiffeisenbank Heinsberg Gs Breberen                      52538Gangelt                            Raiffeisenbank Heinsberg   63168           06014368U000000000
-370694122Raiffeisenbank (Gf P2)                                    52518Heinsberg, Rheinl                  Raiffeisenbank Heinsberg   73168           06053916U000000000
+370694121Volksbank Heinsberg                                       52525Heinsberg                          Volksbank Heinsberg        63168GENODED1HRB06014043M000000000
+370694122Volksbank Heinsberg                                       41849Wassenberg                         Volksbank Heinsberg        63168           06014198M000000000
+370694122Volksbank Heinsberg                                       52525Waldfeucht                         Volksbank Heinsberg        63168           06014367M000000000
+370694122Volksbank Heinsberg                                       52538Gangelt                            Volksbank Heinsberg        63168           06014368M000000000
+370694122Volksbank Heinsberg (Gf P2)                               52518Heinsberg                          Volksbank Heinsberg        73168           06053916M000000000
 370694271Volksbank Dünnwald-Holweide                               51069Köln                               Volksbank Dünnwald-Holweide63174GENODED1DHK06014448U000000000
 370694272Volksbank Dünnwald-Holweide (Gf P2)                       51069Köln                               Volksbank Dünnwald-Holweide73174           06053917U000000000
 370694291Volksbank Köln-Nord                                       50739Köln                               Volksbank Köln-Nord        63175GENODED1KNL06014449U000000000
@@ -4261,14 +4181,14 @@ namespace :squirrels do
 370695202VR-Bank Rhein-Sieg                                        53757Sankt Augustin                     VR-Bank Rhein-Sieg Siegburg63189           06014420U000000000
 370695202VR-Bank Rhein-Sieg                                        53844Troisdorf                          VR-Bank Rhein-Sieg Siegburg63189           06014428U000000000
 370695202VR-Bank Rhein-Sieg (Gf P2)                                53721Siegburg                           VR-Bank Rhein-Sieg Siegburg73189           06053919U000000000
-370695211Raiffeisenbank Rhein-Berg                                 40769Monheim am Rhein                   Raiffeisenbank Rhein-Berg  63190GENODED1MNH06013861U000000000
+370695211Raiffeisenbank Rhein-Berg                                 40789Monheim am Rhein                   Raiffeisenbank Rhein-Berg  63190GENODED1MNH06013861M000000000
 370695212Raiffeisenbank Rhein-Berg                                 51399Burscheid, Rheinl                  Raiffeisenbank Rhein-Berg  63190           06014145U000000000
 370695212Raiffeisenbank Rhein-Berg                                 42799Leichlingen (Rheinland)            Raiffeisenbank Rhein-Berg  63190           06014146U000000000
 370695212Raiffeisenbank Rhein-Berg                                 42929Wermelskirchen                     Raiffeisenbank Rhein-Berg  63190           06014147U000000000
 370695212Raiffeisenbank Rhein-Berg                                 40764Langenfeld (Rheinland)             Raiffeisenbank Rhein-Berg  63190           06014395U000000000
 370695212Raiffeisenbank Rhein-Berg                                 40699Erkrath                            Raiffeisenbank Rhein-Berg  63190           06044033U000000000
 370695212Raiffeisenbank Rhein-Berg                                 51371Leverkusen                         Raiffeisenbank Rhein-Berg  63190           06044034U000000000
-370695212Raiffeisenbank Rhein-Berg (Gf P2)                         40769Monheim am Rhein                   Raiffeisenbank Rhein-Berg  73190           06053920U000000000
+370695212Raiffeisenbank Rhein-Berg (Gf P2)                         40789Monheim am Rhein                   Raiffeisenbank Rhein-Berg  73190           06053920M000000000
 370695241Raiffeisenbank Much-Ruppichteroth                         53798Much                               Raiffbk Much-Ruppichteroth 63192GENODED1MUC06013866U000000000
 370695242Raiffeisenbank Much-Ruppichteroth                         53806Ruppichteroth                      Raiffbk Much-Ruppichteroth 63192           06014320U000000000
 370695242Raiffeisenbank Much-Ruppichteroth (Gf P2)                 53798Much                               Raiffbk Much-Ruppichteroth 73192           06053921U000000000
@@ -4416,15 +4336,15 @@ namespace :squirrels do
 380500001Sparkasse Bonn -alt-                                      53101Bonn                               Sparkasse Bonn -alt-       53409COLSDE33BON00031248U137050198
 380512901Stadtsparkasse Bad Honnef                                 53587Bad Honnef                         St Spk Bad Honnef          53062WELADED1HON00006514U000000000
 380601861Volksbank Bonn Rhein-Sieg                                 53015Bonn                               Volksbank Bonn Rhein-Sieg  63019GENODED1BRS06023590U000000000
-380601862Volksbank Bonn Rhein-Sieg                                 51570Windeck, Sieg                      Volksbank Bonn Rhein-Sieg  63019           06013816U000000000
-380601862Volksbank Bonn Rhein-Sieg                                 53774Eitorf                             Volksbank Bonn Rhein-Sieg  63019           06013968U000000000
-380601862Volksbank Bonn Rhein-Sieg                                 53310Bornheim, Rheinl                   Volksbank Bonn Rhein-Sieg  63019           06014269U000000000
-380601862Volksbank Bonn Rhein-Sieg                                 53639Königswinter                       Volksbank Bonn Rhein-Sieg  63019           06014324U000000000
-380601862Volksbank Bonn Rhein-Sieg                                 53757Sankt Augustin                     Volksbank Bonn Rhein-Sieg  63019           06014325U000000000
-380601862Volksbank Bonn Rhein-Sieg                                 53773Hennef (Sieg)                      Volksbank Bonn Rhein-Sieg  63019           06014341U000000000
-380601862Volksbank Bonn Rhein-Sieg                                 53721Siegburg                           Volksbank Bonn Rhein-Sieg  63019           06014415U000000000
-380601862Volksbank Bonn Rhein-Sieg                                 53567Buchholz (Westerwald)              Volksbank Bonn Rhein-Sieg  63019           06023120U000000000
-380601862Volksbank Bonn Rhein-Sieg                                 53588Bad Honnef                         Volksbank Bonn Rhein-Sieg  63019           06023594U000000000
+380601862Volksbank Bonn Rhein-Sieg                                 51570Windeck, Sieg                      Volksbank Bonn Rhein-Sieg  63019           06013816D000000000
+380601862Volksbank Bonn Rhein-Sieg                                 53774Eitorf                             Volksbank Bonn Rhein-Sieg  63019           06013968D000000000
+380601862Volksbank Bonn Rhein-Sieg                                 53310Bornheim, Rheinl                   Volksbank Bonn Rhein-Sieg  63019           06014269D000000000
+380601862Volksbank Bonn Rhein-Sieg                                 53639Königswinter                       Volksbank Bonn Rhein-Sieg  63019           06014324D000000000
+380601862Volksbank Bonn Rhein-Sieg                                 53757Sankt Augustin                     Volksbank Bonn Rhein-Sieg  63019           06014325D000000000
+380601862Volksbank Bonn Rhein-Sieg                                 53773Hennef (Sieg)                      Volksbank Bonn Rhein-Sieg  63019           06014341D000000000
+380601862Volksbank Bonn Rhein-Sieg                                 53721Siegburg                           Volksbank Bonn Rhein-Sieg  63019           06014415D000000000
+380601862Volksbank Bonn Rhein-Sieg                                 53567Buchholz (Westerwald)              Volksbank Bonn Rhein-Sieg  63019           06023120D000000000
+380601862Volksbank Bonn Rhein-Sieg                                 53588Bad Honnef                         Volksbank Bonn Rhein-Sieg  63019           06023594D000000000
 380601862Volksbank Bonn Rhein-Sieg (Gf P2)                         53015Bonn                               Volksbank Bonn Rhein-Sieg  73019           06053933U000000000
 380700241Deutsche Bank Privat und Geschäftskunden                  53004Bonn                               Deutsche Bank PGK Bonn     21414DEUTDEDB38063049992U000000000
 380700242Deutsche Bank Privat und Geschäftskunden                  53604Bad Honnef                         Deutsche Bank PGK Bad Honne21414DEUTDEDB94463049990U000000000
@@ -4522,7 +4442,7 @@ namespace :squirrels do
 390601802Aachener Bank                                             52146Würselen                           Aachener Bank              63015           06053371U000000000
 390601802Aachener Bank (Gf P2)                                     52001Aachen                             Aachener Bank              73015           06053937U000000000
 390606301apoBank                                                   52005Aachen                             apoBank Aachen             63062DAAEDED1030A4042556U000000000
-390619811Heinsberger Volksbank                                     52525Heinsberg, Rheinl                  Heinsberger Volksbank      63093GENODED1HNB06023607U000000000
+390619811Heinsberger Volksbank -alt-                               52525Heinsberg                          Heinsberger Volksbank -alt-63093GENODED1HNB06023607M000000000
 390619812Heinsberger Volksbank (Gf P2)                             52525Heinsberg, Rheinl                  Heinsberger Volksbank      73093           06053938U000000000
 390700201Deutsche Bank                                             52062Aachen                             Deutsche Bank Aachen       27320DEUTDEDK39063005013U000000000
 390700202Deutsche Bank                                             52233Eschweiler, Rheinl                 Deutsche Bank Eschweiler Rh27320DEUTDEDK39163004956U000000000
@@ -4603,6 +4523,7 @@ namespace :squirrels do
 400101111SEB                                                       48143Münster, Westf                     SEB Münster Westf          25872ESSEDE5F40013006705U000000000
 400220001NRW.BANK                                                  48145Münster, Westf                     NRW.BANK Münster                NRWBDEDMMST08055086U000000000
 400300001Münsterländische Bank Thie & Co                           48029Münster, Westf                     Münsterländische Bk Münster26266MLBKDE3MXXX61048820U000000000
+400300002Münsterländische Bank Thie & Co (Gf P2)                   48029Münster                            Münsterländische Bk Münster99075           61056632U000000000
 400400281Commerzbank                                               48136Münster, Westf                     Commerzbank Münster Westf  24400COBADEFFXXX13007023U000000000
 400400282Commerzbank                                               48268Greven, Westf                      Commerzbank Greven Westf   24400           13005015U000000000
 400400282Commerzbank                                               48232Dülmen                             Commerzbank Dülmen         24400           13005084U000000000
@@ -4735,15 +4656,17 @@ namespace :squirrels do
 401545302Sparkasse Westmünsterland                                 46342Velen                              Sparkasse Westmünsterland  54014           00051996U000000000
 401545302Sparkasse Westmünsterland                                 48686Vreden                             Sparkasse Westmünsterland  54014           00051997U000000000
 401547021Stadtsparkasse Stadtlohn                                  48695Stadtlohn                          St Spk Stadtlohn           54016WELADED1STL00018462U000000000
-401600501Volksbank Münster                                         48044Münster, Westf                     Volksbank Münster          64024GENODEM1MSC34021852U000000000
-401600502Volksbank Münster, Filiale Bösensell                      48308Senden, Westf                      VB Münster                 64024           34018804U000000000
-401600502Volksbank Münster Filiale Alverskirchen                   48351Everswinkel                        Volksbank Münster          64024           34051669U000000000
-401600502Volksbank Münster Ndl Albersloh                           48324Sendenhorst                        Volksbank Münster          64024           34051670U000000000
-401600502Volksbank Münster (Gf P2)                                 48044Münster, Westf                     Volksbank Münster          74024           34053962U000000000
+401600501Vereinigte Volksbank Münster                              48044Münster                            Vereinigte VB Münster      64024GENODEM1MSC34021852U000000000
+401600502Vereinigte Volksbank Münster                              48308Senden                             Vereinigte VB Münster      64024           34018804U000000000
+401600502Vereinigte Volksbank Münster                              48351Everswinkel                        Vereinigte VB Münst        64024           34051669U000000000
+401600502Vereinigte Volksbank Münster                              48324Sendenhorst                        Vereinigte VB Münster      64024           34051670U000000000
+401600502Vereinigte Volksbank Münster (Gf P2)                      48044Münster                            Vereinigte VB Münster      74024           34053962U000000000
+401600502Vereinigte Volksbank Münster                              48317Drensteinfurt                      Vereinigte VB Münster      64024           34056649U000000000
+401600502Vereinigte Volksbank Münster                              48346Ostbevern                          Vereinigte VB Münster      64024           34056650U000000000
+401600502Vereinigte Volksbank Münster                              49536Lienen                             Vereinigte VB Münster      64024           34056651U000000000
+401600502Vereinigte Volksbank Münster                              48231Warendorf                          Vereinigte VB Münster      64024           34056652U000000000
+401600502Vereinigte Volksbank Münster                              48291Telgte                             Vereinigte VB Münster      64024           34056653U000000000
 401637201Volksbank Nordmünsterland -alt-                           48411Rheine                             VB Nordmünsterland Rheine  64211GENODEM1SEE34022591U000000000
-401637202Volksbank Nordmünsterland                                 48485Neuenkirchen, Kr Steinfurt         VB Nordmünsterland Rheine  64211           34018724U000000000
-401637202Volksbank Nordmünsterland                                 48282Emsdetten                          VB Nordmünsterland Rheine  64211           34021454U000000000
-401637202Volksbank Nordmünsterland                                 48565Steinfurt, Westf                   VB Nordmünsterland Rheine  64211           34021671U000000000
 401637202Volksbank Nordmünsterland (Gf P2)                         48411Rheine                             VB Nordmünsterland Rheine  74211           34053963U000000000
 401640241Volksbank Gronau-Ahaus                                    48599Gronau (Westf.)                    Volksbank Gronau-Ahaus     64213GENODEM1GRN34021381U000000000
 401640242Volksbank Heek Ndl. der VB Gronau-Ahaus                   48619Heek                               Volksbank Gronau-Ahaus     64213           34018598U000000000
@@ -4856,22 +4779,17 @@ namespace :squirrels do
 412600062Volksbank Beckum (Gf P2)                                  59249Beckum, Westf                      Volksbank Beckum           74006           34053977U000000000
 412613241Volksbank Enniger-Ostenfelde-Westkirchen                  59307Ennigerloh                         VB Enniger-Ostenfelde-Westk64079GENODEM1EOW34019272U000000000
 412613242Volksbank Enniger-Ostenfelde-Westkirchen (Gf P2)          59307Ennigerloh                         VB Enniger-Ostenfelde-Westk74079           34053978U000000000
-412614191Volksbank Oelde-Ennigerloh-Neubeckum                      59320Ennigerloh                         VB Oelde-Ennigerloh-Neubeck64088GENODEM1OEN34019273U000000000
-412614192Volksbank Oelde-Ennigerloh-Neubeckum                      59269Beckum, Westf                      VB Oelde-Ennigerloh-Neubeck64088           34018719U000000000
-412614192Volksbank Oelde-Ennigerloh-Neubeckum                      59302Oelde, Westf                       VB Oelde-Ennigerloh-Neubeck64088           34044291U000000000
+412614191Volksbank Oelde-Ennigerloh-Neubeckum -alt-                59320Ennigerloh                         Volksbank -alt-            64088GENODEM1OEN34019273U000000000
 412614192Volksbank Oelde-Ennigerloh-Neubeckum (Gf P2)              59320Ennigerloh                         VB Oelde-Ennigerloh-Neubeck74088           34053979U000000000
-412625011Volksbank Ahlen-Sassenberg-Warendorf                      59213Ahlen, Westf                       VB Ahlen-Sassenberg-Warendf64175GENODEM1AHL34018534U000000000
-412625012Volksbank Ahlen-Sassenberg-Warendorf                      48333Sassenberg, Westf                  VB Ahlen-Sassenberg-Warendf64175           34018839U000000000
-412625012Volksbank Ahlen-Sassenberg-Warendorf                      48317Drensteinfurt                      VB Ahlen-Sassenberg Warendf64175           34018941U000000000
-412625012Volksbank Ahlen-Sassenberg-Warendorf                      48212Warendorf                          VB Ahlen-Sassenberg-Warendf64175           34022354U000000000
-412625012Volksbank Ahlen-Sassenberg-Warendorf (Gf P2)              59213Ahlen, Westf                       VB Ahlen-Sassenberg-Warendf74175           34053980U000000000
-412626211Vereinigte Volksbank Telgte                               48291Telgte                             Ver VB Telgte              64180GENODEM1SDH34018843U000000000
-412626212Vereinigte Volksbank Telgte                               48231Warendorf                          Ver VB Telgte              64180           34018628U000000000
-412626212Vereinigte Volksbank Telgte                               48317Drensteinfurt                      Ver VB Telgte              64180           34019133U000000000
-412626212Vereinigte Volksbank Telgte                               48351Everswinkel                        Ver VB Telgte              64180           34019153U000000000
-412626212Vereinigte Volksbank Telgte                               48324Sendenhorst                        Ver VB Telgte              64180           34052158U000000000
-412626212Vereinigte Volksbank Telgte                               48346Ostbevern                          Ver VB Telgte              64180           34052159U000000000
-412626212Vereinigte Volksbank Telgte                               49536Lienen, Westf                      Ver VB Telgte              64180           34052160U000000000
+412625011Volksbank                                                 48212Warendorf                          Volksbank                  64175GENODEM1AHL34018534U000000000
+412625012Volksbank                                                 48333Sassenberg                         Volksbank                  64175           34018839U000000000
+412625012Volksbank                                                 48317Drensteinfurt                      Volksbank                  64175           34018941U000000000
+412625012Volksbank                                                 59213Ahlen                              Volksbank                  64175           34022354U000000000
+412625012Volksbank (Gf P2)                                         48212Warendorf                          Volksbank                  74175           34053980U000000000
+412625012Volksbank                                                 59320Ennigerloh                         Volksbank                  64175           34056637U000000000
+412625012Volksbank                                                 59269Beckum                             Volksbank                  64175           34056638U000000000
+412625012Volksbank                                                 59302Oelde                              Volksbank                  64175           34056639U000000000
+412626211Vereinigte Volksbank Telgte -alt-                         48291Telgte                             Ver VB Telgte -alt-        64180GENODEM1SDH34018843U100000000
 412626212Vereinigte Volksbank Telgte (Gf P2)                       48291Telgte                             Ver VB Telgte              74180           34053981U000000000
 412800431Commerzbank vormals Dresdner Bank                         59243Beckum, Westf                      Commerzbank Beckum Westf   28412DRESDEFF41376005290U000000000
 412800432Commerzbank vormals Dresdner Bank                         59203Ahlen, Westf                       Commerzbank Ahlen Westf    28412           76005343U000000000
@@ -4892,6 +4810,7 @@ namespace :squirrels do
 414601162Volksbank Hellweg                                         59505Bad Sassendorf                     Volksbank Hellweg          64027           34021576U000000000
 414601162Volksbank Hellweg Ndl Werl                                59457Werl                               Volksbank Hellweg          64027           34022388U000000000
 414601162Volksbank Hellweg (Gf P2)                                 59483Soest, Westf                       Volksbank Hellweg          74027           34053982U000000000
+414601162Volksbank Hellweg Ndl Warstein                            59581Warstein                           Volksbank Hellweg          64027           34056621U000000000
 414622951Volksbank Wickede (Ruhr)                                  58734Wickede (Ruhr)                     Volksbank Wickede (Ruhr)   64156GENODEM1WRU34018974U000000000
 414622952Volksbank Wickede (Ruhr) (Gf P2)                          58734Wickede (Ruhr)                     Volksbank Wickede (Ruhr)   74156           34053983U000000000
 416500011Sparkasse Lippstadt                                       59553Lippstadt                          Spk Lippstadt              54083WELADED1LIP00012491U000000000
@@ -4918,7 +4837,7 @@ namespace :squirrels do
 416617192Volksbank Brilon (Gf P2)                                  59920Brilon                             Volksbank Brilon           74125           34053987U000000000
 416624651Volksbank Störmede                                        59585Geseke                             Volksbank Störmede         64172GENODEM1SGE34018900U000000000
 416624652Volksbank Störmede (Gf P2)                                59585Geseke                             Volksbank Störmede         74172           34053988U000000000
-416625571Volksbank Warstein-Belecke -alt-                          59564Warstein                           VB Warstein-Belecke -alt-  64178GENODEM1WST34022356U100000000
+416625571Volksbank Warstein-Belecke -alt-                          59564Warstein                           VB Warstein-Belecke -alt-  64178GENODEM1WST34022356M000000000
 416633351Volksbank Hörste                                          59558Lippstadt                          Volksbank Hörste           64200GENODEM1HOE34019012U000000000
 416633352Volksbank Hörste (Gf P2)                                  59558Lippstadt                          Volksbank Hörste           74200           34053989U000000000
 416700241Deutsche Bank Privat und Geschäftskunden                  59524Lippstadt                          Deutsche Bank PGK Lippstadt21336DEUTDEDB41663050030U000000000
@@ -5190,9 +5109,9 @@ namespace :squirrels do
 450600092Volksbank Iserlohn Zndl der Märkischen Bank               58595Iserlohn                           Volksbank Iserlohn         64008           34050774U000000000
 450600092Volksbank Menden Zndl der Märkischen Bank                 58689Menden (Sauerland)                 Volksbank Menden           64008           34050775U000000000
 450600092Märkische Bank (Gf P2)                                    58037Hagen, Westf                       Märkische Bank Hagen       74008           34054010U000000000
-450615241Volksbank Hohenlimburg                                    58103Hagen, Westf                       Volksbank Hohenlimburg     64105GENODEM1HLH34019171U000000000
+450615241Volksbank Hohenlimburg                                    58119Hagen                              Volksbank Hohenlimburg     64105GENODEM1HLH34019171U000000000
 450615242Volksbank Hohenlimburg Zw                                 58769Nachrodt-Wiblingwerde              Volksbank Hohenlimburg     64105           34018973U000000000
-450615242Volksbank Hohenlimburg (Gf P2)                            58103Hagen, Westf                       Volksbank Hohenlimburg     74105           34054011U000000000
+450615242Volksbank Hohenlimburg (Gf P2)                            58119Hagen                              Volksbank Hohenlimburg     74105           34054011U000000000
 450700021Deutsche Bank                                             58085Hagen, Westf                       Deutsche Bank Hagen        27478DEUTDEDW45063005793U000000000
 450700022Deutsche Bank                                             58258Gevelsberg                         Deutsche Bank Gevelsberg   27478DEUTDEDW45463004872U000000000
 450700022Deutsche Bank                                             58554Kierspe                            Deutsche Bank Kierspe      27478DEUTDEDW45663005746U000000000
@@ -5224,7 +5143,7 @@ namespace :squirrels do
 454500501Stadtsparkasse Gevelsberg                                 58265Gevelsberg                         St Spk Gevelsberg          54035WELADED1GEV00012083U000000000
 454510601Sparkasse Ennepetal-Breckerfeld                           58244Ennepetal                          Spk Ennepetal-Breckerfeld  54036WELADED1ENE00012494U000000000
 454510602Sparkasse Ennepetal-Breckerfeld                           58339Breckerfeld                        Spk Ennepetal-Breckerfeld  54036           00012113U000000000
-454515551Städtische Sparkasse zu Schwelm                           58332Schwelm                            St Spk Schwelm             54117WELADED1SLM09012403M000000000
+454515551Städtische Sparkasse zu Schwelm                           58332Schwelm                            St Spk Schwelm             54117WELADED1SLM09012403U000000000
 456600291Volksbank Altena -alt-                                    58754Altena, Westf                      Volksbank Altena -alt-     64014GENODEM1ALA34020206U000000000
 458400261Commerzbank                                               58463Lüdenscheid                        Commerzbank Lüdenscheid    24450COBADEFFXXX13006179U000000000
 458400262Commerzbank                                               59930Olsberg                            Commerzbank Olsberg        24450           13005040U000000000
@@ -5262,7 +5181,7 @@ namespace :squirrels do
 460500011Sparkasse Siegen                                          57009Siegen                             Spk Siegen                 54092WELADED1SIE00012496U000000000
 460512401Sparkasse Burbach-Neunkirchen                             57291Burbach, Siegerl                   Spk Burbach-Neunkirchen    54068WELADED1BUB00018332U000000000
 460512402Sparkasse Burbach-Neunkirchen                             57290Neunkirchen, Siegerl               Spk Burbach-Neunkirchen    54068           00018375U000000000
-460517331Stadtsparkasse Freudenberg                                57251Freudenberg, Westf                 St Spk Freudenberg Westf   54082WELADED1FRE00012492U000000000
+460517331Stadtsparkasse Freudenberg -alt-                          57251Freudenberg                        St Spk Freudenberg -alt-   54082WELADED1FRE00012492U000000000
 460518751Stadtsparkasse Hilchenbach                                57261Hilchenbach, Siegerland            St Spk Hilchenbach         54096WELADED1HIL00018304U000000000
 460528551Stadtsparkasse Schmallenberg                              57376Schmallenberg                      St Spk Schmallenberg Sauerl54098WELADED1SMB00012125U000000000
 460534801Sparkasse Wittgenstein                                    57304Bad Berleburg                      Sparkasse Wittgenstein     54008WELADED1BEB00018383U000000000
@@ -5535,7 +5454,6 @@ namespace :squirrels do
 478615182Volksbank Harsewinkel (Gf P2)                             33419Harsewinkel                        Volksbank Harsewinkel      74102           34054043U000000000
 478618061Volksbank Kaunitz                                         33415Verl                               Volksbank Kaunitz          64130GENODEM1VKA34019043U000000000
 478618062Volksbank Kaunitz (Gf P2)                                 33415Verl                               Volksbank Kaunitz          74130           34054044U000000000
-478619071Volksbank Langenberg -alt-                                33449Langenberg, Kr Gütersloh           Volksbank Langenberg -alt- 64140GENODEM1LNB34019066U000000000
 478622611Volksbank Marienfeld -alt-                                33429Marienfeld, Stadt Harsewinkel      Volksbank Marienfeld -alt- 64151GENODEM1MFD34018750U000000000
 478624471Volksbank Rietberg                                        33383Rietberg                           Volksbank Rietberg         64167GENODEM1RNE34018723U000000000
 478624472Volksbank Langenberg Zndl d Volksbank Rietberg            33449Langenberg, Kr Gütersloh           VB Langenberg Zndl         64167           34052468U000000000
@@ -5711,7 +5629,7 @@ namespace :squirrels do
 500101112SEB                                                       65428Rüsselsheim                        SEB Rüsselsheim            25825ESSEDE5F50313044408U000000000
 500101112SEB                                                       61348Bad Homburg v d Höhe               SEB Bad Homburg            25825ESSEDE5F50113046926U000000000
 500101112SEB                                                       65843Sulzbach (Taunus)                  SEB Sulzbach Taunus        25825ESSEDE5F50413046927U000000000
-500102001AKBANK                                                    60311Frankfurt am Main                  AKBANK                     29562AKBKDEFFXXX09049639U000000000
+500102001AKBANK                                                    60310Frankfurt am Main                  AKBANK                     29562AKBKDEFFXXX09049639U000000000
 500104241Aareal Bank                                               60284Frankfurt am Main                  Aareal Bank                26914AARBDE5W50009004824U000000000
 500105171ING-DiBa                                                  60628Frankfurt am Main                  ING-DiBa Frankfurt am Main 29165INGDDEFFXXXC1010750U000000000
 500107001Degussa Bank                                              60605Frankfurt am Main                  Degussa Bank Frankfurt Main29135DEGUDEFFXXXB7013559U000000000
@@ -5755,17 +5673,16 @@ namespace :squirrels do
 500128001ALTE LEIPZIGER Bauspar                                    61440Oberursel (Taunus)                 ALTE LEIPZIGER Bauspar          ALTEDEFAXXX28043632U000000000
 500200001Sberbank Europe Zndl Deutschland                          60594Frankfurt am Main                  Sberbank Direct Frankfurt       SEZDDEF1XXX28056514U000000000
 500202001BHF-BANK                                                  60323Frankfurt am Main                  BHF-BANK Frankfurt Main    25160BHFBDEFF50060004826U000000000
-500203001Bremer Kreditbank                                         28195Bremen                             Bremer Kreditbank               BANVDEHB50018044276M000000000
+500203001Bremer Kreditbank                                         28195Bremen                             Bremer Kreditbank               BANVDEHB50018044276U000000000
 500204001KfW Kreditanstalt für Wiederaufbau Frankfurt              60046Frankfurt am Main                  KfW Frankfurt                   KFWIDEFFXXX09013561U000000000
 500205001Landwirtschaftliche Rentenbank                            60014Frankfurt am Main                  Landwirtschaftl Rentenbank 99055LAREDEFFXXX09013531U000000000
 500207001Credit Europe Bank Ndl. Deutschland                       60050Frankfurt am Main                  Credit Europe Bank Ffm     29600FBHLDEFFXXX09049717U000000000
 500208001Intesa Sanpaolo Frankfurt                                 60011Frankfurt am Main                  Intesa Sanpaolo Frankfurt  29710BCITDEFFXXX09042552U000000000
-500209001COREALCREDIT BANK                                         60322Frankfurt am Main                  COREALCREDIT BANK          26765AHYBDEFFXXX09044178U000000000
 500210001ING Bank                                                  60486Frankfurt am Main                  ING Bank, Frankfurt        25211INGBDEFFXXX60052604U000000000
-500211001FIL Fondsbank                                             60311Frankfurt am Main                  FIL Fondsbank Frankfurt    23968FFBKDEFFXXX60053446U000000000
+500211001FIL Fondsbank                                             60311Frankfurt am Main                  FIL Fondsbank Frankfurt    23968FFBKDEFFKRN60053446U000000000
 500211201FIL Fondsbank                                             61476Kronberg im Taunus                 FIL Fondsbank Kronberg          FFBKDEFFTHK60056389U000000000
 500234001Bank of Beirut Ndl Frankfurt                              60322Frankfurt am Main                  Bank of Beirut Frankfurt        BABEDEFFXXX09055627U000000000
-500250001GMAC Bank Rüsselsheim                                     65428Rüsselsheim                        Opel Bank                       GMGGDE51XXX10056602A000000000
+500250001Opel Bank                                                 65428Rüsselsheim                        Opel Bank                       GMGGDE51XXX10056602U000000000
 500300001Banque PSA Finance Deutschland                            63236Neu-Isenburg                       Banque PSA Finance              PSADDEF1XXX09036168U000000000
 500300101Banque PSA Finance Niederlassung Deutschland              63263Neu-Isenburg                       Banque PSA Finance              BPNDDE52XXX09056494U000000000
 500301001HKB Bank Frankfurt                                        60528Frankfurt am Main                  HKB Bank Frankfurt am Main      HKBBDEF1FRA00052707U000000000
@@ -5836,8 +5753,7 @@ namespace :squirrels do
 500604121DZ BANK Gf vK                                             60265Frankfurt am Main                  DZ BANK Gf vK                   GENODEF1VK109055804U000000000
 500604131DZ BANK Gf VK 2                                           60265Frankfurt am Main                  DZ BANK Gf VK 2                 GENODEF1VK209056431U000000000
 500604141DZ BANK Gf VK 3                                           60265Frankfurt am Main                  DZ BANK Gf VK 3                 GENODEF1VK309056432U000000000
-500604741DZ BANK, Deutsche Zentral-Genossenschaftsbank             60265Frankfurt am Main                  DZ BANK                         GENODEFFBRO09056604A000000000
-500605001Evangelische Kreditgenossenschaft Filiale Frankfurt -alt- 60083Frankfurt am Main                  EKK Frankfurt -alt-             GENODEF1EK432032827M152060410
+500604741DZ BANK, Deutsche Zentral-Genossenschaftsbank             60265Frankfurt am Main                  DZ BANK                         GENODEFFBRO09056604U000000000
 500617411Raiffeisenbank Oberursel                                  61420Oberursel (Taunus)                 Raiffeisenbank Oberursel   65614GENODE51OBU32017621U000000000
 500617412Raiffeisenbank Oberursel                                  61273Wehrheim                           Raiffeisenbank Oberursel   65614           32017447U000000000
 500617412Raiffeisenbank Oberursel                                  61449Steinbach (Taunus)                 Raiffeisenbank Oberursel   65614           32017559U000000000
@@ -5865,7 +5781,7 @@ namespace :squirrels do
 500696931Raiffeisenbank Bad Homburg Ndl d FrankfurterVB            61352Bad Homburg v d Höhe               Raiffeisenbank Bad Homburg 65526GENODE51BH132017710U000000000
 500698421Raiffeisen Volksbank                                      55270Schwabenheim an der Selz           Raiffeisen-VB Schwabenheim 65554GENODE51SWB32017519U000000000
 500698422Raiffeisen Volksbank (Gf P2)                              55270Schwabenheim an der Selz           Raiffeisen-VB Schwabenheim 75554           32054069U000000000
-500699761Volksbank Wißmar                                          35432Wettenberg, Hess                   Volksbank Wißmar           65574GENODE51WWI32017489U000000000
+500699761Volksbank Wißmar                                          35435Wettenberg                         Volksbank Wißmar           65574GENODE51WWI32017489U000000000
 500699762Volksbank Wißmar (Gf P2)                                  35432Wettenberg, Hess                   Volksbank Wißmar           75574           32054070U000000000
 500700101Deutsche Bank Filiale                                     60254Frankfurt am Main                  Deutsche Bank Frankfurt F  27100DEUTDEFFXXX63004807U000000000
 500700102Deutsche Bank                                             61348Bad Homburg v d Höhe               Deutsche Bank Bad Homburg  27100DEUTDEFF50063004940U000000000
@@ -5889,7 +5805,7 @@ namespace :squirrels do
 500730192Deutsche Bank                                             65479Raunheim                           Deutsche Bank Raunheim     27109DEUTDEFF54363006953U000000000
 500730241Deutsche Bank Privat und Geschäftskunden                  65428Rüsselsheim                        Deutsche Bank PGK Rüsselshe21109DEUTDEDB50263050124U000000000
 500730242Deutsche Bank Privat und Geschäftskunden                  65479Raunheim                           Deutsche Bank PGK Raunheim 21109DEUTDEDB53763050123U000000000
-500730811Deutsche Bank Europe                                      60486Frankfurt am Main                  Deutsche Bank Europe            DEUTDE5XXXX63055883M000000000
+500730811Deutsche Bank Europe                                      60486Frankfurt am Main                  Deutsche Bank Europe            DEUTDE5XXXX63055883U000000000
 500800001Commerzbank vormals Dresdner Bank                         60613Frankfurt am Main                  Commerzbank Frankfurt      28500DRESDEFFXXX76005296U000000000
 500800002Commerzbank vormals Dresdner Bank                         61118Bad Vilbel                         Commerzbank Bad Vilbel     28500           76005295U000000000
 500800002Commerzbank vormals Dresdner Bank                         61283Bad Homburg v d Höhe               Commerzbank Bad Homburg    28500           76005304U000000000
@@ -5981,7 +5897,6 @@ namespace :squirrels do
 500929001Volksbank Usinger Land Ndl d Frankfurter VB               61241Usingen                            Volksbank Usinger Land     95205GENODE51USI06024256U000000000
 500930001Rüsselsheimer Volksbank                                   65407Rüsselsheim                        Rüsselsheimer Volksbank    95206GENODE51RUS06023791U000000000
 500930002Rüsselsheimer Volksbank Ndl Raunheim                      65479Raunheim                           Rüsselsheimer Volksbank    95206           06023869U000000000
-500930002Rüsselsheimer Volksbank Ndl Trebur                        65468Trebur                             Rüsselsheimer Volksbank    95206           06044467U000000000
 500930002Rüsselsheimer Volksbank (Gf P2)                           65407Rüsselsheim                        Rüsselsheimer Volksbank    85206           06054073U000000000
 500930101Rüsselsheimer Volksbank GAA                               65407Rüsselsheim                        VB Rüsselsheim GAA              GENODE51GAA06055970U000000000
 500934001Volksbank Kelsterbach Ndl d Frankfurter VB                65444Kelsterbach                        Volksbank Kelsterbach      95213GENODE51KBH06023654U000000000
@@ -6008,6 +5923,7 @@ namespace :squirrels do
 501206001Bank of Communications Frankfurt branch                   60311Frankfurt am Main                  Bank of Communications          COMMDEFFXXX09053534U000000000
 501209001VakifBank International Wien Zndl Frankfurt               60329Frankfurt am Main                  VakifBank Frankfurt        99006TVBADEFFXXX06051148U000000000
 501234001VTB Bank (Austria), Zndl                                  60325Frankfurt am Main                  VTB Direktbank             99049DOBADEF1XXX28055969U000000000
+501270001PKO Bank Polski Niederlassung Deutschland                 60311Frankfurt am Main                  PKO Bank Polski Frankfurt       BPKODEFFXXX09056677A000000000
 501300001National Bank of Pakistan Zndl Frankfurt                  60313Frankfurt am Main                  Naba Frankfurt Main        29770NBPADEFFXXX09042553U000000000
 501301001BethmannMaffei Bank -alt-                                 60311Frankfurt am Main                  BethmannMaffei Bank Ffm-alt26025DELBDE33XXXD9013567U000000000
 501302001Oppenheim, Sal - jr & Cie                                 60605Frankfurt am Main                  Oppenheim, Sal - jr & Cie  26271SOPPDEFFXXX09011111U000000000
@@ -6045,8 +5961,6 @@ namespace :squirrels do
 501900002Frankfurter Volksbank                                     35781Weilburg                           Frankfurter Volksbank      95001           06052052U000000000
 501900002Frankfurter Volksbank (Gf P2)                             60008Frankfurt am Main                  Frankfurter Volksbank      85001           06054074U000000000
 501903001Volksbank Höchst                                          65908Frankfurt am Main                  Volksbank Höchst           95085GENODE51FHC06023004U000000000
-501903002Volksbank Höchst Zw Hattersheim                           65795Hattersheim am Main                Volksbank Höchst           95085           06022892D000000000
-501903002Volksbank Höchst Zw Flörsheim                             65439Flörsheim am Main                  Volksbank Höchst           95085           06022988D000000000
 501903002Volksbank Höchst (Gf P2)                                  65908Frankfurt am Main                  Volksbank Höchst           85085           06054075U000000000
 501904001Volksbank Griesheim                                       65933Frankfurt am Main                  Volksbank Griesheim Ffm    95090GENODE51FGH06023001U000000000
 501904002Volksbank Griesheim (Gf P2)                               65933Frankfurt am Main                  Volksbank Griesheim Ffm    85090           06054076U000000000
@@ -6138,8 +6052,9 @@ namespace :squirrels do
 502304001The Royal Bank of Scotland Niederlassung Frankfurt        60311Frankfurt am Main                  RBS NDL Frankfurt          29008ABNADEFFFRA10039316U000000000
 502306001Isbank                                                    60022Frankfurt am Main                  Isbank Frankfurt Main      29836ISBKDEFXXXX06043027U000000000
 502307001Metzler, B. - seel Sohn & Co                              60015Frankfurt am Main                  Bankhaus Metzler Frankfurt 26260METZDEFFXXX00013588U000000000
-502308001Ikano Bank                                                65205Wiesbaden                          Ikano Bank                 29561PLFGDE5AXXX09055358U000000000
-502308881Ikano Bank                                                65205Wiesbaden                          Ikano Bank                      PLFGDE5AIKB09056605A000000000
+502308001Ikano Bank                                                65205Wiesbaden                          Ikano Wiesbaden            29561PLFGDE5AXXX09055358U000000000
+502308881Ikano Bank                                                65205Wiesbaden                          Ikano Wiesbaden                 PLFGDE5AIKB09056605U000000000
+502345001KT Bank                                                   60327Frankfurt am Main                  KT Bank Frankfurt               KTAGDEFFXXX09056634U000000000
 502502001Deutsche Leasing Finance                                  61283Bad Homburg v d Höhe               DL Finance Bad Homburg          DLFGDE51XXX09053668U000000000
 503104001Barclays Bank Frankfurt                                   60075Frankfurt am Main                  Barclays Bank Frankfurt    29651BARCDEFFXXX46031086U000000000
 503104551Reiseschecks - Barclays Bank Frankfurt                    60075Frankfurt am Main                  Reiseschecks - Barclays Ffm     BARCDEF1TCS46046939U000000000
@@ -6157,8 +6072,8 @@ namespace :squirrels do
 503302001MHB-Bank                                                  60486Frankfurt am Main                  MHB-Bank Frankfurt         29240MHBFDEFFXXX06035313U000000000
 503303001The Bank of New York Mellon                               60077Frankfurt am Main                  The Bank of New York Mellon29705IRVTDEFXXXX09034369U000000000
 503305001BANQUE CHAABI DU MAROC Agentur Frankfurt Ndl. Deutschland 60329Frankfurt am Main                  CHAABI BANK FRANKFURT           BCDMDEF1XXX09055949U000000000
-503306001Bank Sepah-Iran                                           60037Frankfurt am Main                  Sepahbank Frankfurt, Main  29620           09041506U000000000
-503307001TARGOBANK (vormals Valovis Bank Neu-Isenburg)             63263Neu-Isenburg                       TARGOBANK                  26520VCBADEAFXXX09046486U000000000
+503306001Bank Sepah-Iran                                           60327Frankfurt am Main                  Sepahbank Frankfurt, Main  29620           09041506U000000000
+503307001TARGOBANK (vormals Valovis Bank Neu-Isenburg)             63263Neu-Isenburg                       TARGOBANK                  26520VCBADEAFXXX09046486D000000000
 503344001The Bank of New York Mellon NL Frankfurt                  60327Frankfurt am Main                  BNY Mellon NL FFM               BNYMDEF1XXX09056212U000000000
 504000001Bundesbank Zentrale                                       60006Frankfurt am Main                  BBk Zentrale Frankfurt Main20504MARKDEFFXXX09011367U000000000
 505101111SEB                                                       63065Offenbach am Main                  SEB Offenbach Main         25879ESSEDE5F50513006691U000000000
@@ -6236,7 +6151,7 @@ namespace :squirrels do
 505400282Commerzbank                                               63500Seligenstadt, Hess                 Commerzbank Seligenstadt   24504           13056081U000000000
 505400282Commerzbank                                               63150Heusenstamm                        Commerzbank Heusenstamm    24504           13056082U000000000
 505400282Commerzbank                                               63112Dietzenbach                        Commerzbank Dietzenbach    24504           13056083U000000000
-505500201Städtische Sparkasse Offenbach                            63019Offenbach am Main                  Städtische Spk Offenbach   55020HELADEF1OFF06008419U000000000
+505500201Städtische Sparkasse Offenbach a.M.                       63019Offenbach am Main                  Städtische Spk Offenbach   55020HELADEF1OFF06008419M000000000
 505601021Raiffeisenbank Offenbach/M.-Bieber                        63033Offenbach am Main                  Raiffbk Offenbach          65012GENODE51OF232017562U000000000
 505601022Raiffeisenbank Offenbach/M.-Bieber (Gf P2)                63033Offenbach am Main                  Raiffbk Offenbach          75012           32054077U000000000
 505613151Vereinigte Volksbank Maingau                              63171Obertshausen                       Ver VB Maingau             65099GENODE51OBH32017428U000000000
@@ -6488,7 +6403,7 @@ namespace :squirrels do
 508635132Volksbank Odenwald                                        64385Reichelsheim (Odenwald)            Volksbank Odenwald         65296           32053121U000000000
 508635132Volksbank Odenwald                                        64380Roßdorf b Darmstadt                Volksbank Odenwald         65296           32053122U000000000
 508635132Volksbank Odenwald (Gf P2)                                64720Michelstadt                        Volksbank Odenwald         75296           32054092U000000000
-508639061Volksbank Modautal Modau                                  64369Ober-Ramstadt                      Volksbank Modautal Modau   65306GENODE51ORM32018039U000000000
+508639061Volksbank Modautal Modau -alt                             64369Ober-Ramstadt                      Volksbank Modautal -alt-   65306GENODE51ORM32018039U100000000
 508639062Volksbank Modautal Modau                                  64397Modautal                           Volksbank Modautal Modau   65306           32017209U000000000
 508643221Volksbank Modau                                           64369Ober-Ramstadt                      Volksbank Modau            65313GENODE51ORA32017609U000000000
 508643222Volksbank Modau                                           64367Mühltal, Hess                      Volksbank Modau            65313           32018047U000000000
@@ -6596,7 +6511,6 @@ namespace :squirrels do
 510400382Commerzbank                                               65232Taunusstein                        Commerzbank Taunusstein    24510           13056087U000000000
 510500151Nassauische Sparkasse                                     65034Wiesbaden                          Nass Spk Wiesbaden         55115NASSDE55XXXA2007153U000000000
 510500152Nassauische Sparkasse                                     65385Rüdesheim am Rhein                 Nass Spk Rüdesheim Rhein   55115           A2004748U000000000
-510500152Nassauische Sparkasse                                     61449Steinbach (Taunus)                 Nass Spk Steinbach Taunus  55115           A2006228D000000000
 510500152Nassauische Sparkasse                                     61389Schmitten, Taunus                  Nass Spk Schmitten Taunus  55115           A2006253U000000000
 510500152Nassauische Sparkasse                                     65388Schlangenbad, Taunus               Nass Spk Schlangenbad      55115           A2006256U000000000
 510500152Nassauische Sparkasse                                     65843Sulzbach (Taunus)                  Nass Spk Sulzbach Taunus   55115           A2006262U000000000
@@ -6604,7 +6518,6 @@ namespace :squirrels do
 510500152Nassauische Sparkasse                                     65232Taunusstein                        Nass Spk Taunusstein       55115           A2006352U000000000
 510500152Nassauische Sparkasse                                     61250Usingen                            Nass Spk Usingen Taunus    55115           A2006377U000000000
 510500152Nassauische Sparkasse                                     65366Geisenheim, Rheingau               Nass Spk Geisenheim Rh     55115           A2007082U000000000
-510500152Nassauische Sparkasse                                     65760Eschborn, Taunus                   Nass Spk Eschborn Taunus   55115           A2007092D000000000
 510500152Nassauische Sparkasse                                     65817Eppstein, Taunus                   Nass Spk Eppstein Taunus   55115           A2007097U000000000
 510500152Nassauische Sparkasse                                     65604Elz, Westerw                       Nass Spk Elz               55115           A2007101U000000000
 510500152Nassauische Sparkasse                                     65343Eltville am Rhein                  Nass Spk Eltville Rhein    55115           A2007102U000000000
@@ -6657,12 +6570,10 @@ namespace :squirrels do
 510500152Nassauische Sparkasse                                     56422Wirges                             Nass Spk Wirges            55115           A2013393U000000000
 510500152Nassauische Sparkasse                                     56457Westerburg, Westerw                Nass Spk Westerburg Westerw55115           A2013398U000000000
 510500152Nassauische Sparkasse                                     56414Wallmerod, Westerw                 Nass Spk Wallmerod Westerw 55115           A2013401U000000000
-510500152Nassauische Sparkasse                                     56427Siershahn                          Nass Spk Siershahn         55115           A2013412D000000000
 510500152Nassauische Sparkasse                                     56242Selters (Westerwald)               Nass Spk Selters Westerwald55115           A2013413U000000000
 510500152Nassauische Sparkasse                                     56346St. Goarshausen                    Nass Spk Sankt Goarshausen 55115           A2013415U000000000
 510500152Nassauische Sparkasse                                     56477Rennerod, Westerw                  Nass Spk Rennerod Westerw  55115           A2013422U000000000
 510500152Nassauische Sparkasse                                     56235Ransbach-Baumbach                  Nass Spk Ransbach-Baumbach 55115           A2013424U000000000
-510500152Nassauische Sparkasse                                     65824Schwalbach am Taunus               Nass Spk Schwalbach Taunus 55115           A2031495D000000000
 510500152Nassauische Sparkasse                                     65326Aarbergen                          Nass Spk Aarbergen         55115           A2032273U000000000
 510500152Nassauische Sparkasse                                     65329Hohenstein, Untertaunus            Nass Spk Hohenstein Taunus 55115           A2040894U000000000
 510500152Nassauische Sparkasse                                     56341Kamp-Bornhofen, Rhein              Nass Spk Kamp-Bornhofen    55115           A2042508U000000000
@@ -6672,7 +6583,6 @@ namespace :squirrels do
 510500152Nassauische Sparkasse                                     56459Rothenbach, Westerw                Nass Spk Rothenbach Westerw55115           A2043112U000000000
 510500152Nassauische Sparkasse                                     56412Untershausen                       Nass Spk Untershausen      55115           A2043122U000000000
 510500152Nassauische Sparkasse                                     65510Hünstetten                         Nass Spk Hünstetten        55115           A2043591U000000000
-510500152Nassauische Sparkasse                                     56348Bornich, Taunus                    Nass Spk Bornich Taunus    55115           A2044382D000000000
 510500152Nassauische Sparkasse                                     56379Singhofen                          Nass Spk Singhofen         55115           A2044400U000000000
 510500152Nassauische Sparkasse                                     60313Frankfurt am Main                  Nass Spk Frankfurt         55115           A2053067U000000000
 510510001S Broker Wiesbaden                                        65203Wiesbaden                          S Broker Wiesbaden              PULSDE5WXXX56056376U000000000
@@ -6697,11 +6607,11 @@ namespace :squirrels do
 510900002Wiesbadener Volksbank                                     65329Hohenstein, Untertaunus            Wiesbadener Volksbank      95006           06042897U000000000
 510900002Wiesbadener Volksbank                                     65388Schlangenbad, Taunus               Wiesbadener Volksbank      95006           06042898U000000000
 510900002Wiesbadener Volksbank (Gf P2)                             65050Wiesbaden                          Wiesbadener Volksbank      85006           06054104U000000000
-510900002Volksbank Eltville Ndl der Wiesbadener Volksbank          65335Eltville am Rhein                  Volksbank Eltville         95006           06055600U000000000
-510900002Volksbank Eltville Ndl der Wiesbadener Volksbank          65396Walluf                             Volksbank Eltville         95006           06055601U000000000
-510900002Volksbank Eltville Ndl der Wiesbadener Volksbank          65399Kiedrich, Rheingau                 Volksbank Eltville         95006           06055602U000000000
+510900002Wiesbadener Volksbank                                     65335Eltville am Rhein                  Wiesbadener Volksbank      95006           06055600U000000000
+510900002Wiesbadener Volksbank                                     65396Walluf                             Wiesbadener Volksbank      95006           06055601U000000000
+510900002Wiesbadener Volksbank                                     65399Kiedrich                           Wiesbadener Volksbank      95006           06055602U000000000
 510906361apoBank                                                   65011Wiesbaden                          apoBank Wiesbaden          95237DAAEDED1036A4044626U000000000
-510914001Volksbank Eltville -alt-                                  65335Eltville am Rhein                  Volksbank Eltville -alt-   95145GENODE51ELV06023249U100000000
+510914001Volksbank Eltville -alt-                                  65335Eltville am Rhein                  Volksbank Eltville -alt-   95145GENODE51ELV06023249D000000000
 510915001Rheingauer Volksbank                                      65359Geisenheim, Rheingau               Rheingauer Volksbank       95151GENODE51RGG06023039U000000000
 510915002Rheingauer Volksbank                                      65343Eltville am Rhein                  Rheingauer Volksbank       95151           06022891U000000000
 510915002Rheingauer Volksbank                                      65385Rüdesheim am Rhein                 Rheingauer Volksbank       95151           06023789U000000000
@@ -6721,7 +6631,7 @@ namespace :squirrels do
 510917002vr bank Untertaunus Idstein                               61479Glashütten, Taunus                 vr bank Untertaunus        95164           06042499U000000000
 510917002vr bank Untertaunus Idstein                               65510Hünstetten                         vr bank Untertaunus        95164           06042506U000000000
 510917002vr bank Untertaunus (Gf P2)                               65501Idstein                            vr bank Untertaunus        85164           06054107U000000000
-510917111Bank f Orden u Mission Zndl vr bk Untertaunus             65501Idstein                            Bk f Orden u Mission Idstn 95273BFOMDE51XXX06051845U000000000
+510917111Bank f Orden u Mission Zndl vr bk Untertaunus             65501Idstein                            Bk f Orden u Mission Idstn 95273VRBUDE51XXX06051845U000000000
 510917112Bank f Orden u Mission Zndl vr bk Untertaunus (Gf P2)     65501Idstein                            Bk f Orden u Mission Idstn 85273           06054108U000000000
 511400291Commerzbank                                               65549Limburg a d Lahn                   Commerzbank Limburg Lahn   24513COBADEFFXXX13006164U000000000
 511400292Commerzbank                                               65582Diez                               Commerzbank Diez Lahn      24513           13005091U000000000
@@ -6764,10 +6674,11 @@ namespace :squirrels do
 511918001Volksbank Schupbach                                       65614Beselich                           Volksbank Schupbach        95170GENODE51SBH06024115U000000000
 511918002Volksbank Schupbach (Gf P2)                               65614Beselich                           Volksbank Schupbach        85170           06054111U000000000
 511922001Volks- und Raiffeisenbank Weilmünster -alt-               35786Weilmünster                        VuR-Bank Weilmünster -alt- 95188GENODE51WEM32024323U000000000
-512106001BNP Paribas Niederlassung Deutschland                     60322Frankfurt am Main                  BNP PARIBAS Ndl Deutschland29627BNPADEFFXXX00038189M000000000
-512106991BNP Paribas Niederlassung Deutschland                     60327Frankfurt am Main                  BNP PARIBAS Ndl Deutschland     BNPADEFFXXX09056513M000000000
+512106001BNP Paribas Niederlassung Deutschland                     60327Frankfurt am Main                  BNP PARIBAS Ndl Deutschland29627BNPADEFFXXX09038189U000000000
+512106991BNP Paribas Niederlassung Deutschland                     60327Frankfurt am Main                  BNP PARIBAS Ndl Deutschland     BNPADEFFXXX09056513U000000000
 512107001NIBC Bank Zndl Frankfurt am Main                          60311Frankfurt am Main                  NIBC Bank Frankfurt am Main     NZFMDEF1XXX06055061U000000000
 512108001Societe Generale                                          60311Frankfurt am Main                  SOGEBANK Frankfurt Main    29503SOGEDEFFXXX09038188U000000000
+512108011SOCIETE GENERALE                                          60311Frankfurt am Main                  SOCIETE GENERALE Frankfurt      SOGEDEFF1XX09056633U000000000
 512110001NATIXIS Pfandbriefbank                                    60322Frankfurt am Main                  NATIXIS Pfandbriefbank Ffm      NATXDEFPXXX09056397U000000000
 512202001SEB Merchant Banking                                      60283Frankfurt am Main                  SEB Merchant Banking Ffm   25201ESSEDEFFXXX09039677U000000000
 512202111SEB Frankfurt SAP                                         60437Frankfurt am Main                  SEB Ffm SAP                     ESSEDE5F51209056018U000000000
@@ -6779,7 +6690,7 @@ namespace :squirrels do
 512304001RBS ( Deutschland ) Frankfurt am Main                     60311Frankfurt am Main                  RBS Deutschland FFM        29004ABNADE55FRA10050713U000000000
 512305001Standard Chartered Bank Germany Branch, Frankfurt         60036Frankfurt am Main                  Standard Chartered Bank Ffm29044SCBLDEFXXXX09043561U000000000
 512305021ETC Standard Chartered Bank Germany Branch                60036Frankfurt am Main                  ETC SCB Germany Branch          SCBLDEF1ETC09051173U000000000
-512305551Ikano Bank                                                65205Wiesbaden                          Ikano Wiesbaden                 PLFGDE5AIKB09056403M000000000
+512305551Ikano Bank                                                65205Wiesbaden                          Ikano Wiesbaden                 PLFGDE5AIKB09056403U000000000
 512306001Europe ARAB Bank                                          60323Frankfurt am Main                  Europe ARAB Bank Frankfurt      ARABDEFFXXX09047628U000000000
 512308001Wirecard Bank                                             85609Aschheim                           Wirecard Bank              99022WIREDEMMXXX09051903U000000000
 512308011Wirecard Bank                                             85609Aschheim                           Wirecard Bank                              09054998U000000000
@@ -6811,7 +6722,7 @@ namespace :squirrels do
 512500002Taunus-Sparkasse                                          61276Weilrod                            Taunus-Sparkasse Weilrod   55100           06041511U000000000
 512500002Taunus-Sparkasse                                          61279Grävenwiesbach                     Taunus-Sparkasse Grävenwbch55100           06041521U000000000
 512500002Taunus-Sparkasse                                          65929Frankfurt am Main                  Taunus Sparkasse Frankfurt 55100           06046378U000000000
-513000001Bundesbank eh Gießen                                      60047Frankfurt am Main                  BBk Frankfurt eh Gießen    20513MARKDEF151309011491M000000000
+513000001Bundesbank eh Gießen                                      60047Frankfurt am Main                  BBk Frankfurt eh Gießen    20513MARKDEF151309011491U100000000
 513101111SEB                                                       35390Gießen, Lahn                       SEB Gießen                 25830ESSEDE5F51313005348U000000000
 513101112SEB                                                       35576Wetzlar                            SEB Wetzlar                25830ESSEDE5F51513006725U000000000
 513400131Commerzbank                                               35348Gießen, Lahn                       Commerzbank Gießen         24534COBADEFFXXX13005022U000000000
@@ -6899,7 +6810,7 @@ namespace :squirrels do
 513900002Volksbank Mittelhessen                                    35037Marburg                            VB Mittelhessen            95008           06056003U000000000
 513900002Volksbank Mittelhessen                                    61191Rosbach v d Höhe                   VB Mittelhessen            95008           06056004U000000000
 513900002Volksbank Mittelhessen                                    35083Wetter (Hessen)                    VB Mittelhessen            95008           06056005U000000000
-514101111SEB                                                       60283Frankfurt am Main                  SEB Frankfurt am Main      25866ESSEDE5F51413050584U000000000
+514101111SEB                                                       60283Frankfurt am Main                  SEB Frankfurt am Main      25866ESSEDE5F51413050584D000000000
 514106001Merrill Lynch International Bank Limited Zndl Frankfurt   60311Frankfurt am Main                  Merrill Lynch Intl Bank FFM     MELBDEF1XXX09044598U000000000
 514107001Bank of China                                             60075Frankfurt am Main                  Bank of China Frankfurt    29655BKCHDEFFXXX09044633U000000000
 514108001OnVista Bank                                              60487Frankfurt am Main                  OnVista Bank Frankfurt/Main     BOURDEFFXXX09049358U000000000
@@ -6908,6 +6819,7 @@ namespace :squirrels do
 514206001Svenska Handelsbanken Deutschland                         60598Frankfurt am Main                  Svenska Handelsbanken      29896HANDDEFFXXX09044674U000000000
 514303001Nordea Bank, Niederlassung Frankfurt                      60325Frankfurt am Main                  Nordea Bank, Frankfurt     29905NDEADEFFXXX09046763U000000000
 514303211Nordea Bank Finland                                       60323Frankfurt am Main                  Nordea Bank Frankfurt           NDEADEFF32109056016U000000000
+514303451Nordea Bank AB, Niederlassung Frankfurt                   60325Frankfurt am Main                  Nordea Bank AB Frankfurt        NDEADEFFDKK00056675A000000000
 514304001Goldman Sachs                                             60308Frankfurt am Main                  Goldman Sachs Frankfurt         GOLDDEFFXXX09046816U000000000
 515400371Commerzbank                                               35523Wetzlar                            Commerzbank Wetzlar        24530COBADEFFXXX13007063U000000000
 515400372Commerzbank                                               35503Butzbach                           Commerzbank Butzbach       24530           13005026U000000000
@@ -6926,7 +6838,7 @@ namespace :squirrels do
 515500352Sparkasse Wetzlar                                         35647Waldsolms                          Sparkasse Wetzlar          55135           00043871U000000000
 515500352Sparkasse Wetzlar                                         35428Langgöns                           Sparkasse Wetzlar          55135           00043872U000000000
 515500352Sparkasse Wetzlar                                         35753Greifenstein, Hess                 Sparkasse Wetzlar          55135           00043873U000000000
-515602311Volksbank Wetzlar-Weilburg -alt-                          35573Wetzlar                            VB Wetzlar-Weilburg -alt-  65030GENODE51WZ132017472U100000000
+515602311Volksbank Wetzlar-Weilburg -alt-                          35573Wetzlar                            VB Wetzlar-Weilburg -alt-  65030GENODE51WZ132017472D000000000
 515700081Deutsche Bank                                             35524Wetzlar                            Deutsche Bank Wetzlar      27054DEUTDEFF51563006971U000000000
 515700241Deutsche Bank Privat und Geschäftskunden                  35524Wetzlar                            Deutsche Bank PGK Wetzlar  21054DEUTDEDB51563050147U000000000
 515800441Commerzbank vormals Dresdner Bank                         35524Wetzlar                            Commerzbank Wetzlar             DRESDEFF51576006814U000000000
@@ -6944,18 +6856,18 @@ namespace :squirrels do
 516500452Sparkasse Dillenburg                                      35768Siegbach                           Spk Dillenburg             55145           00035649U000000000
 516500452Sparkasse Dillenburg                                      35767Breitscheid, Hess                  Spk Dillenburg             55145           00036278U000000000
 516500452Sparkasse Dillenburg                                      35756Mittenaar                          Spk Dillenburg             55145           00036286U000000000
-516900001Volksbank Dill VB und Raiffbk                             35668Dillenburg                         Volksbank Dill VB u Raiffbk95010GENODE51DIL06023184U000000000
-516900002Volksbank Dill VB und Raiffbk                             35753Greifenstein, Hess                 Volksbank Dill VB u Raiffbk95010           06016996U000000000
-516900002Volksbank Dill VB und Raiffbk                             35759Driedorf                           Volksbank Dill VB u Raiffbk95010           06017220U000000000
-516900002Volksbank Dill VB und Raiffbk                             35768Siegbach                           Volksbank Dill VB u Raiffbk95010           06017241U000000000
-516900002Volksbank Dill VB und Raiffbk                             35716Dietzhölztal                       Volksbank Dill VB u Raiffbk95010           06017278U000000000
-516900002Volksbank Dill VB und Raiffbk                             35756Mittenaar                          Volksbank Dill VB u Raiffbk95010           06017367U000000000
-516900002Volksbank Dill VB und Raiffbk                             35764Sinn, Hess                         Volksbank Dill VB u Raiffbk95010           06017547U000000000
-516900002Volksbank Dill VB und Raiffbk                             35703Haiger                             Volksbank Dill VB u Raiffbk95010           06022870U000000000
-516900002Volksbank Dill VB und Raiffbk                             35767Breitscheid, Hess                  Volksbank Dill VB u Raiffbk95010           06023363U000000000
-516900002Volksbank Dill VB und Raiffbk                             35713Eschenburg                         Volksbank Dill VB u Raiffbk95010           06032251U000000000
-516900002Volksbank Dill VB und Raiffbk                             35745Herborn, Hess                      Volksbank Dill VB u Raiffbk95010           06035343U000000000
-516900002Volksbank Dill VB und Raiffbk (Gf P2)                     35668Dillenburg                         Volksbank Dill VB u Raiffbk85010           06054119U000000000
+516900001Volksbank Dill                                            35668Dillenburg                         Volksbank Dill             95010GENODE51DIL06023184M000000000
+516900002Volksbank Dill                                            35753Greifenstein                       Volksbank Dill             95010           06016996M000000000
+516900002Volksbank Dill                                            35759Driedorf                           Volksbank Dill             95010           06017220M000000000
+516900002Volksbank Dill                                            35768Siegbach                           Volksbank Dill             95010           06017241M000000000
+516900002Volksbank Dill                                            35716Dietzhölztal                       Volksbank Dill             95010           06017278M000000000
+516900002Volksbank Dill                                            35756Mittenaar                          Volksbank Dill             95010           06017367M000000000
+516900002Volksbank Dill                                            35764Sinn                               Volksbank Dill             95010           06017547M000000000
+516900002Volksbank Dill                                            35703Haiger                             Volksbank Dill             95010           06022870M000000000
+516900002Volksbank Dill                                            35767Breitscheid                        Volksbank Dill             95010           06023363M000000000
+516900002Volksbank Dill                                            35713Eschenburg                         Volksbank Dill             95010           06032251M000000000
+516900002Volksbank Dill                                            35745Herborn                            Volksbank Dill             95010           06035343M000000000
+516900002Volksbank Dill (Gf P2)                                    35668Dillenburg                         Volksbank Dill             85010           06054119M000000000
 516915001Volksbank Herborn-Eschenburg                              35728Herborn, Hess                      Volksbank Herborn-Eschenbg 95152GENODE51HER06022913U000000000
 516915002Volksbank Herborn-Eschenburg Zw                           35713Eschenburg                         Volksbank Herborn-Eschenbg 95152           06023230U000000000
 516915002Volksbank Herborn-Eschenburg Zw Sinn                      35764Sinn, Hess                         Volksbank Herborn-Eschenbg 95152           06024144U000000000
@@ -7019,18 +6931,17 @@ namespace :squirrels do
 518613251BVB Volksbank Ndl d Frankfurter Volksbank                 61101Bad Vilbel                         BVB Volksbank              65101GENODEF1BVB06017378U000000000
 518614031Volksbank Butzbach                                        35510Butzbach                           Volksbank Butzbach         65112GENODE51BUT32017895U000000000
 518614032Volksbank Butzbach                                        35516Münzenberg                         Volksbank Butzbach         65112           32018237U000000000
-518614032Volksbank Butzbach Zw Langenhain-Ziegenberg               61239Ober-Mörlen                        VB Butzbach Zw Langenhain  65112           32044472D000000000
 518614032Volksbank Butzbach (Gf P2)                                35501Butzbach                           Volksbank Butzbach         75112           32054122U000000000
 518616161Landbank Horlofftal                                       61201Reichelsheim (Wetterau)            LdBk Horlofftal Reichelshei65152GENODE51REW32017978U000000000
-518616162Landbank Horlofftal Reichelsheim                          61209Echzell                            Ldbk Horlofftal Echzell    65152           32034794U000000000
-518616162Landbank Horlofftal Reichelsheim                          61197Florstadt                          Ldbk Horlofftal Florstadt  65152           32035340U000000000
+518616162Landbank Horlofftal Reichelsheim                          61209Echzell                            Ldbk Horlofftal Echzell    65152           32034794D000000000
+518616162Landbank Horlofftal Reichelsheim                          61197Florstadt                          Ldbk Horlofftal Florstadt  65152           32035340D000000000
 518616162Landbank Horlofftal (Gf P2)                               61201Reichelsheim (Wetterau)            LdBk Horlofftal Reichelshei75152           32054123U000000000
 518618061Volksbank Ober-Mörlen                                     61239Ober-Mörlen                        Volksbank Ober-Mörlen      65179GENODE51OBM32017602U000000000
 518618062Volksbank Ober-Mörlen (Gf P2)                             61239Ober-Mörlen                        Volksbank Ober-Mörlen      75179           32054124U000000000
 519610231Volksbank Ulrichstein                                     35327Ulrichstein                        Volksbank Ulrichstein      65064GENODE51ULR32017300U000000000
 519610232Volksbank Ulrichstein                                     36369Lautertal (Vogelsberg)             Volksbank Ulrichstein      65064           32018140U000000000
 519610232Volksbank Ulrichstein Zw Stumpertenrod                    36325Feldatal                           Volksbank Ulrichstein      65064           32035339U000000000
-519610232Volksbank (Gf P2)                                         35327Ulrichstein                        Volksbank Ulrichstein      75064           32054126M000000000
+519610232Volksbank (Gf P2)                                         35327Ulrichstein                        Volksbank Ulrichstein      75064           32054126U000000000
 519615151Spar- und Darlehnskasse Stockhausen                       36358Herbstein                          Spar-u Darlehnskasse       65134GENODE51HSH32018197U000000000
 519615152Spar- und Darlehnskasse Stockhausen (Gf P2)               36358Herbstein                          Spar-u Darlehnskasse       75134           32054127U000000000
 519618011Volksbank Feldatal                                        36325Feldatal                           Volksbank Feldatal         65177GENODE51FEL32017875U000000000
@@ -7115,6 +7026,15 @@ namespace :squirrels do
 520604001Evangelische Bank Gf                                      34117Kassel, Hess                       Evangelische Bank Gf Kassel     EKKBDE52XXX32052786U152060410
 520604101Evangelische Bank                                         34011Kassel, Hess                       Evangelische Bank Kassel   65046GENODEF1EK132024708U000000000
 520604102Evangelische Bank (Gf P2)                                 34011Kassel, Hess                       Evangelische Bank Kassel   75046           32054131U000000000
+520604102Evangelische Bank Filiale Hannover                        30159Hannover                           Evangelische Bank Hannover 65046           32056622U000000000
+520604102Evangelische Bank Filiale Frankfurt                       60316Frankfurt am Main                  Evangelische Bank Frankfurt65046           32056623U000000000
+520604102Evangelische Bank Filiale Speyer                          67346Speyer                             Evangelische Bank Speyer   65046           32056624U000000000
+520604102Evangelische Bank Filiale Stuttgart                       70174Stuttgart                          Evangelische Bank Stuttgart65046           32056625U000000000
+520604102Evangelische Bank Filiale Karlsruhe                       76133Karlsruhe                          Evangelische Bank Karlsruhe65046           32056626U000000000
+520604102Evangelische Bank Filiale Schwerin                        19055Schwerin                           Evangelische Bank Schwerin 65046           32056627U000000000
+520604102Evangelische Bank Filiale München                         80335München                            Evangelische Bank München  65046           32056628U000000000
+520604102Evangelische Bank Filiale Nürnberg                        90402Nürnberg                           Evangelische Bank Nürnberg 65046           32056629U000000000
+520604102Evangelische Bank Filiale Eisenach                        99817Eisenach                           Evangelische Bank Eisenach 65046           32056630U000000000
 520613031Raiffeisenbank Borken                                     34582Borken (Hessen)                    Raiffbk Borken             65092GENODEF1BOR32015966U000000000
 520613032Raiffeisenbank Borken                                     34599Neuental                           Raiffbk Borken             65092           32016565U000000000
 520613032Raiffeisenbank Borken                                     34596Bad Zwesten                        Raiffbk Borken             65092           32016567U000000000
@@ -7130,10 +7050,10 @@ namespace :squirrels do
 520626011VR-Bank Schwalm-Eder                                      34570Homberg (Efze)                     VR-Bank Schwalm-Eder       65247GENODEF1HRV32023732U000000000
 520626012VR-Bank Schwalm-Eder Zw                                   34560Fritzlar                           VR-Bank Schwalm-Eder       65247           32015798U000000000
 520626012VR-Bank Schwalm-Eder Zw                                   34327Körle                              VR-Bank Schwalm-Eder       65247           32016055U000000000
-520626012VR-Bank Schwalm-Eder Zw                                   34323Malsfeld                           VR-Bank Schwalm-Eder       65247           32016084U000000000
+520626012VR-Bank Schwalm-Eder Zw                                   34323Malsfeld                           VR-Bank Schwalm-Eder       65247           32016084D000000000
 520626012VR-Bank Schwalm-Eder Zw                                   34593Knüllwald                          VR-Bank Schwalm-Eder       65247           32016596U000000000
 520626012VR-Bank Schwalm-Eder Zw                                   34587Felsberg, Hess                     VR-Bank Schwalm-Eder       65247           32023048U000000000
-520626012VR-Bank Schwalm-Eder Zw                                   34201Melsungen                          VR-Bank Schwalm-Eder       65247           32023501U000000000
+520626012VR-Bank Schwalm-Eder Zw                                   34212Melsungen                          VR-Bank Schwalm-Eder       65247           32023501U000000000
 520626012VR-Bank Schwalm-Eder Zw                                   34621Frielendorf                        VR-Bank Schwalm-Eder       65247           32035374U000000000
 520626012VR-Bank Schwalm-Eder (Gf P2)                              34570Homberg (Efze)                     VR-Bank Schwalm-Eder       75247           32054135U000000000
 520633691VR-Bank Spangenberg-Morschen                              34286Spangenberg, Hess                  VR-Bank Spangenbg-Morschen 65600GENODEF1SPB32016424U000000000
@@ -7255,7 +7175,7 @@ namespace :squirrels do
 523600592Waldecker Bank Zw                                         35104Lichtenfels, Hess                  Waldecker Bk Lichtenfels   65008           32016208U000000000
 523600592Waldecker Bank Zw                                         34513Waldeck, Hess                      Waldecker Bk Waldeck, Hess 65008           32016412U000000000
 523600592Waldecker Bank Zw                                         34477Twistetal                          Waldecker Bank Twistetal   65008           32016468U000000000
-523600592Waldecker Bank                                            34471Volkmarsen                         Waldecker Bk Volkmarsen    65008           32016496U000000000
+523600592Waldecker Bank                                            34471Volkmarsen                         Waldecker Bk Volkmarsen    65008           32016496D000000000
 523600592Waldecker Bank                                            34502Willingen (Upland)                 Waldecker Bk Willingen     65008           32016540U000000000
 523600592Waldecker Bank Zw                                         34519Diemelsee                          Waldecker Bk Diemelsee     65008           32016543U000000000
 523600592Waldecker Bank Zw                                         34474Diemelstadt                        Waldecker Bk Diemelstadt   65008           32031175U000000000
@@ -7263,7 +7183,7 @@ namespace :squirrels do
 523600592Waldecker Bank                                            34537Bad Wildungen                      Waldecker Bk Bad Wildungen 65008           32055404U000000000
 524103001ReiseBank                                                 60489Frankfurt am Main                  ReiseBank Frankfurt am Main26946RBAGDEF1XXX09050954U000000000
 524103101ReiseBank Gf2                                             60489Frankfurt am Main                  ReiseBank Gf2 Frankfurt    26949RBAGDEF1CMI09055498U000000000
-524104001Korea Exchange Bank (Deutschland)                         60325Frankfurt am Main                  KEB -Deutschland- Ffm           KOEXDEFAXXX19047576U000000000
+524104001KEB Hana Bank (Deutschland)                               60325Frankfurt am Main                  KEB Hana Bank (Deutschland)     KOEXDEFAXXX19047576M000000000
 524109001Maple Bank                                                60076Frankfurt am Main                  Maple Bank Frankfurt            MPBKDEFFXXX00048508U000000000
 524110001Cash Express Gesellschaft f Finanz-u Reisedienstleistungen60489Frankfurt am Main                  Cash Express Frankfurt     99021CAGBDEF1XXX09055357U000000000
 524110101Cash Express Gesellschaft f.Finanz-u.Reisedienstleistungen60489Frankfurt am Main                  Cash Express Gf2 Frankfurt 99034CAGBDEF1CMI09055360U000000000
@@ -7272,7 +7192,6 @@ namespace :squirrels do
 524206001Piraeus Bank Frankfurt Branch                             60329Frankfurt am Main                  Piraeus Bank Frankfurt     29925ABGRDEFFXXX30049480U000000000
 524207001SECB Swiss Euro Clearing Bank                             60486Frankfurt am Main                  SECB Frankfurt Main             SECGDEFFXXX09049742U000000000
 524300001Credit Mutuel - BECM - Ndl Deutschland                    60329Frankfurt am Main                  Credit Mutuel - BECM            CMCIDEF1XXX00049756U000000000
-524301001Banque Federative Credit Mutuel Ndl Deutschl              60329Frankfurt am Main                  BFCM Ndl Deutschland            CMCIDEFFXXX09050533D000000000
 530400121Commerzbank                                               36002Fulda                              Commerzbank Fulda          24533COBADEFFXXX13006100U000000000
 530400122Commerzbank                                               36341Lauterbach (Hessen)                Commerzbank Lauterbach     24533           13056090U000000000
 530400122Commerzbank                                               36381Schlüchtern                        Commerzbank Schlüchtern    24533           13056091U000000000
@@ -7296,7 +7215,6 @@ namespace :squirrels do
 530501802Sparkasse Hünfeld, Ndl der Sparkasse Fulda                36151Burghaun                           Sparkasse Fulda            55380           01046941U000000000
 530501802Sparkasse Hünfeld, Ndl der Sparkasse Fulda                36169Rasdorf b Hünfeld                  Sparkasse Fulda            55380           01046942U000000000
 530501802Sparkasse Hünfeld, Ndl der Sparkasse Fulda                36132Eiterfeld                          Sparkasse Fulda            55380           01046944U000000000
-530501802Sparkasse Fulda                                           36115Ehrenberg (Rhön)                   Sparkasse Fulda            55380           01046945U000000000
 530501802Sparkasse Fulda                                           36160Dipperz                            Sparkasse Fulda            55380           01046946U000000000
 530513961Kreissparkasse Schlüchtern                                36372Schlüchtern                        Kreissparkasse Schlüchtern 55396HELADEF1SLU01005878U000000000
 530513962Kreissparkasse Schlüchtern                                36396Steinau an der Straße              Kreissparkasse Schlüchtern 55396           01005829U000000000
@@ -7542,28 +7460,22 @@ namespace :squirrels do
 540519902Sparkasse Donnersberg                                     67728Münchweiler an der Alsenz          Sparkasse Donnersberg      55448           00038387U000000000
 540519902Sparkasse Donnersberg                                     67725Börrstadt, Pfalz                   Sparkasse Donnersberg      55448           00044642U000000000
 540519902Sparkasse Donnersberg                                     67727Lohnsfeld                          Sparkasse Donnersberg      55448           00044643U000000000
-540616501VR-Bank Westpfalz                                         66844Landstuhl                          VR-Bank Westpfalz          65591GENODE61LAN32044495U000000000
+540616501VR-Bank Westpfalz                                         66849Landstuhl                          VR-Bank Westpfalz          65591GENODE61LAN32044495U000000000
 540616502VR-Bank Westpfalz                                         66882Hütschenhausen                     VR-Bank Westpfalz          65591           32020199U000000000
 540616502VR-Bank Westpfalz                                         66903Altenkirchen, Pfalz                VR-Bank Westpfalz          65591           32020210U000000000
 540616502VR-Bank Westpfalz                                         66916Breitenbach, Pfalz                 VR-Bank Westpfalz          65591           32020243U000000000
-540616502VR-Bank Westpfalz                                         66862Kindsbach, Pfalz                   VR-Bank Westpfalz          65591           32020385U000000000
 540616502VR-Bank Westpfalz                                         66869Kusel                              VR-Bank Westpfalz          65591           32020400U000000000
-540616502VR-Bank Westpfalz                                         67686Mackenbach, Kr Kaiserslautern      VR-Bank Westpfalz          65591           32020417U000000000
-540616502VR-Bank Westpfalz                                         66894Martinshöhe, Pfalz                 VR-Bank Westpfalz          65591           32020420U000000000
 540616502VR-Bank Westpfalz                                         67705Trippstadt                         VR-Bank Westpfalz          65591           32020546U000000000
-540616502VR-Bank Westpfalz                                         66914Waldmohr                           VR-Bank Westpfalz          65591           32020559U000000000
 540616502VR-Bank Westpfalz                                         67685Weilerbach, Pfalz                  VR-Bank Westpfalz          65591           32020569U000000000
 540616502VR-Bank Westpfalz                                         66877Ramstein-Miesenbach                VR-Bank Westpfalz          65591           32021254U000000000
-540616502VR-Bank Westpfalz                                         66879Reichenbach-Steegen                VR-Bank Westpfalz          65591           32021256U000000000
 540616502VR-Bank Westpfalz                                         66901Schönenberg-Kübelberg              VR-Bank Westpfalz          65591           32021259U000000000
 540616502VR-Bank Westpfalz                                         67716Heltersberg                        VR-Bank Westpfalz          65591           32051438U000000000
 540616502VR-Bank Westpfalz                                         66917Wallhalben                         VR-Bank Westpfalz          65591           32051452U000000000
 540616502VR-Bank Westpfalz                                         66987Thaleischweiler-Fröschen           VR-Bank Westpfalz          65591           32051453U000000000
 540616502VR-Bank Westpfalz                                         66954Pirmasens                          VR-Bank Westpfalz          65591           32051455U000000000
-540616502VR-Bank Westpfalz                                         66919Weselberg                          VR-Bank Westpfalz          65591           32051456U000000000
 540616502VR-Bank Westpfalz                                         66919Hermersberg, Pfalz                 VR-Bank Westpfalz          65591           32051461U000000000
-540616502VR-Bank Westpfalz (Gf P2)                                 66844Landstuhl                          VR-Bank Westpfalz          75591           32054163U000000000
-540616502Vereinigte Genossenschafts- u. Raiffeisenbank Westpfalz   67714Waldfischbach-Burgalben            VR-Bank Westpfalz          65591           32055107U000000000
+540616502VR-Bank Westpfalz (Gf P2)                                 66849Landstuhl                          VR-Bank Westpfalz          75591           32054163U000000000
+540616502VR-Bank Westpfalz                                         67714Waldfischbach-Burgalben            VR-Bank Westpfalz          65591           32055107U000000000
 540620271Raiffeisenbank Donnersberg -alt-                          67308Albisheim (Pfrimm)                 Raiffbk Albisheim -alt-    65196GENODE61ALB32020204U100000000
 540620272Raiffeisenbank Donnersberg (Gf P2)                        67308Albisheim (Pfrimm)                 Raiffeisenbank Albisheim   75196           32054164U000000000
 540700241Deutsche Bank Privat und Geschäftskunden                  67611Kaiserslautern                     Deutsche Bank PGK Kaisersla21191DEUTDEDB54063050158U000000000
@@ -7620,8 +7532,8 @@ namespace :squirrels do
 542500101Sparkasse Südwestpfalz                                    66930Pirmasens                          Spk Südwestpfalz Pirmasens 55446MALADE51SWP00013386U000000000
 542500102Sparkasse Südwestpfalz                                    66497Contwig                            Spk Südwestpfalz Contwig   55446           00005298U000000000
 542500102Sparkasse Südwestpfalz                                    66500Hornbach, Pfalz                    Spk Südwestpfalz Hornbach  55446           00012531U000000000
-542500102Sparkasse Südwestpfalz                                    66999Hinterweidenthal                   Spk Südwestpfalz Hinterweid55446           00012548U000000000
-542500102Sparkasse Südwestpfalz                                    66919Herschberg, Pfalz                  Spk Südwestpfalz Herschberg55446           00012554U000000000
+542500102Sparkasse Südwestpfalz                                    66999Hinterweidenthal                   Spk Südwestpfalz Hinterweid55446           00012548D000000000
+542500102Sparkasse Südwestpfalz                                    66919Herschberg, Pfalz                  Spk Südwestpfalz Herschberg55446           00012554D000000000
 542500102Sparkasse Südwestpfalz                                    66919Hermersberg, Pfalz                 Spk Südwestpfalz Hermersbg 55446           00012559U000000000
 542500102Sparkasse Südwestpfalz                                    67716Heltersberg                        Spk Südwestpfalz Heltersbg 55446           00012563U000000000
 542500102Sparkasse Südwestpfalz                                    76846Hauenstein, Pfalz                  Spk Südwestpfalz Hauenstein55446           00012571U000000000
@@ -7632,7 +7544,7 @@ namespace :squirrels do
 542500102Sparkasse Südwestpfalz                                    66981Münchweiler an der Rodalb          Spk Südwestpfalz Münchweil 55446           00012956U000000000
 542500102Sparkasse Südwestpfalz                                    66969Lemberg, Pfalz                     Spk Südwestpfalz Lemberg   55446           00013013U000000000
 542500102Sparkasse Südwestpfalz                                    66464Zweibrücken, Pfalz                 Spk Südwestpfalz Zweibrück 55446           00013192U000000000
-542500102Sparkasse Südwestpfalz                                    76848Wilgartswiesen                     Spk Südwestpfalz Wilgartsw 55446           00013219U000000000
+542500102Sparkasse Südwestpfalz                                    76848Wilgartswiesen                     Spk Südwestpfalz Wilgartsw 55446           00013219D000000000
 542500102Sparkasse Südwestpfalz                                    67714Waldfischbach-Burgalben            Spk Südwestpfalz Waldf-Burg55446           00013253U000000000
 542500102Sparkasse Südwestpfalz                                    66957Trulben                            Spk Südwestpfalz Trulben   55446           00013273U000000000
 542500102Sparkasse Südwestpfalz                                    66987Thaleischweiler-Fröschen           Spk Südwestpfalz Thaleischw55446           00013285U000000000
@@ -7670,15 +7582,15 @@ namespace :squirrels do
 545000001Bundesbank                                                67008Ludwigshafen am Rhein              BBk Ludwigshafen am Rhein  20545MARKDEF154509011532U000000000
 545100671Postbank                                                  67057Ludwigshafen am Rhein              Postbank Ludwigshafen      10067PBNKDEFFXXX24018426U000000000
 545201941UniCredit Bank - HypoVereinsbank                          67003Ludwigshafen am Rhein              UniCredit Bank-HypoVereinbk22053HYVEDEMM48399032398U000000000
-545201942UniCredit Bank - HypoVereinsbank                          66863Kusel                              UniCredit Bank-HypoVereinbk22053HYVEDEMM48399000150U000000000
-545201942UniCredit Bank - HypoVereinsbank                          76840Hauenstein, Pfalz                  UniCredit Bank-HypoVereinbk22053HYVEDEMM48399000153U000000000
+545201942UniCredit Bank - HypoVereinsbank                          66863Kusel                              UniCredit Bank-HypoVereinbk22053HYVEDEMM48399000150D000000000
+545201942UniCredit Bank - HypoVereinsbank                          76840Hauenstein, Pfalz                  UniCredit Bank-HypoVereinbk22053HYVEDEMM48399000153D000000000
 545201942UniCredit Bank - HypoVereinsbank                          67262Grünstadt                          UniCredit Bank-HypoVereinbk22053HYVEDEMM48399000159U000000000
 545201942UniCredit Bank - HypoVereinsbank                          67445Haßloch, Pfalz                     UniCredit Bank-HypoVereinbk22053HYVEDEMM48399000161U000000000
-545201942UniCredit Bank - HypoVereinsbank                          76726Germersheim                        UniCredit Bank-HypoVereinbk22053HYVEDEMM48399000163U000000000
-545201942UniCredit Bank - HypoVereinsbank                          76855Annweiler am Trifels               UniCredit Bank-HypoVereinbk22053HYVEDEMM48399000165U000000000
-545201942UniCredit Bank - HypoVereinsbank                          67547Worms                              UniCredit Bank-HypoVereinbk22053HYVEDEMM48399031426U000000000
+545201942UniCredit Bank - HypoVereinsbank                          76726Germersheim                        UniCredit Bank-HypoVereinbk22053HYVEDEMM48399000163D000000000
+545201942UniCredit Bank - HypoVereinsbank                          76855Annweiler am Trifels               UniCredit Bank-HypoVereinbk22053HYVEDEMM48399000165D000000000
+545201942UniCredit Bank - HypoVereinsbank                          67547Worms                              UniCredit Bank-HypoVereinbk22053HYVEDEMM48399031426D000000000
 545201942UniCredit Bank - HypoVereinsbank                          67202Frankenthal (Pfalz)                UniCredit Bank-HypoVereinbk22053HYVEDEMM48399033284U000000000
-545201942UniCredit Bank - HypoVereinsbank                          67105Schifferstadt                      UniCredit Bank-HypoVereinbk22053HYVEDEMM48399034192U000000000
+545201942UniCredit Bank - HypoVereinsbank                          67105Schifferstadt                      UniCredit Bank-HypoVereinbk22053HYVEDEMM48399034192D000000000
 545201942UniCredit Bank - HypoVereinsbank                          67346Speyer                             UniCredit Bank-HypoVereinbk22053HYVEDEMM48399035377U000000000
 545201942UniCredit Bank - HypoVereinsbank                          76801Landau in der Pfalz                UniCredit Bank-HypoVereinbk22053HYVEDEMM48399050516U000000000
 545400331Commerzbank                                               67003Ludwigshafen am Rhein              Commerzbank Ludwigshafen Rh24674COBADEFFXXX13006175U000000000
@@ -7719,7 +7631,7 @@ namespace :squirrels do
 545613102RV Bank Rhein-Haardt                                      67304Eisenberg (Pfalz)                  RV Bank Rhein-Haardt       65095           32052303U000000000
 545613102RV Bank Rhein-Haardt                                      67278Bockenheim an der Weinstraße       RV Bank Rhein-Haardt       65095           32052304U000000000
 545613102RV Bank Rhein-Haardt                                      67281Kirchheim an der Weinstraße        RV Bank Rhein-Haardt       65095           32052305U000000000
-545613102RV Bank Rhein-Haardt                                      67283Obrigheim (Pfalz)                  RV Bank Rhein-Haardt       65095           32052306U000000000
+545613102RV Bank Rhein-Haardt                                      67283Obrigheim (Pfalz)                  RV Bank Rhein-Haardt       65095           32052306D000000000
 545613102RV Bank Rhein-Haardt                                      67133Maxdorf, Pfalz                     RV Bank Rhein-Haardt       65095           32052307U000000000
 545613102RV Bank Rhein-Haardt                                      67098Bad Dürkheim                       RV Bank Rhein-Haardt       65095           32052308U000000000
 545613102RV Bank Rhein-Haardt (Gf P2)                              67241Lambsheim                          RV Bank Rhein-Haardt       75095           32054172U000000000
@@ -7795,7 +7707,6 @@ namespace :squirrels do
 547500102Kreis- und Stadtsparkasse Speyer Zw                       67165Waldsee, Pfalz                     Kr u St Spk Waldsee Pfalz  55454           00013434U000000000
 547500102Kreis- und Stadtsparkasse Speyer Zw                       67376Harthausen, Pfalz                  Kr u St Spk Harthausen Pf  55454           00040442U000000000
 547500102Kreis- und Stadtsparkasse Speyer Zw                       67374Hanhofen                           Kr u St Spk Hanhofen       55454           00047448U000000000
-547609001Evangelische Kreditgenossenschaft Filiale Speyer -alt-    67325Speyer                             EKK Speyer -alt-                GENODEF1EK632044720U152060410
 547614111Raiffeisenbank Schifferstadt -alt-                        67100Schifferstadt                      Raiffbk Schifferstadt -alt-65114GENODE61SFS32020519U000000000
 547614112Raiffeisenbank Schifferstadt (Gf P2)                      67100Schifferstadt                      Raiffbk Schifferstadt      75114           32054176U000000000
 547900001Volksbank Kur- und Rheinpfalz                             67329Speyer                             VB Kur- und Rheinpfalz     95024GENODE61SPE06024155U000000000
@@ -7936,7 +7847,8 @@ namespace :squirrels do
 550201001Bausparkasse Mainz                                        55004Mainz a Rhein                      Bausparkasse Mainz              BKMZDE51XXX09043600U000000000
 550204861UniCredit Bank - HypoVereinsbank                          55005Mainz a Rhein                      UniCredit Bank-HypoVereinbk22054HYVEDEMM48699006296U000000000
 550205001Bank für Sozialwirtschaft                                 55004Mainz a Rhein                      Bank für Sozialwirtschaft  25019BFSWDE33MNZ09049471U000000000
-550206001Westdeutsche Immobilien Bank                              55032Mainz a Rhein                      Westdeutsche Immobilien Bk      IMMODE5MXXX08049105U000000000
+550205551Bank für Sozialwirtschaft                                 55116Mainz                              Sozialbank Mainz                BFSWDE33M5509056660U000000000
+550206001Westdeutsche Immobilienbank                               55116Mainz                              WestImmo                        IMMODE5MXXX09049105M000000000
 550207001Süd-West-Kreditbank Finanzierung                          55387Bingen am Rhein                    SWK-Bank Bingen                 SUFGDE51XXX16050542U000000000
 550305001GE Capital Bank                                           55014Mainz a Rhein                      GE Capital Bank Mainz           CPLADE55XXX09047630U000000000
 550305331GE Capital Direkt                                         55130Mainz a Rhein                      GE Capital Direkt          99054CPDIDE51XXX06055708U000000000
@@ -7962,7 +7874,6 @@ namespace :squirrels do
 550501202Sparkasse Mainz                                           55278Undenheim                          Sparkasse Mainz            55536           00013436U000000000
 550603211VR-Bank Mainz -alt-                                       55052Mainz a Rhein                      VR-Bank Mainz -alt-        65038GENODE51MZ432017946U000000000
 550604171VR-Bank Mainz -alt-                                       55052Mainz a Rhein                      VR-Bank Mainz -alt-        65047GENODE51MZ232018205U000000000
-550604172VR-Bank Mainz                                             55270Ober-Olm                           VR-Bank Mainz              65047           32017607U000000000
 550604172VR-Bank Mainz (Gf P2)                                     55052Mainz a Rhein                      VR-Bank Mainz              75047           32054182U000000000
 550606111Genobank Mainz                                            55054Mainz a Rhein                      Genobank Mainz             65053GENODE51MZ632018201U000000000
 550606112Genobank Mainz (Gf P2)                                    55054Mainz a Rhein                      Genobank Mainz             75053           32054183U000000000
@@ -7970,7 +7881,6 @@ namespace :squirrels do
 550613031Budenheimer Volksbank                                     55254Budenheim b Mainz                  Budenheimer Volksbank      65093GENODE51BUD32017885U000000000
 550613032Budenheimer Volksbank (Gf P2)                             55254Budenheim b Mainz                  Budenheimer Volksbank      75093           32054184U000000000
 550615071VR-Bank Mainz -alt-                                       55052Mainz a Rhein                      VR-Bank Mainz -alt-        65131GENODE51HDS32018088U000000000
-550615072VR-Bank Mainz                                             55263Wackernheim                        VR-Bank Mainz              65131           32017395U000000000
 550619071Volksbank Rhein-Selz -alt-                                55280Nierstein                          Volksbank Rhein-Selz -alt- 65190GENODE51NIS32018062U100000000
 550619072Volksbank Rhein-Selz (Gf P2)                              55280Nierstein                          Volksbank Rhein-Selz       75190           32054185U000000000
 550700241Deutsche Bank Privat und Geschäftskunden                  55007Mainz a Rhein                      Deutsche Bank PGK Mainz    21160DEUTDEDBMAI63050174U000000000
@@ -8027,13 +7937,13 @@ namespace :squirrels do
 550912001Volksbank Alzey-Worms                                     67547Worms                              Volksbank Alzey-Worms      95129GENODE61AZY06023414U000000000
 550912002Volksbank Alzey-Worms                                     55288Armsheim, Rheinhess                Volksbank Alzey-Worms      95129           06016998U000000000
 550912002Volksbank Alzey-Worms                                     55288Udenheim, Rheinhess                Volksbank Alzey-Worms      95129           06017296U000000000
-550912002Volksbank Alzey-Worms                                     55234Bechtolsheim                       Volksbank Alzey-Worms      95129           06017386U000000000
+550912002Volksbank Alzey-Worms                                     55234Bechtolsheim                       Volksbank Alzey-Worms      95129           06017386D000000000
 550912002Volksbank Alzey-Worms                                     55578Wallertheim                        Volksbank Alzey-Worms      95129           06017439U000000000
 550912002Volksbank Alzey-Worms                                     55599Wonsheim                           Volksbank Alzey-Worms      95129           06017502U000000000
 550912002Volksbank Alzey-Worms                                     55286Wörrstadt                          Volksbank Alzey-Worms      95129           06017506U000000000
 550912002Volksbank Alzey-Worms                                     55288Schornsheim                        Volksbank Alzey-Worms      95129           06017754U000000000
 550912002Volksbank Alzey-Worms                                     55239Gau-Odernheim                      Volksbank Alzey-Worms      95129           06017833U000000000
-550912002Volksbank Alzey-Worms                                     67294Ilbesheim b Kirchheimbolanden      Volksbank Alzey-Worms      95129           06020365U000000000
+550912002Volksbank Alzey-Worms                                     67294Ilbesheim b Kirchheimbolanden      Volksbank Alzey-Worms      95129           06020365D000000000
 550912002Volksbank Alzey-Worms                                     55234Framersheim                        Volksbank Alzey-Worms      95129           06022994U000000000
 550912002Volksbank Alzey-Worms                                     67307Göllheim                           Volksbank Alzey-Worms      95129           06023067U000000000
 550912002Volksbank Alzey-Worms                                     67308Albisheim (Pfrimm)                 Volksbank Alzey-Worms      95129           06023383U000000000
@@ -8041,7 +7951,7 @@ namespace :squirrels do
 550912002Volksbank Alzey-Worms                                     55234Wendelsheim, Rheinhess             Volksbank Alzey-Worms      95129           06044206U000000000
 550912002Volksbank Alzey-Worms                                     55237Flonheim                           Volksbank Alzey-Worms      95129           06047039U000000000
 550912002Volksbank Alzey-Worms (Gf P2)                             67547Worms                              Volksbank Alzey-Worms      85129           06054186U000000000
-550912002Volksbank Alzey-Worms                                     67722Winnweiler                         Volksbank Alzey-Worms      95129           06055109U000000000
+550912002Volksbank Alzey-Worms                                     67722Winnweiler                         Volksbank Alzey-Worms      95129           06055109D000000000
 550912002Volksbank Alzey-Worms                                     55278Hahnheim                           Volksbank Alzey-Worms      95129           06055110U000000000
 550912002Volksbank Alzey-Worms                                     55278Dexheim                            Volksbank Alzey-Worms      95129           06055111U000000000
 550912002Volksbank Alzey-Worms                                     55292Bodenheim, Rhein                   Volksbank Alzey-Worms      95129           06055112U000000000
@@ -8095,7 +8005,6 @@ namespace :squirrels do
 553400411Commerzbank                                               67501Worms                              Commerzbank Worms          24558COBADEFFXXX13007055U000000000
 553500101Sparkasse Worms-Alzey-Ried                                67545Worms                              Sparkasse Worms-Alzey-Ried 55561MALADE51WOR03013429U000000000
 553500102Sparkasse Worms-Alzey-Ried                                68649Groß-Rohrheim                      Sparkasse Worms-Alzey-Ried 55561           03012844U000000000
-553500102Sparkasse Worms-Alzey-Ried                                67578Gimbsheim                          Sparkasse Worms-Alzey-Ried 55561           03012847U000000000
 553500102Sparkasse Worms-Alzey-Ried                                67575Eich, Rheinhess                    Sparkasse Worms-Alzey-Ried 55561           03012853U000000000
 553500102Sparkasse Worms-Alzey-Ried                                67596Dittelsheim-Heßloch                Sparkasse Worms-Alzey-Ried 55561           03012859U000000000
 553500102Sparkasse Worms-Alzey-Ried                                67592Flörsheim-Dalsheim                 Sparkasse Worms            55561           03012862U000000000
@@ -8107,7 +8016,6 @@ namespace :squirrels do
 553500102Sparkasse Worms-Alzey-Ried                                67593Westhofen, Rheinhess               Sparkasse Worms-Alzey-Ried 55561           03013433U000000000
 553500102Sparkasse Worms-Alzey-Ried                                55232Alzey                              Sparkasse Worms-Alzey-Ried 55561           03052135U000000000
 553500102Sparkasse Worms-Alzey-Ried                                55234Eppelsheim, Rheinhess              Sparkasse Worms-Alzey-Ried 55561           03052137U000000000
-553500102Sparkasse Worms-Alzey-Ried                                55235Flonheim                           Sparkasse Worms-Alzey-Ried 55561           03052138U000000000
 553500102Sparkasse Worms-Alzey-Ried                                55239Gau-Odernheim                      Sparkasse Worms-Alzey-Ried 55561           03052139U000000000
 553500102Sparkasse Worms-Alzey-Ried                                55291Saulheim                           Sparkasse Worms-Alzey-Ried 55561           03052141U000000000
 553500102Sparkasse Worms-Alzey-Ried                                55578Wallertheim                        Sparkasse Worms-Alzey-Ried 55561           03052142U000000000
@@ -8164,7 +8072,6 @@ namespace :squirrels do
 560611512Raiffeisenbank Kastellaun Zw                              56290Beltheim                           Raiffeisenbank Kastellaun  65074           38023285U000000000
 560611512Raiffeisenbank Kastellaun Zw                              56288Alterkülz                          Raiffeisenbank Kastellaun  65074           38023405U000000000
 560611512Raiffeisenbank Kastellaun Zw                              56290Mörsdorf, Hunsrück                 Raiffeisenbank Kastellaun  65074           38023535U000000000
-560611512Raiffeisenbank Kastellaun Zw                              56290Dommershausen                      Raiffeisenbank Kastellaun  65074           38024075D000000000
 560611512Raiffeisenbank Kastellaun (Gf P2)                         56284Kastellaun                         Raiffeisenbank Kastellaun  75074           38054192U000000000
 560614721Volksbank Hunsrück-Nahe                                   55469Simmern, Hunsrück                  VB Hunsrück-Nahe           65122GENODED1KHK38028351U000000000
 560614722Volksbank Hunsrück-Nahe                                   55491Büchenbeuren                       VB Hunsrück-Nahe           65122           38028174U000000000
@@ -8192,8 +8099,6 @@ namespace :squirrels do
 560622272Volksbank Rheinböllen                                     56291Wiebelsheim, Hunsrück              Volksbank Rheinböllen      65213           40024347U000000000
 560622272Volksbank Rheinböllen                                     55444Seibersbach                        Volksbank Rheinböllen      65213           40028931U000000000
 560622272Volksbank (Gf P2)                                         55492Rheinböllen                        Volksbank Rheinböllen      75213           40054194U000000000
-560625771Vereinigte Raiffeisenkassen -alt-                         55595Weinsheim, Kr Bad Kreuznach        Vereinigte Raiffeisenkassen65243GENODED1VRK38024328U100000000
-560625772Vereinigte Raiffeisenkassen (Gf P2)                       55595Weinsheim, Kr Bad Kreuznach        Vereinigte Raiffeisenkassen75243           38054195U000000000
 560700241Deutsche Bank Privat und Geschäftskunden                  55504Bad Kreuznach                      Deutsche Bank PGK Bad Kreuz21056DEUTDEDB56063050175U000000000
 560700401Deutsche Bank                                             55504Bad Kreuznach                      Deutsche Bank Bad Kreuznach27056DEUTDE5M56063032349U000000000
 560900001Volksbank Rhein-Nahe-Hunsrück                             55543Bad Kreuznach                      VB Rhein-Nahe-Hunsrück     95029GENODE51KRE38023453U000000000
@@ -8207,7 +8112,6 @@ namespace :squirrels do
 560900002Volksbank Rhein-Nahe-Hunsrück                             55452Windesheim                         VB Rhein-Nahe-Hunsrück     95029           38052207U000000000
 560900002Volksbank Rhein-Nahe-Hunsrück                             55595Wallhausen, Kr Bad Kreuznach       VB Rhein-Nahe-Hunsrück     95029           38052209U000000000
 560900002Volksbank Rhein-Nahe-Hunsrück                             55425Waldalgesheim                      VB Rhein-Nahe-Hunsrück     95029           38052210U000000000
-560900002Volksbank Rhein-Nahe-Hunsrück                             55595Spabrücken                         VB Rhein-Nahe-Hunsrück     95029           38052211U000000000
 560900002Volksbank Rhein-Nahe-Hunsrück                             55450Langenlonsheim                     VB Rhein-Nahe-Hunsrück     95029           38052213U000000000
 560900002Volksbank Rhein-Nahe-Hunsrück                             55422Bacharach                          VB Rhein-Nahe-Hunsrück     95029           38052216U000000000
 560900002Volksbank Rhein-Nahe-Hunsrück (Gf P2)                     55543Bad Kreuznach                      VB Rhein-Nahe-Hunsrück     85029           38054196U000000000
@@ -8222,29 +8126,24 @@ namespace :squirrels do
 562400501Commerzbank                                               55701Idar-Oberstein                     Commerzbank Idar-Oberstein 24553COBADEFFXXX13006108U000000000
 562400502Commerzbank                                               55601Kirn, Nahe                         Commerzbank Kirn Nahe      24553           13010211U000000000
 562500301Kreissparkasse Birkenfeld                                 55701Idar-Oberstein                     Kr Spk Birkenfeld          55619BILADE55XXXB2012525U000000000
-562500302Kreissparkasse Birkenfeld                                 55758Hottenbach                         Kr Spk Birkenfeld          55619           B2012530U000000000
 562500302Kreissparkasse Birkenfeld                                 55768Hoppstädten-Weiersbach             Kr Spk Birkenfeld          55619           B2012536U000000000
 562500302Kreissparkasse Birkenfeld                                 55756Herrstein                          Kr Spk Birkenfeld          55619           B2012557U000000000
-562500302Kreissparkasse Birkenfeld                                 55779Heimbach, Nahe                     Kr Spk Birkenfeld          55619           B2012568U000000000
+562500302Kreissparkasse Birkenfeld                                 55779Heimbach, Nahe                     Kr Spk Birkenfeld          55619           B2012568D000000000
 562500302Kreissparkasse Birkenfeld                                 55743Fischbach b Idar-Oberstein         Kr Spk Birkenfeld          55619           B2012627U000000000
 562500302Kreissparkasse Birkenfeld                                 55626Bundenbach                         Kr Spk Birkenfeld          55619           B2012680U000000000
-562500302Kreissparkasse Birkenfeld                                 55767Brücken, Birkenfeld                Kr Spk Birkenfeld          55619           B2012688U000000000
+562500302Kreissparkasse Birkenfeld                                 55767Brücken, Birkenfeld                Kr Spk Birkenfeld          55619           B2012688D000000000
 562500302Kreissparkasse Birkenfeld                                 55765Birkenfeld, Nahe                   Kr Spk Birkenfeld          55619           B2012714U000000000
-562500302Kreissparkasse Birkenfeld                                 55777Berschweiler b Baumholder          Kr Spk Birkenfeld          55619           B2012722U000000000
+562500302Kreissparkasse Birkenfeld                                 55777Berschweiler b Baumholder          Kr Spk Birkenfeld          55619           B2012722D000000000
 562500302Kreissparkasse Birkenfeld                                 55774Baumholder                         Kr Spk Birkenfeld          55619           B2012732U000000000
-562500302Kreissparkasse Birkenfeld                                 55758Allenbach, Hunsrück                Kr Spk Birkenfeld          55619           B2012765U000000000
-562500302Kreissparkasse Birkenfeld                                 55758Niederwörresbach                   Kr Spk Birkenfeld          55619           B2012915U000000000
+562500302Kreissparkasse Birkenfeld                                 55758Niederwörresbach                   Kr Spk Birkenfeld          55619           B2012915D000000000
 562500302Kreissparkasse Birkenfeld                                 55767Niederbrombach                     Kr Spk Birkenfeld          55619           B2012927U000000000
 562500302Kreissparkasse Birkenfeld                                 55743Kirschweiler                       Kr Spk Birkenfeld          55619           B2013059U000000000
 562500302Kreissparkasse Birkenfeld                                 55606Kirn, Nahe                         Kr Spk Birkenfeld          55619           B2013060U000000000
 562500302Kreissparkasse Birkenfeld                                 55758Kempfeld                           Kr Spk Birkenfeld          55619           B2013071U000000000
 562500302Kreissparkasse Birkenfeld                                 55758Stipshausen                        Kr Spk Birkenfeld          55619           B2013292U000000000
-562500302Kreissparkasse Birkenfeld                                 55758Sien                               Kr Spk Birkenfeld          55619           B2013312U000000000
 562500302Kreissparkasse Birkenfeld                                 55624Rhaunen, Hunsrück                  Kr Spk Birkenfeld          55619           B2013360U000000000
-562500302Kreissparkasse Birkenfeld                                 55758Herborn b Idar-Oberstein           Kr Spk Birkenfeld          55619           B2049474U000000000
-562500302Kreissparkasse Birkenfeld                                 55758Mittelreidenbach                   Kr Spk Birkenfeld          55619           B2049475U000000000
 562500302Kreissparkasse Birkenfeld                                 55776Rückweiler                         Kr Spk Birkenfeld          55619           B2049476U000000000
-562500302Kreissparkasse Birkenfeld                                 55758Sensweiler                         Kr Spk Birkenfeld          55619           B2049478U000000000
+562500302Kreissparkasse Birkenfeld                                 55758Sensweiler                         Kr Spk Birkenfeld          55619           B2049478D000000000
 562617351Raiffeisenbank Nahe                                       55743Fischbach b Idar-Oberstein         Raiffeisenbank Nahe        65168GENODED1FIN38029209U000000000
 562617352Raiffeisenbank Nahe                                       55619Hennweiler                         Raiffeisenbank Nahe        65168           38022909U000000000
 562617352Raiffeisenbank Nahe                                       67744Kappeln b Lauterecken              Raiffeisenbank Nahe        65168           38023632U000000000
@@ -8294,91 +8193,7 @@ namespace :squirrels do
 570501202Sparkasse Koblenz                                         56220Kettig b Koblenz am Rhein          Sparkasse Koblenz          55725           00038339U000000000
 570501202Sparkasse Koblenz                                         56332Alken, Mosel                       Sparkasse Koblenz          55725           00039773U000000000
 570501202Sparkasse Koblenz                                         56290Macken                             Sparkasse Koblenz          55725           00040645U000000000
-570510011Kreissparkasse Westerwald                                 56410Montabaur                          Kr Spk Westerwald Montabaur55737MALADE51BMB00012964U000000000
-570510012Kreissparkasse Westerwald                                 56459Kaden, Westerw                     Kr Spk Westerwald          55737           00006555U000000000
-570510012Kreissparkasse Westerwald                                 56479Irmtraut                           Kr Spk Westerwald          55737           00012521U000000000
-570510012Kreissparkasse Westerwald                                 56472Hof, Westerw                       Kr Spk Westerwald          55737           00012540U000000000
-570510012Kreissparkasse Westerwald                                 56203Höhr-Grenzhausen                   Kr Spk Westerwald          55737           00012541U000000000
-570510012Kreissparkasse Westerwald                                 56462Höhn, Westerw                      Kr Spk Westerwald          55737           00012542U000000000
-570510012Kreissparkasse Westerwald                                 57629Höchstenbach                       Kr Spk Westerwald          55737           00012543U000000000
-570510012Kreissparkasse Westerwald                                 56414Herschbach (Oberwesterwald)        Kr Spk Westerwald          55737           00012555U000000000
-570510012Kreissparkasse Westerwald                                 56249Herschbach b Selters, Westerwald   Kr Spk Westerwald          55737           00012556U000000000
-570510012Kreissparkasse Westerwald                                 56479Hellenhahn-Schellenberg            Kr Spk Westerwald          55737           00012564U000000000
-570510012Kreissparkasse Westerwald                                 56244Hartenfels                         Kr Spk Westerwald          55737           00012576U000000000
-570510012Kreissparkasse Westerwald                                 56244Hahn am See                        Kr Spk Westerwald          55737           00012583U000000000
-570510012Kreissparkasse Westerwald                                 57627Hachenburg                         Kr Spk Westerwald          55737           00012584U000000000
-570510012Kreissparkasse Westerwald                                 56459Guckheim                           Kr Spk Westerwald          55737           00012587U000000000
-570510012Kreissparkasse Westerwald                                 56459Girkenroth                         Kr Spk Westerwald          55737           00012604U000000000
-570510012Kreissparkasse Westerwald                                 56459Gemünden, Westerw                  Kr Spk Westerwald          55737           00012610U000000000
-570510012Kreissparkasse Westerwald                                 56244Freirachdorf                       Kr Spk Westerwald          55737           00012617U000000000
-570510012Kreissparkasse Westerwald                                 56244Freilingen, Westerw                Kr Spk Westerwald          55737           00012619U000000000
-570510012Kreissparkasse Westerwald                                 56472Fehl-Ritzhausen                    Kr Spk Westerwald          55737           00012631U000000000
-570510012Kreissparkasse Westerwald                                 56479Elsoff (Westerwald)                Kr Spk Westerwald          55737           00012648U000000000
-570510012Kreissparkasse Westerwald                                 56472Dreisbach, Westerw                 Kr Spk Westerwald          55737           00012661U000000000
-570510012Kreissparkasse Westerwald                                 56428Dernbach (Westerwald)              Kr Spk Westerwald          55737           00012668U000000000
-570510012Kreissparkasse Westerwald                                 56463Bad Marienberg (Westerwald)        Kr Spk Westerwald          55737           00012737U000000000
-570510012Kreissparkasse Westerwald                                 57642Alpenrod                           Kr Spk Westerwald          55737           00012764U000000000
-570510012Kreissparkasse Westerwald                                 56459Ailertchen                         Kr Spk Westerwald          55737           00012769U000000000
-570510012Kreissparkasse Westerwald                                 57644Hattert                            Kr Spk Westerwald          55737           00012900U000000000
-570510012Kreissparkasse Westerwald                                 57629Norken                             Kr Spk Westerwald          55737           00012908U000000000
-570510012Kreissparkasse Westerwald                                 57645Nister                             Kr Spk Westerwald          55737           00012911U000000000
-570510012Kreissparkasse Westerwald                                 56412Niederelbert                       Kr Spk Westerwald          55737           00012926U000000000
-570510012Kreissparkasse Westerwald                                 56414Niederahr                          Kr Spk Westerwald          55737           00012930U000000000
-570510012Kreissparkasse Westerwald                                 56479Neunkirchen, Westerw               Kr Spk Westerwald          55737           00012935U000000000
-570510012Kreissparkasse Westerwald                                 57520Neunkhausen                        Kr Spk Westerwald          55737           00012936U000000000
-570510012Kreissparkasse Westerwald                                 56335Neuhäusel, Westerw                 Kr Spk Westerwald          55737           00012939U000000000
-570510012Kreissparkasse Westerwald                                 56412Nentershausen, Westerw             Kr Spk Westerwald          55737           00012942U000000000
-570510012Kreissparkasse Westerwald                                 56237Nauort                             Kr Spk Westerwald          55737           00012946U000000000
-570510012Kreissparkasse Westerwald                                 56271Mündersbach                        Kr Spk Westerwald          55737           00012955U000000000
-570510012Kreissparkasse Westerwald                                 57614Mudenbach                          Kr Spk Westerwald          55737           00012960U000000000
-570510012Kreissparkasse Westerwald                                 56424Mogendorf                          Kr Spk Westerwald          55737           00012965U000000000
-570510012Kreissparkasse Westerwald                                 56414Meudt                              Kr Spk Westerwald          55737           00012972U000000000
-570510012Kreissparkasse Westerwald                                 56244Maxsain                            Kr Spk Westerwald          55737           00012988U000000000
-570510012Kreissparkasse Westerwald                                 56459Elbingen, Westerw                  Kr Spk Westerwald          55737           00012997U000000000
-570510012Kreissparkasse Westerwald                                 57629Luckenbach                         Kr Spk Westerwald          55737           00013001U000000000
-570510012Kreissparkasse Westerwald                                 57629Lochum                             Kr Spk Westerwald          55737           00013004U000000000
-570510012Kreissparkasse Westerwald                                 57629Limbach, Westerw                   Kr Spk Westerwald          55737           00013009U000000000
-570510012Kreissparkasse Westerwald                                 56479Liebenscheid                       Kr Spk Westerwald          55737           00013011U000000000
-570510012Kreissparkasse Westerwald                                 56459Langenhahn, Westerw                Kr Spk Westerwald          55737           00013022U000000000
-570510012Kreissparkasse Westerwald                                 57520Langenbach bei Kirburg             Kr Spk Westerwald          55737           00013024U000000000
-570510012Kreissparkasse Westerwald                                 56459Kölbingen                          Kr Spk Westerwald          55737           00013043U000000000
-570510012Kreissparkasse Westerwald                                 57612Kroppach, Westerw                  Kr Spk Westerwald          55737           00013048U000000000
-570510012Kreissparkasse Westerwald                                 57629Kirburg                            Kr Spk Westerwald          55737           00013067U000000000
-570510012Kreissparkasse Westerwald                                 56422Wirges                             Kr Spk Westerwald          55737           00013207U000000000
-570510012Kreissparkasse Westerwald                                 56459Willmenrod                         Kr Spk Westerwald          55737           00013217U000000000
-570510012Kreissparkasse Westerwald                                 56479Willingen, Westerw                 Kr Spk Westerwald          55737           00013218U000000000
-570510012Kreissparkasse Westerwald                                 56479Westernohe                         Kr Spk Westerwald          55737           00013222U000000000
-570510012Kreissparkasse Westerwald                                 56457Westerburg, Westerw                Kr Spk Westerwald          55737           00013223U000000000
-570510012Kreissparkasse Westerwald                                 56244Weidenhahn                         Kr Spk Westerwald          55737           00013237U000000000
-570510012Kreissparkasse Westerwald                                 56414Wallmerod, Westerw                 Kr Spk Westerwald          55737           00013246U000000000
-570510012Kreissparkasse Westerwald                                 57614Wahlrod                            Kr Spk Westerwald          55737           00013258U000000000
-570510012Kreissparkasse Westerwald                                 56477Waigandshain                       Kr Spk Westerwald          55737           00013259U000000000
-570510012Kreissparkasse Westerwald                                 57648Unnau                              Kr Spk Westerwald          55737           00013266U000000000
-570510012Kreissparkasse Westerwald                                 56459Stockum-Püschen                    Kr Spk Westerwald          55737           00013291U000000000
-570510012Kreissparkasse Westerwald                                 56412Stahlhofen, Westerw                Kr Spk Westerwald          55737           00013299U000000000
-570510012Kreissparkasse Westerwald                                 56427Siershahn                          Kr Spk Westerwald          55737           00013311U000000000
-570510012Kreissparkasse Westerwald                                 56242Selters (Westerwald)               Kr Spk Westerwald          55737           00013317U000000000
-570510012Kreissparkasse Westerwald                                 56479Seck                               Kr Spk Westerwald          55737           00013319U000000000
-570510012Kreissparkasse Westerwald                                 56414Salz, Westerw                      Kr Spk Westerwald          55737           00013333U000000000
-570510012Kreissparkasse Westerwald                                 56459Rotenhain                          Kr Spk Westerwald          55737           00013342U000000000
-570510012Kreissparkasse Westerwald                                 56459Rothenbach, Westerw                Kr Spk Westerwald          55737           00013344U000000000
-570510012Kreissparkasse Westerwald                                 56271Roßbach, Westerw                   Kr Spk Westerwald          55737           00013345U000000000
-570510012Kreissparkasse Westerwald                                 56477Rennerod, Westerw                  Kr Spk Westerwald          55737           00013361U000000000
-570510012Kreissparkasse Westerwald                                 56479Rehe                               Kr Spk Westerwald          55737           00013369U000000000
-570510012Kreissparkasse Westerwald                                 56459Pottum                             Kr Spk Westerwald          55737           00013382U000000000
-570510012Kreissparkasse Westerwald                                 56235Ransbach-Baumbach                  Kr Spk Westerwald          55737           00029537U000000000
-570510012Kreissparkasse Westerwald                                 56412Görgeshausen                       Kr Spk Westerwald          55737           00033768U000000000
-570510012Kreissparkasse Westerwald                                 56412Heiligenroth                       Kr Spk Westerwald          55737           00033770U000000000
-570510012Kreissparkasse Westerwald                                 56412Holler, Westerw                    Kr Spk Westerwald          55737           00033771U000000000
-570510012Kreissparkasse Westerwald                                 56244Wölferlingen                       Kr Spk Westerwald          55737           00041170U000000000
-570510012Kreissparkasse Westerwald                                 56244Schenkelberg                       Kr Spk Westerwald          55737           00041171U000000000
-570510012Kreissparkasse Westerwald                                 57647Nistertal, Westerw                 Kr Spk Westerwald          55737           00041172U000000000
-570510012Kreissparkasse Westerwald                                 56337Eitelborn                          Kr Spk Westerwald          55737           00041174U000000000
-570510012Kreissparkasse Westerwald                                 56244Helferskirchen                     Kr Spk Westerwald          55737           00041175U000000000
-570510012Kreissparkasse Westerwald                                 57583Mörlen                             Kr Spk Westerwald          55737           00041176U000000000
-570510012Kreissparkasse Westerwald                                 57629Atzelgift                          Kr Spk Westerwald          55737           00041177U000000000
-570510012Kreissparkasse Westerwald                                 57629Steinebach an der Wied             Kr Spk Westerwald          55737           00041184U000000000
-570510012Kreissparkasse Westerwald                                 56414Dreikirchen                        Kr Spk Westerwald          55737           00041516U000000000
+570510011Kreissparkasse Westerwald -alt-                           56410Montabaur                          Kr Spk Westerwald Montabaur55737MALADE51BMB00012964U000000000
 570518701Kreissparkasse Cochem-Zell -alt-                          56812Cochem                             Kr Spk Cochem-Zell -alt-   55712MALADE51COC00001794U000000000
 570600001WGZ Bank                                                  56016Koblenz am Rhein                   WGZ Bank Koblenz           65003GENODEDD57044028382U000000000
 570606121apoBank                                                   56007Koblenz am Rhein                   apoBank Koblenz            65054DAAEDED1012A4029373U000000000
@@ -8400,7 +8215,7 @@ namespace :squirrels do
 570690812Raiffeisenbank Moselkrampen Zw                            56814Bruttig-Fankel                     Raiffeisenbank Moselkrampen65361           38023115U000000000
 570690812Raiffeisenbank Moselkrampen Zw                            56814Ediger-Eller                       Raiffeisenbank Moselkrampen65361           38023222U000000000
 570690812Raiffeisenbank Moselkrampen (Gf P2)                       56814Ernst b Cochem                     Raiffeisenbank Moselkrampen75361           38054204U000000000
-570691441Raiffeisenbank Eifeltor                                   56759Kaisersesch                        Raiffbk Eifeltor           65389GENODED1KAI38023622M000000000
+570691441Raiffeisenbank Eifeltor                                   56759Kaisersesch                        Raiffbk Eifeltor           65389GENODED1KAI38023622U000000000
 570691442Raiffeisenbank Eifeltor                                   56814Landkern                           Raiffbk Eifeltor           65389           38022788U000000000
 570691442Raiffeisenbank Eifeltor                                   56761Hambuch, Eifel                     Raiffbk Eifeltor           65389           38022878U000000000
 570691442Raiffeisenbank Eifeltor                                   56761Düngenheim                         Raiffbk Eifeltor           65389           38023206U000000000
@@ -8410,7 +8225,7 @@ namespace :squirrels do
 570691442Raiffeisenbank Eifeltor                                   56754Roes                               Raiffbk Eifeltor           65389           38053068U000000000
 570691442Raiffeisenbank Eifeltor                                   56761Kaifenheim                         Raiffbk Eifeltor           65389           38053069U000000000
 570691442Raiffeisenbank Eifeltor                                   56754Forst (Eifel)                      Raiffbk Eifeltor           65389           38053070U000000000
-570691442Raiffeisenbank Kaisersesch (Gf P2)                        56759Kaisersesch                        Raiffbk Kaisersesch        75389           38054205M000000000
+570691442Raiffeisenbank Eifeltor (Gf P2)                           56759Kaisersesch                        Raiffbk Eifeltor           75389           38054205U000000000
 570691442Raiffeisenbank Eifeltor                                   56828Alflen                             Raiffbk Eifeltor           65389           38056542U000000000
 570691442Raiffeisenbank Eifeltor                                   56823Büchel b Cochem                    Raiffbk Eifeltor           65389           38056543U000000000
 570691442Raiffeisenbank Eifeltor                                   56825Gevenich, Eifel                    Raiffbk Eifeltor           65389           38056544U000000000
@@ -8468,13 +8283,13 @@ namespace :squirrels do
 570900002Volksbank Koblenz Mittelrhein (Gf P2)                     56009Koblenz am Rhein                   VB Koblenz Mittelrhein     85031           64054210U000000000
 570909001PSD Bank Koblenz                                          56068Koblenz am Rhein                   PSD Bank Koblenz           95108GENODEF1P1291029374U000000000
 570909002PSD Bank Koblenz                                          55116Mainz a Rhein                      PSD Bank Koblenz           95108           91050544U000000000
-570910001Volksbank Montabaur-Höhr-Grenzhausen                      56404Montabaur                          Volksbank Montabaur        95111GENODE51MON06023539U000000000
-570910002Volksbank Montabaur-Höhr-Grenzhausen                      56414Wallmerod, Westerw                 Volksbank Montabaur        95111           06024298U000000000
-570910002Volksbank Montabaur-Höhr-Grenzhausen                      56422Wirges                             Volksbank Montabaur        95111           06024380U000000000
-570910002Volksbank Montabaur-Höhr-Grenzhausen                      56335Neuhäusel, Westerw                 Volksbank Montabaur        95111           06043058U000000000
-570910002Volksbank Montabaur-Höhr-Grenzhausen                      56195Höhr-Grenzhausen                   Volksbank Montabaur        95111           06051407U000000000
-570910002Volksbank Montabaur-Höhr-Grenzhausen                      56237Nauort                             Volksbank Montabaur        95111           06051409U000000000
-570910002Volksbank Montabaur-Höhr-Grenzhausen (Gf P2)              56404Montabaur                          Volksbank Montabaur        85111           06054211U000000000
+570910001Volksbank Montabaur-Höhr-Grenzhausen                      56404Montabaur                          VB Montabaur - Höhr-GrH    95111GENODE51MON06023539M000000000
+570910002Volksbank Montabaur-Höhr-Grenzhausen                      56414Wallmerod                          VB Montabaur - Höhr-GrH    95111           06024298M000000000
+570910002Volksbank Montabaur-Höhr-Grenzhausen                      56422Wirges                             VB Montabaur - Höhr-GrH    95111           06024380M000000000
+570910002Volksbank Montabaur-Höhr-Grenzhausen                      56335Neuhäusel                          VB Montabaur - Höhr-GrH    95111           06043058M000000000
+570910002Volksbank Montabaur-Höhr-Grenzhausen                      56195Höhr-Grenzhausen                   VB Montabaur - Höhr-GrH    95111           06051407M000000000
+570910002Volksbank Montabaur-Höhr-Grenzhausen                      56237Nauort                             Volksbank Montabaur        95111           06051409D000000000
+570910002Volksbank Montabaur-Höhr-Grenzhausen (Gf P2)              56404Montabaur                          VB Montabaur - Höhr-GrH    85111           06054211M000000000
 570911001Volksbank Höhr-Grenzhausen -alt-                          56195Höhr-Grenzhausen                   VB Höhr-Grenzhausen -alt-  95116GENODE51HGR06022942U000000000
 570928001Volksbank Rhein-Lahn                                      65582Diez                               Volksbank Rhein-Lahn       95204GENODE51DIE06022781U000000000
 570928002Volksbank Rhein-Lahn                                      56357Miehlen, Taunus                    Volksbank Rhein-Lahn       95204           06017938U000000000
@@ -8499,44 +8314,42 @@ namespace :squirrels do
 572630152Raiffeisenbank Unterwesterwald Zw                         56412Girod                              Raiffeisenbank Arzbach     65276           38017850U000000000
 572630152Raiffeisenbank Unterwesterwald Zw                         56204Hillscheid, Westerw                Raiffeisenbank Arzbach     65276           38018109U000000000
 572630152Raiffeisenbank Unterwesterwald (Gf P2)                    56337Arzbach, Westerw                   Raiffeisenbank Arzbach     75276           38054214U000000000
-573510301Kreissparkasse Altenkirchen                               57602Altenkirchen (Westerwald)          Kreissparkasse Altenkirchen55702MALADE51AKI00012757U000000000
-573510302Kreissparkasse Altenkirchen                               56593Horhausen (Westerwald)             Kreissparkasse Altenkirchen55702           00012532U000000000
-573510302Kreissparkasse Altenkirchen                               57562Herdorf, Sieg                      Kreissparkasse Altenkirchen55702           00012560U000000000
-573510302Kreissparkasse Altenkirchen                               57577Hamm (Sieg)                        Kreissparkasse Altenkirchen55702           00012579U000000000
-573510302Kreissparkasse Altenkirchen                               57580Gebhardshain                       Kreissparkasse Altenkirchen55702           00012613U000000000
-573510302Kreissparkasse Altenkirchen                               57632Flammersfeld                       Kreissparkasse Altenkirchen55702           00012625U000000000
-573510302Kreissparkasse Altenkirchen                               57578Elkenroth                          Kreissparkasse Altenkirchen55702           00012651U000000000
-573510302Kreissparkasse Altenkirchen                               57567Daaden                             Kreissparkasse Altenkirchen55702           00012676U000000000
-573510302Kreissparkasse Altenkirchen                               57518Betzdorf, Sieg                     Kreissparkasse Altenkirchen55702           00012719U000000000
-573510302Kreissparkasse Altenkirchen                               57572Niederfischbach                    Kreissparkasse Altenkirchen55702           00012922U000000000
-573510302Kreissparkasse Altenkirchen                               57555Mudersbach, Sieg                   Kreissparkasse Altenkirchen55702           00012959U000000000
-573510302Kreissparkasse Altenkirchen                               57548Kirchen (Sieg)                     Kreissparkasse Altenkirchen55702           00013066U000000000
-573510302Kreissparkasse Altenkirchen                               57537Wissen, Sieg                       Kreissparkasse Altenkirchen55702           00013206U000000000
-573510302Kreissparkasse Altenkirchen                               57635Weyerbusch                         Kreissparkasse Altenkirchen55702           00013221U000000000
-573510302Kreissparkasse Altenkirchen                               57586Weitefeld                          Kreissparkasse Altenkirchen55702           00013230U000000000
-573510302Kreissparkasse Altenkirchen                               57584Scheuerfeld, Sieg                  Kreissparkasse Altenkirchen55702           00013328U000000000
+573510301Sparkasse Westerwald-Sieg                                 57602Altenkirchen (Westerwald)          Sparkasse Westerwald-Sieg  55702MALADE51AKI00012757U000000000
+573510302Sparkasse Westerwald-Sieg                                 56593Horhausen (Westerwald)             Sparkasse Westerwald-Sieg  55702           00012532D000000000
+573510302Sparkasse Westerwald-Sieg                                 57562Herdorf                            Sparkasse Westerwald-Sieg  55702           00012560D000000000
+573510302Sparkasse Westerwald-Sieg                                 57577Hamm (Sieg)                        Sparkasse Westerwald-Sieg  55702           00012579D000000000
+573510302Sparkasse Westerwald-Sieg                                 57580Gebhardshain                       Sparkasse Westerwald-Sieg  55702           00012613D000000000
+573510302Sparkasse Westerwald-Sieg                                 57632Flammersfeld                       Sparkasse Westerwald-Sieg  55702           00012625D000000000
+573510302Sparkasse Westerwald-Sieg                                 57578Elkenroth                          Sparkasse Westerwald-Sieg  55702           00012651D000000000
+573510302Sparkasse Westerwald-Sieg                                 57567Daaden                             Sparkasse Westerwald-Sieg  55702           00012676D000000000
+573510302Sparkasse Westerwald-Sieg                                 57518Betzdorf                           Sparkasse Westerwald-Sieg  55702           00012719D000000000
+573510302Sparkasse Westerwald-Sieg                                 57572Niederfischbach                    Sparkasse Westerwald-Sieg  55702           00012922D000000000
+573510302Sparkasse Westerwald-Sieg                                 57555Mudersbach                         Sparkasse Westerwald-Sieg  55702           00012959D000000000
+573510302Sparkasse Westerwald-Sieg                                 57548Kirchen (Sieg)                     Sparkasse Westerwald-Sieg  55702           00013066D000000000
+573510302Sparkasse Westerwald-Sieg                                 57537Wissen                             Sparkasse Westerwald-Sieg  55702           00013206D000000000
+573510302Sparkasse Westerwald-Sieg                                 57635Weyerbusch                         Sparkasse Westerwald-Sieg  55702           00013221D000000000
+573510302Sparkasse Westerwald-Sieg                                 57586Weitefeld                          Sparkasse Westerwald-Sieg  55702           00013230D000000000
+573510302Sparkasse Westerwald-Sieg                                 57584Scheuerfeld                        Sparkasse Westerwald-Sieg  55702           00013328D000000000
 573614761Volksbank Gebhardshain                                    57580Gebhardshain                       Volksbank Gebhardshain     65125GENODED1GBS38028296U000000000
 573614762Volksbank Rosenheim Zw d VB Gebhardshain                  57520Rosenheim (Landkreis Altenkirchen) Volksbank Gebhardshain     65125           38023781U000000000
 573614762Volksbank Nauroth Zw d VB Gebhardshain                    57583Nauroth, Westerw                   Volksbank Gebhardshain     65125           38023993U000000000
 573614762Volksbank Elkenroth Zw d VB Gebhardshain                  57578Elkenroth                          Volksbank Gebhardshain     65125           38028255U000000000
-573614762Volksbank Steinebach Zw d VB Gebhardshain                 57520Steinebach, Sieg                   Volksbank Gebhardshain     65125           38041012U000000000
 573614762Volksbank Gebhardshain (Gf P2)                            57580Gebhardshain                       Volksbank Gebhardshain     75125           38054215U000000000
 573632431Raiffeisenbank Niederfischbach -alt-                      57569Niederfischbach                    Raiffbk Niederfischb. -alt-65282GENODED1NFB38024033U000000000
 573632432Raiffeisenbank Niederfischbach (Gf P2)                    57569Niederfischbach                    Raiffbk Niederfischbach    75282           38054216U000000000
 573912001Volksbank Daaden                                          57567Daaden                             Volksbank Daaden           95130GENODE51DAA06023148U000000000
 573912002Volksbank Daaden Zw Herdorf                               57562Herdorf, Sieg                      VB Daaden Herdorf, Sieg    95130           06022914U000000000
-573912002Volksbank Daaden Zw Friedewald                            57520Friedewald, Westerw                VB Daaden Friedewald, Weste95130           06023015U000000000
 573912002Volksbank Daaden Zw Weitefeld                             57586Weitefeld                          VB Daaden Weitefeld        95130           06024308U000000000
 573912002Volksbank Daaden (Gf P2)                                  57567Daaden                             Volksbank Daaden           85130           06054217U000000000
 573915001Volksbank Hamm, Sieg                                      57573Hamm (Sieg)                        VB Hamm, Sieg Hamm, Sieg   95155GENODE51HAM06022880U000000000
 573915002Volksbank Hamm, Sieg Zw                                   57612Eichelhardt                        VB Eichelhardt             95155           06023232U000000000
 573915002Volksbank Rosbach Zw d VB Hamm, Sieg                      51570Windeck, Sieg                      VB Rosbach Windeck, Sieg   95155           06041217U000000000
 573915002Volksbank Hamm, Sieg (Gf P2)                              57573Hamm (Sieg)                        VB Hamm, Sieg Hamm, Sieg   85155           06054218U000000000
-573918001Westerwald Bank                                           57627Hachenburg                         Westerwald Bank            95173GENODE51WW106022863M000000000
+573918001Westerwald Bank                                           57627Hachenburg                         Westerwald Bank            95173GENODE51WW106022863U000000000
 573918002Westerwald Bank                                           56477Rennerod, Westerw                  Westerwald Bank            95173           06018257U000000000
 573918002Westerwald Bank                                           57647Nistertal, Westerw                 Westerwald Bank            95173           06022953U000000000
 573918002Westerwald Bank                                           51570Windeck, Sieg                      Westerwald Bank            95173           06023159U000000000
-573918002Westerwald Bank                                           57610Altenkirchen (Westerwald)          Westerwald Bank            95173           06023403M000000000
+573918002Westerwald Bank                                           57610Altenkirchen (Westerwald)          Westerwald Bank            95173           06023403U000000000
 573918002Westerwald Bank                                           56470Bad Marienberg (Westerwald)        Westerwald Bank            95173           06023455U000000000
 573918002Westerwald Bank                                           57548Kirchen (Sieg)                     Westerwald Bank            95173           06023665U000000000
 573918002Westerwald Bank                                           56316Raubach, Westerw                   Westerwald Bank            95173           06023865U000000000
@@ -8545,19 +8358,19 @@ namespace :squirrels do
 573918002Westerwald Bank                                           56593Horhausen (Westerwald)             Westerwald Bank            95173           06044014U000000000
 573918002Westerwald Bank                                           57518Betzdorf, Sieg                     Westerwald Bank            95173           06047449U000000000
 573918002Westerwald Bank                                           57537Wissen, Sieg                       Westerwald Bank            95173           06050677U000000000
-573918002Westerwald Bank                                           56269Dierdorf                           Westerwald Bank            95173           06051098M000000000
+573918002Westerwald Bank                                           56269Dierdorf                           Westerwald Bank            95173           06051098U000000000
 573918002Westerwald Bank                                           56276Großmaischeid                      Westerwald Bank            95173           06051099U000000000
-573918002Westerwald Bank                                           56579Rengsdorf, Kr Neuwied              Westerwald Bank            95173           06051101M000000000
-573918002Westerwald Bank                                           56305Puderbach, Westerw                 Westerwald Bank            95173           06051102M000000000
+573918002Westerwald Bank                                           56579Rengsdorf, Kr Neuwied              Westerwald Bank            95173           06051101U000000000
+573918002Westerwald Bank                                           56305Puderbach, Westerw                 Westerwald Bank            95173           06051102U000000000
 573918002Westerwald Bank                                           57612Kroppach, Westerw                  Westerwald Bank            95173           06051105U000000000
 573918002Westerwald Bank                                           57632Flammersfeld                       Westerwald Bank            95173           06051107U000000000
 573918002Westerwald Bank                                           56237Breitenau, Westerw                 Westerwald Bank            95173           06051111U000000000
 573918002Westerwald Bank                                           56249Herschbach b Selters, Westerwald   Westerwald Bank            95173           06051114U000000000
 573918002Westerwald Bank                                           56242Selters (Westerwald)               Westerwald Bank            95173           06051117U000000000
 573918002Westerwald Bank                                           56424Staudt                             Westerwald Bank            95173           06051118U000000000
-573918002Westerwald Bank                                           56427Siershahn                          Westerwald Bank            95173           06051119M000000000
+573918002Westerwald Bank                                           56427Siershahn                          Westerwald Bank            95173           06051119U000000000
 573918002Westerwald Bank                                           56235Ransbach-Baumbach                  Westerwald Bank            95173           06051194U000000000
-573918002Westerwald Bank (Gf P2)                                   57627Hachenburg                         Westerwald Bank            85173           06054219M000000000
+573918002Westerwald Bank (Gf P2)                                   57627Hachenburg                         Westerwald Bank            85173           06054219U000000000
 574501201Sparkasse Neuwied                                         56510Neuwied                            Sparkasse Neuwied          55743MALADE51NWD00012932U000000000
 574501202Sparkasse Neuwied                                         56276Großmaischeid                      Sparkasse Neuwied          55743           00012591U000000000
 574501202Sparkasse Neuwied                                         56269Dierdorf                           Sparkasse Neuwied          55743           00012666U000000000
@@ -8609,31 +8422,22 @@ namespace :squirrels do
 576500101Kreissparkasse Mayen                                      56705Mayen                              Kr Spk Mayen               55738MALADE51MYN00012987U000000000
 576500102Kreissparkasse Mayen                                      56729Ettringen, Eifel                   Kr Spk Mayen               55738           00012633U000000000
 576500102Kreissparkasse Mayen                                      56729Boos, Eifel                        Kr Spk Mayen               55738           00012702U000000000
-576500102Kreissparkasse Mayen                                      56745Bell, Eifel                        Kr Spk Mayen               55738           00012729D000000000
 576500102Kreissparkasse Mayen                                      56299Ochtendung                         Kr Spk Mayen               55738           00012894U000000000
 576500102Kreissparkasse Mayen                                      56645Nickenich                          Kr Spk Mayen               55738           00012931U000000000
 576500102Kreissparkasse Mayen                                      56294Münstermaifeld                     Kr Spk Mayen               55738           00012953U000000000
 576500102Kreissparkasse Mayen                                      56753Mertloch                           Kr Spk Mayen               55738           00012976U000000000
 576500102Kreissparkasse Mayen                                      56743Mendig                             Kr Spk Mayen               55738           00012977U000000000
-576500102Kreissparkasse Mayen                                      56295Lonnig                             Kr Spk Mayen               55738           00013002D000000000
-576500102Kreissparkasse Mayen                                      56332Löf                                Kr Spk Mayen               55738           00013003D000000000
 576500102Kreissparkasse Mayen                                      56332Lehmen, Mosel                      Kr Spk Mayen               55738           00013017U000000000
 576500102Kreissparkasse Mayen                                      56736Kottenheim                         Kr Spk Mayen               55738           00013035U000000000
 576500102Kreissparkasse Mayen                                      56642Kruft                              Kr Spk Mayen               55738           00013046U000000000
 576500102Kreissparkasse Mayen                                      56626Andernach                          Kr Spk Mayen               55738           00013074U000000000
-576500102Kreissparkasse Mayen                                      56729Kehrig b Mayen                     Kr Spk Mayen               55738           00013076D000000000
-576500102Kreissparkasse Mayen                                      56743Thür                               Kr Spk Mayen               55738           00013281D000000000
 576500102Kreissparkasse Mayen                                      56648Saffig                             Kr Spk Mayen               55738           00013335U000000000
 576500102Kreissparkasse Mayen                                      56745Rieden, Eifel                      Kr Spk Mayen               55738           00013355U000000000
 576500102Kreissparkasse Mayen                                      56751Polch                              Kr Spk Mayen               55738           00013383U000000000
 576500102Kreissparkasse Mayen                                      56637Plaidt                             Kr Spk Mayen               55738           00013385U000000000
-576500102Kreissparkasse Mayen                                      56729Nachtsheim                         Kr Spk Mayen               55738           00034397D000000000
 576500102Kreissparkasse Mayen                                      56729Virneburg                          Kr Spk Mayen               55738           00034410U000000000
-576500102Kreissparkasse Mayen                                      56727Sankt Johann b Mayen               Kr Spk Mayen               55738           00041236D000000000
-576500102Kreissparkasse Mayen                                      56295Rüber                              Kr Spk Mayen               55738           00041237D000000000
 576500102Kreissparkasse Mayen                                      56729Langenfeld, Eifel                  Kr Spk Mayen               55738           00041240U000000000
 576500102Kreissparkasse Mayen                                      56729Kirchwald b Mayen                  Kr Spk Mayen               55738           00041241U000000000
-576500102Kreissparkasse Mayen                                      56745Volkesfeld                         Kr Spk Mayen               55738           00043816D000000000
 576612531Raiffeisenbank                                            56729Kehrig b Mayen                     Raiffeisenbank Kehrig      65090GENODED1KEH38028343U000000000
 576612532Raiffeisenbank Kehrig                                     56727Mayen                              Raiffeisenbank Kehrig      65090           38028224U000000000
 576612532Raiffeisenbank (Gf P2)                                    56729Kehrig b Mayen                     Raiffeisenbank Kehrig      75090           38054222U000000000
@@ -8774,6 +8578,22 @@ namespace :squirrels do
 585601032Volksbank Trier                                           54298Igel                               Volksbank Trier            65014           38053433U000000000
 585601032Volksbank Trier                                           54523Hetzerath, Mosel                   Volksbank Trier            65014           38053434U000000000
 585601032Volksbank Trier (Gf P2)                                   54228Trier                              Volksbank Trier            75014           38054226U000000000
+585601032Volksbank Trier                                           54429Mandern                            Volksbank Trier            65014           38056685A000000000
+585601032Volksbank Trier                                           54429Schillingen                        Volksbank Trier            65014           38056686A000000000
+585601032Volksbank Trier                                           54453Nittel                             Volksbank Trier            65014           38056687A000000000
+585601032Volksbank Trier                                           54451Irsch                              Volksbank Trier            65014           38056688A000000000
+585601032Volksbank Trier                                           54314Zerf                               Volksbank Trier            65014           38056689A000000000
+585601032Volksbank Trier                                           54332Wasserliesch                       Volksbank Trier            65014           38056690A000000000
+585601032Volksbank Trier                                           54439Saarburg                           Volksbank Trier            65014           38056691A000000000
+585601032Volksbank Trier                                           54427Kell am See                        Volksbank Trier            65014           38056692A000000000
+585601032Volksbank Trier                                           54421Reinsfeld                          Volksbank Trier            65014           38056693A000000000
+585601032Volksbank Trier                                           54316Schöndorf                          Volksbank Trier            65014           38056694A000000000
+585601032Volksbank Trier                                           54316Lampaden                           Volksbank Trier            65014           38056695A000000000
+585601032Volksbank Trier                                           54411Hermeskeil                         Volksbank Trier            65014           38056696A000000000
+585601032Volksbank Trier                                           54314Greimerath                         Volksbank Trier            65014           38056697A000000000
+585601032Volksbank Trier                                           54450Freudenburg                        Volksbank Trier            65014           38056698A000000000
+585601032Volksbank Trier                                           54457Wincheringen                       Volksbank Trier            65014           38056699A000000000
+585601032Volksbank Trier                                           54413Gusenburg                          Volksbank Trier            65014           38056700A000000000
 585602941Pax-Bank                                                  54220Trier                              Pax-Bank Trier             65033GENODED1PA306043012U137060193
 585612501Volksbank Hermeskeil -alt-                                54411Hermeskeil                         Volksbank Hermeskeil -alt- 65088GENODED1HER38028094U158564788
 585616261Volksbank Saarburg -alt-                                  54439Saarburg, Saar                     Volksbank Saarburg -alt-   65155GENODED1SRB38024066U000000000
@@ -8783,7 +8603,7 @@ namespace :squirrels do
 585617712Raiffeisenbank Mehring-Leiwen                             54346Mehring, Mosel                     Raiffbk Mehring-Leiwen     65174           38023498U000000000
 585617712Raiffeisenbank Mehring-Leiwen Zw                          54340Klüsserath                         Raiffbk Mehring-Leiwen     65174           38023686U000000000
 585617712Raiffeisenbank Mehring-Leiwen (Gf P2)                     54340Leiwen                             Raiffbk Mehring-Leiwen     75174           38054228U000000000
-585647881Volksbank Hochwald-Saarburg                               54439Saarburg, Saar                     VB Hochwald-Saarburg       65318GENODED1HWM38023475U000000000
+585647881Volksbank Hochwald-Saarburg -alt-                         54439Saarburg                           VB Hochwald-Saarburg -alt- 65318GENODED1HWM38023475M000000000
 585647882Volksbank Hochwald-Saarburg                               54316Lampaden                           VB Hochwald-Saarburg       65318           38022785U000000000
 585647882Volksbank Hochwald-Saarburg                               54413Gusenburg                          VB Hochwald-Saarburg       65318           38023106U000000000
 585647882Volksbank Hochwald-Saarburg                               54427Kell am See                        VB Hochwald-Saarburg       65318           38023653U000000000
@@ -8850,15 +8670,11 @@ namespace :squirrels do
 586512402Kreissparkasse Vulkaneifel                                54589Stadtkyll                          Kreissparkasse Vulkaneifel 55813           00013300U000000000
 586512402Kreissparkasse Vulkaneifel                                54552Dreis-Brück                        Kreissparkasse Vulkaneifel 55813           00038194U000000000
 586601011Volksbank Bitburg                                         54626Bitburg                            Volksbank Bitburg          65011GENODED1BIT38028156U000000000
-586601012Volksbank Bitburg                                         54636Baustert                           Volksbank Bitburg          65011           38023277D000000000
-586601012Volksbank Bitburg                                         54646Bettingen, Eifel                   Volksbank Bitburg          65011           38023306D000000000
-586601012Volksbank Bitburg Zw                                      54636Messerich                          Volksbank Bitburg          65011           38023517D000000000
 586601012Volksbank Bitburg Zw                                      54636Oberweis, Eifel                    Volksbank Bitburg          65011           38023970U000000000
 586601012Volksbank Bitburg                                         54669Bollendorf                         Volksbank Bitburg          65011           38028158U000000000
 586601012Volksbank Bitburg                                         54655Kyllburg                           Volksbank Bitburg          65011           38028406U000000000
 586601012Volksbank Bitburg                                         54673Neuerburg, Eifel                   Volksbank Bitburg          65011           38028839U000000000
 586601012Raiffeisenbank Biersdorf Ndl Volksbank Bitburg            54636Biersdorf am See                   Volksbank Bitburg          65011           38051311U000000000
-586601012Raiffeisenbank Biersdorf Ndl Volksbank Bitburg            54655Malbergweich                       Volksbank Bitburg          65011           38051314D000000000
 586601012Raiffeisenbank Biersdorf Ndl Volksbank Bitburg            54636Rittersdorf, Eifel                 Volksbank Bitburg          65011           38051315U000000000
 586601012Volksbank Bitburg (Gf P2)                                 54626Bitburg                            Volksbank Bitburg          75011           38054230U000000000
 586619011Raiffeisenbank Westeifel                                  54687Arzfeld                            Raiffeisenbank Westeifel   65188GENODED1WSC38028230U000000000
@@ -8875,14 +8691,12 @@ namespace :squirrels do
 586626532Raiffeisenbank östl Südeifel Zw                           54657Badem                              Raiffbk östl Südeifel      65252           38023444U000000000
 586626532Raiffeisenbank östl Südeifel Zw                           54298Orenhofen                          Raiffbk östl Südeifel      65252           38023810U000000000
 586626532Raiffeisenbank östl Südeifel Zw                           54529Spangdahlem                        Raiffbk östl Südeifel      65252           38024151U000000000
-586626532Raiffeisenbank östl Südeifel Zw                           54636Idenheim                           Raiffbk östl Südeifel      65252           38024229D000000000
 586626532Raiffeisenbank östl Südeifel Zw                           54298Welschbillig                       Raiffbk östl Südeifel      65252           38024333U000000000
 586626532Raiffeisenbank östl Südeifel Zw                           54313Zemmer                             Raiffbk östl Südeifel      65252           38024411U000000000
-586626532Raiffeisenbank östl Südeifel Zw                           54533Oberkail                           Raiffbk östl Südeifel      65252           38031466D000000000
 586626532Raiffeisenbank östl Südeifel Zw                           54664Preist                             Raiffbk östl Südeifel      65252           38044086U000000000
 586626532Raiffeisenbank östl Südeifel (Gf P2)                      54647Dudeldorf                          Raiffbk östl Südeifel      75252           38054232U000000000
 586688181Raiffeisenbank Neuerburg-Land -alt-                       54671Neuerburg, Eifel                   Raiffbk Neuerburg-Land -alt65619GENODED1NBL38024008U100000000
-586915001Volksbank Eifel Mitte                                     54591Prüm                               Volksbank Eifel Mitte      95156GENODED1PRU38023851U000000000
+586915001Volksbank Eifel Mitte                                     54591Prüm                               Volksbank Eifel Mitte      95156GENODED1PRU38023851M000000000
 586915002Volksbank Eifel Mitte                                     54611Hallschlag                         Volksbank Eifel Mitte      95156           38022874U000000000
 586915002Volksbank Eifel Mitte                                     54597Olzheim                            Volksbank Eifel Mitte      95156           38023807U000000000
 586915002Volksbank Speicher Ndl d VB Eifel Mitte                   54662Speicher, Eifel                    Volksbank Eifel Mitte      95156           38024154U000000000
@@ -8893,9 +8707,9 @@ namespace :squirrels do
 586915002Volksbank Eifel Mitte                                     54574Birresborn                         Volksbank Eifel Mitte      95156           38051389U000000000
 586915002Volksbank Eifel Mitte                                     54587Lissendorf                         Volksbank Eifel Mitte      95156           38051390U000000000
 586915002Volksbank Eifel Mitte                                     54576Hillesheim, Eifel                  Volksbank Eifel Mitte      95156           38051391U000000000
-586915002Volksbank Eifel Mitte                                     54562Gerolstein                         Volksbank Eifel Mitte      95156           38051392U000000000
+586915002Volksbank Eifel Mitte                                     54562Gerolstein                         Volksbank Eifel Mitte      95156           38051392M000000000
 586915002Volksbank Eifel Mitte                                     54584Jünkerath                          Volksbank Eifel Mitte      95156           38051393U000000000
-586915002Volksbank Eifel Mitte (Gf P2)                             54591Prüm                               Volksbank Eifel Mitte      85156           38054233U000000000
+586915002Volksbank Eifel Mitte (Gf P2)                             54591Prüm                               Volksbank Eifel Mitte      85156           38054233M000000000
 587512301Sparkasse Mittelmosel-Eifel Mosel Hunsrück                54469Bernkastel-Kues                    Spk Mittelmosel EMH        55809MALADE51BKS00012724U000000000
 587609541Vereinigte Volksbank Raiffeisenbank                       54516Wittlich                           VVR-Bank Wittlich          65059GENODED1WTL38032634U000000000
 587609542Vereinigte Volksbank Raiffeisenbank                       54526Landscheid, Eifel                  VVR-Bank Wittlich          65059           38022789U000000000
@@ -8973,9 +8787,9 @@ namespace :squirrels do
 590200902UniCredit Bank - HypoVereinsbank                          66462Zweibrücken, Pfalz                 UniCredit Bank-HypoVereinbk22075HYVEDEMM43299032336U000000000
 590200902UniCredit Bank - HypoVereinsbank                          66309Völklingen                         UniCredit Bank-HypoVereinbk22075HYVEDEMM43299043572U000000000
 590200902UniCredit Bank - HypoVereinsbank                          66595St. Wendel, Saar                   UniCredit Bank-HypoVereinbk22075HYVEDEMM43299043573U000000000
-590200902UniCredit Bank - HypoVereinsbank                          66749Dillingen, Saar                    UniCredit Bank-HypoVereinbk22075HYVEDEMM43299043574U000000000
-590200902UniCredit Bank - HypoVereinsbank                          66401Homburg, Saar                      UniCredit Bank-HypoVereinbk22075HYVEDEMM43299043576U000000000
-590200902UniCredit Bank - HypoVereinsbank                          66361St. Ingbert                        UniCredit Bank-HypoVereinbk22075HYVEDEMM43299043578U000000000
+590200902UniCredit Bank - HypoVereinsbank                          66749Dillingen, Saar                    UniCredit Bank-HypoVereinbk22075HYVEDEMM43299043574D000000000
+590200902UniCredit Bank - HypoVereinsbank                          66401Homburg, Saar                      UniCredit Bank-HypoVereinbk22075HYVEDEMM43299043576D000000000
+590200902UniCredit Bank - HypoVereinsbank                          66361St. Ingbert                        UniCredit Bank-HypoVereinbk22075HYVEDEMM43299043578D000000000
 590200902UniCredit Bank - HypoVereinsbank                          66513Neunkirchen, Saar                  UniCredit Bank-HypoVereinbk22075HYVEDEMM43299048184U000000000
 590400001Commerzbank                                               66005Saarbrücken                        Commerzbank Saarbrücken    24590COBADEFFXXX13036704U000000000
 590400002Commerzbank                                               66538Neunkirchen, Saar                  Commerzbank Neunkrchn Saar 24590           13003911U000000000
@@ -9021,10 +8835,10 @@ namespace :squirrels do
 590920002Vereinigte Volksbank Dillingen Dudweiler Sulzbach/Saar    66125Saarbrücken                        Vereinigte Volksbank       95182           06054988U000000000
 590995301Raiffeisenkasse Wiesbach -alt-                            66571Eppelborn                          RB Wiesbach -alt-          95226GENODE51EWI09019407U100000000
 590995302Raiffeisenkasse Wiesbach (Gf P2)                          66571Eppelborn                          Raiffeisenkasse Wiesbach   85226           09054238U000000000
-590995501Volksbank Nahe-Schaumberg                                 66625Nohfelden                          Volksbank Nahe-Schaumberg  95227GENODE51NOH06019410U000000000
-590995502Volksbank Nahe-Schaumberg                                 66620Nonnweiler                         Volksbank Nahe-Schaumberg  95227           06043475U000000000
+590995501Volksbank Nahe-Schaumberg -alt-                           66625Nohfelden                          VB Nahe-Schaumberg -alt-   95227GENODE51NOH06019410M000000000
+590995502Volksbank Nahe-Schaumberg                                 66620Nonnweiler                         Volksbank Nahe-Schaumberg  95227           06043475D000000000
 590995502Volksbank Nahe-Schaumberg (Gf P2)                         66625Nohfelden                          Volksbank Nahe-Schaumberg  85227           06054239U000000000
-590995502Volksbank Nahe-Schaumberg                                 66636Tholey                             VB Nahe-Schaumberg Tholey  95227           06055971U000000000
+590995502Volksbank Nahe-Schaumberg                                 66636Tholey                             VB Nahe-Schaumberg Tholey  95227           06055971D000000000
 591900001Bank 1 Saar                                               66026Saarbrücken                        Bank 1 Saar                95037SABADE5SXXX06024062U000000000
 591900002Bank 1 Saar                                               66812Lebach                             Bank 1 Saar                95037           06022816U000000000
 591900002Bank 1 Saar                                               66750Dillingen, Saar                    Bank 1 Saar                95037           06023186U000000000
@@ -9038,7 +8852,6 @@ namespace :squirrels do
 591900002Bank 1 Saar                                               66788Saarwellingen                      Bank 1 Saar                95037           06024073U000000000
 591900002Bank 1 Saar                                               66832Schmelz, Saar                      Bank 1 Saar                95037           06024100U000000000
 591900002Bank 1 Saar                                               66764Schwalbach, Saar                   Bank 1 Saar                95037           06024119U000000000
-591900002Bank 1 Saar                                               66274Sulzbach, Saar                     Bank 1 Saar                95037           06024194U000000000
 591900002Bank 1 Saar                                               66310Völklingen                         Bank 1 Saar                95037           06024269U000000000
 591900002Bank 1 Saar                                               66681Wadern                             Bank 1 Saar                95037           06024272U000000000
 591900002Bank 1 Saar                                               66740Saarlouis                          Bank 1 Saar                95037           06031504U000000000
@@ -9082,22 +8895,24 @@ namespace :squirrels do
 592520462Sparkasse Neunkirchen                                     66557Illingen, Saar                     Sparkasse Neunkirchen      55906           C9001957U000000000
 592520462Sparkasse Neunkirchen                                     66578Schiffweiler                       Sparkasse Neunkirchen      55906           C9002139U000000000
 592520462Sparkasse Neunkirchen                                     66583Spiesen-Elversberg                 Sparkasse Neunkirchen      55906           C9002166U000000000
-592910001St. Wendeler Volksbank                                    66606St. Wendel, Saar                   Sankt Wendeler Volksbank   95114GENODE51WEN06024060U000000000
-592910002St Wendeler Volksbank                                     66629Freisen                            Sankt Wendeler Volksbank   95114           06023012U000000000
-592910002St. Wendeler Volksbank                                    66620Nonnweiler                         Sankt Wendeler Volksbank   95114           06023848U000000000
-592910002St. Wendeler Volksbank                                    66649Oberthal, Saar                     Sankt Wendeler Volksbank   95114           06023965U000000000
-592910002St. Wendeler Volksbank                                    66640Namborn                            Sankt Wendeler Volksbank   95114           06023982U000000000
-592910002St. Wendeler Volksbank                                    66636Tholey                             Sankt Wendeler Volksbank   95114           06024209U000000000
-592910002St. Wendeler Volksbank (Gf P2)                            66606St. Wendel, Saar                   Sankt Wendeler Volksbank   85114           06054242U000000000
-592910002St. Wendeler Volksbank                                    66646Marpingen                          St. Wendeler Volksbank     95114           06055060U000000000
-592912001Volksbank Saarpfalz                                       66424Homburg, Saar                      Volksbank Saarpfalz        95132GENODE51BEX06023310U000000000
-592912002Volksbank Saarpfalz                                       66564Ottweiler                          Volksbank Saarpfalz        95132           06022809U000000000
-592912002Volksbank Saarpfalz                                       66540Neunkirchen, Saar                  Volksbank Saarpfalz        95132           06023565U000000000
-592912002Volksbank Saarpfalz                                       66459Kirkel                             Volksbank Saarpfalz        95132           06051048U000000000
-592912002Volksbank Saarpfalz                                       66399Mandelbachtal                      Volksbank Saarpfalz        95132           06051049U000000000
-592912002Volksbank Saarpfalz                                       66453Gersheim                           Volksbank Saarpfalz        95132           06051050U000000000
-592912002Volksbank Saarpfalz                                       66450Bexbach                            Volksbank Saarpfalz        95132           06052948U000000000
-592912002Volksbank Saarpfalz (Gf P2)                               66424Homburg, Saar                      Volksbank Saarpfalz        85132           06054243U000000000
+592910001Unsere Volksbank St. Wendeler Land                        66606St. Wendel                         Unsere Volksbank St. Wendel95114GENODE51WEN06024060M000000000
+592910002Unsere Volksbank St. Wendeler Land                        66629Freisen                            Unsere Volksbank St. Wendel95114           06023012M000000000
+592910002Unsere Volksbank St. Wendeler Land                        66620Nonnweiler                         Unsere Volksbank St. Wendel95114           06023848M000000000
+592910002Unsere Volksbank St. Wendeler Land                        66649Oberthal                           Unsere Volksbank St. Wendel95114           06023965M000000000
+592910002Unsere Volksbank St. Wendeler Land                        66640Namborn                            Unsere Volksbank St. Wendel95114           06023982M000000000
+592910002Unsere Volksbank St. Wendeler Land                        66636Tholey                             Unsere Volksbank St. Wendel95114           06024209M000000000
+592910002Unsere Volksbank St. Wendeler Land (Gf P2)                66606St. Wendel                         Unsere Volksbank St. Wendel85114           06054242M000000000
+592910002Unsere Volksbank St. Wendeler Land                        66646Marpingen                          Unsere Volksbank St. Wendel95114           06055060M000000000
+592910002Unsere Volksbank St. Wendeler Land                        66625Nohfelden                          Unsere Volksbank St. Wendel95114           06056666A000000000
+592912001Volks- und Raiffeisenbank Saarpfalz                       66424Homburg                            Volks- u. Raiffbk Saarpfalz95132GENODE51BEX06023310M000000000
+592912002Volks- und Raiffeisenbank Saarpfalz                       66564Ottweiler                          Volks- u. Raiffbk Saarpfalz95132           06022809M000000000
+592912002Volks- und Raiffeisenbank Saarpfalz                       66540Neunkirchen                        Volks- u. Raiffbk Saarpfalz95132           06023565M000000000
+592912002Volks- und Raiffeisenbank Saarpfalz                       66459Kirkel                             Volks- u. Raiffbk Saarpfalz95132           06051048M000000000
+592912002Volks- und Raiffeisenbank Saarpfalz                       66399Mandelbachtal                      Volks- u. Raiffbk Saarpfalz95132           06051049M000000000
+592912002Volks- und Raiffeisenbank Saarpfalz                       66453Gersheim                           Volks- u. Raiffbk Saarpfalz95132           06051050M000000000
+592912002Volks- und Raiffeisenbank Saarpfalz                       66450Bexbach                            Volks- u. Raiffbk Saarpfalz95132           06052948M000000000
+592912002Volks- und Raiffeisenbank Saarpfalz (Gf P2)               66424Homburg                            Volks- u. Raiffbk Saarpfalz85132           06054243M000000000
+592912002Volks- und Raiffeisenbank Saarpfalz                       66440Blieskastel                        Volks- u. Raiffbk Saarpfalz95132           06056676A000000000
 592924001Eppelborner Volksbank -alt-                               66571Eppelborn                          Eppelborner Volksbank -alt-95196GENODE51EPP06019322U159393000
 593200871UniCredit Bank - HypoVereinsbank                          66714Saarlouis                          UniCredit Bank-HypoVereinbk22076HYVEDEMM83899043580U000000000
 593501101Kreissparkasse Saarlouis                                  66717Saarlouis                          Kreissparkasse Saarlouis   55908KRSADE55XXX00002106U000000000
@@ -9146,12 +8961,12 @@ namespace :squirrels do
 594500102Kreissparkasse Saarpfalz                                  66459Kirkel                             Kreissparkasse Saarpfalz   55914           00001977U000000000
 594500102Kreissparkasse Saarpfalz                                  66386St. Ingbert                        Kreissparkasse Saarpfalz   55914           00002110U000000000
 594500102Kreissparkasse Saarpfalz                                  66399Mandelbachtal                      Kreissparkasse Saarpfalz   55914           00039912U000000000
-594911141VR Bank Saarpfalz                                         66424Homburg, Saar                      VR Bank Saarpfalz          95118GENODE51HOM09019341U000000000
-594913001VR Bank Saarpfalz                                         66424Homburg, Saar                      VR Bank Saarpfalz          95143GENODE51MBT06039787U000000000
-594913002VR Bank Saarpfalz                                         66440Blieskastel                        VR Bank Saarpfalz          95143           06019293U000000000
-594913002VR Bank Saarpfalz                                         66453Gersheim                           VR Bank Saarpfalz          95143           06019306U000000000
-594913002VR Bank Saarpfalz                                         66459Kirkel                             VR Bank Saarpfalz          95143           06019350U000000000
-594913002VR Bank Saarpfalz                                         66399Mandelbachtal                      VR Bank Saarpfalz          95143           06053615U000000000
+594911141VR Bank Saarpfalz                                         66424Homburg, Saar                      VR Bank Saarpfalz          95118GENODE51HOM09019341D000000000
+594913001VR Bank Saarpfalz -alt-                                   66424Homburg                            VR Bank Saarpfalz -alt-    95143GENODE51MBT06039787M000000000
+594913002VR Bank Saarpfalz                                         66440Blieskastel                        VR Bank Saarpfalz          95143           06019293D000000000
+594913002VR Bank Saarpfalz                                         66453Gersheim                           VR Bank Saarpfalz          95143           06019306D000000000
+594913002VR Bank Saarpfalz                                         66459Kirkel                             VR Bank Saarpfalz          95143           06019350D000000000
+594913002VR Bank Saarpfalz                                         66399Mandelbachtal                      VR Bank Saarpfalz          95143           06053615D000000000
 594913002VR Bank Saarpfalz (Gf P2)                                 66424Homburg, Saar                      VR Bank Saarpfalz          85143           06054249U000000000
 600000001Bundesbank                                                70049Stuttgart                          BBk Stuttgart              20600MARKDEF160009011590U000000000
 600100701Postbank                                                  70148Stuttgart                          Postbank Stuttgart         10070PBNKDEFFXXX24013527U000000000
@@ -9165,9 +8980,9 @@ namespace :squirrels do
 600202901UniCredit Bank - HypoVereinsbank                          70003Stuttgart                          UniCredit Bank-HypoVereinbk22086HYVEDEMM47399039504U000000000
 600202902UniCredit Bank - HypoVereinsbank                          88131Lindau (Bodensee)                  UniCredit Bank-HypoVereinbk22086HYVEDEMM47399048187U000000000
 600202902UniCredit Bank - HypoVereinsbank                          88161Lindenberg i. Allgäu               UniCredit Bank-HypoVereinbk22086HYVEDEMM47399048188U000000000
-600202902UniCredit Bank - HypoVereinsbank                          88239Wangen im Allgäu                   UniCredit Bank-HypoVereinbk22086HYVEDEMM47399048189U000000000
+600202902UniCredit Bank - HypoVereinsbank                          88239Wangen im Allgäu                   UniCredit Bank-HypoVereinbk22086HYVEDEMM47399048189D000000000
 600202902UniCredit Bank - HypoVereinsbank                          74072Heilbronn, Neckar                  UniCredit Bank-HypoVereinbk22086HYVEDEMM47399048519U000000000
-600202902UniCredit Bank - HypoVereinsbank                          70734Fellbach, Württ                    UniCredit Bank-HypoVereinbk22086HYVEDEMM47399053286U000000000
+600202902UniCredit Bank - HypoVereinsbank                          70734Fellbach, Württ                    UniCredit Bank-HypoVereinbk22086HYVEDEMM47399053286D000000000
 600202902UniCredit Bank - HypoVereinsbank                          88002Friedrichshafen                    UniCredit Bank-HypoVereinbk22086HYVEDEMM47399056202U000000000
 600203001VON ESSEN Bankgesellschaft                                70174Stuttgart                          VON ESSEN Bank Stuttgart   26036VONEDE33STG09043896U000000000
 600300001Mercedes-Benz Bank                                        70320Stuttgart                          Mercedes-Benz Bank              MEBEDE6SDCBA3044456U000000000
@@ -9299,11 +9114,23 @@ namespace :squirrels do
 600501012Landesbank Baden-Württemberg/Rheinland-Pfalz Bank         55098Mainz a Rhein                      LBBW/RLP Bank Mainz        56100           01055079U000000000
 600501012Landesbank Baden-Württemberg/RLP Bank                     67616Kaiserslautern                     LBBW/RLP Bk Kaiserslautern 56100           01055252U000000000
 600501012Landesbank Baden-Württemberg/RLP Bank                     56010Koblenz am Rhein                   LBBW/RLP Bank Koblenz      56100           01055253U000000000
+600501012Baden-Württemb.Bank/Landesbank Baden-Württemb.            71304Waiblingen                         BW-Bank/LBBW Waiblingen    56100           01056608U000000000
+600501012Baden-Württemb.Bank/Landesbank Baden-Württemb.            71611Ludwigsburg                        BW-Bank/LBBW Ludwigsburg   56100           01056609U000000000
+600501012Baden-Württemb.Bank/Landesbank Baden-Württemb.            73033Göppingen                          BW-Bank/LBBW Göppingen     56100           01056610U000000000
+600501012Baden-Württemb.Bank/Landesbank Baden-Württemb.            73705Esslingen am Neckar                BW-Bank/LBBW Esslingen     56100           01056611U000000000
+600501012Baden-Württemb.Bank/Landesbank Baden-Württemb.            73430Aalen                              BW-Bank/LBBW Aalen         56100           01056612U000000000
+600501012Baden-Württemb.Bank/Landesbank Baden-Württemb.            74072Heilbronn                          BW-Bank/LBBW Heilbronn     56100           01056613U000000000
+600501012Baden-Württemb.Bank/Landesbank Baden-Württemb.            89073Ulm                                BW-Bank/LBBW Ulm           56100           01056614U000000000
+600501012Baden-Württemb.Bank/Landesbank Baden-Württemb.            72764Reutlingen                         BW-Bank/LBBW Reutlingen    56100           01056615U000000000
+600501012Baden-Württemb.Bank/Landesbank Baden-Württemb.            72070Tübingen                           BW-Bank/LBBW Tübingen      56100           01056616U000000000
+600501012Baden-Württemb.Bank/Landesbank Baden-Württemb.            78054Villingen-Schwenningen             BW-Bank/LBBW Vill.-Schwen. 56100           01056617U000000000
+600501012Baden-Württemb.Bank/Landesbank Baden-Württemb.            88214Ravensburg                         BW-Bank/LBBW Ravensburg    56100           01056618U000000000
+600501012Baden-Württemb.Bank/Landesbank Baden-Württemb.            72458Albstadt                           BW-Bank/LBBW Albstadt      56100           01056619U000000000
+600501012Baden-Württemb.Bank/Landesbank Baden-Württemb.            74506Schwäbisch Hall                    BW-Bank/LBBW Schwäb. Hall  56100           01056620U000000000
 600600001DZ BANK                                                   70049Stuttgart                          DZ BANK                    66001GENODESGXXX09024958U000000000
 600602021DZ PRIVATBANK Ndl. Stuttgart                              70191Stuttgart                          DZ PRIVATBANK Ndl Stuttgart     GENODESTXXX09055944U000000000
 600603961Untertürkheimer Volksbank                                 70305Stuttgart                          Untertürkheimer Volksbank  66034GENODES1UTV10021093U000000000
 600603962Untertürkheimer Volksbank (Gf P2)                         70305Stuttgart                          Untertürkheimer Volksbank  76034           10054250U000000000
-600606061Evangelische Kreditgenossenschaft Filiale Stuttgart -alt- 70012Stuttgart                          EKK Stuttgart -alt-        66040GENODES1EK232043818U152060410
 600608931VR-Bank Stuttgart -alt-                                   70067Stuttgart                          VR-Bank Stuttgart -alt-    66045GENODES1FIL10021085U000000000
 600627751Echterdinger Bank                                         70750Leinfelden-Echterdingen            Echterdinger Bank          66208GENODES1ECH10020708U000000000
 600627752Echterdinger Bank (Gf P2)                                 70750Leinfelden-Echterdingen            Echterdinger Bank          76208           10054251U000000000
@@ -9363,7 +9190,7 @@ namespace :squirrels do
 600693252Hegnacher Bank (Gf P2)                                    71313Waiblingen, Rems                   Hegnacher Bank             76343           10054267U000000000
 600693361Raiffeisenbank Maitis                                     73037Göppingen                          Raiffbk Maitis             66345GENODES1RMA10020899U000000000
 600693362Raiffeisenbank Maitis (Gf P2)                             73037Göppingen                          Raiffbk Maitis             76345           10054268U000000000
-600693431Raiffeisenbank Rißtal                                     88471Laupheim                           Raiffeisenbank Rißtal      66347GENODES1RRI10019828U000000000
+600693431Raiffeisenbank Rißtal -alt-                               88471Laupheim                           Raiffeisenbank Rißtal -alt-66347GENODES1RRI10019828M100000000
 600693461Raiffeisenbank Ehingen-Hochsträß                          89584Ehingen (Donau)                    Raiffbk Ehingen-Hochsträß  66348GENODES1REH10019957U000000000
 600693462Raiffeisenbank Ehingen-Hochsträß (Gf P2)                  89584Ehingen (Donau)                    Raiffbk Ehingen-Hochsträß  76348           10054269U000000000
 600693501Raiffeisenbank Reute-Gaisbeuren                           88339Bad Waldsee                        Raiffbk Reute-Gaisbeuren   66349GENODES1RRG10019566U000000000
@@ -9378,8 +9205,8 @@ namespace :squirrels do
 600694172Raiffeisenbank Kirchheim-Walheim (Gf P2)                  74364Kirchheim am Neckar                Raiffbk Kirchheim-Walheim  76373           10054274U000000000
 600694191Uhlbacher Bank -alt-                                      70310Stuttgart                          Uhlbacher Bank -alt-       66376GENODES1UHL10021092U100000000
 600694192Uhlbacher Bank (Gf P2)                                    70310Stuttgart                          Uhlbacher Bank             76376           10054275U000000000
-600694201Raiffeisenbank Mittelbiberach -alt-                       88441Mittelbiberach                     Raiffbk Mittelbiberach -alt66377GENODES1MBI10019689U000000000
-600694311Raiffeisenbank Oberessendorf                              88436Eberhardzell                       Raiffbk Oberessendorf      66382GENODES1OED10019712U000000000
+600694201Raiffeisenbank Mittelbiberach -alt-                       88441Mittelbiberach                     Raiffbk Mittelbiberach -alt66377GENODES1MBI10019689U100000000
+600694311Raiffeisenbank Oberessendorf -alt-                        88436Eberhardzell                       Raiffbk Oberessendorf -alt-66382GENODES1OED10019712M000000000
 600694312Raiffeisenbank Oberessendorf (Gf P2)                      88436Eberhardzell                       Raiffbk Oberessendorf      76382           10054276U000000000
 600694421Raiffeisenbank Frankenhardt-Stimpfach                     74597Stimpfach                          Raiffbk Frankenh-Stimpfach 66387GENODES1RFS10020146U000000000
 600694422Raiffeisenbank Frankenhardt-Stimpfach                     74586Frankenhardt                       Raiffbk Frankenh-Stimpfach 66387           10019995U000000000
@@ -9396,7 +9223,7 @@ namespace :squirrels do
 600694621Winterbacher Bank                                         73643Winterbach b Schorndorf, Württ     Winterbacher Bank          66400GENODES1WBB10021160U000000000
 600694622Winterbacher Bank (Gf P2)                                 73643Winterbach b Schorndorf, Württ     Winterbacher Bank          76400           10054281U000000000
 600694631Raiffeisenbank Geislingen-Rosenfeld                       72348Rosenfeld, Württ                   Raiffbk Geislingen-Rosenf  66401GENODES1RKH10052546U165362499
-600694761Raiffeisenbank Heidenheimer Alb                           89547Gerstetten, Württ                  Raiffbk Heidenheimer Alb   66406GENODES1DEA10019944U000000000
+600694761Raiffeisenbank Heidenheimer Alb -alt-                     89547Gerstetten                         RB Heidenheimer Alb -alt-  66406GENODES1DEA10019944M000000000
 600694762Raiffeisenbank Heidenheimer Alb                           89542Herbrechtingen                     Raiffbk Heidenheimer Alb   66406           10031449U000000000
 600694762Raiffeisenbank Heidenheimer Alb (Gf P2)                   89547Gerstetten, Württ                  Raiffbk Heidenheimer Alb   76406           10054282U000000000
 600694851Raiffeisenbank Oberer Wald                                72226Simmersfeld                        Raiffbk ob Wald Simmersfeld66408GENODES1ROW10021065U000000000
@@ -9412,6 +9239,8 @@ namespace :squirrels do
 600695272Volksbank Brenztal (Gf P2)                                89537Giengen an der Brenz               Volksbank Brenztal         76429           10054286U000000000
 600695272Volksbank Brenztal                                        89428Syrgenstein, Schwab                Volksbank Brenztal         66429           10055352U000000000
 600695272Volksbank Brenztal                                        89168Niederstotzingen                   Volksbank Brenztal         66429           10055355U000000000
+600695272Volksbank Brenztal                                        89547Gerstetten                         Volksbank Brenztal         66429           10056673A000000000
+600695272Volksbank Brenztal                                        89542Herbrechtingen                     Volksbank Brenztal         66429           10056674A000000000
 600695381Löchgauer Bank                                            74367Löchgau                            Löchgauer Bank             66436GENODES1LOC10020888U000000000
 600695382Löchgauer Bank Gs                                         74392Freudental, Württ                  Löchgauer Bank             66436           10020742U000000000
 600695382Löchgauer Bank (Gf P2)                                    74367Löchgau                            Löchgauer Bank             76436           10054287U000000000
@@ -9432,7 +9261,7 @@ namespace :squirrels do
 600695952Raiffeisenbank Schrozberg-Rot am See (Gf P2)              74573Schrozberg                         Raiffbk Schrozberg-Rot     76465           10054292U000000000
 600696391Raiffeisenbank Ingersheim                                 74377Ingersheim, Württ                  Raiffbk Ingersheim         66484GENODES1RIH10020775U000000000
 600696392Raiffeisenbank Ingersheim (Gf P2)                         74377Ingersheim, Württ                  Raiffbk Ingersheim         76484           10054293U000000000
-600696481Raiffeisenbank                                            88444Ummendorf, Kr Biberach an der Riß  Raiffeisenbank             66489GENODES1EHZ10019819U000000000
+600696481Raiffeisenbank -alt-                                      88444Ummendorf                          Raiffeisenbank -alt-       66489GENODES1EHZ10019819M000000000
 600696482Raiffeisenbank Biberach                                   88400Biberach an der Riß                Raiffeisenbank Biberach    66489           10019758U000000000
 600696482Raiffeisenbank Eberhardzell                               88436Eberhardzell                       Raiffeisenbank Eberhardzell66489           10053075U000000000
 600696482Raiffeisenbank Hochdorf                                   88454Hochdorf, Riß                      Raiffeisenbank Hochdorf    66489           10053076U000000000
@@ -9490,7 +9319,7 @@ namespace :squirrels do
 600698762Raiffeisenbank Oberes Gäu Gs Wachendorf                   72181Starzach                           Raiffeisenbank Oberes Gäu  66602           10021131U000000000
 600698762Raiffeisenbank Oberes Gäu Ergenzingen (Gf P2)             72108Rottenburg am Neckar               Raiffeisenbank Oberes Gäu  76602           10054312U000000000
 600698961Volksbank Freiberg und Umgebung -alt-                     74385Pleidelsheim                       VB Freiberg und Umgebung   66611GENODES1PLE10020997U000000000
-600699041VR-Bank Alb                                               72820Sonnenbühl                         VR-Bank Alb                66613GENODES1RUW10019820U000000000
+600699041VR-Bank Alb -alt-                                         72820Sonnenbühl                         VR-Bank Alb -alt-          66613GENODES1RUW10019820M000000000
 600699042VR-Bank Alb                                               72813St. Johann, Württ                  VR-Bank Alb                66613           10051058U000000000
 600699042VR-Bank Alb                                               72805Lichtenstein, Württ                VR-Bank Alb                66613           10051946U000000000
 600699042VR-Bank Alb                                               72531Hohenstein, Württ                  VR-Bank Alb                66613           10051947U000000000
@@ -9562,6 +9391,7 @@ namespace :squirrels do
 600901002Volksbank Stuttgart                                       71384Weinstadt                          Volksbank Stuttgart        96017           10055935U000000000
 600901002Volksbank Stuttgart                                       71364Winnenden, Württ                   Volksbank Stuttgart        96017           10055936U000000000
 600901002Volksbank Stuttgart                                       73650Winterbach b Schorndorf, Württ     Volksbank Stuttgart        96017           10055937U000000000
+600901331Volksbank Stuttgart GAA                                   70174Stuttgart                          Volksbank Stuttgart GAA         VOBADESSXXX10056631U000000000
 600903001Volksbank Zuffenhausen m Zndl Stammheimer VB              70432Stuttgart                          VB Zuffenhausen            96044GENODES1ZUF10000002U000000000
 600903002Volksbank Zuffenhausen m Zndl Stammheimer VB (Gf P2)      70432Stuttgart                          VB Zuffenhausen            86044           10054322U000000000
 600906091apoBank                                                   70503Stuttgart                          apoBank Stuttgart          96048DAAEDED1009A4024193U000000000
@@ -9594,7 +9424,6 @@ namespace :squirrels do
 601205001Bank für Sozialwirtschaft                                 70173Stuttgart                          Bank für Sozialwirtschaft  25015BFSWDE33STG09044479U000000000
 601301001FFS Bank                                                  70190Stuttgart                          FFS Bank Stuttgart              GENODED1FFS00049170U000000000
 601333001Santander Consumer Bank                                   70173Stuttgart                          Santander Bank Stuttgart   29416SCFBDE33XXX09055987U000000000
-602200301Baden-Württembergische Bank                               71301Waiblingen, Rems                   BW Bank Waiblingen         25078SOLADEST60265044344D000000000
 602410741Commerzbank                                               71522Backnang                           Commerzbank Backnang       24601COBADEFFXXX13011261U000000000
 602500101Kreissparkasse Waiblingen                                 71304Waiblingen, Rems                   Kr Spk Waiblingen          56009SOLADES1WBN01003225U000000000
 602500102Kreissparkasse Waiblingen                                 71549Auenwald                           Kr Spk Waiblingen          56009           01002210U000000000
@@ -9627,37 +9456,22 @@ namespace :squirrels do
 602500102Kreissparkasse Waiblingen                                 73614Schorndorf, Württ                  Kr Spk Waiblingen          56009           01003255U000000000
 602500102Kreissparkasse Waiblingen                                 71409Schwaikheim                        Kr Spk Waiblingen          56009           01003257U000000000
 602500102Kreissparkasse Waiblingen                                 73553Alfdorf                            Kr Spk Waiblingen          56009           01003531U000000000
-602501841Baden-Württemb.Bank/Landesbank Baden-Württemb.            71304Waiblingen, Rems                   BW-Bank/LBBW Waiblingen         SOLADEST82001052557M160050101
 602613291Fellbacher Bank                                           70703Fellbach, Württ                    Fellbacher Bank            66073GENODES1FBB10020737U000000000
 602613292Fellbacher Bank (Gf P2)                                   70703Fellbach, Württ                    Fellbacher Bank            76073           10054323U000000000
 602616221VR-Bank Weinstadt                                         71384Weinstadt                          VR-Bank Weinstadt          66682GENODES1WNS10021082U000000000
 602616222VR-Bank Weinstadt (Gf P2)                                 71384Weinstadt                          VR-Bank Weinstadt          76682           10054324U000000000
-602618181Raiffeisenbank Weissacher Tal                             71573Allmersbach im Tal                 Raiffbk Weissacher Tal     66126GENODES1RWT10020605U000000000
+602618181Raiffeisenbank Weissacher Tal -alt-                       71573Allmersbach im Tal                 Raiffbk Weissacher Tal -alt66126GENODES1RWT10020605U000000000
 602618182Raiffeisenbank Weissacher Tal Gs Cottenweiler             71554Weissach im Tal                    Raiffbk Weissacher Tal     66126           10020673U000000000
 602618182Raiffeisenbank Weissacher Tal (Gf P2)                     71573Allmersbach im Tal                 Raiffbk Weissacher Tal     76126           10054325U000000000
-602620631Korber Bank                                               71398Korb, Remstal                      Korber Bank                66145GENODES1KOR10020865U000000000
+602620631Korber Bank -alt-                                         71398Korb                               Korber Bank -alt-          66145GENODES1KOR10020865U000000000
 602620632Korber Bank (Gf P2)                                       71398Korb, Remstal                      Korber Bank                76145           10054326U000000000
 602626931Kerner Volksbank                                          71394Kernen im Remstal                  Kerner Volksbank           66204GENODES1KRN10021022U000000000
 602626932Kerner Volksbank (Gf P2)                                  71394Kernen im Remstal                  Kerner Volksbank           76204           10054327U000000000
 602700241Deutsche Bank Privat und Geschäftskunden                  71332Waiblingen, Rems                   Deutsche Bank PGK Waiblinge21245DEUTDEDB60663050201U000000000
 602700731Deutsche Bank                                             71332Waiblingen, Rems                   Deutsche Bank Waiblingen   27245DEUTDESS60663043956U000000000
 602901101Volksbank Rems -alt-                                      71307Waiblingen, Rems                   Volksbank Rems -alt-       96024GENODES1VWN10022337U000000000
-602901102Volksbank Rems                                            70736Fellbach, Württ                    Volksbank Rems             96024           10021271U000000000
-602901102Volksbank Rems                                            71384Weinstadt                          Volksbank Rems             96024           10021391U000000000
-602901102Volksbank Rems                                            71404Korb, Remstal                      Volksbank Rems             96024           10022229U000000000
-602901102Volksbank Rems                                            73635Rudersberg, Württ                  Volksbank Rems             96024           10051634U000000000
-602901102Volksbank Rems                                            73630Remshalden                         Volksbank Rems             96024           10051635U000000000
-602901102Volksbank Rems                                            73547Lorch, Württ                       Volksbank Rems             96024           10051636U000000000
-602901102Volksbank Rems                                            73650Winterbach b Schorndorf, Württ     Volksbank Rems             96024           10051637U000000000
-602901102Volksbank Rems                                            73660Urbach, Rems                       Volksbank Rems             96024           10051638U000000000
-602901102Volksbank Rems                                            73655Plüderhausen                       Volksbank Rems             96024           10051639U000000000
-602901102Volksbank Rems                                            73606Schorndorf, Württ                  Volksbank Rems             96024           10051640U000000000
-602901102Volksbank Rems                                            73663Berglen, Württ                     Volksbank Rems             96024           10053264U000000000
-602901102Volksbank Rems                                            71397Leutenbach, Württ                  Volksbank Rems             96024           10053265U000000000
-602901102Volksbank Rems                                            71409Schwaikheim                        Volksbank Rems             96024           10053266U000000000
-602901102Volksbank Rems                                            71364Winnenden, Württ                   Volksbank Rems             96024           10053267U000000000
 602901102Volksbank Rems (Gf P2)                                    71307Waiblingen, Rems                   Volksbank Rems             86024           10054328U000000000
-602911201Volksbank Backnang                                        71506Backnang                           Volksbank Backnang         96070GENODES1VBK10021560U000000000
+602911201Volksbank Backnang                                        71522Backnang                           Volksbank Backnang         96070GENODES1VBK10021560U000000000
 602911202Volksbank Backnang                                        71576Burgstetten                        Volksbank Backnang         96070           10020669U000000000
 602911202Volksbank Backnang                                        71737Kirchberg an der Murr              Volksbank Backnang         96070           10020850U000000000
 602911202Volksbank Backnang                                        71549Auenwald                           Volksbank Backnang         96070           10020887U000000000
@@ -9666,14 +9480,12 @@ namespace :squirrels do
 602911202Volksbank Backnang Zw Sulzbach, Murr                      71560Sulzbach an der Murr               Volksbank Backnang         96070           10022518U000000000
 602911202Volksbank Backnang Zw Weissach                            71554Weissach im Tal                    Volksbank Backnang         96070           10022570U000000000
 602911202Volksbank Backnang                                        71573Allmersbach im Tal                 Volksbank Backnang         96070           10043680U000000000
-602911202Volksbank Backnang                                        71540Murrhardt                          Volksbank Backnang         96070           10052518M000000000
+602911202Volksbank Backnang                                        71540Murrhardt                          Volksbank Backnang         96070           10052518U000000000
 602911202Volksbank Backnang                                        71566Althütte, Württ                    Volksbank Backnang         96070           10052519U000000000
 602911202Volksbank Backnang                                        73667Kaisersbach im Welzheimer Wald     Volksbank Backnang         96070           10052520U000000000
 602911202Volksbank Backnang                                        71577Großerlach                         Volksbank Backnang         96070           10052521U000000000
 602911202Volksbank Backnang                                        71579Spiegelberg, Württ                 Volksbank Backnang         96070           10052522U000000000
-602911202Volksbank Backnang (Gf P2)                                71506Backnang                           Volksbank Backnang         86070           10054329U000000000
-602915101Volksbank Winnenden -alt-                                 71350Winnenden, Württ                   Volksbank Winnenden -alt-  96131GENODES1WIN10022420U000000000
-603200301Baden-Württembergische Bank                               71046Sindelfingen                       BW Bank Sindelfingen       25027SOLADEST60765000564D000000000
+602911202Volksbank Backnang (Gf P2)                                71522Backnang                           Volksbank Backnang         86070           10054329U000000000
 603202911UniCredit Bank - HypoVereinsbank                          71001Böblingen                          UniCredit Bank-HypoVereinbk22016HYVEDEMM85899042201U000000000
 603400711Commerzbank Sindelfingen                                  71043Sindelfingen                       Commerzbank Sindelfingen   24611COBADEFFXXX13010259U000000000
 603400712Commerzbank                                               71071Herrenberg im Gäu                  Commerzbank Herrenberg     24611           13056096U000000000
@@ -9782,8 +9594,6 @@ namespace :squirrels do
 604200002Wüstenrot Bank Pfandbriefbank                             48143Münster, Westf                     Wüstenrot Bank             25599           06046365U000000000
 604201861UniCredit Bank - HypoVereinsbank                          71604Ludwigsburg, Württ                 UniCredit Bank-HypoVereinbk22052HYVEDEMM86099043684U000000000
 604220001RSB Retail+Service Bank                                   70806Kornwestheim                       RSB-Bank Kornwestheim      99032SABUDE6SXXX06011095U000000000
-604300601Baden-Württembergische Bank                               71605Ludwigsburg, Württ                 BW Bank Ludwigsburg        25028SOLADEST60465000517D000000000
-604310611Baden-Württembergische Bank                               74301Bietigheim-Bissingen               BW Bank Bietigheim-Bissing 25029SOLADEST60565000523D000000000
 604400731Commerzbank                                               71602Ludwigsburg, Württ                 Commerzbank Ludwigsburg    24606COBADEFFXXX13010231U000000000
 604400732Commerzbank                                               74302Bietigheim-Bissingen               Commerzbank Bietigheim-Biss24606           13037975U000000000
 604500501Kreissparkasse Ludwigsburg                                71606Ludwigsburg, Württ                 Kreissparkasse Ludwigsburg 56021SOLADES1LBG01003337U000000000
@@ -9825,7 +9635,6 @@ namespace :squirrels do
 604500502Kreissparkasse Ludwigsburg                                74372Sersheim                           Kreissparkasse Ludwigsburg 56021           01005132U000000000
 604500502Kreissparkasse Ludwigsburg                                71739Oberriexingen                      Kreissparkasse Ludwigsburg 56021           01005143U000000000
 604500502Kreissparkasse Ludwigsburg                                71665Vaihingen an der Enz               Kreissparkasse Ludwigsburg 56021           01007592U000000000
-604501931Baden-Württemb.Bank/Landesbank Baden-Württemb.            71611Ludwigsburg, Württ                 BW-Bank/LBBW Ludwigsburg        SOLADEST80001052558M160050101
 604601421Volksbank Freiberg und Umgebung -alt-                     71603Ludwigsburg, Württ                 VB Freiberg und Umgebung   66011GENODES1EGL10020893U000000000
 604628081VR-Bank Asperg-Markgröningen                              71693Möglingen, Kr Ludwigsburg, Württ   VR-Bank Asperg-Markgröning 66211GENODES1AMT10020908U000000000
 604628082VR-Bank Asperg-Markgröningen                              71679Asperg                             VR-Bank Asperg-Markgröning 66211           10020616U000000000
@@ -9852,7 +9661,7 @@ namespace :squirrels do
 604800081Commerzbank vormals Dresdner Bank                         71603Ludwigsburg, Württ                 Commerzbank Ludwigsburg    28604DRESDEFF60476005601U000000000
 604800082Commerzbank vormals Dresdner Bank                         74302Bietigheim-Bissingen               Commerzbank Bietigheim-Bi  28604           76035646U000000000
 604901501Volksbank Ludwigsburg                                     71610Ludwigsburg, Württ                 Volksbank Ludwigsburg      96038GENODES1LBG10022041U000000000
-604901502Volksbank Ludwigsburg                                     71727Erdmannhausen                      Volksbank Ludwigsburg      96038           10020724U000000000
+604901502Volksbank Ludwigsburg                                     71729Erdmannhausen                      Volksbank Ludwigsburg      96038           10020724U000000000
 604901502Volksbank Ludwigsburg                                     71282Hemmingen, Württ                   Volksbank Ludwigsburg      96038           10020798U000000000
 604901502Volksbank Ludwigsburg                                     71735Eberdingen                         Volksbank Ludwigsburg      96038           10020815U000000000
 604901502Volksbank Ludwigsburg                                     71254Ditzingen                          Volksbank Ludwigsburg      96038           10021044U000000000
@@ -9888,8 +9697,6 @@ namespace :squirrels do
 604914302VR-Bank Neckar-Enz                                        71656Vaihingen an der Enz               VR-Bank Neckar-Enz         96120           10056541U000000000
 606510701Kreissparkasse Calw -alt-                                 75363Calw                               Kreissparkasse Calw -alt-  56003PZHSDE66XXXA9003475U100000000
 606510702Kreissparkasse Calw -alt-                                 72202Nagold                             Kreissparkasse Calw -alt-  56003           A9003562U000000000
-606613691Raiffeisenbank -alt-                                      75212Birkenfeld, Württ                  Raiffbk Birkenfeld -alt-   66080GENODES1BIF10020650D000000000
-606613692Raiffeisenbank (Gf P2)                                    75212Birkenfeld, Württ                  Raiffeisenbank Birkenfeld  76080           10054338D000000000
 606619061Raiffeisenbank Wimsheim-Mönsheim                          71299Wimsheim                           Raiffbk Wimsheim-Mönsheim  66615GENODES1WIM10021159U000000000
 606619062Raiffeisenbank Wimsheim-Mönsheim                          71297Mönsheim                           Raiffbk Wimsheim-Mönsheim  66615           10020910U000000000
 606619062Raiffeisenbank Wimsheim-Mönsheim (Gf P2)                  71299Wimsheim                           Raiffbk Wimsheim-Mönsheim  76615           10054339U000000000
@@ -9906,7 +9713,6 @@ namespace :squirrels do
 606700701Deutsche Bank                                             70546Stuttgart                          Deutsche Bank Untertürkheim27261DEUTDESS65963055338U000000000
 606914401Volksbank Maulbronn-Oberderdingen -alt-                   75429Maulbronn                          VB Maulbronn-Oberderd.-alt-96122GENODES1VMB10022075U000000000
 606914402Volksbank Maulbronn-Oberderdingen (Gf P2)                 75429Maulbronn                          VB Maulbronn-Oberderdingen 86122           10054341U000000000
-610200301Baden-Württembergische Bank                               73013Göppingen                          BW Bank Göppingen          25032SOLADEST61065000565D000000000
 610300001Bankhaus Gebr. Martin                                     73033Göppingen                          Martinbank Göppingen       26235MARBDE6GXXX09011110U000000000
 610400141Commerzbank                                               73002Göppingen                          Commerzbank Göppingen      24603COBADEFFXXX13010209U000000000
 610400142Commerzbank                                               73301Geislingen an der Steige           Commerzbank Geislingen Stei24603           13036682U000000000
@@ -9948,7 +9754,6 @@ namespace :squirrels do
 610500002Kreissparkasse Göppingen                                  73117Wangen, Kr Göppingen               Kr Spk Göppingen           56022           01002713U000000000
 610500002Kreissparkasse Göppingen                                  73119Zell unter Aichelberg              Kr Spk Göppingen           56022           01002841U000000000
 610500002Kreissparkasse Göppingen                                  73079Süßen                              Kr Spk Göppingen           56022           01002868U000000000
-610501811Baden-Württemb.Bank/Landesbank Baden-Württemb.            73033Göppingen                          BW-Bank/LBBW Göppingen          SOLADEST87001004456M160050101
 610605001Volksbank Göppingen                                       73013Göppingen                          Volksbank Göppingen        66037GENODES1VGP10021359U000000000
 610605002Volksbank Göppingen                                       73099Adelberg, Württ                    Volksbank Göppingen        66037           10020589U000000000
 610605002Volksbank Göppingen                                       73337Bad Überkingen                     Volksbank Göppingen        66037           10020621U000000000
@@ -9984,7 +9789,6 @@ namespace :squirrels do
 610912002Volksbank-Raiffeisenbank Deggingen                        73349Wiesensteig                        VB Raiffbk Deggingen       96074           10022411U000000000
 610912002Volksbank-Raiffeisenbank Deggingen                        73347Mühlhausen im Täle                 VB Raiffbk Deggingen       96074           10032780U000000000
 610912002Volksbank-Raiffeisenbank Deggingen (Gf P2)                73324Deggingen                          VB-Raiffbk Deggingen       86074           10054343U000000000
-611200301Baden-Württembergische Bank                               73706Esslingen am Neckar                BW Bank Esslingen          25033SOLADEST61165043026D000000000
 611202861UniCredit Bank - HypoVereinsbank                          73709Esslingen am Neckar                UniCredit Bank-HypoVereinbk22026HYVEDEMM85999043013U000000000
 611400711Commerzbank                                               73706Esslingen am Neckar                Commerzbank Esslingen      24602COBADEFFXXX13010207U000000000
 611400712Commerzbank                                               73219Kirchheim unter Teck               Commerzbank Kirchheim Teck 24602           13006146U000000000
@@ -10033,7 +9837,6 @@ namespace :squirrels do
 611500202Kreissparkasse Esslingen-Nürtingen                        73240Wendlingen am Neckar               Kr Spk Esslingen-Nürtingen 56004           01003682U000000000
 611500202Kreissparkasse Esslingen-Nürtingen                        73235Weilheim an der Teck               Kr Spk Esslingen-Nürtingen 56004           01003686U000000000
 611500202Kreissparkasse Esslingen-Nürtingen                        72649Wolfschlugen                       Kr Spk Esslingen-Nürtingen 56004           01003711U000000000
-611501851Baden-Württemb.Bank/Landesbank Baden-Württemb.            73705Esslingen am Neckar                BW-Bank/LBBW Esslingen          SOLADEST84001052559M160050101
 611616961Volksbank Filder                                          73761Neuhausen auf den Fildern          VB Filder                  66111GENODES1NHB10020940U000000000
 611616962Volksbank Filder                                          70794Filderstadt                        VB Filder                  66111           10020788U000000000
 611616962Volksbank Filder (Gf P2)                                  73761Neuhausen auf den Fildern          VB Filder                  76111           10054344U000000000
@@ -10061,7 +9864,6 @@ namespace :squirrels do
 611913102Denkendorfer Bank Ndl d Volksbank Plochingen              73770Denkendorf, Württ                  Denkendorfer Bank          96101           10047489U000000000
 611913102Zeller Bank Ndl d Volksbank Plochingen                    73730Esslingen am Neckar                VB Plochingen              96101           10051030U000000000
 611913102Volksbank Plochingen (Gf P2)                              73203Plochingen                         Volksbank Plochingen       86101           10054346U000000000
-612200301Baden-Württembergische Bank                               72610Nürtingen                          BW Bank Nürtingen          25034SOLADEST61265003747D000000000
 612400481Commerzbank                                               72622Nürtingen                          Commerzbank NT F-N48       24648COBADEFFXXX13055607U000000000
 612612131Raiffeisenbank Teck -alt-                                 73277Owen, Teck                         Raiffeisenbank Teck -alt-  66058GENODES1TEC10020988U000000000
 612612132Raiffeisenbank Teck                                       73265Dettingen unter Teck               Raiffeisenbank Teck        66058           10020687U000000000
@@ -10149,8 +9951,9 @@ namespace :squirrels do
 613914101Volksbank Welzheim                                        73638Welzheim                           Volksbank Welzheim         96113GENODES1WEL10022383U000000000
 613914102Volksbank Welzheim                                        73553Alfdorf                            Volksbank Welzheim         96113           10020604U000000000
 613914102Volksbank Welzheim (Gf P2)                                73638Welzheim                           Volksbank Welzheim         86113           10054355U000000000
+613914102Volksbank Welzheim                                        71573Allmersbach im Tal                 Volksbank Welzheim         96113           10056606U000000000
+613914102Volksbank Welzheim                                        71554Weissach im Tal                    Volksbank Welzheim         96113           10056607U000000000
 614200861UniCredit Bank - HypoVereinsbank                          73401Aalen, Württ                       UniCredit Bank-HypoVereinbk22001HYVEDEMM27299044221U000000000
-614300001Baden-Württembergische Bank                               73408Aalen, Württ                       BW Bank Aalen              25035SOLADEST61465011092D000000000
 614400861Commerzbank                                               73401Aalen, Württ                       Commerzbank Aalen Württ    24631COBADEFFXXX13005107U000000000
 614500501Kreissparkasse Ostalb                                     73427Aalen, Württ                       Kreissparkasse Ostalb      56024OASPDE6AXXX01003540U000000000
 614500502Kreissparkasse Ostalb                                     74417Gschwend b Gaildorf                Kreissparkasse Ostalb      56024           01002349U000000000
@@ -10190,7 +9993,6 @@ namespace :squirrels do
 614500502Kreissparkasse Ostalb                                     73550Waldstetten, Württ                 Kreissparkasse Ostalb      56024           01003694U000000000
 614500502Kreissparkasse Ostalb                                     73499Wört, Württ                        Kreissparkasse Ostalb      56024           01003713U000000000
 614500502Kreissparkasse Ostalb                                     73463Westhausen, Württ                  Kreissparkasse Ostalb      56024           01003721U000000000
-614501911Baden-Württemb.Bank/Landesbank Baden-Württemb.            73430Aalen, Württ                       BW-Bank/LBBW Aalen              SOLADEST42001003842M160050101
 614800011Commerzbank vormals Dresdner Bank                         73402Aalen, Württ                       Commerzbank Aalen Württ    28614DRESDEFF61476005344U000000000
 614901501VR-Bank Aalen                                             73407Aalen, Württ                       VR-Bank Aalen              96039GENODES1AAV10021494U000000000
 614901502VR-Bank Aalen                                             73457Essingen, Württ                    VR-Bank Aalen              96039           10021479U000000000
@@ -10211,11 +10013,7 @@ namespace :squirrels do
 614910102VR-Bank Ellwangen                                         73491Neuler                             VR-Bank Ellwangen          96060           10051941U000000000
 614910102VR-Bank Ellwangen (Gf P2)                                 73471Ellwangen (Jagst)                  VR-Bank Ellwangen          86060           10054357U000000000
 620200001Hoerner-Bank                                              74072Heilbronn, Neckar                  Hoerner-Bank Heilbronn     25275HOEBDE61XXX16011073U000000000
-620201001FGA Bank Germany                                          74066Heilbronn, Neckar                  FGA Bank Heilbronn Neckar       FBHNDE61XXX09044491U000000000
-620300501Baden-Württembergische Bank                               74002Heilbronn, Neckar                  BW Bank Heilbronn          25037SOLADEST62065000505D000000000
-620300581Baden-Württembergische Bank                               74344Lauffen am Neckar                  BW Bank Lauffen Neckar     25045SOLADEST62465000508D000000000
-620300591Baden-Württembergische Bank                               74148Neckarsulm                         BW Bank Neckarsulm         25046SOLADEST62565000509D000000000
-620300601Baden-Württembergische Bank                               74200Bad Wimpfen                        BW Bank Bad Wimpfen        25047SOLADEST62665000507D000000000
+620201001FCA Bank Deutschland                                      74066Heilbronn                          FCA Bank Heilbronn Neckar       FBHNDE61XXX09044491U000000000
 620400601Commerzbank                                               74004Heilbronn, Neckar                  Commerzbank Heilbronn      24604COBADEFFXXX13010221U000000000
 620400602Commerzbank                                               74148Neckarsulm                         Commerzbank Neckarsulm     24604           13056098U000000000
 620500001Kreissparkasse Heilbronn                                  74014Heilbronn, Neckar                  Kr Spk Heilbronn           56026HEISDE66XXX01001559U000000000
@@ -10265,7 +10063,6 @@ namespace :squirrels do
 620500002Kreissparkasse Heilbronn                                  75050Gemmingen                          Kr Spk Heilbronn           56026           01055005U000000000
 620500002Kreissparkasse Heilbronn                                  75031Eppingen                           Kr Spk Heilbronn           56026           01055006U000000000
 620500002Kreissparkasse Heilbronn                                  74906Bad Rappenau                       Kr Spk Heilbronn           56026           01055007U000000000
-620501811Baden-Württemb.Bank/Landesbank Baden-Württemb.            74072Heilbronn, Neckar                  BW-Bank/LBBW Heilbronn          SOLADEST40001004544M160050101
 620619911Volksbank Sulmtal                                         74182Obersulm                           Volksbank Sulmtal          66693GENODES1VOS10018981U000000000
 620619912Volksbank Sulmtal                                         74245Löwenstein, Württ                  Volksbank Sulmtal          66693           10019014U000000000
 620619912Volksbank Sulmtal                                         74189Weinsberg                          Volksbank Sulmtal          66693           10050937U000000000
@@ -10355,7 +10152,6 @@ namespace :squirrels do
 620918002Volksbank Hohenlohe Gs Gerabronn                          74580Gerabronn, Württ                   Volksbank Hohenlohe        96153           10051657U000000000
 620918002Volksbank Hohenlohe (Gf P2)                               74603Öhringen                           Volksbank Hohenlohe        86153           10054365U000000000
 622200001Bausparkasse Schwäbisch Hall                              74501Schwäbisch Hall                    Bauspk Schwäbisch Hall          BSHHDE61XXX09044277U000000000
-622300501Baden-Württembergische Bank                               74503Schwäbisch Hall                    BW Bank Schwäbisch Hall    25052SOLADEST62265000514D000000000
 622400481Commerzbank                                               74523Schwäbisch Hall                    Commerzbank SH F-S48       24048COBADEFFXXX13055610U000000000
 622500301Sparkasse Schwäbisch Hall-Crailsheim                      74504Schwäbisch Hall                    Sparkasse Schwäbisch Hall  56029SOLADES1SHA01002850U000000000
 622500302Sparkasse Schwäbisch Hall-Crailsheim                      74405Gaildorf                           Sparkasse Schwäbisch Hall  56029           01002305U000000000
@@ -10364,7 +10160,7 @@ namespace :squirrels do
 622500302Sparkasse Schwäbisch Hall-Crailsheim                      74564Crailsheim                         Sparkasse Schwäbisch Hall  56029           01002513U000000000
 622500302Sparkasse Schwäbisch Hall-Crailsheim                      74532Ilshofen                           Sparkasse Schwäbisch Hall  56029           01002595U000000000
 622500302Sparkasse Schwäbisch Hall-Crailsheim                      74592Kirchberg an der Jagst             Sparkasse Schwäbisch Hall  56029           01002660U000000000
-622500302Sparkasse Schwäbisch Hall-Crailsheim                      74542Braunsbach, Württ                  Sparkasse Schwäbisch Hall  56029           01043391U000000000
+622500302Sparkasse Schwäbisch Hall-Crailsheim                      74542Braunsbach, Württ                  Sparkasse Schwäbisch Hall  56029           01043391D000000000
 622500302Sparkasse Schwäbisch Hall-Crailsheim                      74424Bühlertann                         Sparkasse Schwäbisch Hall  56029           01043392U000000000
 622500302Sparkasse Schwäbisch Hall-Crailsheim                      74579Fichtenau                          Sparkasse Schwäbisch Hall  56029           01043394U000000000
 622500302Sparkasse Schwäbisch Hall-Crailsheim                      74427Fichtenberg, Württ                 Sparkasse Schwäbisch Hall  56029           01043395U000000000
@@ -10381,7 +10177,6 @@ namespace :squirrels do
 622500302Sparkasse Schwäbisch Hall-Crailsheim                      74429Sulzbach-Laufen                    Sparkasse Schwäbisch Hall  56029           01043409U000000000
 622500302Sparkasse Schwäbisch Hall-Crailsheim                      74547Untermünkheim                      Sparkasse Schwäbisch Hall  56029           01043410U000000000
 622500302Sparkasse Schwäbisch Hall-Crailsheim                      74541Vellberg                           Sparkasse Schwäbisch Hall  56029           01043411U000000000
-622501821Baden-Württemb.Bank/Landesbank Baden-Württemb.            74506Schwäbisch Hall                    BW-Bank/LBBW Schwäb. Hall       SOLADEST41601052512U160050101
 622515501Sparkasse Hohenlohekreis                                  74641Künzelsau                          Sparkasse Hohenlohekreis   56027SOLADES1KUN01001599U000000000
 622515502Sparkasse Hohenlohekreis                                  74679Weißbach, Württ                    Sparkasse Hohenlohekreis   56027           01001449U000000000
 622515502Sparkasse Hohenlohekreis                                  74238Krautheim, Jagst                   Sparkasse Hohenlohekreis   56027           01001478U000000000
@@ -10441,11 +10236,10 @@ namespace :squirrels do
 630101112SEB                                                       73033Göppingen                          SEB Göppingen              25905ESSEDE5F63213005347U000000000
 630101112SEB                                                       88045Friedrichshafen                    SEB Friedrichshafen        25905ESSEDE5F63113005619U000000000
 630200861UniCredit Bank - HypoVereinsbank                          89002Ulm, Donau                         UniCredit Bank-HypoVereinbk22090HYVEDEMM46199034833U000000000
-630200862UniCredit Bank - HypoVereinsbank                          89202Neu-Ulm                            UniCredit Bank-HypoVereinbk22090HYVEDEMM46199000098U000000000
-630200862UniCredit Bank - HypoVereinsbank                          89258Weißenhorn                         UniCredit Bank-HypoVereinbk22090HYVEDEMM46199030667U000000000
+630200862UniCredit Bank - HypoVereinsbank                          89202Neu-Ulm                            UniCredit Bank-HypoVereinbk22090HYVEDEMM46199000098D000000000
+630200862UniCredit Bank - HypoVereinsbank                          89258Weißenhorn                         UniCredit Bank-HypoVereinbk22090HYVEDEMM46199030667D000000000
 630200862UniCredit Bank - HypoVereinsbank                          89251Illertissen                        UniCredit Bank-HypoVereinbk22090HYVEDEMM46199032384U000000000
-630200862UniCredit Bank - HypoVereinsbank                          88381Biberach an der Riß                UniCredit Bank-HypoVereinbk22090HYVEDEMM46199033398U000000000
-630201301Baden-Württembergische Bank                               89032Ulm, Donau                         BW Bank Ulm Donau          25056SOLADEST63065000568D000000000
+630200862UniCredit Bank - HypoVereinsbank                          88381Biberach an der Riß                UniCredit Bank-HypoVereinbk22090HYVEDEMM46199033398D000000000
 630400531Commerzbank                                               89005Ulm, Donau                         Commerzbank Ulm Donau      24630COBADEFFXXX13010245U000000000
 630400532Commerzbank                                               89203Neu-Ulm                            Commerzbank Neu-Ulm        24630           13010224U000000000
 630400532Commerzbank                                               89584Ehingen (Donau)                    Commerzbank Ehingen Donau  24630           13043134U000000000
@@ -10485,8 +10279,7 @@ namespace :squirrels do
 630500002Sparkasse Ulm                                             89607Emerkingen                         Sparkasse Ulm              56025           01034807U000000000
 630500002Sparkasse Ulm                                             89614Öpfingen                           Sparkasse Ulm              56025           01034819U000000000
 630500002Sparkasse Ulm                                             88481Balzheim                           Sparkasse Ulm              56025           01037874U000000000
-630500002Sparkasse Ulm                                             89597Hausen am Bussen                   Sparkasse Ulm              56025           01043681U000000000
-630501811Baden-Württemb.Bank/Landesbank Baden-Württemb.            89073Ulm, Donau                         BW-Bank/LBBW Ulm                SOLADEST44001007180M160050101
+630500002Sparkasse Ulm                                             89597Hausen am Bussen                   Sparkasse Ulm              56025           01043681D000000000
 630614861VR-Bank Langenau-Ulmer Alb                                89121Langenau, Württ                    VR-Bank Langenau-Ulmer Alb 66094GENODES1LBK10020870U000000000
 630614862VR-Bank Langenau-Ulmer Alb                                89176Asselfingen                        VR-Bank Langenau-Ulmer Alb 66094           10019909U000000000
 630614862VR-Bank Langenau-Ulmer Alb                                89183Holzkirch                          VR-Bank Langenau-Ulmer Alb 66094           10020018U000000000
@@ -10572,7 +10365,6 @@ namespace :squirrels do
 632912101Giengener Volksbank -alt-                                 89527Giengen an der Brenz               Giengener Volksbank -alt-  96085GENODES1GVB19021348U000000000
 632912102Giengener Volksbank (Gf P2)                               89527Giengen an der Brenz               Giengener Volksbank        86085           19054377U000000000
 640000001Bundesbank                                                72711Reutlingen                         BBk Reutlingen             20640MARKDEF164009011570U000000000
-640200301Baden-Württembergische Bank                               72702Reutlingen                         BW Bank Reutlingen         25057SOLADEST64065000569D000000000
 640201861UniCredit Bank - HypoVereinsbank                          72702Reutlingen                         UniCredit Bank-HypoVereinbk22099HYVEDEMM37499044617U000000000
 640400331Commerzbank                                               72701Reutlingen                         Commerzbank Reutlingen     24608COBADEFFXXX13010251U000000000
 640400451Commerzbank                                               72555Metzingen, Württ                   Commerzbank Metzingen Würt 24609COBADEFFXXX13037630U000000000
@@ -10602,16 +10394,15 @@ namespace :squirrels do
 640500002Kreissparkasse Reutlingen                                 72827Wannweil                           Kr Spk Reutlingen          56007           01002715U000000000
 640500002Kreissparkasse Reutlingen                                 72661Grafenberg, Württ                  Kr Spk Reutlingen          56007           01003420U000000000
 640500002Kreissparkasse Reutlingen                                 72818Trochtelfingen, Hohenz             Kr Spk Reutlingen          56007           01003754U000000000
-640501811Baden-Württemb.Bank/Landesbank Baden-Württemb.            72764Reutlingen                         BW-Bank/LBBW Reutlingen         SOLADEST46001003789M160050101
-640618541VR Bank Steinlach-Wiesaz-Härten                           72810Gomaringen                         VR Steinlach-Wiesaz-Härten 66694GENODES1STW10019578U000000000
+640618541VR Bank Steinlach-Wiesaz-Härten                           72116Mössingen                          VR Steinlach-Wiesaz-Härten 66694GENODES1STW10019578U000000000
 640618542VR Bank Steinlach-Wiesaz-Härten                           72770Reutlingen                         VR Steinlach-Wiesaz-Härten 66694           10019489U000000000
 640618542VR Bank Steinlach-Wiesaz-Härten                           72144Dußlingen                          VR Steinlach-Wiesaz-Härten 66694           10019517U000000000
 640618542VR Bank Steinlach-Wiesaz-Härten                           72147Nehren, Württ                      VR Steinlach-Wiesaz-Härten 66694           10019698U000000000
 640618542VR Bank Steinlach-Wiesaz-Härten                           72131Ofterdingen                        VR Steinlach-Wiesaz-Härten 66694           10019726U000000000
-640618542VR Bank Steinlach-Wiesaz-Härten (Gf P2)                   72810Gomaringen                         VR Steinlach-Wiesaz-Härten 76694           10054378U000000000
+640618542VR Bank Steinlach-Wiesaz-Härten (Gf P2)                   72116Mössingen                          VR Steinlach-Wiesaz-Härten 76694           10054378U000000000
 640618542VR Bank Steinlach-Wiesaz-Härten                           72127Kusterdingen                       VR Steinlach-Wiesaz-Härten 66694           10054955U000000000
 640618542VR Bank Steinlach-Wiesaz-Härten                           72411Bodelshausen                       VR Steinlach-Wiesaz-Härten 66694           10056422U000000000
-640618542VR Bank Steinlach-Wiesaz-Härten                           72116Mössingen                          VR Steinlach-Wiesaz-Härten 66694           10056423U000000000
+640618542VR Bank Steinlach-Wiesaz-Härten                           72810Gomaringen                         VR Steinlach-Wiesaz-Härten 66694           10056423U000000000
 640700241Deutsche Bank Privat und Geschäftskunden                  72704Reutlingen                         Deutsche Bank PGK Reutlinge21253DEUTDEDB64063050236U000000000
 640700242Deutsche Bank Privat und Geschäftskunden                  72231Freudenstadt                       Deutsche Bank PGK Freudenst21253DEUTDEDB64663050232U000000000
 640700242Deutsche Bank Privat und Geschäftskunden                  72542Metzingen, Württ                   Deutsche Bank PGK Metzingen21253DEUTDEDB63463050233U000000000
@@ -10637,20 +10428,19 @@ namespace :squirrels do
 640901002Volksbank Reutlingen Fil. Pfullingen                      72793Pfullingen                         Volksbank Reutlingen       96020           10022730U000000000
 640901002Volksbank Reutlingen Fil. Pliezhausen                     72124Pliezhausen                        Volksbank Reutlingen       96020           10037889U000000000
 640901002Volksbank Reutlingen (Gf P2)                              72774Reutlingen                         Volksbank Reutlingen       86020           10054379U000000000
-640912001Volksbank Metzingen-Bad Urach                             72555Metzingen, Württ                   VB Metzingen-Bad Urach     96077GENODES1MTZ10022092U000000000
-640912002Volksbank Metzingen-Bad Urach                             72581Dettingen an der Erms              VB Metzingen-Bad Urach     96077           10021761U000000000
-640912002Volksbank Metzingen-Bad Urach                             72585Riederich                          VB Metzingen-Bad Urach     96077           10022593U000000000
-640912002Volksbank Metzingen-Bad Urach                             72574Bad Urach                          VB Metzingen-Bad Urach     96077           10052384U000000000
-640912002Volksbank Metzingen-Bad Urach                             72766Reutlingen                         VB Metzingen-Bad Urach     96077           10052480U000000000
-640912002Volksbank Metzingen-Bad Urach                             72813St. Johann, Württ                  VB Metzingen-Bad Urach     96077           10052481U000000000
-640912002Volksbank Metzingen-Bad Urach (Gf P2)                     72555Metzingen, Württ                   VB Metzingen-Bad Urach     86077           10054380U000000000
-640913001Volksbank Münsingen                                       72525Münsingen, Württ                   Volksbank Münsingen        96093GENODES1MUN10021851M000000000
-640913002Volksbank Münsingen Zw                                    72534Hayingen                           Volksbank Münsingen        96093           10019611U000000000
-640913002Volksbank Münsingen Zw                                    72539Pfronstetten                       Volksbank Münsingen        96093           10019739U000000000
-640913002Volksbank Münsingen Zw                                    88499Emeringen                          Volksbank Münsingen        96093           10019962U000000000
-640913002Volksbank Münsingen Zw Zwiefalten                         88529Zwiefalten, Württ                  Volksbank Münsingen        96093           10022452U000000000
-640913002Volksbank Münsingen (Gf P2)                               72525Münsingen, Württ                   Volksbank Münsingen        86093           10054381M000000000
-641200301Baden-Württembergische Bank                               72017Tübingen                           BW Bank Tübingen           25058SOLADEST64165000571D000000000
+640912001Volksbank Ermstal-Alb                                     72555Metzingen                          Volksbank Ermstal-Alb      96077GENODES1MTZ10022092M000000000
+640912002Volksbank Ermstal-Alb                                     72581Dettingen an der Erms              Volksbank Ermstal-Alb      96077           10021761M000000000
+640912002Volksbank Ermstal-Alb                                     72585Riederich                          Volksbank Ermstal-Alb      96077           10022593M000000000
+640912002Volksbank Ermstal-Alb                                     72574Bad Urach                          Volksbank Ermstal-Alb      96077           10052384M000000000
+640912002Volksbank Ermstal-Alb                                     72766Reutlingen                         Volksbank Ermstal-Alb      96077           10052480M000000000
+640912002Volksbank Ermstal-Alb                                     72813St. Johann                         Volksbank Ermstal-Alb      96077           10052481M000000000
+640912002Volksbank Ermstal-Alb (Gf P2)                             72555Metzingen                          Volksbank Ermstal-Alb      86077           10054380M000000000
+640913001Volksbank Münsingen                                       72525Münsingen, Württ                   Volksbank Münsingen        96093GENODES1MUN10021851U000000000
+640913002Volksbank Münsingen Zw                                    72534Hayingen                           Volksbank Münsingen        96093           10019611D000000000
+640913002Volksbank Münsingen Zw                                    72539Pfronstetten                       Volksbank Münsingen        96093           10019739D000000000
+640913002Volksbank Münsingen Zw                                    88499Emeringen                          Volksbank Münsingen        96093           10019962D000000000
+640913002Volksbank Münsingen Zw Zwiefalten                         88529Zwiefalten, Württ                  Volksbank Münsingen        96093           10022452D000000000
+640913002Volksbank Münsingen (Gf P2)                               72525Münsingen, Württ                   Volksbank Münsingen        86093           10054381U000000000
 641400361Commerzbank Tübingen                                      72002Tübingen                           Commerzbank Tübingen       24612COBADEFFXXX13010244U000000000
 641500201Kreissparkasse Tübingen                                   72008Tübingen                           Kr Spk Tübingen            56008SOLADES1TUB01002683U000000000
 641500202Kreissparkasse Tübingen                                   72181Starzach                           Kr Spk Tübingen            56008           01001498U000000000
@@ -10667,7 +10457,6 @@ namespace :squirrels do
 641500202Kreissparkasse Tübingen                                   72138Kirchentellinsfurt                 Kr Spk Tübingen            56008           01002664U000000000
 641500202Kreissparkasse Tübingen                                   72127Kusterdingen                       Kr Spk Tübingen            56008           01002677U000000000
 641500202Kreissparkasse Tübingen                                   72131Ofterdingen                        Kr Spk Tübingen            56008           01003165U000000000
-641501821Baden-Württemb.Bank/Landesbank Baden-Württemb.            72070Tübingen                           BW-Bank/LBBW Tübingen           SOLADEST47001006436M160050101
 641613971Volksbank Ammerbuch                                       72117Ammerbuch                          Volksbank Ammerbuch        66085GENODES1AMM10019534U000000000
 641613972Volksbank Ammerbuch Zw                                    72108Rottenburg am Neckar               Volksbank Ammerbuch        66085           10019715U000000000
 641613972Volksbank Ammerbuch Zw                                    72070Tübingen                           Volksbank Ammerbuch        66085           10019826U000000000
@@ -10677,19 +10466,20 @@ namespace :squirrels do
 641619561Volksbank Mössingen -alt-                                 72110Mössingen                          Volksbank Mössingen -alt-  66137GENODES1VMO10019694U000000000
 641619562Volksbank                                                 72411Bodelshausen                       Volksbank Mössingen        66137           10019476U000000000
 641619562Volksbank (Gf P2)                                         72110Mössingen                          Volksbank Mössingen        76137           10054384U000000000
-641632251Volksbank Hohenzollern                                    72379Hechingen                          Volksbank Hohenzollern     66226GENODES1VHZ10019593U000000000
-641632252Volksbank Hohenzollern                                    72403Bisingen b Hechingen               Volksbank Hohenzollern     66226           10019468U000000000
-641632252Volksbank Hohenzollern                                    72394Haigerloch                         Volksbank Hohenzollern     66226           10019483U000000000
-641632252Volksbank Hohenzollern                                    72393Burladingen                        Volksbank Hohenzollern     66226           10019492U000000000
-641632252Volksbank Hohenzollern                                    72415Grosselfingen b Hechingen          Volksbank Hohenzollern     66226           10019583U000000000
-641632252Volksbank Hohenzollern                                    72348Rosenfeld, Württ                   Volksbank Hohenzollern     66226           10019612U000000000
-641632252Volksbank Hohenzollern                                    72412Rangendingen                       Volksbank Hohenzollern     66226           10019742U000000000
-641632252Volksbank Hohenzollern                                    72417Jungingen b Hechingen              Volksbank Hohenzollern     66226           10035849U000000000
-641632252Volksbank Hohenzollern                                    72497Gammertingen                       Volksbank Hohenzollern     66226           10051786U000000000
-641632252Volksbank Hohenzollern                                    72513Hettingen, Kr Sigmaringen          Volksbank Hohenzollern     66226           10051787U000000000
-641632252Volksbank Hohenzollern                                    72419Neufra, Hohenz                     Volksbank Hohenzollern     66226           10051788U000000000
-641632252Volksbank Hohenzollern                                    72519Veringenstadt                      Volksbank Hohenzollern     66226           10051789U000000000
-641632252Volksbank Hohenzollern (Gf P2)                            72379Hechingen                          Volksbank Hohenzollern     76226           10054385U000000000
+641632251Volksbank Hohenzollern-Balingen                           72336Balingen                           VB Hohenzollern-Balingen   66226GENODES1VHZ10019593M000000000
+641632252Volksbank Hohenzollern-Balingen                           72403Bisingen                           VB Hohenzollern-Balingen   66226           10019468M000000000
+641632252Volksbank Hohenzollern-Balingen                           72394Haigerloch                         VB Hohenzollern-Balingen   66226           10019483M000000000
+641632252Volksbank Hohenzollern-Balingen                           72393Burladingen                        VB Hohenzollern-Balingen   66226           10019492M000000000
+641632252Volksbank Hohenzollern-Balingen                           72415Grosselfingen                      VB Hohenzollern-Balingen   66226           10019583M000000000
+641632252Volksbank Hohenzollern-Balingen                           72348Rosenfeld                          VB Hohenzollern-Balingen   66226           10019612M000000000
+641632252Volksbank Hohenzollern-Balingen                           72412Rangendingen                       VB Hohenzollern-Balingen   66226           10019742M000000000
+641632252Volksbank Hohenzollern-Balingen                           72417Jungingen                          VB Hohenzollern-Balingen   66226           10035849M000000000
+641632252Volksbank Hohenzollern-Balingen                           72497Gammertingen                       VB Hohenzollern-Balingen   66226           10051786M000000000
+641632252Volksbank Hohenzollern-Balingen                           72513Hettingen                          VB Hohenzollern-Balingen   66226           10051787M000000000
+641632252Volksbank Hohenzollern-Balingen                           72419Neufra                             VB Hohenzollern-Balingen   66226           10051788M000000000
+641632252Volksbank Hohenzollern-Balingen                           72519Veringenstadt                      VB Hohenzollern-Balingen   66226           10051789M000000000
+641632252Volksbank Hohenzollern-Balingen (Gf P2)                   72336Balingen                           VB Hohenzollern-Balingen   76226           10054385M000000000
+641632252Volksbank Hohenzollern-Balingen                           72379Hechingen                          VB Hohenzollern-Balingen   66226           10056663A000000000
 641800141Commerzbank vormals Dresdner Bank                         72003Tübingen                           Commerzbank Tübingen       28641DRESDEFF64176006739U000000000
 641901101Volksbank Tübingen                                        72016Tübingen                           Volksbank Tübingen         96028GENODES1TUE10022548U000000000
 641901102Volksbank Tübingen Zw Kirchentellinsfurt                  72138Kirchentellinsfurt                 Volksbank Tübingen         96028           10022204U000000000
@@ -10701,7 +10491,6 @@ namespace :squirrels do
 641912101Volksbank Altensteig -alt-                                72213Altensteig, Württ                  Volksbank Altensteig -alt- 96086           10021527U100000000
 641917001Volksbank Horb -alt-                                      72151Horb am Neckar                     Volksbank Horb -alt-       96147GENODES1HOR10022136U100000000
 641917002Volksbank Horb (Gf P2)                                    72151Horb am Neckar                     Volksbank Horb             86147           10054388U000000000
-642320001Bankhaus J. Faißt                                         78713Schramberg                         Faißtbank Schramberg       26065           09029596U000000000
 642400481Commerzbank                                               78647Trossingen                         Commerzbank TR F-T48       24948COBADEFFXXX13055608U000000000
 642400711Commerzbank                                               78628Rottweil                           Commerzbank Rottweil       24694COBADEFFXXX13035879U000000000
 642500401Kreissparkasse Rottweil                                   78614Rottweil                           Kr Spk Rottweil            56017SOLADES1RWL01001628U000000000
@@ -10760,8 +10549,8 @@ namespace :squirrels do
 642910102Volksbank Horb-Freudenstadt                               72290Loßburg                            VB Horb-Freudenstadt       96063           10055783U000000000
 642910102Volksbank Horb-Freudenstadt                               72151Horb am Neckar                     VB Horb-Freudenstadt       96063           10055784U000000000
 642910102Volksbank Horb-Freudenstadt                               72293Glatten                            VB Horb-Freudenstadt       96063           10055785U000000000
-642914201Volksbank Deisslingen                                     78652Deißlingen, Neckar                 Volksbank Deisslingen      96118GENODES1VDL10021753M000000000
-642914202Volksbank Deisslingen (Gf P2)                             78652Deißlingen, Neckar                 Volksbank Deisslingen      86118           10054395M000000000
+642914201Volksbank Deisslingen                                     78652Deißlingen, Neckar                 Volksbank Deisslingen      96118GENODES1VDL10021753U000000000
+642914202Volksbank Deisslingen (Gf P2)                             78652Deißlingen, Neckar                 Volksbank Deisslingen      86118           10054395U000000000
 642920201Volksbank Schwarzwald-Neckar                              78713Schramberg                         VB Schwarzwald-Neckar      96163GENODES1SBG10022676U000000000
 642920202Volksbank Schwarzwald-Neckar                              78655Dunningen, Württ                   VB Schwarzwald-Neckar      96163           10019783U000000000
 642920202Volksbank Schwarzwald-Neckar                              78733Aichhalden b Schramberg            VB Schwarzwald-Neckar      96163           10021787U000000000
@@ -10844,9 +10633,6 @@ namespace :squirrels do
 643901302Volksbank Donau-Neckar                                    78026Villingen-Schwenningen             Volksbank Donau-Neckar     96034           10053413U000000000
 643901302Volksbank Donau-Neckar                                    78560Wehingen, Württ                    Volksbank Donau-Neckar     96034           10053414U000000000
 643901302Volksbank Donau-Neckar (Gf P2)                            78513Tuttlingen                         Volksbank Donau-Neckar     86034           10054399U000000000
-644200301Baden-Württembergische Bank                               78019Villingen-Schwenningen             BW Bank VS-Schwenningen    25059SOLADEST64465036703D000000000
-644502881Baden-Württemb.Bank/Landesbank Baden-Württemb.            78054Villingen-Schwenningen             BW-Bank/LBBW Vill.-Schwen.      SOLADEST48001005475M160050101
-650200301Baden-Württembergische Bank                               88194Ravensburg, Württ                  BW Bank Ravensburg         25060SOLADEST65065000573D000000000
 650201861UniCredit Bank - HypoVereinsbank                          88181Ravensburg, Württ                  UniCredit Bank-HypoVereinbk22070HYVEDEMM58899035206U000000000
 650400731Commerzbank                                               88212Ravensburg, Württ                  Commerzbank Ravensburg     24635COBADEFFXXX13032628U000000000
 650400732Commerzbank                                               88340Bad Saulgau                        Commerzbank Saulgau        24635           13056099U000000000
@@ -10879,7 +10665,6 @@ namespace :squirrels do
 650501102Kreissparkasse Ravensburg                                 88353Kißlegg                            Kr Spk Ravensburg          56016           01004241U000000000
 650501102Kreissparkasse Ravensburg                                 88299Leutkirch im Allgäu                Kr Spk Ravensburg          56016           01005111U000000000
 650501102Kreissparkasse Ravensburg                                 88255Baindt, Württ                      Kr Spk Ravensburg          56016           01041011U000000000
-650502811Baden-Württemb.Bank/Landesbank Baden-Württemb.            88214Ravensburg, Württ                  BW-Bank/LBBW Ravensburg         SOLADEST45001006430M160050101
 650612191Raiffeisenbank Aulendorf                                  88326Aulendorf, Württ                   Raiffbk Aulendorf          66059GENODES1AUL10019438U000000000
 650612192Raiffeisenbank Aulendorf (Gf P2)                          88326Aulendorf, Württ                   Raiffbk Aulendorf          76059           10054400U000000000
 650625771Raiffeisenbank Ravensburg                                 88263Horgenzell                         Raiffeisenbank Ravensburg  66670GENODES1RRV10019643U000000000
@@ -10985,7 +10770,6 @@ namespace :squirrels do
 653400041Commerzbank                                               72426Albstadt, Württ                    Commerzbank Albstadt       24691COBADEFFXXX13013604U000000000
 653400042Commerzbank                                               72482Sigmaringen                        Commerzbank Sigmaringen    24691           13044602U000000000
 653412041Commerzbank                                               72302Balingen                           Commerzbank Balingen       24692COBADEFFXXX13011256U000000000
-653501861Baden-Württemb.Bank/Landesbank Baden-Württemb.            72458Albstadt, Württ                    BW-Bank/LBBW Albstadt           SOLADEST47601052699M160050101
 653510501Hohenz Landesbank Kreissparkasse Sigmaringen              72484Sigmaringen                        Ld Bk Kr Spk Sigmaringen   56012SOLADES1SIG01003759U000000000
 653510502Hohenz Landesbank Kreissparkasse Sigmaringen              78355Hohenfels b Stockach               Ld Bk Kr Spk Sigmaringen   56012           01003302U000000000
 653510502Hohenz Landesbank Kreissparkasse Sigmaringen              72514Inzigkofen                         Ld Bk Kr Spk Sigmaringen   56012           01003305U000000000
@@ -11050,7 +10834,7 @@ namespace :squirrels do
 653901202Volksbank Albstadt                                        72506Stetten am kalten Markt            Volksbank Albstadt         96032           10024181U000000000
 653901202Volksbank Albstadt                                        72361Hausen am Tann                     Volksbank Albstadt         96032           10038511U000000000
 653901202Volksbank Albstadt (Gf P2)                                72424Albstadt, Württ                    Volksbank Albstadt         86032           10054418U000000000
-653912101Volksbank Balingen                                        72311Balingen                           Volksbank Balingen         96087GENODES1BAL10021588U000000000
+653912101Volksbank Balingen -alt-                                  72336Balingen                           Volksbank Balingen -alt-   96087GENODES1BAL10021588M000000000
 653912102Volksbank Balingen                                        72379Hechingen                          Volksbank Balingen         96087           10022290U000000000
 653912102Volksbank Balingen                                        72348Rosenfeld, Württ                   Volksbank Balingen         96087           10052734U000000000
 653912102Volksbank Balingen (Gf P2)                                72311Balingen                           Volksbank Balingen         86087           10054419U000000000
@@ -11087,11 +10871,17 @@ namespace :squirrels do
 654500702Kreissparkasse Biberach                                   88527Unlingen                           Kr Spk Biberach            56011           01007599U000000000
 654500702Kreissparkasse Biberach                                   88444Ummendorf, Kr Biberach an der Riß  Kr Spk Biberach            56011           01007600U000000000
 654500702Kreissparkasse Biberach                                   88451Dettingen an der Iller             Kr Spk Biberach            56011           01035538U000000000
-654618781Raiffeisenbank Risstal                                    88445Warthausen an der Riß              Raiffbk Risstal            66132GENODES1WAR10019842U000000000
-654618782Raiffeisenbank Risstal (Gf P2)                            88445Warthausen an der Riß              Raiffbk Risstal            76132           10054421U000000000
+654618781Raiffeisenbank Riss-Umlach                                88444Ummendorf                          Raiffeisenbank Riss-Umlach 66132GENODES1WAR10019842M000000000
+654618782Raiffeisenbank Riss-Umlach (Gf P2)                        88444Ummendorf                          Raiffeisenbank Riss-Umlach 76132           10054421M000000000
+654618782Raiffeisenbank Riss-Umlach                                88447Warthausen                         Raiffeisenbank Riss-Umlach 66132           10056665A000000000
+654618782Raiffeisenbank Riss-Umlach                                88436Eberhardzell                       Raiffeisenbank Riss-Umlach 66132           10056667A000000000
+654618782Raiffeisenbank Riss-Umlach                                88454Hochdorf                           Raiffeisenbank Riss-Umlach 66132           10056668A000000000
+654618782Raiffeisenbank Riss-Umlach                                88400Biberach an der Riß                Raiffeisenbank Riss-Umlach 66132           10056669A000000000
+654618782Raiffeisenbank Riss-Umlach                                88471Laupheim                           Raiffeisenbank Riss-Umlach 66132           10056670A000000000
+654618782Raiffeisenbank Riss-Umlach                                88437Maselheim                          Raiffeisenbank Riss-Umlach 66132           10056671A000000000
+654618782Raiffeisenbank Riss-Umlach                                88441Mittelbiberach                     Raiffeisenbank Riss-Umlach 66132           10056672A000000000
 654622311Raiffeisenbank Illertal -alt-                             88453Erolzheim, Kr Biberach an der Riß  Raiffbk Illertal -alt-     66154GENODES1ERO10019540U100000000
 654622312Raiffeisenbank Illertal (Gf P2)                           88453Erolzheim, Kr Biberach an der Riß  Raiffeisenbank Illertal    76154           10054422U000000000
-654901301Volksbank Ulm-Biberach                                    88388Biberach an der Riß                Volksbank Biberach         96035ULMVDE66XXX10021631D063090100
 654913201Volksbank Raiffeisenbank Laupheim-Illertal                88471Laupheim                           VR Laupheim-Illertal       96104GENODES1VBL10021998U000000000
 654913202Volksbank Raiffeisenbank Laupheim-Illertal                89155Erbach, Donau                      VR Laupheim-Illertal       96104           10021757U000000000
 654913202Volksbank Raiffeisenbank Laupheim-Illertal                88489Wain                               VR Laupheim-Illertal       96104           10022339U000000000
@@ -11115,6 +10905,7 @@ namespace :squirrels do
 654915102Volksbank-Raiffeisenbank Riedlingen Zw Dürmentingen       88525Dürmentingen                       VB-Raiffbk Riedlingen      96134           10022102U000000000
 654915102Volksbank-Raiffeisenbank Riedlingen Zw Unlingen           88527Unlingen                           VB-Raiffbk Riedlingen      96134           10035834U000000000
 654915102Volksbank-Raiffeisenbank Riedlingen (Gf P2)               88499Riedlingen, Württ                  VB-Raiffbk Riedlingen      86134           10054425U000000000
+654915102Volksbank-Raiffeisenbank Riedlingen Zw Langenselingen     88515Langenenslingen                    VB-Raiffbk Riedlingen      96134           10056664A000000000
 660000001Bundesbank                                                76231Karlsruhe, Baden                   BBk Karlsruhe              20660MARKDEF166009011511U000000000
 660100751Postbank                                                  76127Karlsruhe, Baden                   Postbank Karlsruhe         10075PBNKDEFFXXX24013526U000000000
 660101111SEB                                                       76133Karlsruhe, Baden                   SEB Karlsruhe              25849ESSEDE5F66013005630U000000000
@@ -11124,9 +10915,10 @@ namespace :squirrels do
 660107002Landeskreditbank Baden-Württemberg Förderbank             70025Stuttgart                          L-Bank                     25666           09053662U000000000
 660200201Baden-Württembergische Bank                               76005Karlsruhe, Baden                   BW Bank Karlsruhe          25061SOLADEST66365000552U000000000
 660202861UniCredit Bank - HypoVereinsbank                          76003Karlsruhe, Baden                   UniCredit Bank-HypoVereinbk22041HYVEDEMM47599040977U000000000
-660202862UniCredit Bank - HypoVereinsbank                          75108Pforzheim                          UniCredit Bank-HypoVereinbk22041HYVEDEMM47599041142U000000000
+660202862UniCredit Bank - HypoVereinsbank                          75108Pforzheim                          UniCredit Bank-HypoVereinbk22041HYVEDEMM47599041142D000000000
 660202862UniCredit Bank - HypoVereinsbank                          76481Baden-Baden                        UniCredit Bank-HypoVereinbk22041HYVEDEMM47599050513U000000000
 660205001Bank für Sozialwirtschaft                                 76003Karlsruhe, Baden                   Bank für Sozialwirtschaft  25010BFSWDE33KRL09043748U000000000
+660205661Bank für Sozialwirtschaft                                 76131Karlsruhe                          Sozialbank Karlsruhe            BFSWDE33K6009056658U000000000
 660306001Isbank Fil Karlsruhe                                      76133Karlsruhe, Baden                   Isbank Karlsruhe           29840ISBKDEFXKRL06048589U000000000
 660400181Commerzbank                                               76007Karlsruhe, Baden                   Commerzbank Karlsruhe      24660COBADEFFXXX13010227U000000000
 660400182Commerzbank                                               76256Ettlingen                          Commerzbank Ettlingen      24660           13010208U000000000
@@ -11138,9 +10930,8 @@ namespace :squirrels do
 660600001DZ BANK                                                   76049Karlsruhe, Baden                   DZ BANK                    66002GENODE6KXXX09015008U000000000
 660603001Spar- und Kreditbank                                      76036Karlsruhe, Baden                   Spar- und Kreditbank       66679GENODE61KA306015339U000000000
 660603002Spar- und Kreditbank (Gf P2)                              76036Karlsruhe, Baden                   Spar- und Kreditbank       76679           06054426U000000000
-660608001Evangelische Kreditgenossenschaft Filiale Karlsruhe -alt- 76010Karlsruhe, Baden                   EKK Karlsruhe -alt-             GENODEF1EK532044529U152060410
-660610591Volksbank Stutensee Hardt -alt-                           76297Stutensee                          VB Stutensee Hardt -alt-   66683GENODE61SBA06014979U166061724
-660610592Volksbank Stutensee Hardt (Gf P2)                         76297Stutensee                          VB Stutensee Hardt         76683           06054427U000000000
+660610591Volksbank Stutensee Hardt -alt-                           76297Stutensee                          VB Stutensee Hardt -alt-   66683GENODE61SBA06014979D066061724
+660610592Volksbank Stutensee Hardt (Gf P2)                         76297Stutensee                          VB Stutensee Hardt         76683           06054427D000000000
 660614071Spar- und Kreditbank                                      76287Rheinstetten, Baden                Spar- u Kreditbk Rheinstett66667GENODE61RH206015405U000000000
 660614072Spar- und Kreditbank (Gf P2)                              76287Rheinstetten, Baden                Spar- u Kreditbk Rheinstett76667           06054428U000000000
 660617241Volksbank Stutensee-Weingarten                            76288Stutensee                          VB Stutensee-Weingarten    66114GENODE61WGA06015673U000000000
@@ -11234,7 +11025,6 @@ namespace :squirrels do
 660912002Volksbank Ettlingen (Gf P2)                               76263Ettlingen                          Volksbank Ettlingen        86078           06054436U000000000
 661900001Volksbank Karlsruhe                                       76045Karlsruhe, Baden                   Volksbank Karlsruhe        96001GENODE61KA106023640U000000000
 661900002Volksbank Karlsruhe (Gf P2)                               76045Karlsruhe, Baden                   Volksbank Karlsruhe        86001           06054437U000000000
-662200201Baden-Württembergische Bank                               76486Baden-Baden                        BW Bank Baden-Baden        25076SOLADEST66265044123D000000000
 662400021Commerzbank                                               76481Baden-Baden                        Commerzbank Baden-Baden    24661COBADEFFXXX13011260U000000000
 662400022Commerzbank                                               77815Bühl, Baden                        Commerzbank Bühl Baden     24661           13056102U000000000
 662500301Sparkasse Baden-Baden Gaggenau                            76530Baden-Baden                        Spk Baden-Baden Gaggenau   56604SOLADES1BAD00001002U000000000
@@ -11340,7 +11130,6 @@ namespace :squirrels do
 663916002Volksbank Bruhrain-Kraich-Hardt                           76673Graben-Neudorf                     VB Bruhrain-Kraich-Hardt   96143           06024004U000000000
 663916002Volksbank Bruhrain-Kraich-Hardt                           68753Waghäusel                          VB Bruhrain-Kraich-Hardt   96143           06024359U000000000
 663916002Volksbank Bruhrain-Kraich-Hardt (Gf P2)                   68790Oberhausen-Rheinhausen             VB Bruhrain-Kraich-Hardt   86143           06054445U000000000
-664200201Baden-Württembergische Bank                               77602Offenburg                          BW Bank Offenburg          25077SOLADEST66465044313D000000000
 664327001Bankhaus J. Faißt                                         77706Wolfach                            Faißtbank Wolfach          26066FAITDE66XXX09011074U000000000
 664400841Commerzbank                                               77603Offenburg                          Commerzbank Offenburg      24683COBADEFFXXX13010218U000000000
 664500501Sparkasse Offenburg/Ortenau                               77662Offenburg                          Sparkasse Offenburg/Ortenau56611SOLADES1OFG03000674U000000000
@@ -11442,7 +11231,6 @@ namespace :squirrels do
 665500702Sparkasse Rastatt-Gernsbach                               76597Loffenau                           Sparkasse Rastatt-Gernsbach56619           00043835U000000000
 665500702Sparkasse Rastatt-Gernsbach                               76477Elchesheim-Illingen                Sparkasse Rastatt-Gernsbach56619           00044530U000000000
 665500702Sparkasse Rastatt-Gernsbach                               76479Steinmauern                        Sparkasse Rastatt-Gernsbach56619           00044531U000000000
-665512901Sparkasse Gaggenau-Kuppenheim -alt-                       76555Gaggenau                           Spk Gaggenau-Kuppenheim-alt56620SOLADES1GAG00000702D000000000
 665620531Raiffeisenbank Südhardt Durmersheim                       76448Durmersheim                        Rb Südhardt Durmersheim    66144GENODE61DUR06015079U000000000
 665620532Raiffeisenbank Südhardt Durmersheim                       76467Bietigheim, Baden                  Rb Südhardt Durmersheim    66144           06014974U000000000
 665620532Raiffeisenbank Südhardt Durmersheim                       76474Au am Rhein                        Raiffbk Südhardt Durmersh  66144           06015031U000000000
@@ -11460,10 +11248,9 @@ namespace :squirrels do
 665623002VR-Bank in Mittelbaden                                    76476Bischweier                         VR-Bank Mittelb Iffezheim  66164           06051732U000000000
 665623002VR-Bank in Mittelbaden (Gf P2)                            76471Iffezheim                          VR-Bank Mittelb Iffezheim  76164           06054449U000000000
 666101111SEB                                                       75175Pforzheim                          SEB Pforzheim              25886ESSEDE5F66613006697U000000000
-666200201Baden-Württembergische Bank                               75101Pforzheim                          BW Bank Pforzheim          25063SOLADEST66665000553D000000000
 666400351Commerzbank                                               75172Pforzheim                          Commerzbank Pforzheim      24607COBADEFFXXX13010248U000000000
 666400352Commerzbank                                               75405Mühlacker                          Commerzbank Mühlacker      24607           13056103U000000000
-666500851Sparkasse Pforzheim Calw                                  75172Pforzheim                          Sparkasse Pforzheim Calw   56624PZHSDE66XXX06000721M000000000
+666500851Sparkasse Pforzheim Calw                                  75172Pforzheim                          Sparkasse Pforzheim Calw   56624PZHSDE66XXX06000721U000000000
 666612441Raiffeisenbank Bauschlott                                 75245Neulingen, Enzkr                   Raiffeisenbank Bauschlott  66677GENODE61NBT06014967U000000000
 666612442Raiffeisenbank Bauschlott (Gf P2)                         75245Neulingen, Enzkr                   Raiffeisenbank Bauschlott  76677           06054450U000000000
 666613291Raiffeisenbank Kieselbronn                                75249Kieselbronn                        Raiffeisenbank Kieselbronn 66074GENODE61KBR06015345U000000000
@@ -11526,10 +11313,9 @@ namespace :squirrels do
 670101111SEB                                                       68161Mannheim                           SEB Mannheim               25864ESSEDE5F67013005632U000000000
 670101112SEB                                                       67059Ludwigshafen am Rhein              SEB Ludwigshafen Rhein     25864ESSEDE5F43513005656U000000000
 670101112SEB                                                       67547Worms                              SEB Worms                  25864ESSEDE5F67513006719U000000000
-670200201Baden-Württembergische Bank                               68053Mannheim                           BW Bank Mannheim           25064SOLADEST67165000554D000000000
 670201901UniCredit Bank - HypoVereinsbank                          68159Mannheim                           UniCredit Bank-HypoVereinbk22055HYVEDEMM48999032245U000000000
-670201902UniCredit Bank - HypoVereinsbank                          68701Schwetzingen                       UniCredit Bank-HypoVereinbk22055HYVEDEMM48999000173U000000000
-670201902UniCredit Bank - HypoVereinsbank                          68501Viernheim                          UniCredit Bank-HypoVereinbk22055HYVEDEMM48999043638U000000000
+670201902UniCredit Bank - HypoVereinsbank                          68701Schwetzingen                       UniCredit Bank-HypoVereinbk22055HYVEDEMM48999000173D000000000
+670201902UniCredit Bank - HypoVereinsbank                          68501Viernheim                          UniCredit Bank-HypoVereinbk22055HYVEDEMM48999043638D000000000
 670400311Commerzbank                                               68006Mannheim                           Commerzbank Mannheim       24670COBADEFFXXX13010237U000000000
 670400312Commerzbank                                               69442Weinheim, Bergstr                  Commerzbank Weinheim Bergst24670           13010241U000000000
 670400312Commerzbank                                               74872Sinsheim, Elsenz                   Commerzbank Sinsheim Elsenz24670           13018459U000000000
@@ -11546,7 +11332,6 @@ namespace :squirrels do
 670400601Commerzbank CC                                            68161Mannheim                           Commerzbank CC Mannheim         COBADEFFXXX09055819U000000000
 670400611Commerzbank CC                                            68161Mannheim                           Commerzbank CC Mannheim         COBADEFFXXX09055820U000000000
 670400851Commerzbank, Gf Web-K                                     68006Mannheim                           Commerzbank Gf WK, Mannheim     COBADEFFXXX13056373U000000000
-670500001Landesbank Baden-Württemberg                              68165Mannheim                           Landesbank Baden-Württ     56700SOLADEST67009000975D060050000
 670505051Sparkasse Rhein Neckar Nord                               68151Mannheim                           Spk Rhein Neckar Nord      56799MANSDE66XXX06050681U000000000
 670505052Sparkasse Rhein Neckar Nord                               69441Weinheim, Bergstr                  Spk Rhein Neckar Nord      56799           06056223U000000000
 670505052Sparkasse Rhein Neckar Nord                               68542Heddesheim, Baden                  Spk Rhein Neckar Nord      56799           06056224U000000000
@@ -11611,7 +11396,6 @@ namespace :squirrels do
 670923002Volksbank Weinheim (Gf P2)                                69451Weinheim, Bergstr                  Volksbank Weinheim         86174           06054463U000000000
 672101111SEB                                                       69115Heidelberg, Neckar                 SEB Heidelberg             25842ESSEDE5F67213005644U000000000
 672101112SEB                                                       74072Heilbronn, Neckar                  SEB Heilbronn Neckar       25842ESSEDE5F67313005649U000000000
-672200201Baden-Württembergische Bank                               69005Heidelberg, Neckar                 BW Bank Heidelberg         25065SOLADEST67265000555D000000000
 672202861UniCredit Bank - HypoVereinsbank                          69004Heidelberg, Neckar                 UniCredit Bank-HypoVereinbk22036HYVEDEMM47999034813U000000000
 672300001MLP Finanzdienstleistungen                                69168Wiesloch                           MLP FDL                    29102MLPBDE61XXX92049453U000000000
 672300011MLP Finanzdienstleistungen Zw CS                          69168Wiesloch                           MLP FDL Zw CS              99008MLPBDE6100192051485U000000000
@@ -11662,9 +11446,8 @@ namespace :squirrels do
 672900002Heidelberger Volksbank                                    69214Eppelheim, Baden                   Heidelberger Volksbank     96008           06022949U000000000
 672900002Heidelberger Volksbank                                    69221Dossenheim                         Heidelberger Volksbank     96008           06053352U000000000
 672900002Heidelberger Volksbank (Gf P2)                            69018Heidelberg, Neckar                 Heidelberger Volksbank     86008           06054467U000000000
-672901001Volksbank Kurpfalz H+G Bank                               69117Heidelberg, Neckar                 Volksbank Kurpfalz H+G Bank96023GENODE61HD306022901U000000000
-672901002Volksbank Kurpfalz H+G Bank                               69214Eppelheim, Baden                   Volksbank Kurpfalz H+G Bank96023           06049342U000000000
-672901002Volksbank Kurpfalz H+G Bank (Gf P2)                       69018Heidelberg, Neckar                 Volksbank Kurpfalz H+G Bank86023           06054468U000000000
+672901001Volksbank Kurpfalz                                        69117Heidelberg                         Volksbank Kurpfalz         96023GENODE61HD306022901U000000000
+672901002Volksbank Kurpfalz (Gf P2)                                69018Heidelberg                         Volksbank Kurpfalz         86023           06054468U000000000
 672917001Volksbank Neckartal                                       69401Eberbach, Baden                    Volksbank Neckartal        96148GENODE61NGD06023996U000000000
 672917002Volksbank Neckartal                                       69251Gaiberg, Baden                     Volksbank Neckartal        96148           06015120U000000000
 672917002Volksbank Neckartal                                       69256Mauer, Baden                       Volksbank Neckartal        96148           06015391U000000000
@@ -11699,8 +11482,6 @@ namespace :squirrels do
 672922001Volksbank Kraichgau Wiesloch-Sinsheim                     69157Wiesloch                           Volksbank Kraichgau        96167GENODE61WIE06024361U000000000
 672922002Volksbank Kraichgau Wiesloch-Sinsheim                     74889Sinsheim, Elsenz                   Volksbank Kraichgau        96167           06015263U000000000
 672922002Volksbank Kraichgau Wiesloch-Sinsheim (Gf P2)             69157Wiesloch                           Volksbank Kraichgau (Gf P2)86167           06054472U000000000
-673200201Baden-Württembergische Bank                               97877Wertheim a Main                    BW Bank Wertheim           25067SOLADEST62365000556D000000000
-673325511Baden-Württembergische Bank                               97932Tauberbischofsheim                 BW Bank Tauberbischofsheim 25068SOLADEST67565000513D000000000
 673525651Sparkasse Tauberfranken                                   97931Tauberbischofsheim                 Spk Tauberfranken          56714SOLADES1TBB00000784U000000000
 673525652Sparkasse Tauberfranken                                   97922Lauda-Königshofen                  Spk Tauberfranken          56714           00000772U000000000
 673525652Sparkasse Tauberfranken                                   97947Grünsfeld                          Spk Tauberfranken          56714           00000785U000000000
@@ -11720,7 +11501,7 @@ namespace :squirrels do
 673525652Sparkasse Tauberfranken                                   97993Creglingen                         Sparkasse Tauberfranken    56714           00053061U000000000
 673525652Sparkasse Tauberfranken                                   97996Niederstetten, Württ               Sparkasse Tauberfranken    56714           00053062U000000000
 673525652Sparkasse Tauberfranken                                   97990Weikersheim                        Sparkasse Tauberfranken    56714           00053063U000000000
-673625601Volksbank Tauber -alt-                                    97934Tauberbischofsheim                 Volksbank Tauber -alt-     66195GENODE61TBB06032525U000000000
+673625601Volksbank Tauber -alt-                                    97934Tauberbischofsheim                 Volksbank Tauber -alt-     66195GENODE61TBB06032525M100000000
 673900001Volksbank Main-Tauber                                     97866Wertheim a Main                    VB Main-Tauber             96009GENODE61WTH06024339U000000000
 673900002Volksbank Main-Tauber                                     97896Freudenberg, Baden                 VB Main-Tauber             96009           06014989U000000000
 673900002Volksbank Main-Tauber                                     97892Kreuzwertheim                      VB Main-Tauber             96009           06023711U000000000
@@ -11792,9 +11573,8 @@ namespace :squirrels do
 674624801Raiffeisenbank Schefflenz-Seckach -alt-                   74848Schefflenz                         Raiffbk Schefflenz -alt-   66187GENODE61SOB06015468U000000000
 680000001Bundesbank                                                79010Freiburg im Breisgau               BBk Freiburg im Breisgau   20680MARKDEF168009011481U000000000
 680101111SEB                                                       79098Freiburg im Breisgau               SEB Freiburg Breisgau      25826ESSEDE5F68013005620U000000000
-680200201Baden-Württembergische Bank                               79001Freiburg im Breisgau               BW Bank Freiburg Breisgau  25070SOLADEST68265000558D000000000
 680201861UniCredit Bank - HypoVereinsbank                          79007Freiburg im Breisgau               UniCredit Bank-HypoVereinbk22121HYVEDEMM35799046571U000000000
-680201862UniCredit Bank - HypoVereinsbank                          79539Lörrach                            UniCredit Bank-HypoVereinbk22121HYVEDEMM35799050517U000000000
+680201862UniCredit Bank - HypoVereinsbank                          79539Lörrach                            UniCredit Bank-HypoVereinbk22121HYVEDEMM35799050517D000000000
 680201862UniCredit Bank - HypoVereinsbank                          77652Offenburg                          UniCredit Bank-HypoVereinbk22121HYVEDEMM35799050563U000000000
 680300001Bankhaus E. Mayer                                         79002Freiburg im Breisgau               Bankhaus E Mayer Freiburg B99031BKMADE61XXX32011108U000000000
 680400071Commerzbank                                               79004Freiburg im Breisgau               Commerzbank Freiburg i Br  24680COBADEFFXXX13010757U000000000
@@ -11803,7 +11583,6 @@ namespace :squirrels do
 680400072Commerzbank                                               77694Kehl, Rhein                        Commerzbank Kehl           24680           13056109U000000000
 680400072Commerzbank                                               79189Bad Krozingen                      Commerzbank Bad Krozingen  24680           13056110U000000000
 680400072Commerzbank                                               79713Bad Säckingen                      Commerzbank Bad Säckingen  24680           13056111U000000000
-680500001Landesbank Baden-Württemberg                              79098Freiburg im Breisgau               Landesbank Baden-Württ     56800SOLADEST68009001238D000000000
 680501011Sparkasse Freiburg-Nördlicher Breisgau                    79098Freiburg im Breisgau               Spk Freiburg-Nördl Breisgau56801FRSPDE66XXX01001227U000000000
 680501012Sparkasse Freiburg-Nördlicher Breisgau                    79215Elzach                             Spk Freiburg-Nördl.Breisgau56801           01053126U000000000
 680501012Sparkasse Freiburg-Nördlicher Breisgau                    79183Waldkirch, Breisgau                Spk Freiburg-Nördl.Breisgau56801           01053128U000000000
@@ -11840,36 +11619,33 @@ namespace :squirrels do
 680523282Sparkasse Staufen-Breisach                                79258Hartheim am Rhein                  Spk Staufen-Breisach       56810           00001252U000000000
 680523282Sparkasse Staufen-Breisach                                79423Heitersheim                        Spk Staufen-Breisach       56810           00001253U000000000
 680523282Sparkasse Staufen-Breisach                                79238Ehrenkirchen                       Spk Staufen-Breisach       56810           00001254U000000000
-680523282Sparkasse Staufen-Breisach                                79283Bollschweil                        Spk Staufen-Breisach       56810           00001256U000000000
 680523282Sparkasse Staufen-Breisach                                79244Münstertal, Schwarzwald            Spk Staufen-Breisach       56810           00001257U000000000
 680523282Sparkasse Staufen-Breisach                                79295Sulzburg, Baden                    Spk Staufen-Breisach       56810           00001258U000000000
 680523282Sparkasse Staufen-Breisach                                79282Ballrechten-Dottingen              Spk Staufen-Breisach       56810           00011353U000000000
 680523282Sparkasse Staufen-Breisach                                79427Eschbach, Markgräflerl             Spk Staufen-Breisach       56810           00039002U000000000
 680523282Sparkasse Staufen-Breisach                                79227Schallstadt                        Spk Staufen-Breisach       56810           00043864U000000000
 680523282Sparkasse Staufen-Breisach                                79292Pfaffenweiler, Breisgau            Spk Staufen-Breisach       56810           00043865U000000000
-680523282Sparkasse Staufen-Breisach                                79285Ebringen, Breisgau                 Spk Staufen-Breisach       56810           00043866U000000000
 680523282Sparkasse Staufen-Breisach                                79235Vogtsburg im Kaiserstuhl           Spk Staufen-Breisach       56810           00051850U000000000
 680523282Sparkasse Staufen-Breisach                                79361Sasbach am Kaiserstuhl             Spk Staufen-Breisach       56810           00051851U000000000
 680523282Sparkasse Staufen-Breisach                                79241Ihringen                           Spk Staufen-Breisach       56810           00051852U000000000
 680523282Sparkasse Staufen-Breisach                                79291Merdingen                          Spk Staufen-Breisach       56810           00051853U000000000
-680523282Sparkasse Staufen-Breisach                                79288Gottenheim                         Spk Staufen-Breisach       56810           00051854U000000000
-680523282Sparkasse Staufen-Breisach                                79206Breisach am Rhein                  Spk Staufen-Breisach       56810           00056600A000000000
+680523282Sparkasse Staufen-Breisach                                79206Breisach am Rhein                  Spk Staufen-Breisach       56810           00056600U000000000
 680528631Sparkasse Schönau-Todtnau                                 79670Todtnau                            Spk Schönau-Todtnau        56813SOLADES1SCH00006224U000000000
 680528632Sparkasse Schönau-Todtnau                                 79677Schönau im Schwarzwald             Spk Schönau-Todtnau        56813           00004699U000000000
-680615051Volksbank Breisgau-Süd                                    79419Heitersheim                        Volksbank Breisgau-Süd     66097GENODE61IHR06015324U000000000
+680615051Volksbank Breisgau-Süd                                    79423Heitersheim                        Volksbank Breisgau-Süd     66097GENODE61IHR06015324U000000000
 680615052Volksbank Breisgau-Süd                                    79288Gottenheim                         Volksbank Breisgau-Süd     66097           06015140U000000000
 680615052Volksbank Breisgau-Süd                                    79206Breisach am Rhein                  Volksbank Breisgau-Süd     66097           06015285U000000000
 680615052Volksbank Breisgau-Süd                                    79291Merdingen                          Volksbank Breisgau-Süd     66097           06015398U000000000
 680615052Volksbank Breisgau-Süd                                    79112Freiburg im Breisgau               Volksbank Breisgau-Süd     66097           06015627U000000000
 680615052Volksbank Breisgau-Süd                                    79189Bad Krozingen                      Volksbank Breisgau-Süd     66097           06041193U000000000
-680615052Volksbank Breisgau-Süd                                    79239Ihringen                           Volksbank Breisgau-Süd     66097           06050714U000000000
+680615052Volksbank Breisgau-Süd                                    79241Ihringen                           Volksbank Breisgau-Süd     66097           06050714U000000000
 680615052Volksbank Breisgau-Süd                                    79283Bollschweil                        Volksbank Breisgau-Süd     66097           06050715U000000000
 680615052Volksbank Breisgau-Süd                                    79238Ehrenkirchen                       Volksbank Breisgau-Süd     66097           06050716U000000000
 680615052Volksbank Breisgau-Süd                                    79427Eschbach, Markgräflerl             Volksbank Breisgau-Süd     66097           06050717U000000000
 680615052Volksbank Breisgau-Süd                                    79395Neuenburg am Rhein                 Volksbank Breisgau-Süd     66097           06050718U000000000
 680615052Volksbank Breisgau-Süd                                    79258Hartheim am Rhein                  Volksbank Breisgau-Süd     66097           06050719U000000000
 680615052Volksbank Breisgau-Süd                                    79227Schallstadt                        Volksbank Breisgau-Süd     66097           06050721U000000000
-680615052Volksbank Breisgau-Süd (Gf P2)                            79419Heitersheim                        Volksbank Breisgau-Süd     76097           06054478U000000000
+680615052Volksbank Breisgau-Süd (Gf P2)                            79423Heitersheim                        Volksbank Breisgau-Süd     76097           06054478U000000000
 680621051Raiffeisenbank Denzlingen-Sexau                           79211Denzlingen                         Raiffbk Denzlingen-Sexau   66146GENODE61DEN06015057U000000000
 680621052Raiffeisenbank Denzlingen-Sexau                           79350Sexau                              Raiffbk Denzlingen-Sexau   66146           06053380U000000000
 680621052Raiffeisenbank Denzlingen-Sexau (Gf P2)                   79211Denzlingen                         Raiffbk Denzlingen-Sexau   76146           06054479U000000000
@@ -11978,7 +11754,6 @@ namespace :squirrels do
 682900001Volksbank Lahr                                            77912Lahr, Schwarzwald                  Volksbank Lahr             96011GENODE61LAH06022782U000000000
 682900002Volksbank Lahr (Gf P2)                                    77912Lahr, Schwarzwald                  Volksbank Lahr             86011           06054487U000000000
 683101111SEB                                                       79539Lörrach                            SEB Lörrach                25858ESSEDE5F68313005658U000000000
-683200201Baden-Württembergische Bank                               79501Lörrach                            BW Bank Lörrach            25071SOLADEST68365024753D000000000
 683400581Commerzbank                                               79537Lörrach                            Commerzbank Lörrach        24682COBADEFFXXX13010230U000000000
 683400582Commerzbank                                               79547Weil am Rhein                      Commerzbank Weil Rhein     24682           13031369U000000000
 683400582Commerzbank                                               79601Rheinfelden (Baden)                Commerzbank Rheinfelden Bad24682           13038390U000000000
@@ -11997,7 +11772,6 @@ namespace :squirrels do
 683519761Sparkasse Zell i W -alt-                                  79669Zell im Wiesental                  Spk Zell Wiesental -alt-   56819SOLADES1ZLW00000906U168351557
 683519762Sparkasse Zell i W                                        79688Hausen im Wiesental                Spk Zell Wiesental         56819           00000908U000000000
 683519762Sparkasse Zell i W                                        79685Häg-Ehrsberg                       Spk Zell Wiesental         56819           00031350U000000000
-683613941Raiffeisenbank Maulburg -alt-                             79689Maulburg                           Raiffbk Maulburg -alt-     66083GENODE61MAU06015392D068391500
 683700241Deutsche Bank Privat und Geschäftskunden                  79503Lörrach                            Deutsche Bank PGK Lörrach  21134DEUTDEDB68363050280U000000000
 683700242Deutsche Bank Privat und Geschäftskunden                  79713Bad Säckingen                      Deutsche Bank PGK Bad Säcki21134DEUTDEDB68463050278U000000000
 683700242Deutsche Bank Privat und Geschäftskunden                  79630Grenzach-Wyhlen                    Deutsche Bank PGK Grenzach-21134DEUTDEDB68863050279U000000000
@@ -12054,7 +11828,7 @@ namespace :squirrels do
 684522902Sparkasse Hochrhein                                       79725Laufenburg (Baden)                 Sparkasse Hochrhein        56823           00008567U000000000
 684522902Sparkasse Hochrhein                                       79790Küssaberg                          Sparkasse Hochrhein        56823           00034219U000000000
 684624271Volksbank Klettgau-Wutöschingen                           79793Wutöschingen                       VB Klettgau-Wutöschingen   66181GENODE61WUT06015697U000000000
-684624272Volksbank Klettgau-Wutöschingen                           79777Ühlingen-Birkendorf                VB Klettgau-Wutöschingen   66181           06015645U000000000
+684624272Volksbank Klettgau-Wutöschingen                           79777Ühlingen-Birkendorf                VB Klettgau-Wutöschingen   66181           06015645D000000000
 684624272Volksbank Klettgau-Wutöschingen                           79809Weilheim, Kr Waldshut              VB Klettgau-Wutöschingen   66181           06015672U000000000
 684624272Volksbank Klettgau-Wutöschingen                           79766Klettgau                           VB Klettgau-Wutöschingen   66181           06051255U000000000
 684624272Volksbank Klettgau-Wutöschingen (Gf P2)                   79793Wutöschingen                       VB Klettgau-Wutöschingen   76181           06054490U000000000
@@ -12065,9 +11839,7 @@ namespace :squirrels do
 684900002Volksbank Rhein-Wehra                                     79730Murg, Baden                        Volksbank Rhein-Wehra      96013           06023572U000000000
 684900002Volksbank Rhein-Wehra                                     79618Rheinfelden (Baden)                Volksbank Rhein-Wehra      96013           06023887U000000000
 684900002Volksbank Rhein-Wehra                                     79736Rickenbach, Hotzenw                Volksbank Rhein-Wehra      96013           06023893U000000000
-684900002Volksbank Rhein-Wehra                                     79739Schwörstadt                        Volksbank Rhein-Wehra      96013           06024128D000000000
 684900002Volksbank Rhein-Wehra                                     79664Wehr, Baden                        Volksbank Rhein-Wehra      96013           06024310U000000000
-684900002Volksbank Rhein-Wehra                                     79737Herrischried                       Volksbank Rhein-Wehra      96013           06051972D000000000
 684900002Volksbank Rhein-Wehra                                     79733Görwihl                            Volksbank Rhein-Wehra      96013           06051973U000000000
 684900002Volksbank Rhein-Wehra                                     79804Dogern                             Volksbank Rhein-Wehra      96013           06051975U000000000
 684900002Volksbank Rhein-Wehra (Gf P2)                             79702Bad Säckingen                      Volksbank Rhein-Wehra      86013           06054491U000000000
@@ -12090,7 +11862,6 @@ namespace :squirrels do
 684922002Volksbank Hochrhein                                       79807Lottstetten                        Volksbank Hochrhein        96169           06056415U000000000
 684922002Volksbank Hochrhein                                       79798Jestetten                          Volksbank Hochrhein        96169           06056416U000000000
 690101111SEB                                                       78462Konstanz                           SEB Konstanz               25855ESSEDE5F69013005639U000000000
-690200201Baden-Württembergische Bank                               78402Konstanz                           BW Bank Konstanz           25072SOLADEST69065000559D000000000
 690201901UniCredit Bank - HypoVereinsbank                          78402Konstanz                           UniCredit Bank-HypoVereinbk22045HYVEDEMM59199042670U000000000
 690400451Commerzbank                                               78401Konstanz                           Commerzbank Konstanz       24693COBADEFFXXX13010213U000000000
 690500011Sparkasse Bodensee                                        78420Konstanz                           Sparkasse Bodensee         56900SOLADES1KNZ00000914U000000000
@@ -12148,7 +11919,6 @@ namespace :squirrels do
 690916001Volksbank Pfullendorf                                     88619Pfullendorf, Baden                 Volksbank Pfullendorf      96145GENODE61PFD06023833U000000000
 690916002Volksbank Pfullendorf Fil                                 88633Heiligenberg, Baden                Volksbank Pfullendorf      96145           06043804U000000000
 690916002Volksbank Pfullendorf (Gf P2)                             88619Pfullendorf, Baden                 Volksbank Pfullendorf      86145           06054496U000000000
-692200201Baden-Württembergische Bank                               78207Singen (Hohentwiel)                BW Bank Singen             25073SOLADEST69265000560D000000000
 692201861UniCredit Bank - HypoVereinsbank                          78210Singen (Hohentwiel)                UniCredit Bank-HypoVereinbk22082HYVEDEMM59099040698U000000000
 692400751Commerzbank                                               78202Singen (Hohentwiel)                Commerzbank Singen Hohentw 24695COBADEFFXXX13010260U000000000
 692400752Commerzbank                                               78702Schramberg                         Commerzbank Schramberg     24695           13056112U000000000
@@ -12203,23 +11973,20 @@ namespace :squirrels do
 692910002Volksbank                                                 78247Hilzingen                          Volksbank Konstanz         96059           06015292U000000000
 692910002Volksbank                                                 78224Singen (Hohentwiel)                Volksbank Konstanz         96059           06015636U000000000
 692910002Volksbank                                                 78343Gaienhofen                         Volksbank Konstanz         96059           06023031U000000000
-692910002Volksbank                                                 78337Öhningen, Bodensee                 Volksbank Konstanz         96059           06037022U000000000
 692910002Volksbank                                                 78479Reichenau, Baden                   Volksbank Konstanz         96059           06049637U000000000
 692910002Volksbank                                                 78269Volkertshausen                     Volksbank Konstanz         96059           06051667U000000000
 692910002Volksbank                                                 78256Steißlingen                        Volksbank Konstanz         96059           06051668U000000000
 692910002Volksbank (Gf P2)                                         78462Konstanz                           Volksbank Konstanz         86059           06054498U000000000
+692910991Volksbank Gf GA                                           78462Konstanz                           Volksbank Konstanz Gf GA        GENODE61RAD06056657U000000000
 693620321Volksbank Meßkirch Raiffeisenbank                         88601Meßkirch                           Volksbank Meßkirch Raiffbk 66142GENODE61MES06015399U000000000
 693620322Volksbank Meßkirch Raiffeisenbank                         72514Inzigkofen                         Volksbank Meßkirch Raiffbk 66142           06015098U000000000
 693620322Volksbank Meßkirch Raiffeisenbank                         72505Krauchenwies                       Volksbank Meßkirch Raiffbk 66142           06015133U000000000
-693620322Volksbank Meßkirch Raiffeisenbank                         72488Sigmaringen                        Volksbank Meßkirch Raiffbk 66142           06015153U000000000
 693620322Volksbank Meßkirch Raiffeisenbank                         88631Beuron                             Volksbank Meßkirch Raiffbk 66142           06015165U000000000
 693620322Volksbank Meßkirch Raiffeisenbank                         88605Sauldorf                           Volksbank Meßkirch Raiffbk 66142           06015508U000000000
 693620322Volksbank Meßkirch Raiffeisenbank                         88637Leibertingen                       Volksbank Meßkirch Raiffbk 66142           06037813U000000000
 693620322Volksbank Meßkirch Raiffeisenbank                         78579Neuhausen ob Eck                   Volksbank Meßkirch Raiffbk 66142           06044699U000000000
-693620322Volksbank Meßkirch Raiffeisenbank                         88637Buchheim b Meßkirch                Volksbank Meßkirch Raiffbk 66142           06044700U000000000
 693620322Volksbank Meßkirch Raiffeisenbank (Gf P2)                 88601Meßkirch                           Volksbank Meßkirch Raiffbk 76142           06054499U000000000
 694000001Bundesbank                                                78006Villingen-Schwenningen             BBk Villingen-Schwenningen 20694MARKDEF169409011597U000000000
-694210201Baden-Württembergische Bank                               78152Donaueschingen                     BW Bank Donaueschingen     25074SOLADEST69465000561D000000000
 694400071Commerzbank Villingen u Schwenningen                      78002Villingen-Schwenningen             Commerzbank Villingen-Schw 24690COBADEFFXXX13024998U000000000
 694400072Commerzbank                                               78506Tuttlingen                         Commerzbank Tuttlingen     24690           13038330U000000000
 694400072Commerzbank                                               72232Freudenstadt                       Commerzbank Freudenstadt   24690           13043132U000000000
@@ -12303,14 +12070,15 @@ namespace :squirrels do
 700111101Deutsche Kontor Privatbank                                82031Grünwald, Kr München               Dt. Kontor Privatbank           DEKTDE7100206055703U000000000
 700112001Bank Vontobel Europe                                      80331München                            Bank Vontobel Europe            VONTDEM1XXX17051733U000000000
 700113001Autobank                                                  82041Oberhaching b München              Autobank Oberhaching            AUZDDEM1XXX16055778U000000000
-700114001BfW - Bank für Wohnungswirtschaft                         85579Neubiberg                          BfW-Bank                        BFWODE71XXX09055965U000000000
+700114001BfW - Bank für Wohnungswirtschaft                         68161Mannheim                           BfW-Bank                        BFWODE71XXX09055965U000000000
 700115001SIEMENS BANK                                              81739München                            SIEMENS BANK                    SIBADEMMXXX09055968U000000000
+700116001WEG Bank                                                  85521Ottobrunn                          WEG Bank                        GRFFDEM1XXX06056684A000000000
 700117001Bankhaus von der Heydt                                    80538München                            Bankhaus von der Heydt          BVDHDEMMXXX01052771U000000000
 700119001InterCard                                                 82018Taufkirchen, Kr München            InterCard Taufkirchen           ICRDDE71XXX10052316U000000000
 700119101InterCard Cash Services 10                                82018Taufkirchen, Kr München            InterCard Taufkirchen CS 10     ICRDDE7101010054896U000000000
 700119201InterCard Cash Services 20                                82018Taufkirchen, Kr München            InterCard Taufkirchen CS 20     ICRDDE7102010054897U000000000
 700120001UniCredit Family Financing Bank, Ndl der UniCredit        81675München                            UCFin München              25290CLABDEMMXXX09053416U000000000
-700121001VEM Aktienbank                                            80333München                            VEM Aktienbank München          VEAKDEMMXXX55055106U000000000
+700121001VEM Aktienbank                                            80331München                            VEM Aktienbank München          VEAKDEMMXXX55055106U000000000
 700122001Bank J. Safra Sarasin (Deutschland)                       60325Frankfurt am Main                  Bank J. Safra Sarasin, Ffm      SRRADEM1BBK09054899U000000000
 700123001V-Bank                                                    80335München                            V-Bank München                  VBANDEMMXXX17054900U000000000
 700124001Die AKTIONÄRSBANK Kulmbach                                95326Kulmbach                           Die AKTIONÄRSBANK Kulmbach      FLGMDE77XXX09056444U000000000
@@ -12320,58 +12088,60 @@ namespace :squirrels do
 700131001net-m privatbank 1891                                     80539München                            net-m privatbank 1891      99056BVWBDE2WXXX32055605U000000000
 700131551net-m privatbank 1891 (Gf TRAXPAY)                        80539München                            net-m privatbk 1891 TRAXPAY     BVWBDE2TRAX32056199U000000000
 700131991net-m privatbank 1891                                     80539München                            net-m privatbank 1891           BVWBDE2WXXX32056198U000000000
-700134001IC Cash Services                                          82024Taufkirchen, Kr München            IC Cash, Taufkirchen            CSHHDE71XXX09056601A000000000
+700134001IC Cash Services                                          82024Taufkirchen, Kr München            IC Cash, Taufkirchen            CSHHDE71XXX09056601U000000000
 700135001Bankhaus Herzogpark                                       81679München                            Bankhaus Herzogpark München     HERZDEM1XXX06055625U000000000
 700150001transact Elektronische Zahlungssysteme                    82152Planegg                            Transact Berlin            23966TEZGDEB1XXX09055998U000000000
 700150151transact Elektronische Zahlungssysteme                    82152Planegg                            transact Berlin 001        23967TEZGDEB100109056238U000000000
 700150251transact Elektronische Zahlungssysteme                    82152Planegg                            transact Berlin 002             TEZGDEB100209056237U000000000
 700150351transact Elektronische Zahlungssysteme                    82152Planegg                            transact Berlin 003             TEZGDEB100309056239U000000000
-700170001PayCenter                                                 85354Freising, Oberbay                  PayCenter Freising              PAGMDEM1XXX09056258U000000000
+700170001PayCenter                                                 85354Freising                           PayCenter Freising         23969PAGMDEM1XXX09056258U000000000
 700202701UniCredit Bank - HypoVereinsbank                          80311München                            UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95000060U000000000
 700202702UniCredit Bank - HypoVereinsbank                          82256Fürstenfeldbruck                   UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95000061U000000000
 700202702UniCredit Bank - HypoVereinsbank                          82319Starnberg                          UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95000062U000000000
-700202702UniCredit Bank - HypoVereinsbank                          82152Planegg                            UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95000063U000000000
+700202702UniCredit Bank - HypoVereinsbank                          82152Planegg                            UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95000063D000000000
 700202702UniCredit Bank - HypoVereinsbank                          82131Gauting                            UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95000064U000000000
 700202702UniCredit Bank - HypoVereinsbank                          82154Gräfelfing                         UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95000236U000000000
 700202702UniCredit Bank - HypoVereinsbank                          82211Herrsching a. Ammersee             UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95000240U000000000
-700202702UniCredit Bank - HypoVereinsbank                          82323Tutzing                            UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95000245U000000000
+700202702UniCredit Bank - HypoVereinsbank                          82323Tutzing                            UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95000245D000000000
 700202702UniCredit Bank - HypoVereinsbank                          82515Wolfratshausen                     UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95000246U000000000
 700202702UniCredit Bank - HypoVereinsbank                          82001Unterhaching                       UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95000247U000000000
 700202702UniCredit Bank - HypoVereinsbank                          83601Holzkirchen, Oberbay               UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95000282U000000000
 700202702UniCredit Bank - HypoVereinsbank                          82110Germering, Oberbay                 UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95014512U000000000
 700202702UniCredit Bank - HypoVereinsbank                          82135Olching                            UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95020630U000000000
-700202702UniCredit Bank - HypoVereinsbank                          85521Ottobrunn                          UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95025588U000000000
+700202702UniCredit Bank - HypoVereinsbank                          85521Ottobrunn                          UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95025588D000000000
 700202702UniCredit Bank - HypoVereinsbank                          85553Ebersberg, Oberbay                 UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95029151U000000000
 700202702UniCredit Bank - HypoVereinsbank                          85701Unterschleißheim                   UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95029417U000000000
 700202702UniCredit Bank - HypoVereinsbank                          82031Grünwald, Kr München               UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95031097U000000000
-700202702UniCredit Bank - HypoVereinsbank                          82024Taufkirchen, Kr München            UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95031169U000000000
-700202702UniCredit Bank - HypoVereinsbank                          85561Grafing b. München                 UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95032373U000000000
+700202702UniCredit Bank - HypoVereinsbank                          82024Taufkirchen, Kr München            UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95031169D000000000
+700202702UniCredit Bank - HypoVereinsbank                          85561Grafing b. München                 UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95032373D000000000
 700202702UniCredit Bank - HypoVereinsbank                          85435Erding                             UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95032855U000000000
 700202702UniCredit Bank - HypoVereinsbank                          85587Vaterstetten                       UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95033380U000000000
 700202702UniCredit Bank - HypoVereinsbank                          85375Neufahrn b. Freising               UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95034141U000000000
 700202702UniCredit Bank - HypoVereinsbank                          82538Geretsried                         UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95034390U000000000
-700202702UniCredit Bank - HypoVereinsbank                          85774Unterföhring                       UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95034408U000000000
-700202702UniCredit Bank - HypoVereinsbank                          82167Puchheim, Oberbay                  UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95034439U000000000
+700202702UniCredit Bank - HypoVereinsbank                          85774Unterföhring                       UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95034408D000000000
+700202702UniCredit Bank - HypoVereinsbank                          82167Puchheim, Oberbay                  UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95034439D000000000
 700202702UniCredit Bank - HypoVereinsbank                          85551Kirchheim b. München               UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95034654U000000000
 700202702UniCredit Bank - HypoVereinsbank                          85221Dachau                             UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95036300U000000000
-700202702UniCredit Bank - HypoVereinsbank                          82205Gilching                           UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95036301U000000000
+700202702UniCredit Bank - HypoVereinsbank                          82205Gilching                           UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95036301D000000000
 700202702UniCredit Bank - HypoVereinsbank                          85570Markt Schwaben                     UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95036303U000000000
-700202702UniCredit Bank - HypoVereinsbank                          85738Garching b. München                UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95036680U000000000
+700202702UniCredit Bank - HypoVereinsbank                          85738Garching b. München                UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95036680D000000000
 700202702UniCredit Bank - HypoVereinsbank                          85737Ismaning                           UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95037979U000000000
-700202702UniCredit Bank - HypoVereinsbank                          85614Kirchseeon                         UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95038203U000000000
+700202702UniCredit Bank - HypoVereinsbank                          85614Kirchseeon                         UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95038203D000000000
 700202702UniCredit Bank - HypoVereinsbank                          82194Gröbenzell                         UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95042039U000000000
 700202702UniCredit Bank - HypoVereinsbank                          82041Deisenhofen b München              UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95050514U000000000
+700202702UniCredit Bank - HypoVereinsbank                          85521Ottobrunn                          UniCredit Bank-HypoVereinbk22000HYVEDEMMXXX95056704A000000000
 700203001Commerz Finanz                                            80336München                            Commerz Finanz München     25643WKVBDEM1XXX09044292U000000000
 700203002Commerz Finanz (Gf P2)                                    80336München                            Commerz Finanz München     26810           09055469U000000000
 700203002Commerz Finanz (Gf P3)                                    80336München                            Commerz Finanz München     26811           09055755U000000000
 700205001Bank für Sozialwirtschaft                                 81629München                            Bank für Sozialwirtschaft  25014BFSWDE33MUE09041121U000000000
 700205002Bank für Sozialwirtschaft                                 90489Nürnberg, Mittelfr                 Bank für Sozialwirtschaft  25014           09053417U000000000
+700205701Bank für Sozialwirtschaft                                 80335München                            Sozialbank München              BFSWDE33M7009056661U000000000
 700208001INTESA SANPAOLO                                           80335München                            INTESA SANPAOLO München    29711BCITDEFFMUC09043018U000000000
 700211801UniCredit Bank - HypoVereinsbank                          85354Freising, Oberbay                  UniCredit Bank-HypoVereinbk22028HYVEDEMM41899000065U000000000
 700222001Fidor Bank                                                80335München                            Fidor Bank München              FDDODEMMXXX16055599U000000000
 700251751UniCredit Bank - HypoVereinsbank                          83633Bad Tölz                           UniCredit Bank-HypoVereinbk22011HYVEDEMM64399000070U000000000
-700251752UniCredit Bank - HypoVereinsbank                          82431Kochel a. See                      UniCredit Bank-HypoVereinbk22011HYVEDEMM64399000241U000000000
-700251752UniCredit Bank - HypoVereinsbank                          83661Lenggries                          UniCredit Bank-HypoVereinbk22011HYVEDEMM64399000242U000000000
+700251752UniCredit Bank - HypoVereinsbank                          82431Kochel a. See                      UniCredit Bank-HypoVereinbk22011HYVEDEMM64399000241D000000000
+700251752UniCredit Bank - HypoVereinsbank                          83661Lenggries                          UniCredit Bank-HypoVereinbk22011HYVEDEMM64399000242D000000000
 700251752UniCredit Bank - HypoVereinsbank                          82377Penzberg                           UniCredit Bank-HypoVereinbk22011HYVEDEMM64399029520U000000000
 700300141Fürst Fugger Privatbank                                   86150Augsburg, Bay                      Fuggerbank Augsburg        26091FUBKDE71MUC00044719U000000000
 700301111Bankhaus Max Flessa                                       80007München                            Flessabank München         26070FLESDEMMXXX09000030U179330111
@@ -12424,15 +12194,11 @@ namespace :squirrels do
 700510032Sparkasse Freising                                        85777Fahrenzhausen                      Sparkasse Freising         57102           00009572U000000000
 700510032Sparkasse Freising                                        85386Eching, Kr Freising                Sparkasse Freising         57102           00010456U000000000
 700510032Sparkasse Freising                                        85391Allershausen, Oberbay              Sparkasse Freising         57102           00010470U000000000
-700510032Sparkasse Freising                                        85411Hohenkammer                        Sparkasse Freising         57102           00010483U000000000
 700510032Sparkasse Freising                                        85375Neufahrn b. Freising               Sparkasse Freising         57102           00010530U000000000
-700510032Sparkasse Freising                                        85395Attenkirchen                       Sparkasse Freising         57102           00010850U000000000
 700510032Sparkasse Freising                                        85406Zolling, Oberbay                   Sparkasse Freising         57102           00034658U000000000
-700510032Sparkasse Freising                                        85395Wolfersdorf, Oberbay               Sparkasse Freising         57102           00037676U000000000
 700510032Sparkasse Freising                                        85417Marzling                           Sparkasse Freising         57102           00037885U000000000
 700510032Sparkasse Freising                                        85402Kranzberg, Kr Freising             Sparkasse Freising         57102           00041301U000000000
 700510032Sparkasse Freising                                        85399Hallbergmoos                       Sparkasse Freising         57102           00043354U000000000
-700510032Sparkasse Freising                                        85414Kirchdorf a.d.Amper                Sparkasse Freising         57102           00044345U000000000
 700515401Sparkasse Dachau                                          85219Dachau                             Sparkasse Dachau           57183BYLADEM1DAH00010700U000000000
 700515402Sparkasse Dachau                                          85253Erdweg                             Sparkasse Dachau           57183           00009524U000000000
 700515402Sparkasse Dachau                                          85757Karlsfeld b München                Sparkasse Dachau           57183           00009596U000000000
@@ -12447,7 +12213,7 @@ namespace :squirrels do
 700515402Sparkasse Dachau                                          85258Weichs, Kr Dachau                  Sparkasse Dachau           57183           00009774U000000000
 700515402Sparkasse Dachau                                          85256Vierkirchen, Oberbay               Sparkasse Dachau           57183           00009819U000000000
 700515402Sparkasse Dachau                                          85241Hebertshausen                      Sparkasse Dachau           57183           00037011U000000000
-700518051Kreissparkasse München Starnberg Ebersberg                85554Ebersberg, Oberbay                 Kr Spk München Starnbg Ebbg57139BYLADEM1EBE00008903U000000000
+700518051Kreissparkasse München Starnberg Ebersberg -alt-          85554Ebersberg                          Kr Spk -alt-               57139BYLADEM1EBE00008903M100000000
 700518052Kreissparkasse München Starnberg Ebersberg                85586Poing b München                    Kreissparkasse             57139           00008130U000000000
 700518052Kreissparkasse München Starnberg Ebersberg                85604Zorneding                          Kreissparkasse             57139           00008221U000000000
 700518052Kreissparkasse München Starnberg Ebersberg                85591Vaterstetten                       Kreissparkasse             57139           00008334U000000000
@@ -12683,38 +12449,38 @@ namespace :squirrels do
 700919002VR-Bank Erding                                            85467Neuching                           VR-Bank Erding             97104           88052148U000000000
 700919002VR-Bank Erding                                            85570Ottenhofen, Oberbay                VR-Bank Erding             97104           88052149U000000000
 700919002VR-Bank Erding (Gf P2)                                    85435Erding                             VR-Bank Erding             87104           88054505U000000000
-700932001VR-Bank Starnberg-Herrsching-Landsberg                    82306Starnberg                          VR-Bank Starnberg-Hg-Lbg   97121GENODEF1STH88022319U000000000
-700932002VR-Bank Starnberg-Herrsching-Landsberg                    82117Gauting                            VR-Bank Starnberg-Hg-Lbg   97121           88021325U000000000
-700932002VR-Bank Starnberg-Herrsching-Landsberg                    82205Gilching                           VR-Bank Starnberg-Hg-Lbg   97121           88021350U000000000
-700932002VR-Bank Starnberg-Herrsching-Landsberg                    86899Landsberg am Lech                  VR-Bank Starnberg-Hg-Lbg   97121           88021979U000000000
-700932002VR-Bank Starnberg-Herrsching-Landsberg                    86916Kaufering                          VR-Bank Starnberg-Hg-Lbg   97121           88022184U000000000
-700932002VR-Bank Starnberg-Herrsching-Landsberg                    82211Herrsching a. Ammersee             VR-Bank Starnberg-Hg-Lbg   97121           88022489U000000000
-700932002VR-Bank Starnberg-Herrsching-Landsberg                    82237Wörthsee                           VR-Bank Starnberg-Hg-Lbg   97121           88022494U000000000
-700932002VR-Bank Starnberg-Herrsching-Landsberg                    82152Krailling                          VR-Bank Starnberg-Hg-Lbg   97121           88024733U000000000
-700932002VR-Bank Starnberg-Herrsching-Landsberg                    82335Berg, Starnberger See              VR-Bank Starnberg-Hg-Lbg   97121           88026493U000000000
-700932002VR-Bank Starnberg-Herrsching-Landsberg                    82343Pöcking, Kr Starnberg              VR-Bank Starnberg-Hg-Lbg   97121           88032412U000000000
-700932002VR-Bank Starnberg-Herrsching-Landsberg                    82234Weßling, Oberbay                   VR-Bank Starnberg-Hg-Lbg   97121           88036039U000000000
-700932002VR-Bank Starnberg-Herrsching-Landsberg                    82327Tutzing                            VR-Bank Starnberg-Hg-Lbg   97121           88039512U000000000
-700932002VR-Bank Starnberg-Herrsching-Landsberg                    82340Feldafing                          VR-Bank Starnberg-Hg-Lbg   97121           88042749U000000000
-700932002VR-Bank Starnberg-Herrsching-Landsberg                    82266Inning a. Ammersee                 VR-Bank Starnberg-Hg-Lbg   97121           88042759U000000000
-700932002VR-Bank Starnberg-Herrsching-Landsberg                    82346Andechs                            VR-Bank Starnberg-Hg-Lbg   97121           88044113U000000000
-700932002VR-Bank Starnberg-Herrsching-Landsberg                    82229Seefeld, Oberbay                   VR-Bank Starnberg-Hg-Lbg   97121           88044185U000000000
+700932001Volksbank Raiffeisenbank Starnberg-Herrsching-Landsberg   82319Starnberg                          VR-Bank Starnberg-Hg-Lbg   97121GENODEF1STH88022319U000000000
+700932002Volksbank Raiffeisenbank Starnberg-Herrsching-Landsberg   82117Gauting                            VR-Bank Starnberg-Hg-Lbg   97121           88021325U000000000
+700932002Volksbank Raiffeisenbank Starnberg-Herrsching-Landsberg   82205Gilching                           VR-Bank Starnberg-Hg-Lbg   97121           88021350U000000000
+700932002Volksbank Raiffeisenbank Starnberg-Herrsching-Landsberg   86899Landsberg am Lech                  VR-Bank Starnberg-Hg-Lbg   97121           88021979U000000000
+700932002Volksbank Raiffeisenbank Starnberg-Herrsching-Landsberg   86916Kaufering                          VR-Bank Starnberg-Hg-Lbg   97121           88022184U000000000
+700932002Volksbank Raiffeisenbank Starnberg-Herrsching-Landsberg   82211Herrsching a. Ammersee             VR-Bank Starnberg-Hg-Lbg   97121           88022489U000000000
+700932002Volksbank Raiffeisenbank Starnberg-Herrsching-Landsberg   82237Wörthsee                           VR-Bank Starnberg-Hg-Lbg   97121           88022494U000000000
+700932002Volksbank Raiffeisenbank Starnberg-Herrsching-Landsberg   82152Krailling                          VR-Bank Starnberg-Hg-Lbg   97121           88024733U000000000
+700932002Volksbank Raiffeisenbank Starnberg-Herrsching-Landsberg   82335Berg                               VR-Bank Starnberg-Hg-Lbg   97121           88026493U000000000
+700932002Volksbank Raiffeisenbank Starnberg-Herrsching-Landsberg   82343Pöcking                            VR-Bank Starnberg-Hg-Lbg   97121           88032412U000000000
+700932002Volksbank Raiffeisenbank Starnberg-Herrsching-Landsberg   82234Weßling                            VR-Bank Starnberg-Hg-Lbg   97121           88036039U000000000
+700932002Volksbank Raiffeisenbank Starnberg-Herrsching-Landsberg   82327Tutzing                            VR-Bank Starnberg-Hg-Lbg   97121           88039512U000000000
+700932002Volksbank Raiffeisenbank Starnberg-Herrsching-Landsberg   82340Feldafing                          VR-Bank Starnberg-Hg-Lbg   97121           88042749U000000000
+700932002Volksbank Raiffeisenbank Starnberg-Herrsching-Landsberg   82266Inning a. Ammersee                 VR-Bank Starnberg-Hg-Lbg   97121           88042759U000000000
+700932002Volksbank Raiffeisenbank Starnberg-Herrsching-Landsberg   82346Andechs                            VR-Bank Starnberg-Hg-Lbg   97121           88044113U000000000
+700932002Volksbank Raiffeisenbank Starnberg-Herrsching-Landsberg   82229Seefeld                            VR-Bank Starnberg-Hg-Lbg   97121           88044185U000000000
 700932002VR-Bank Starnberg-Herrsching-Landsberg (Gf P2)            82306Starnberg                          VR-Bank Starnberg-Hg-Lbg   87121           88054506U000000000
-700934001VR-Bank Ismaning Hallbergmoos Neufahrn                    85737Ismaning                           VR-Bank Ismaning Hallb Neuf97122GENODEF1ISV88022160M000000000
-700934002VR-Bank Ismaning Hallbergmoos Neufahrn                    85748Garching b. München                VR-Bank Ismaning Hallb Neuf97122           88021320M000000000
-700934002VR-Bank Ismaning Hallbergmoos Neufahrn                    85774Unterföhring                       VR-Bank Ismaning Hallb Neuf97122           88022559M000000000
-700934002VR-Bank Ismaning Hallbergmoos Neufahrn (Gf P2)            85731Ismaning                           VR-Bank Ismaning Hallb Neuf87122           88054507M000000000
-700934002VR-Bank Ismaning Hallbergmoos Neufahrn                    85375Neufahrn b. Freising               VR-Bank Ismaning Hallb Neuf97122           88056596A000000000
-700934002VR-Bank Ismaning Hallbergmoos Neufahrn                    85399Hallbergmoos                       VR-Bank Ismaning Hallb Neuf97122           88056597A000000000
-700934002VR-Bank Ismaning Hallbergmoos Neufahrn                    85376Massenhausen, Oberbay              VR-Bank Ismaning Hallb Neuf97122           88056598A000000000
-700934002VR-Bank Ismaning Hallbergmoos Neufahrn                    81925München                            VR-Bank Ismaning Hallb Neuf97122           88056599A000000000
+700934001VR-Bank Ismaning Hallbergmoos Neufahrn                    85737Ismaning                           VR-Bank Ismaning Hallb Neuf97122GENODEF1ISV88022160U000000000
+700934002VR-Bank Ismaning Hallbergmoos Neufahrn                    85748Garching b. München                VR-Bank Ismaning Hallb Neuf97122           88021320U000000000
+700934002VR-Bank Ismaning Hallbergmoos Neufahrn                    85774Unterföhring                       VR-Bank Ismaning Hallb Neuf97122           88022559U000000000
+700934002VR-Bank Ismaning Hallbergmoos Neufahrn (Gf P2)            85731Ismaning                           VR-Bank Ismaning Hallb Neuf87122           88054507U000000000
+700934002VR-Bank Ismaning Hallbergmoos Neufahrn                    85375Neufahrn b. Freising               VR-Bank Ismaning Hallb Neuf97122           88056596U000000000
+700934002VR-Bank Ismaning Hallbergmoos Neufahrn                    85399Hallbergmoos                       VR-Bank Ismaning Hallb Neuf97122           88056597U000000000
+700934002VR-Bank Ismaning Hallbergmoos Neufahrn                    85376Massenhausen, Oberbay              VR-Bank Ismaning Hallb Neuf97122           88056598U000000000
+700934002VR-Bank Ismaning Hallbergmoos Neufahrn                    81925München                            VR-Bank Ismaning Hallb Neuf97122           88056599U000000000
 701100881Postbank (Spar)                                           80317München                            Postbank -Spar- München         PBNKDEFFXXX09034818U000000000
 701105001Münchener Hypothekenbank                                  80503München                            Münch Hypoth Bank München  26740MHYPDEMMXXX09024792U000000000
 701106001UBI BANCA INTERNATIONAL - Ndl München                     80333München                            UBI BANCA INT München      29890BEPODEMMXXX09046928U000000000
 701201001State Street Bank                                         80019München                            State Street Bank München       SBOSDEMXXXX09048746U000000000
 701204001DAB bank                                                  81241München                            DAB bank München           29360DABBDEMMXXX00048510U000000000
 701205001CACEIS Bank Deutschland                                   80911München                            CACEIS Bank Deutschland         FMBKDEMMXXXD2049527U000000000
-701206001Salzburg München Bank                                     80333München                            Salzburg München Bank      99020RVSADEMXXXX30046288U000000000
+701206001Airbus Group Bank                                         80333München                            Airbus Group Bank          99020AGBMDEMMXXX30046288U000000000
 701207001Oberbank Ndl Deutschland                                  80068München                            Oberbank München           29870OBKLDEMXXXX00046289U000000000
 701207002Oberbank Ndl Deutschland                                  83022Rosenheim, Oberbay                 Oberbank Rosenheim         29870           00050472U000000000
 701207002Oberbank Ndl Deutschland                                  84028Landshut, Isar                     Oberbank Landshut          29870           00050710U000000000
@@ -12739,7 +12505,7 @@ namespace :squirrels do
 701207002Oberbank Ndl Deutschland                                  97421Schweinfurt                        Oberbank Schweinfurt       29870           00056204U000000000
 701207002Oberbank Ndl Deutschland                                  85354Freising, Oberbay                  Oberbank Freising          29870           00056462U000000000
 701207002Oberbank Ndl Deutschland                                  84307Eggenfelden                        Oberbank Eggenfelden       29870           00056525U000000000
-701207002Oberbank Ndl Deutschland                                  64283Darmstadt                          Oberbank Darmstadt         29870           00056594A000000000
+701207002Oberbank Ndl Deutschland                                  64283Darmstadt                          Oberbank Darmstadt         29870           00056594U000000000
 701307001Bankhaus August Lenz & Co                                 81679München                            Lenz Bank München          25700LENZDEM1XXX09008507U000000000
 701307991Bankhaus August Lenz & Co Gf GAA                          81679München                            Lenz Bank München Gf GAA        LENZDEM1XXX09056442U000000000
 701308001Merkur Bank                                               80014München                            Merkur Bank München        98085GENODEF1M0688013548U000000000
@@ -12752,7 +12518,6 @@ namespace :squirrels do
 701633702Volksbank Raiffeisenbank Fürstenfeldbruck                 82278Althegnenberg                      VR-Bank Fürstenfeldbruck   67110           88026446U000000000
 701633702Volksbank Raiffeisenbank Fürstenfeldbruck                 82223Eichenau b München                 VR-Bank Fürstenfeldbruck   67110           88026570U000000000
 701633702Volksbank Raiffeisenbank Fürstenfeldbruck                 82284Grafrath, Amper                    VR-Bank Fürstenfeldbruck   67110           88026664U000000000
-701633702Volksbank Raiffeisenbank Fürstenfeldbruck                 82272Moorenweis                         VR-Bank Fürstenfeldbruck   67110           88026681U000000000
 701633702Volksbank Raiffeisenbank Fürstenfeldbruck                 82285Hattenhofen, Kr Fürstenfeldbruck   VR-Bank Fürstenfeldbruck   67110           88026703U000000000
 701633702Volksbank Raiffeisenbank Fürstenfeldbruck                 82216Maisach, Oberbay                   VR-Bank Fürstenfeldbruck   67110           88026854U000000000
 701633702Volksbank Raiffeisenbank Fürstenfeldbruck                 82291Mammendorf, Oberbay                VR-Bank Fürstenfeldbruck   67110           88026856U000000000
@@ -12761,7 +12526,6 @@ namespace :squirrels do
 701633702Volksbank Raiffeisenbank Fürstenfeldbruck                 82178Puchheim, Oberbay                  VR-Bank Fürstenfeldbruck   67110           88036304U000000000
 701633702Volksbank Raiffeisenbank Fürstenfeldbruck                 82287Jesenwang                          VR-Bank Fürstenfeldbruck   67110           88039320U000000000
 701633702Volksbank Raiffeisenbank Fürstenfeldbruck                 82275Emmering, Kr Fürstenfeldbruck      VR-Bank Fürstenfeldbruck   67110           88040150U000000000
-701633702Volksbank Raiffeisenbank Fürstenfeldbruck                 82290Landsberied                        VR-Bank Fürstenfeldbruck   67110           88040153U000000000
 701633702Volksbank Raiffeisenbank Fürstenfeldbruck                 82140Olching                            VR-Bank Fürstenfeldbruck   67110           88050743U000000000
 701633702Volksbank Raiffeisenbank Fürstenfeldbruck                 82194Gröbenzell                         VR-Bank Fürstenfeldbruck   67110           88050744U000000000
 701633702Volksbank Raiffeisenbank Fürstenfeldbruck                 82110Germering, Oberbay                 VR-Bank Fürstenfeldbruck   67110           88052937U000000000
@@ -12820,13 +12584,7 @@ namespace :squirrels do
 701691952Raiffeisenbank Trostberg-Traunreut (Gf P2)                83301Traunreut                          Raiffbk Trostberg-Traunreut77416           88054517U000000000
 701693101Raiffeisenbank Alxing-Bruck                               85567Bruck, Oberbay                     Raiffeisenbank Alxing-Bruck67482GENODEF1ALX88026512U000000000
 701693102Raiffeisenbank Alxing-Bruck (Gf P2)                       85567Bruck, Oberbay                     Raiffeisenbank Alxing-Bruck77482           88054518U000000000
-701693311Raiffeisenbank südöstl. Starnberger See                   82402Seeshaupt                          Raiffbk sö Starnberger See 67500GENODEF1SSB88027155U000000000
-701693312Raiffeisenbank südöstl. Starnberger See                   82387Antdorf                            Raiffbk sö Starnberger See 67500           88026455U000000000
-701693312Raiffeisenbank südöstl. Starnberger See                   82347Bernried, Starnberger See          Raiffbk sö Starnberger See 67500           88026491U000000000
-701693312Raiffeisenbank südöstl. Starnberger See                   82392Habach, Oberbay                    Raiffbk sö Starnberger See 67500           88026689U000000000
-701693312Raiffeisenbank südöstl. Starnberger See                   82393Iffeldorf                          Raiffbk sö Starnberger See 67500           88038043U000000000
-701693312Raiffeisenbank südöstl. Starnberger See                   82377Penzberg                           Raiffbk sö Starnberger See 67500           88043415U000000000
-701693312Raiffeisenbank südöstl. Starnberger See                   82335Berg, Starnberger See              Raiffbk sö Starnberger See 67500           88052587U000000000
+701693311Raiffeisenbank südöstl. Starnberger See -alt-             82402Seeshaupt                          Raiffbk sö Starnberg -alt- 67500GENODEF1SSB88027155U000000000
 701693312Raiffeisenbank südöstl. Starnberger See (Gf P2)           82402Seeshaupt                          Raiffbk sö Starnberger See 77500           88054519U000000000
 701693331Raiffeisenbank Beuerberg-Eurasburg                        82547Eurasburg b Wolfratshausen         Raiffbk Beuerberg-Eurasburg67504GENODEF1EUR88026600U000000000
 701693332Raiffeisenbank Beuerberg-Eurasburg (Gf P2)                82547Eurasburg b Wolfratshausen         Raiffbk Beuerberg-Eurasburg77504           88054520U000000000
@@ -12903,7 +12661,7 @@ namespace :squirrels do
 701694662Raiffeisenbank München-Süd                                82049Pullach i. Isartal                 Raiffeisenbank München-Süd 67622           88043487U000000000
 701694662Raiffeisenbank München-Süd (Gf P2)                        81457München                            Raiffeisenbank München-Süd 77622           88054535U000000000
 701694701Raiffeisenbank München-Süd Gf GA                          81476München                            Raiffeisenbank München-Süd      GENODEF1GAA88055499U000000000
-701694721Raiffeisenbank Hallbergmoos-Neufahrn -alt-                85369Neufahrn b. Freising               Raiffbk Hallbergmoos-Neuf  67628GENODEF1NFA88026921M000000000
+701694721Raiffeisenbank Hallbergmoos-Neufahrn -alt-                85369Neufahrn b. Freising               Raiffbk Hallbergmoos-Neuf  67628GENODEF1NFA88026921U000000000
 701694722Raiffeisenbank Hallbergmoos-Neufahrn                      85399Hallbergmoos                       Raiffbk Hallbergmoos-Neuf  67628           88051523U000000000
 701694722Raiffeisenbank Hallbergmoos-Neufahrn (Gf P2)              85369Neufahrn b. Freising               Raiffbk Hallbergmoos-Neuf  77628           88054536U000000000
 701694741Raiffbk Neumarkt-St. Veit - Niederbergkirchen -alt-       84491Neumarkt-Sankt Veit                Raiffbk NSV-NBK -alt-      67630GENODEF1NSV88026928U000000000
@@ -12947,13 +12705,7 @@ namespace :squirrels do
 701695381Raiffeisenbank St. Wolfgang-Schwindkirchen                84425Sankt Wolfgang                     Raiffbk St Wolfgang-Schwind67679GENODEF1SWO88027181U000000000
 701695382Raiffeisenbank St. Wolfgang-Schwindkirchen                84405Dorfen                             Raiffbk St. Wolfgang-Schwin67679           88027150U000000000
 701695382Raiffeisenbank St. Wolfgang-Schwindkirchen (Gf P2)        84425Sankt Wolfgang                     Raiffbk St Wolfgang-Schwind77679           88054543U000000000
-701695411Raiffeisenbank Lech-Ammersee                              86946Vilgertshofen                      Raiffbk Lech-Ammersee      67685GENODEF1THG88027123U000000000
-701695412Raiffeisenbank Lech-Ammersee                              86934Reichling, Oberbay                 Raiffbk Lech-Ammersee      67685           88026849U000000000
-701695412Raiffeisenbank Lech-Ammersee                              86943Thaining                           Raiffbk Lech-Ammersee      67685           88027225U000000000
-701695412Raiffeisenbank Lech-Ammersee                              86932Pürgen                             Raiffbk Lech-Ammersee      67685           88027245U000000000
-701695412Raiffeisenbank Lech-Ammersee                              86935Rott, Lech                         Raiffbk Lech-Ammersee      67685           88027293U000000000
-701695412Raiffeisenbank Lech-Ammersee                              86911Dießen am Ammersee                 Raiffbk Lech-Ammersee      67685           88037416U000000000
-701695412Raiffeisenbank Lech-Ammersee                              86974Apfeldorf                          Raiffbk Lech-Ammersee      67685           88051045U000000000
+701695411Raiffeisenbank Lech-Ammersee -alt-                        86946Vilgertshofen                      Raiffbk Lech-Ammersee -alt-67685GENODEF1THG88027123U000000000
 701695412Raiffeisenbank Lech-Ammersee (Gf P2)                      86946Vilgertshofen                      Raiffbk Lech-Ammersee      77685           88054544U000000000
 701695431Raiffeisenbank Isar-Loisachtal                            82504Wolfratshausen                     Raiffbk Isar-Loisachtal    67688GENODEF1HHS88026758U000000000
 701695432Raiffeisenbank Isar-Loisachtal                            82065Baierbrunn, Isartal                Raiffbk Isar-Loisachtal    67688           88026482U000000000
@@ -13017,7 +12769,7 @@ namespace :squirrels do
 701695982Raiffeisenbank im Oberland                                83666Waakirchen                         Raiffbk im Oberland        67730           88055504U000000000
 701695982Raiffeisenbank im Oberland                                83679Sachsenkam                         Raiffbk im Oberland        67730           88055505U000000000
 701695982Raiffeisenbank im Oberland                                83677Reichersbeuern                     Raiffbk im Oberland        67730           88055506U000000000
-701695991Raiffeisenbank Weil u Umgebung                            86947Weil, Kr Landsberg a Lech          Raiffeisenbank Weil u Umgeb67732GENODEF1WEI88027030U000000000
+701695991Raiffeisenbank Weil u Umgebung -alt-                      86947Weil                               Raiffeisenbank Weil u Umgeb67732GENODEF1WEI88027030U100000000
 701695992Raiffeisenbank Weil u Umgebung (Gf P2)                    86947Weil, Kr Landsberg a Lech          Raiffeisenbank Weil u Umgeb77732           88054554U000000000
 701696021Raiffeisenbank Weilheim -alt-                             82355Weilheim i. OB                     Raiffeisenbank Weilheim alt67735GENODEF1WM188027032U000000000
 701696022Raiffeisenbank Weilheim                                   82386Oberhausen, Oberbay                Raiffeisenbank             67735           88026960U000000000
@@ -13047,7 +12799,7 @@ namespace :squirrels do
 701696142Freisinger Bank Volksbank-Raiffeisenbank                  85399Hallbergmoos                       Freisinger Bank VB-Raiffbk 67747           88022246U000000000
 701696142Freisinger Bank Volksbank-Raiffeisenbank                  85391Allershausen, Oberbay              Freisinger Bank VB-Raiffbk 67747           88026439U000000000
 701696142Freisinger Bank Volksbank-Raiffeisenbank                  85375Neufahrn b. Freising               Freisinger Bank VB-Raiffbk 67747           88026652U000000000
-701696142Freisinger Bank Volksbank-Raiffeisenbank                  85410Haag a.d.Amper                     Freisinger Bank VB-Raiffbk 67747           88026687U000000000
+701696142Freisinger Bank Volksbank-Raiffeisenbank                  85410Haag a.d.Amper                     Freisinger Bank VB-Raiffbk 67747           88026687D000000000
 701696142Freisinger Bank Volksbank-Raiffeisenbank                  85414Kirchdorf a.d.Amper                Freisinger Bank VB-Raiffbk 67747           88026721U000000000
 701696142Freisinger Bank Volksbank-Raiffeisenbank                  85411Hohenkammer                        Freisinger Bank VB-Raiffbk 67747           88026754U000000000
 701696142Freisinger Bank Volksbank-Raiffeisenbank                  85402Kranzberg, Kr Freising             Freisinger Bank VB-Raiffbk 67747           88026818U000000000
@@ -13055,7 +12807,7 @@ namespace :squirrels do
 701696142Freisinger Bank Volksbank-Raiffeisenbank                  85417Marzling                           Freisinger Bank VB-Raiffbk 67747           88026862U000000000
 701696142Freisinger Bank Volksbank-Raiffeisenbank                  85419Mauern, Kr Freising                Freisinger Bank VB-Raiffbk 67747           88026870U000000000
 701696142Freisinger Bank Volksbank-Raiffeisenbank                  85406Zolling, Oberbay                   Freisinger Bank VB-Raiffbk 67747           88026995U000000000
-701696142Freisinger Bank Volksbank-Raiffeisenbank                  85395Wolfersdorf, Oberbay               Freisinger Bank VB-Raiffbk 67747           88027056U000000000
+701696142Freisinger Bank Volksbank-Raiffeisenbank                  85395Wolfersdorf, Oberbay               Freisinger Bank VB-Raiffbk 67747           88027056D000000000
 701696142Freisinger Bank Volksbank-Raiffeisenbank                  85368Moosburg a.d.Isar                  Freisinger Bank VB-Raiffbk 67747           88033085U000000000
 701696142Freisinger Bank Volksbank-Raiffeisenbank                  85386Eching, Kr Freising                Freisinger Bank VB-Raiffbk 67747           88035891U000000000
 701696142Freisinger Bank Volksbank-Raiffeisenbank (Gf P2)          85354Freising, Oberbay                  Freisinger Bank VB-Raiffbk 77747           88054557U000000000
@@ -13142,8 +12894,8 @@ namespace :squirrels do
 702501502Kreissparkasse München Starnberg Ebersberg                82067Ebenhausen, Isartal                Kr Spk München Starnbg Ebbg57101           00050508U000000000
 702501502Kreissparkasse München Starnberg Ebersberg                82319Starnberg                          Kr Spk München Starnbg Ebbg57101           00053139U000000000
 703200901UniCredit Bank - HypoVereinsbank                          82452Garmisch-Partenkirchen             UniCredit Bank-HypoVereinbk22031HYVEDEMM65499000071U000000000
-703200902UniCredit Bank - HypoVereinsbank                          82481Mittenwald                         UniCredit Bank-HypoVereinbk22031HYVEDEMM65499000259U000000000
-703200902UniCredit Bank - HypoVereinsbank                          82483Oberammergau                       UniCredit Bank-HypoVereinbk22031HYVEDEMM65499000260U000000000
+703200902UniCredit Bank - HypoVereinsbank                          82481Mittenwald                         UniCredit Bank-HypoVereinbk22031HYVEDEMM65499000259D000000000
+703200902UniCredit Bank - HypoVereinsbank                          82483Oberammergau                       UniCredit Bank-HypoVereinbk22031HYVEDEMM65499000260D000000000
 703211941UniCredit Bank - HypoVereinsbank                          82351Weilheim i. OB                     UniCredit Bank-HypoVereinbk22093HYVEDEMM46699000073U000000000
 703221921UniCredit Bank - HypoVereinsbank                          82411Murnau a. Staffelsee               UniCredit Bank-HypoVereinbk22059HYVEDEMM66499000074U000000000
 703500001Kreissparkasse Garmisch-Partenkirchen                     82467Garmisch-Partenkirchen             Kr Spk Garmisch-Partenkirch57159BYLADEM1GAP00009041U000000000
@@ -13171,14 +12923,14 @@ namespace :squirrels do
 703900002VR-Bank Werdenfels                                        82491Grainau                            VR-Bank Werdenfels         97003           88043743U000000000
 703900002VR-Bank Werdenfels                                        82433Bad Kohlgrub                       VR-Bank Werdenfels         97003           88050745U000000000
 703900002VR-Bank Werdenfels                                        82438Eschenlohe, Loisach                VR-Bank Werdenfels         97003           88050746U000000000
-703900002VR-Bank Werdenfels                                        82418Murnau a. Staffelsee               VR-Bank Werdenfels         97003           88050747M000000000
+703900002VR-Bank Werdenfels                                        82418Murnau a. Staffelsee               VR-Bank Werdenfels         97003           88050747U000000000
 703900002VR-Bank Werdenfels                                        82487Oberammergau                       VR-Bank Werdenfels         97003           88050748U000000000
 703900002VR-Bank Werdenfels                                        82441Ohlstadt                           VR-Bank Werdenfels         97003           88050749U000000000
 703900002VR-Bank Werdenfels                                        82418Riegsee                            VR-Bank Werdenfels         97003           88050750U000000000
 703900002VR-Bank Werdenfels                                        82442Saulgrub                           VR-Bank Werdenfels         97003           88050751U000000000
 703900002VR-Bank Werdenfels                                        82497Unterammergau                      VR-Bank Werdenfels         97003           88050752U000000000
 703900002VR-Bank Werdenfels (Gf P2)                                82459Garmisch-Partenkirchen             VR-Bank Werdenfels         87003           88054564U000000000
-703900002VR-Bank Werdenfels                                        82362Weilheim i. OB                     VR-Bank Werdenfels         97003           88056322M000000000
+703900002VR-Bank Werdenfels                                        82362Weilheim i. OB                     VR-Bank Werdenfels         97003           88056322U000000000
 703900002VR-Bank Werdenfels                                        82380Peißenberg                         VR-Bank Werdenfels         97003           88056323U000000000
 703900002VR-Bank Werdenfels                                        82386Oberhausen, Oberbay                VR-Bank Werdenfels         97003           88056324U000000000
 703900002VR-Bank Werdenfels                                        82395Obersöchering                      VR-Bank Werdenfels         97003           88056325U000000000
@@ -13205,18 +12957,18 @@ namespace :squirrels do
 703918002Volksbank-Raiffeisenbank Penzberg (Gf P2)                 82374Penzberg                           VB-Raiffbk Penzberg        87099           88054565U000000000
 710200721UniCredit Bank - HypoVereinsbank                          83423Bad Reichenhall                    UniCredit Bank-HypoVereinbk22010HYVEDEMM41099000075U000000000
 710200722UniCredit Bank - HypoVereinsbank                          83381Freilassing                        UniCredit Bank-HypoVereinbk22010HYVEDEMM41099000076U000000000
-710200722UniCredit Bank - HypoVereinsbank                          83406Laufen, Salzach                    UniCredit Bank-HypoVereinbk22010HYVEDEMM41099000265U000000000
-710200722UniCredit Bank - HypoVereinsbank                          83314Teisendorf                         UniCredit Bank-HypoVereinbk22010HYVEDEMM41099000267U000000000
+710200722UniCredit Bank - HypoVereinsbank                          83406Laufen, Salzach                    UniCredit Bank-HypoVereinbk22010HYVEDEMM41099000265D000000000
+710200722UniCredit Bank - HypoVereinsbank                          83314Teisendorf                         UniCredit Bank-HypoVereinbk22010HYVEDEMM41099000267D000000000
 710200722UniCredit Bank - HypoVereinsbank                          83461Berchtesgaden                      UniCredit Bank-HypoVereinbk22010HYVEDEMM41099000273U000000000
 710212701UniCredit Bank - HypoVereinsbank                          84519Neuötting                          UniCredit Bank-HypoVereinbk22003HYVEDEMM62999000077U000000000
 710212702UniCredit Bank - HypoVereinsbank                          84503Altötting                          UniCredit Bank-HypoVereinbk22003HYVEDEMM62999000078U000000000
-710212702UniCredit Bank - HypoVereinsbank                          84508Burgkirchen a.d.Alz                UniCredit Bank-HypoVereinbk22003HYVEDEMM62999000079U000000000
-710212702UniCredit Bank - HypoVereinsbank                          84529Tittmoning                         UniCredit Bank-HypoVereinbk22003HYVEDEMM62999000268U000000000
+710212702UniCredit Bank - HypoVereinsbank                          84508Burgkirchen a.d.Alz                UniCredit Bank-HypoVereinbk22003HYVEDEMM62999000079D000000000
+710212702UniCredit Bank - HypoVereinsbank                          84529Tittmoning                         UniCredit Bank-HypoVereinbk22003HYVEDEMM62999000268D000000000
 710212702UniCredit Bank - HypoVereinsbank                          84307Eggenfelden                        UniCredit Bank-HypoVereinbk22003HYVEDEMM62999032853U000000000
 710221821UniCredit Bank - HypoVereinsbank                          83261Traunstein, Oberbay                UniCredit Bank-HypoVereinbk22088HYVEDEMM45399000080U000000000
 710221822UniCredit Bank - HypoVereinsbank                          83247Marquartstein                      UniCredit Bank-HypoVereinbk22088HYVEDEMM45399000266U000000000
-710221822UniCredit Bank - HypoVereinsbank                          83302Trostberg                          UniCredit Bank-HypoVereinbk22088HYVEDEMM45399000271U000000000
-710221822UniCredit Bank - HypoVereinsbank                          83325Waging a. See                      UniCredit Bank-HypoVereinbk22088HYVEDEMM45399000272U000000000
+710221822UniCredit Bank - HypoVereinsbank                          83302Trostberg                          UniCredit Bank-HypoVereinbk22088HYVEDEMM45399000271D000000000
+710221822UniCredit Bank - HypoVereinsbank                          83325Waging a. See                      UniCredit Bank-HypoVereinbk22088HYVEDEMM45399000272D000000000
 710221822UniCredit Bank - HypoVereinsbank                          83291Traunreut                          UniCredit Bank-HypoVereinbk22088HYVEDEMM45399025682U000000000
 710231731UniCredit Bank - HypoVereinsbank                          84479Burghausen, Salzach                UniCredit Bank-HypoVereinbk22018HYVEDEMM63299000081U000000000
 710500001Sparkasse Berchtesgadener Land                            83435Bad Reichenhall                    Spk Berchtesgadener Land   57147BYLADEM1BGL00011298U000000000
@@ -13285,6 +13037,9 @@ namespace :squirrels do
 710610092VR meine Raiffeisenbank                                   84544Aschau a. Inn                      VR meine Raiffeisenbank    67041           88053293U000000000
 710610092VR meine Raiffeisenbank                                   83567Unterreit b Wasserburg a Inn       VR meine Raiffeisenbank    67041           88053294U000000000
 710610092VR meine Raiffeisenbank (Gf P2)                           84496Altötting                          VR meine Raiffeisenbank    77041           88054566U000000000
+710610092VR meine Raiffeisenbank                                   84539Ampfing                            VR meine Raiffeisenbank    67041           88056654U000000000
+710610092VR meine Raiffeisenbank                                   84564Oberbergkirchen                    VR meine Raiffeisenbank    67041           88056655U000000000
+710610092VR meine Raiffeisenbank                                   84431Rattenkirchen                      VR meine Raiffeisenbank    67041           88056656U000000000
 710628021Raiffeisenbank                                            83454Anger b Bad Reichenhall            Raiffeisenbank Anger       67103GENODEF1AGE88011330U000000000
 710628022Raiffeisenbank (Gf P2)                                    83454Anger b Bad Reichenhall            Raiffeisenbank Anger       77103           88054568U000000000
 710900001Volksbank Raiffeisenbank Oberbayern Südost                83423Bad Reichenhall                    VB RB Oberbayern Südost    97004GENODEF1BGL88021572U000000000
@@ -13316,20 +13071,20 @@ namespace :squirrels do
 710900002Volksbank Raiffeisenbank Oberbayern Südost                83313Siegsdorf, Oberbay                 VR RB Oberbayern Südost    97004           88055069U000000000
 710900002Volksbank Raiffeisenbank Oberbayern Südost                83355Grabenstätt, Chiemsee              VB RB Oberbayern Südost    97004           88055259U000000000
 711200771UniCredit Bank - HypoVereinsbank                          83001Rosenheim, Oberbay                 UniCredit Bank-HypoVereinbk22072HYVEDEMM44899000082U000000000
-711200772UniCredit Bank - HypoVereinsbank                          83094Brannenburg                        UniCredit Bank-HypoVereinbk22072HYVEDEMM44899000146U000000000
+711200772UniCredit Bank - HypoVereinsbank                          83094Brannenburg                        UniCredit Bank-HypoVereinbk22072HYVEDEMM44899000146D000000000
 711200772UniCredit Bank - HypoVereinsbank                          83035Bad Aibling                        UniCredit Bank-HypoVereinbk22072HYVEDEMM44899000279U000000000
 711200772UniCredit Bank - HypoVereinsbank                          83712Miesbach                           UniCredit Bank-HypoVereinbk22072HYVEDEMM44899000283U000000000
 711200772UniCredit Bank - HypoVereinsbank                          83201Prien a. Chiemsee                  UniCredit Bank-HypoVereinbk22072HYVEDEMM44899000285U000000000
 711200772UniCredit Bank - HypoVereinsbank                          83503Wasserburg a. Inn                  UniCredit Bank-HypoVereinbk22072HYVEDEMM44899000289U000000000
-711200772UniCredit Bank - HypoVereinsbank                          83053Kolbermoor                         UniCredit Bank-HypoVereinbk22072HYVEDEMM44899033774U000000000
+711200772UniCredit Bank - HypoVereinsbank                          83053Kolbermoor                         UniCredit Bank-HypoVereinbk22072HYVEDEMM44899033774D000000000
 711200781UniCredit Bank - HypoVereinsbank                          83697Rottach-Egern                      UniCredit Bank-HypoVereinbk22074HYVEDEMM64499044186U000000000
-711200782UniCredit Bank - HypoVereinsbank                          83705Bad Wiessee                        UniCredit Bank-HypoVereinbk22074HYVEDEMM64499000280U000000000
+711200782UniCredit Bank - HypoVereinsbank                          83705Bad Wiessee                        UniCredit Bank-HypoVereinbk22074HYVEDEMM64499000280D000000000
 711200782UniCredit Bank - HypoVereinsbank                          83701Gmund a. Tegernsee                 UniCredit Bank-HypoVereinbk22074HYVEDEMM64499000281U000000000
-711200782UniCredit Bank - HypoVereinsbank                          83722Schliersee                         UniCredit Bank-HypoVereinbk22074HYVEDEMM64499000287U000000000
-711200782UniCredit Bank - HypoVereinsbank                          83681Tegernsee                          UniCredit Bank-HypoVereinbk22074HYVEDEMM64499000288U000000000
+711200782UniCredit Bank - HypoVereinsbank                          83722Schliersee                         UniCredit Bank-HypoVereinbk22074HYVEDEMM64499000287D000000000
+711200782UniCredit Bank - HypoVereinsbank                          83681Tegernsee                          UniCredit Bank-HypoVereinbk22074HYVEDEMM64499000288D000000000
 711211761UniCredit Bank - HypoVereinsbank                          84445Mühldorf a. Inn                    UniCredit Bank-HypoVereinbk22058HYVEDEMM43899000084U000000000
-711211762UniCredit Bank - HypoVereinsbank                          84510Töging a. Inn                      UniCredit Bank-HypoVereinbk22058HYVEDEMM43899000085U000000000
-711211762UniCredit Bank - HypoVereinsbank                          84535Ampfing                            UniCredit Bank-HypoVereinbk22058HYVEDEMM43899037974U000000000
+711211762UniCredit Bank - HypoVereinsbank                          84510Töging a. Inn                      UniCredit Bank-HypoVereinbk22058HYVEDEMM43899000085D000000000
+711211762UniCredit Bank - HypoVereinsbank                          84535Ampfing                            UniCredit Bank-HypoVereinbk22058HYVEDEMM43899037974D000000000
 711221831UniCredit Bank - HypoVereinsbank                          84465Waldkraiburg                       UniCredit Bank-HypoVereinbk22091HYVEDEMM45799000086U000000000
 711400411Commerzbank Rosenheim                                     83022Rosenheim, Oberbay                 Commerzbank Rosenheim      24705COBADEFFXXX13034700U000000000
 711410411Commerzbank                                               84453Mühldorf a. Inn                    Commerzbank Mühldorf Inn   24704COBADEFFXXX13010240U000000000
@@ -13485,13 +13240,7 @@ namespace :squirrels do
 711651501Raiffeisenbank Mangfalltal -alt-                          83043Bad Aibling                        Raiffeisenbank Mangfal-alt-67117GENODEF1AIB88026474U000000000
 711800051Commerzbank vormals Dresdner Bank                         83011Rosenheim, Oberbay                 Commerzbank Rosenheim      28711DRESDEFF71176006789U000000000
 711900001Volksbank Rosenheim -alt-                                 83022Rosenheim, Oberbay                 Volksbank Rosenheim -alt-  97005GENODEF1ROV88022607U000000000
-711910001VR-Bank Burghausen-Mühldorf                               84453Mühldorf a. Inn                    VR-Bank Burghausen-Mühldorf97068GENODEF1MUL88021837U000000000
-711910002VR-Bank Burghausen-Mühldorf                               84539Ampfing                            VR-Bank Burghausen-Mühldorf97068           88021535U000000000
-711910002VR-Bank Burghausen-Mühldorf                               84431Rattenkirchen                      VR-Bank Burghausen-Mühldorf97068           88051379U000000000
-711910002VR-Bank Burghausen-Mühldorf                               84564Oberbergkirchen                    VR-Bank Burghausen-Mühldorf97068           88051380U000000000
-711910002VR-Bank Burghausen-Mühldorf                               84508Burgkirchen a.d.Alz                VR-Bank Burghausen-Mühldorf97068           88053581U000000000
-711910002VR-Bank Burghausen-Mühldorf                               84547Emmerting                          VR-Bank Burghausen-Mühldorf97068           88053583U000000000
-711910002VR-Bank Burghausen-Mühldorf                               84489Burghausen, Salzach                VR-Bank Burghausen-Mühldorf97068           88053584U000000000
+711910001VR-Bank Burghausen-Mühldorf -alt-                         84453Mühldorf a. Inn                    VR-Bank Burgh-Mühldorf-alt 97068GENODEF1MUL88021837U000000000
 711910002VR-Bank Burghausen-Mühldorf (Gf P2)                       84453Mühldorf a. Inn                    VR-Bank Burghausen-Mühldorf87068           88054575U000000000
 720000001Bundesbank                                                86136Augsburg, Bay                      BBk Augsburg               20720MARKDEF172009011446U000000000
 720101111SEB                                                       86150Augsburg, Bay                      SEB Augsburg               25804ESSEDE5F72013005375U000000000
@@ -13501,12 +13250,12 @@ namespace :squirrels do
 720200702UniCredit Bank - HypoVereinsbank                          86301Friedberg, Bay                     UniCredit Bank-HypoVereinbk22007HYVEDEMM40899000092U000000000
 720200702UniCredit Bank - HypoVereinsbank                          89402Dillingen a.d.Donau                UniCredit Bank-HypoVereinbk22007HYVEDEMM40899000297U000000000
 720200702UniCredit Bank - HypoVereinsbank                          86369Krumbach (Schwaben)                UniCredit Bank-HypoVereinbk22007HYVEDEMM40899000301U000000000
-720200702UniCredit Bank - HypoVereinsbank                          89412Lauingen (Donau)                   UniCredit Bank-HypoVereinbk22007HYVEDEMM40899000302U000000000
-720200702UniCredit Bank - HypoVereinsbank                          86466Thannhausen, Schwab                UniCredit Bank-HypoVereinbk22007HYVEDEMM40899000304U000000000
-720200702UniCredit Bank - HypoVereinsbank                          86638Rain, Lech                         UniCredit Bank-HypoVereinbk22007HYVEDEMM40899000318U000000000
-720200702UniCredit Bank - HypoVereinsbank                          86732Oettingen i.Bay.                   UniCredit Bank-HypoVereinbk22007HYVEDEMM40899000330U000000000
+720200702UniCredit Bank - HypoVereinsbank                          89412Lauingen (Donau)                   UniCredit Bank-HypoVereinbk22007HYVEDEMM40899000302D000000000
+720200702UniCredit Bank - HypoVereinsbank                          86466Thannhausen, Schwab                UniCredit Bank-HypoVereinbk22007HYVEDEMM40899000304D000000000
+720200702UniCredit Bank - HypoVereinsbank                          86638Rain, Lech                         UniCredit Bank-HypoVereinbk22007HYVEDEMM40899000318D000000000
+720200702UniCredit Bank - HypoVereinsbank                          86732Oettingen i.Bay.                   UniCredit Bank-HypoVereinbk22007HYVEDEMM40899000330D000000000
 720200702UniCredit Bank - HypoVereinsbank                          86357Gersthofen                         UniCredit Bank-HypoVereinbk22007HYVEDEMM40899032580U000000000
-720200702UniCredit Bank - HypoVereinsbank                          86406Mering, Schwab                     UniCredit Bank-HypoVereinbk22007HYVEDEMM40899032607U000000000
+720200702UniCredit Bank - HypoVereinsbank                          86406Mering, Schwab                     UniCredit Bank-HypoVereinbk22007HYVEDEMM40899032607D000000000
 720200702UniCredit Bank - HypoVereinsbank                          86329Königsbrunn b Augsburg             UniCredit Bank-HypoVereinbk22007HYVEDEMM40899032857U000000000
 720200702UniCredit Bank - HypoVereinsbank                          86344Neusäß                             UniCredit Bank-HypoVereinbk22007HYVEDEMM40899034851U000000000
 720200702UniCredit Bank - HypoVereinsbank                          86827Schwabmünchen                      UniCredit Bank-HypoVereinbk22007HYVEDEMM40899043535U000000000
@@ -13518,6 +13267,7 @@ namespace :squirrels do
 720302271Bankhaus Anton Hafner                                     86150Augsburg, Bay                      Bankhaus Anton Hafner      26155ANHODE77XXX00000021U000000000
 720302272Bankhaus Anton Hafner                                     86441Zusmarshausen                      Bankhaus Anton Hafner      26155           00000022U000000000
 720302272Bankhaus Anton Hafner                                     86424Dinkelscherben                     Bankhaus Anton Hafner      26155           00000023U000000000
+720302601Bankhaus Anton Hafner (Gf PayCenter)                      86150Augsburg                           Bankhaus Anton Hafner           ANHODE77PAY09056701A000000000
 720400461Commerzbank                                               86150Augsburg, Bay                      Commerzbank Augsburg       24720COBADEFFXXX13011259U000000000
 720400462Commerzbank                                               86343Königsbrunn b Augsburg             Commerzbank Königsbrunn    24720           13049631U000000000
 720400462Commerzbank                                               86368Gersthofen                         Commerzbank Gersthofen     24720           13056140U000000000
@@ -13525,7 +13275,7 @@ namespace :squirrels do
 720501011Kreissparkasse Augsburg                                   86009Augsburg, Bay                      Kr Spk Augsburg            57190BYLADEM1AUG00010920U000000000
 720501012Kreissparkasse Augsburg                                   86465Welden b Augsburg                  Kr Spk Augsburg            57190           00008191U000000000
 720501012Kreissparkasse Augsburg                                   86441Zusmarshausen                      Kr Spk Augsburg            57190           00008220U000000000
-720501012Kreissparkasse Augsburg                                   86450Altenmünster, Schwab               Kr Spk Augsburg            57190           00008813U000000000
+720501012Kreissparkasse Augsburg                                   86450Altenmünster, Schwab               Kr Spk Augsburg            57190           00008813D000000000
 720501012Kreissparkasse Augsburg                                   86424Dinkelscherben                     Kr Spk Augsburg            57190           00009056U000000000
 720501012Kreissparkasse Augsburg                                   86420Diedorf, Schwab                    Kr Spk Augsburg            57190           00009064U000000000
 720501012Kreissparkasse Augsburg                                   86850Fischach, Schwab                   Kr Spk Augsburg            57190           00009077U000000000
@@ -13534,9 +13284,9 @@ namespace :squirrels do
 720501012Kreissparkasse Augsburg                                   86391Stadtbergen                        Kr Spk Augsburg            57190           00009376U000000000
 720501012Kreissparkasse Augsburg                                   86462Langweid a. Lech                   Kr Spk Augsburg            57190           00009507U000000000
 720501012Kreissparkasse Augsburg                                   86343Königsbrunn b Augsburg             Kr Spk Augsburg            57190           00009579U000000000
-720501012Kreissparkasse Augsburg                                   86863Langenneufnach                     Kr Spk Augsburg            57190           00009687U000000000
+720501012Kreissparkasse Augsburg                                   86863Langenneufnach                     Kr Spk Augsburg            57190           00009687D000000000
 720501012Kreissparkasse Augsburg                                   86830Schwabmünchen                      Kr Spk Augsburg            57190           00009700U000000000
-720501012Kreissparkasse Augsburg                                   86517Wehringen                          Kr Spk Augsburg            57190           00009773U000000000
+720501012Kreissparkasse Augsburg                                   86517Wehringen                          Kr Spk Augsburg            57190           00009773D000000000
 720501012Kreissparkasse Augsburg                                   86482Aystetten                          Kr Spk Augsburg            57190           00010918U000000000
 720501012Kreissparkasse Augsburg                                   86485Biberbach, Schwab                  Kr Spk Augsburg            57190           00031059U000000000
 720501012Kreissparkasse Augsburg                                   86494Emersacker                         Kr Spk Augsburg            57190           00031073U000000000
@@ -13546,9 +13296,9 @@ namespace :squirrels do
 720501012Kreissparkasse Augsburg                                   86836Untermeitingen                     Kr Spk Augsburg            57190           00037669U000000000
 720501012Kreissparkasse Augsburg                                   86459Gessertshausen                     Kr Spk Augsburg            57190           00041200U000000000
 720501012Kreissparkasse Augsburg                                   86477Adelsried b Augsburg               Kr Spk Augsburg            57190           00043583U000000000
-720501012Kreissparkasse Augsburg                                   86497Horgau                             Kr Spk Augsburg            57190           00044045U000000000
-720501012Kreissparkasse Augsburg                                   86853Langerringen                       Kr Spk Augsburg            57190           00044066U000000000
-720501012Kreissparkasse Augsburg                                   86856Hiltenfingen                       Kr Spk Augsburg            57190           00044261U000000000
+720501012Kreissparkasse Augsburg                                   86497Horgau                             Kr Spk Augsburg            57190           00044045D000000000
+720501012Kreissparkasse Augsburg                                   86853Langerringen                       Kr Spk Augsburg            57190           00044066D000000000
+720501012Kreissparkasse Augsburg                                   86856Hiltenfingen                       Kr Spk Augsburg            57190           00044261D000000000
 720501012Kreissparkasse Augsburg                                   86672Thierhaupten                       Kr Spk Augsburg            57190           00053100U000000000
 720501012Kreissparkasse Augsburg                                   86368Gersthofen                         Kr Spk Augsburg            57190           00055705U000000000
 720512101Sparkasse Aichach-Schrobenhausen                          86542Aichach a d Paar                   Spk Aichach-Schrobenhausen 57145BYLADEM1AIC00009938U000000000
@@ -13604,7 +13354,7 @@ namespace :squirrels do
 720621522VR-Bank Handels- und Gewerbebank                          86420Diedorf, Schwab                    VR-Bank HG-Bank            68123           88055426U000000000
 720621522VR-Bank Handels- und Gewerbebank                          86356Neusäß                             VR-Bank HG-Bank            68123           88055427U000000000
 720690021Raiffeisenbank Adelzhausen-Sielenbach                     86559Adelzhausen                        Raiffbk Adelzhausen-Sielenb67124GENODEF1ADZ88025055U000000000
-720690022Raiffeisenbank Adelzhausen-Sielenbach                     85250Altomünster                        Raiffbk Adelzhausen-Sielenb67124           88025354U000000000
+720690022Raiffeisenbank Adelzhausen-Sielenbach                     85250Altomünster                        Raiffbk Adelzhausen-Sielenb67124           88025354D000000000
 720690022Raiffeisenbank Adelzhausen-Sielenbach Hgs                 86577Sielenbach                         Raiffbk Adelzhausen-Sielenb67124           88029610U000000000
 720690022Raiffeisenbank Adelzhausen-Sielenbach                     86495Eurasburg b Friedberg, Bay         Raiffbk Adelzhausen-Sielenb67124           88049396U000000000
 720690022Raiffeisenbank Adelzhausen-Sielenbach (Gf P2)             86559Adelzhausen                        Raiffbk Adelzhausen-Sielenb77124           88054578U000000000
@@ -13642,8 +13392,6 @@ namespace :squirrels do
 720690432VR-Bank Donau-Mindel                                      89335Ichenhausen                        VR-Bank Donau-Mindel       67183           88056584U000000000
 720690432VR-Bank Donau-Mindel                                      89362Offingen, Donau                    VR-Bank Donau-Mindel       67183           88056585U000000000
 720690432VR-Bank Donau-Mindel                                      89340Leipheim                           VR-Bank Donau-Mindel       67183           88056586U000000000
-720690901Raiffeisenbank Bibertal-Kötz                              89359Kötz                               RB Bibertal-Kötz           67250GENODEF1KEZ88025289U000000000
-720690902Raiffeisenbank (Gf P2)                                    89359Kötz                               RB Bibertal-Kötz           77250           88054583U000000000
 720691051Raiffeisenbank                                            86856Hiltenfingen                       Raiffeisenbank Hiltenfingen67270GENODEF1HTF88025340U000000000
 720691052Raiffeisenbank Hiltenfingen zgl f Ndl Gennach             86853Langerringen                       Raiffeisenbank Hiltenfingen67270           88025262U000000000
 720691052Raiffeisenbank (Gf P2)                                    86856Hiltenfingen                       Raiffeisenbank Hiltenfingen77270           88054584U000000000
@@ -13814,13 +13562,13 @@ namespace :squirrels do
 721200781UniCredit Bank - HypoVereinsbank                          85017Ingolstadt, Donau                  UniCredit Bank-HypoVereinbk22039HYVEDEMM42699000095U000000000
 721200782UniCredit Bank - HypoVereinsbank                          84048Mainburg                           UniCredit Bank-HypoVereinbk22039HYVEDEMM42699000068U000000000
 721200782UniCredit Bank - HypoVereinsbank                          85283Wolnzach                           UniCredit Bank-HypoVereinbk22039HYVEDEMM42699000069U000000000
-721200782UniCredit Bank - HypoVereinsbank                          85065Eichstätt, Bay                     UniCredit Bank-HypoVereinbk22039HYVEDEMM42699000314U000000000
+721200782UniCredit Bank - HypoVereinsbank                          85065Eichstätt, Bay                     UniCredit Bank-HypoVereinbk22039HYVEDEMM42699000314D000000000
 721200782UniCredit Bank - HypoVereinsbank                          85285Geisenfeld                         UniCredit Bank-HypoVereinbk22039HYVEDEMM42699000315U000000000
 721200782UniCredit Bank - HypoVereinsbank                          85264Pfaffenhofen a.d.Ilm               UniCredit Bank-HypoVereinbk22039HYVEDEMM42699000317U000000000
 721200782UniCredit Bank - HypoVereinsbank                          86521Schrobenhausen                     UniCredit Bank-HypoVereinbk22039HYVEDEMM42699000319U000000000
-721200782UniCredit Bank - HypoVereinsbank                          85085Vohburg a.d.Donau                  UniCredit Bank-HypoVereinbk22039HYVEDEMM42699000323U000000000
-721200782UniCredit Bank - HypoVereinsbank                          84070Au i.d.Hallertau                   UniCredit Bank-HypoVereinbk22039HYVEDEMM42699000328U000000000
-721200782UniCredit Bank - HypoVereinsbank                          92335Beilngries                         UniCredit Bank-HypoVereinbk22039HYVEDEMM42699000391U000000000
+721200782UniCredit Bank - HypoVereinsbank                          85085Vohburg a.d.Donau                  UniCredit Bank-HypoVereinbk22039HYVEDEMM42699000323D000000000
+721200782UniCredit Bank - HypoVereinsbank                          84070Au i.d.Hallertau                   UniCredit Bank-HypoVereinbk22039HYVEDEMM42699000328D000000000
+721200782UniCredit Bank - HypoVereinsbank                          92335Beilngries                         UniCredit Bank-HypoVereinbk22039HYVEDEMM42699000391D000000000
 721221811UniCredit Bank - HypoVereinsbank                          86616Neuburg a.d.Donau                  UniCredit Bank-HypoVereinbk22060HYVEDEMM66599046132U000000000
 721400521Commerzbank                                               85018Ingolstadt, Donau                  Commerzbank Ingolstadt     24703COBADEFFXXX13010223U000000000
 721500001Sparkasse Ingolstadt                                      85023Ingolstadt, Donau                  Sparkasse Ingolstadt       57163BYLADEM1ING00010536U000000000
@@ -13901,12 +13649,9 @@ namespace :squirrels do
 721608182Volksbank Raiffeisenbank Bayern Mitte (Gf P2)             85023Ingolstadt, Donau                  VR Bank Bayern Mitte       77038           88054608U000000000
 721608182Volksbank Raiffeisenbank Bayern Mitte                     85134Stammham b Ingolstadt, Donau       VR Bank Bayern Mitte       67038           88055561U000000000
 721608182Volksbank Raiffeisenbank Bayern Mitte                     91781Weißenburg i.Bay.                  VR Bank Bayern Mitte       67038           88055562U000000000
-721608182Volksbank Raiffeisenbank Bayern Mitte                     91785Pleinfeld                          VR Bank Bayern Mitte       67038           88055563U000000000
 721608182Volksbank Raiffeisenbank Bayern Mitte                     91788Pappenheim, Mittelfr               VR Bank Bayern Mitte       67038           88055564U000000000
-721608182Volksbank Raiffeisenbank Bayern Mitte                     91752Treuchtlingen                      VR Bank Bayern Mitte       67038           88055565U000000000
 721608182Volksbank Raiffeisenbank Bayern Mitte                     92339Beilngries                         VR Bank Bayern Mitte       67038           88055566U000000000
 721608182Volksbank Raiffeisenbank Bayern Mitte                     85092Kösching                           VR Bank Bayern Mitte       67038           88055567U000000000
-721608182Volksbank Raiffeisenbank Bayern Mitte                     85080Gaimersheim                        VR Bank Bayern Mitte       67038           88055568U000000000
 721608182Volksbank Raiffeisenbank Bayern Mitte                     91804Mörnsheim                          VR Bank Bayern Mitte       67038           88055569U000000000
 721608182Volksbank Raiffeisenbank Bayern Mitte                     91795Dollnstein                         VR Bank Bayern Mitte       67038           88055570U000000000
 721608182Volksbank Raiffeisenbank Bayern Mitte                     91809Wellheim                           VR Bank Bayern Mitte       67038           88055571U000000000
@@ -13931,7 +13676,7 @@ namespace :squirrels do
 721693801Raiffeisenbank Beilngries                                 92339Beilngries                         Raiffeisenbank Beilngries  67548GENODEF1BLN88025104U000000000
 721693802Raiffeisenbank Beilngries                                 85125Kinding                            Raiffeisenbank Beilngries  67548           88025322U000000000
 721693802Raiffeisenbank Beilngries (Gf P2)                         92339Beilngries                         Raiffeisenbank Beilngries  77548           88054614U000000000
-721697331Raiffeisenbank Berg im Gau-Langenmosen -alt-              86571Langenmosen                        Rbk Berg im Gau-L -alt-    67816GENODEF1LBE88029050U000000000
+721697331Raiffeisenbank Berg im Gau-Langenmosen -alt-              86571Langenmosen                        Rbk Berg im Gau-L -alt-    67816GENODEF1LBE88029050D000000000
 721697451Raiffeisenbank Ehekirchen-Oberhausen                      86676Ehekirchen, Oberbay                Raiffbk Ehekirchen-Oberhsn 67834GENODEF1WDF88029745U000000000
 721697452Raiffeisenbank Ehekirchen-Weidorf (Gf P2)                 86676Ehekirchen, Oberbay                Raiffbk Ehekirchen-Weidorf 77834           88054615U000000000
 721697452Raiffeisenbank Ehekirchen-Oberhausen                      86697Oberhausen b Neuburg a d Donau     Raiffbk Ehekirchen-Oberhsn 67834           88054954U000000000
@@ -13978,12 +13723,9 @@ namespace :squirrels do
 721913002Volksbank Raiffeisenbank Eichstätt                        91809Wellheim                           Volksbank Eichstätt        97080           88022228U000000000
 721913002Volksbank Raiffeisenbank Eichstätt                        91781Weißenburg i.Bay.                  Volksbank Eichstätt        97080           88022380U000000000
 721913002Volksbank Raiffeisenbank Eichstätt                        91788Pappenheim, Mittelfr               Volksbank Eichstätt        97080           88022711U000000000
-721913002Volksbank Raiffeisenbank Eichstätt                        91785Pleinfeld                          Volksbank Eichstätt        97080           88022736U000000000
 721913002Volksbank Raiffeisenbank Eichstätt                        85092Kösching                           Volksbank Eichstätt        97080           88024732U000000000
 721913002Volksbank Raiffeisenbank Eichstätt                        85134Stammham b Ingolstadt, Donau       Volksbank Eichstätt        97080           88025528U000000000
-721913002Volksbank Raiffeisenbank Eichstätt                        91752Treuchtlingen                      Volksbank Eichstätt        97080           88039690U000000000
 721913002Volksbank Raiffeisenbank Eichstätt                        92339Beilngries                         Volksbank Eichstätt        97080           88040714U000000000
-721913002Volksbank Raiffeisenbank Eichstätt                        85080Gaimersheim                        Volksbank Eichstätt        97080           88046381U000000000
 721913002Volksbank Raiffeisenbank Eichstätt                        91804Mörnsheim                          Volksbank Eichstätt        97080           88052752U000000000
 721913002Volksbank Raiffeisenbank Eichstätt (Gf P2)                85067Eichstätt, Bay                     Volksbank Eichstätt        87080           88054621U000000000
 721916001Hallertauer Volksbank                                     85276Pfaffenhofen a.d.Ilm               Hallertauer Volksbank      97093GENODEF1PFI88022724U000000000
@@ -14045,15 +13787,13 @@ namespace :squirrels do
 722515202Kreis- und Stadtsparkasse Dillingen                       86647Buttenwiesen                       Kr u St Spk Dillingen      57105           10010970U000000000
 722515202Kreis- und Stadtsparkasse Dillingen                       89344Aislingen, Schwab                  Kr u St Spk Dillingen      57105           10013371U000000000
 722515202Kreis- und Stadtsparkasse Dillingen                       89438Holzheim, Kr Dillingen a d Donau   Kr u St Spk Dillingen      57105           10032830U000000000
-722515202Kreis- und Stadtsparkasse Dillingen                       89443Schwenningen, Kr Dillingen a d DonaKr u St Spk Dillingen      57105           10039511U000000000
 722515202Kreis- und Stadtsparkasse Dillingen                       89434Blindheim b Dillingen a d Donau    Kr u St Spk Dillingen      57105           10040946U000000000
-722515202Kreis- und Stadtsparkasse Dillingen                       89353Glött, Schwab                      Kr u St Spk Dillingen      57105           10042500U000000000
 722515202Kreis- und Stadtsparkasse Dillingen                       89437Haunsheim                          Kr u St Spk Dillingen      57105           10042503U000000000
-722515202Kreis- und Stadtsparkasse Dillingen                       86637Binswangen b Dillingen a d Donau   Kr u St Spk Dillingen      57105           10043610U000000000
-722515202Kreis- und Stadtsparkasse Dillingen                       89446Ziertheim                          Kr u St Spk Dillingen      57105           10043647U000000000
+722515202Kreis- und Stadtsparkasse Dillingen                       86637Binswangen b Dillingen a d Donau   Kr u St Spk Dillingen      57105           10043610D000000000
+722515202Kreis- und Stadtsparkasse Dillingen                       89446Ziertheim                          Kr u St Spk Dillingen      57105           10043647D000000000
 722617541Raiffeisenbank Rain am Lech                               86638Rain, Lech                         Raiffeisenbank Rain am Lech68029GENODEF1RLH88029536U000000000
 722617542Raiffeisenbank Rain am Lech Zw                            86682Genderkingen                       Raiffeisenbank Rain am Lech68029           88025261U000000000
-722617542Raiffeisenbank Rain am Lech Zw                            86694Niederschönenfeld                  Raiffeisenbank Rain am Lech68029           88029202U000000000
+722617542Raiffeisenbank Rain am Lech Zw                            86694Niederschönenfeld                  Raiffeisenbank Rain am Lech68029           88029202D000000000
 722617542Raiffeisenbank Rain am Lech Zw                            86688Marxheim                           Raiffeisenbank Rain am Lech68029           88029430U000000000
 722617542Raiffeisenbank Rain am Lech ZW                            86684Holzheim b Rain, Lech              Raiffeisenbank Rain am Lech68029           88051836U000000000
 722617542Raiffeisenbank Rain am Lech ZW                            86692Münster, Lech                      Raiffeisenbank Rain am Lech68029           88051837U000000000
@@ -14095,17 +13835,17 @@ namespace :squirrels do
 730500002Sparkasse Neu-Ulm-Illertissen                             89287Bellenberg, Schwab                 Spk Bellenberg             57114           00011013U000000000
 730500002Sparkasse Neu-Ulm-Illertissen                             89275Elchingen, Donau                   Spk Elchingen              57114           00041139U000000000
 730500002Sparkasse Neu-Ulm-Illertissen                             89269Vöhringen, Iller                   Spk Vöhringen              57114           00043473U000000000
-730611911VR-Bank Neu-Ulm/Weißenhorn                                89264Weißenhorn                         VR-Bank Neu-Ulm/Weißenhorn 67048GENODEF1NU188047590U000000000
-730611912VR-Bank Neu-Ulm/Weißenhorn (Gf P2)                        89264Weißenhorn                         VR-Bank Neu-Ulm/Weißenhorn 77048           88054627U000000000
-730900001Volksbank Neu-Ulm                                         89212Neu-Ulm                            Volksbank Neu-Ulm          97009GENODEF1NUV88021903U000000000
-730900002Raiffeisenbank Senden Ndl d Volksbank Neu-Ulm             89250Senden, Iller                      Raiffeisenbank Senden      97009           88025663U000000000
-730900002Volksbank Neu-Ulm                                         89276Nersingen                          VB Neu-Ulm Nersingen       97009           88032617U000000000
+730611911VR-Bank Neu-Ulm/Weißenhorn                                89212Neu-Ulm                            VR-Bank Neu-Ulm/Weißenhorn 67048GENODEF1NU188047590M000000000
+730611912VR-Bank Neu-Ulm/Weißenhorn (Gf P2)                        89212Neu-Ulm                            VR-Bank Neu-Ulm/Weißenhorn 77048           88054627M000000000
+730900001Volksbank Neu-Ulm -alt-                                   89212Neu-Ulm                            Volksbank Neu-Ulm -alt-    97009GENODEF1NUV88021903M000000000
+730900002Raiffeisenbank Senden Ndl d Volksbank Neu-Ulm             89250Senden, Iller                      Raiffeisenbank Senden      97009           88025663D000000000
+730900002Volksbank Neu-Ulm                                         89276Nersingen                          VB Neu-Ulm Nersingen       97009           88032617D000000000
 730900002Volksbank Neu-Ulm (Gf P2)                                 89212Neu-Ulm                            Volksbank Neu-Ulm          87009           88054628U000000000
 731200751UniCredit Bank - HypoVereinsbank                          87681Memmingen                          UniCredit Bank-HypoVereinbk22057HYVEDEMM43699000099U000000000
-731200752UniCredit Bank - HypoVereinsbank                          87725Babenhausen, Schwab                UniCredit Bank-HypoVereinbk22057HYVEDEMM43699000336U000000000
-731200752UniCredit Bank - HypoVereinsbank                          86816Bad Wörishofen                     UniCredit Bank-HypoVereinbk22057HYVEDEMM43699000337U000000000
-731200752UniCredit Bank - HypoVereinsbank                          87721Ottobeuren                         UniCredit Bank-HypoVereinbk22057HYVEDEMM43699000340U000000000
-731200752UniCredit Bank - HypoVereinsbank                          86801Buchloe                            UniCredit Bank-HypoVereinbk22057HYVEDEMM43699000354U000000000
+731200752UniCredit Bank - HypoVereinsbank                          87725Babenhausen, Schwab                UniCredit Bank-HypoVereinbk22057HYVEDEMM43699000336D000000000
+731200752UniCredit Bank - HypoVereinsbank                          86816Bad Wörishofen                     UniCredit Bank-HypoVereinbk22057HYVEDEMM43699000337D000000000
+731200752UniCredit Bank - HypoVereinsbank                          87721Ottobeuren                         UniCredit Bank-HypoVereinbk22057HYVEDEMM43699000340D000000000
+731200752UniCredit Bank - HypoVereinsbank                          86801Buchloe                            UniCredit Bank-HypoVereinbk22057HYVEDEMM43699000354D000000000
 731200752UniCredit Bank - HypoVereinsbank                          87719Mindelheim                         UniCredit Bank-HypoVereinbk22057HYVEDEMM43699040690U000000000
 731400461Commerzbank Memmingen                                     87700Memmingen                          Commerzbank Memmingen      24723COBADEFFXXX13010239U000000000
 731500001Sparkasse Memmingen-Lindau-Mindelheim                     87688Memmingen                          Spk Memmingen-Lindau-Mindel57119BYLADEM1MLM00009651U000000000
@@ -14180,8 +13920,8 @@ namespace :squirrels do
 733200732UniCredit Bank - HypoVereinsbank                          87620Füssen                             UniCredit Bank-HypoVereinbk22043HYVEDEMM42899000345U000000000
 733211771UniCredit Bank - HypoVereinsbank                          87552Oberstdorf                         UniCredit Bank-HypoVereinbk22066HYVEDEMM56799000101U000000000
 733223801UniCredit Bank - HypoVereinsbank                          87515Sonthofen, Oberallgäu              UniCredit Bank-HypoVereinbk22083HYVEDEMM57099030220U000000000
-733223802UniCredit Bank - HypoVereinsbank                          87501Immenstadt i. Allgäu               UniCredit Bank-HypoVereinbk22083HYVEDEMM57099000102U000000000
-733223802UniCredit Bank - HypoVereinsbank                          87528Oberstaufen                        UniCredit Bank-HypoVereinbk22083HYVEDEMM57099000346U000000000
+733223802UniCredit Bank - HypoVereinsbank                          87501Immenstadt i. Allgäu               UniCredit Bank-HypoVereinbk22083HYVEDEMM57099000102D000000000
+733223802UniCredit Bank - HypoVereinsbank                          87528Oberstaufen                        UniCredit Bank-HypoVereinbk22083HYVEDEMM57099000346D000000000
 733223802UniCredit Bank - HypoVereinsbank                          87459Pfronten                           UniCredit Bank-HypoVereinbk22083HYVEDEMM57099000347U000000000
 733317001Gabler Saliter Bankgeschäft                               87634Obergünzburg                       Saliterbank Obergünzburg   26125GABLDE71XXX09008442U000000000
 733317002Gabler Saliter Bankgeschäft                               87463Dietmannsried                      Saliterbank Dietmannsried  26125           09048195U000000000
@@ -14230,7 +13970,7 @@ namespace :squirrels do
 733516351Sparkasse Riezlern, Kleinwalsertal                        87567Riezlern, Kleinwalsertal           Sparkasse Riezlern         57126BYLADEM1ALR00043562U000000000
 733518401Dornbirner Sparkasse                                      87567Riezlern, Kleinwalsertal           Spk Dornbirn Riezlern                      09044092U000000000
 733624211Bankhaus Jungholz Zndl der Raiffeisenbank Reutte          87491Jungholz, Tirol                    Bankhaus Jungholz          67095           09043500U000000000
-733625001Raiffeisen-Landesbank Tirol                               87491Jungholz, Tirol                    RLB Tirol Jungholz              RZTIDE71XXXA1044792U000000000
+733625001Raiffeisen-Landesbank Tirol                               87491Jungholz, Tirol                    RLB Tirol Jungholz              RZTIDE71XXXA1044792D000000000
 733692641Raiffeisenbank im Allgäuer Land                           87463Dietmannsried                      Raiffbk im Allg Land       67469GENODEF1DTA88028191U000000000
 733692642Raiffeisenbank im Allgäuer Land                           87449Altusried                          Raiffbk im Allg Land       67469           88028223U000000000
 733692642Raiffeisenbank im Allgäuer Land                           87493Lauben, Oberallgäu                 Raiffbk im Allg Land       67469           88032380U000000000
@@ -14354,23 +14094,22 @@ namespace :squirrels do
 733920001Volksbank Immenstadt                                      87504Immenstadt i. Allgäu               Volksbank Immenstadt       97110GENODEF1IMV88022153U000000000
 733920002Volksbank Immenstadt                                      87448Waltenhofen, Allgäu                Volksbank Waltenhofen      97110           88035624U000000000
 733920002Volksbank Immenstadt (Gf P2)                              87504Immenstadt i. Allgäu               Volksbank Immenstadt       87110           88054650U000000000
-733924001Volksbank Tirol Jungholz                                  87491Jungholz, Tirol                    Volksbank Tirol Jungholz        VBOEDE71XXX32044657U000000000
 734200711UniCredit Bank - HypoVereinsbank                          87600Kaufbeuren                         UniCredit Bank-HypoVereinbk22042HYVEDEMM42799000103U000000000
 734200712UniCredit Bank - HypoVereinsbank                          86839Türkheim, Wertach                  UniCredit Bank-HypoVereinbk22042HYVEDEMM42799000341U000000000
-734200712UniCredit Bank - HypoVereinsbank                          86983Lechbruck am See                   UniCredit Bank-HypoVereinbk22042HYVEDEMM42799000351U000000000
+734200712UniCredit Bank - HypoVereinsbank                          86983Lechbruck am See                   UniCredit Bank-HypoVereinbk22042HYVEDEMM42799000351D000000000
 734200712UniCredit Bank - HypoVereinsbank                          87609Marktoberdorf                      UniCredit Bank-HypoVereinbk22042HYVEDEMM42799043509U000000000
 734214781UniCredit Bank - HypoVereinsbank                          86951Schongau                           UniCredit Bank-HypoVereinbk22078HYVEDEMM66699000105U000000000
-734214782UniCredit Bank - HypoVereinsbank                          82378Peißenberg                         UniCredit Bank-HypoVereinbk22078HYVEDEMM66699000262U000000000
+734214782UniCredit Bank - HypoVereinsbank                          82378Peißenberg                         UniCredit Bank-HypoVereinbk22078HYVEDEMM66699000262D000000000
 734400481Commerzbank                                               87600Kaufbeuren                         Commerzbank KB F-K48       24747COBADEFFXXX13055613U000000000
 734500001Kreis- und Stadtsparkasse Kaufbeuren                      87600Kaufbeuren                         Kr u St Spk Kaufbeuren     57129BYLADEM1KFB00009592U000000000
-734500002Kreis- und Stadtsparkasse Kaufbeuren                      86875Waal, Schwab                       Kr u St Spk Kaufbeuren     57129           00009761U000000000
+734500002Kreis- und Stadtsparkasse Kaufbeuren                      86875Waal, Schwab                       Kr u St Spk Kaufbeuren     57129           00009761D000000000
 734500002Kreis- und Stadtsparkasse Kaufbeuren                      86807Buchloe                            Kr u St Spk Kaufbeuren     57129           00010799U000000000
 734500002Kreis- und Stadtsparkasse Kaufbeuren                      87656Germaringen                        Kr u St Spk Kaufbeuren     57129           00031467U000000000
-734500002Kreis- und Stadtsparkasse Kaufbeuren                      87660Irsee                              Kr u St Spk Kaufbeuren     57129           00035639U000000000
+734500002Kreis- und Stadtsparkasse Kaufbeuren                      87660Irsee                              Kr u St Spk Kaufbeuren     57129           00035639D000000000
 734500002Kreis- und Stadtsparkasse Kaufbeuren                      87666Pforzen                            Kr u St Spk Kaufbeuren     57129           00039780U000000000
-734500002Kreis- und Stadtsparkasse Kaufbeuren                      87668Rieden b Kaufbeuren                Kr u St Spk Kaufbeuren     57129           00040948U000000000
+734500002Kreis- und Stadtsparkasse Kaufbeuren                      87668Rieden b Kaufbeuren                Kr u St Spk Kaufbeuren     57129           00040948D000000000
 734500002Kreis- und Stadtsparkasse Kaufbeuren                      87665Mauerstetten b Kaufbeuren          Kr u St Spk Kaufbeuren     57129           00043660U000000000
-734500002Kreis- und Stadtsparkasse Kaufbeuren                      86860Jengen                             Kr u St Spk Kaufbeuren     57129           00044294U000000000
+734500002Kreis- und Stadtsparkasse Kaufbeuren                      86860Jengen                             Kr u St Spk Kaufbeuren     57129           00044294D000000000
 734500002Kreis- und Stadtsparkasse Kaufbeuren                      87679Westendorf b Kaufbeuren            Kr u St Spk Kaufbeuren     57129           00044413U000000000
 734514501Kreissparkasse Schongau                                   86952Schongau                           Kr Spk Schongau            57158BYLADEM1SOG00007837U000000000
 734514502Kreissparkasse Schongau                                   86987Schwabsoien                        Kr Spk Schongau            57158           00007832U000000000
@@ -14411,15 +14150,15 @@ namespace :squirrels do
 734600462VR Bank Kaufbeuren-Ostallgäu                              87669Rieden am Forggensee               VR Bk Kaufbeuren-Ostallgäu 67018           88056409U000000000
 734800131Commerzbank vormals Dresdner Bank                         87572Kaufbeuren                         Commerzbank Kaufbeuren     28734DRESDEFF73476008631U000000000
 740200741UniCredit Bank - HypoVereinsbank                          94002Passau                             UniCredit Bank-HypoVereinbk22068HYVEDEMM44599000107U000000000
-740200742UniCredit Bank - HypoVereinsbank                          94482Osterhofen, Niederbay              UniCredit Bank-HypoVereinbk22068HYVEDEMM44599000360U000000000
-740200742UniCredit Bank - HypoVereinsbank                          94065Waldkirchen, Niederbay             UniCredit Bank-HypoVereinbk22068HYVEDEMM44599000366U000000000
+740200742UniCredit Bank - HypoVereinsbank                          94482Osterhofen, Niederbay              UniCredit Bank-HypoVereinbk22068HYVEDEMM44599000360D000000000
+740200742UniCredit Bank - HypoVereinsbank                          94065Waldkirchen, Niederbay             UniCredit Bank-HypoVereinbk22068HYVEDEMM44599000366D000000000
 740200742UniCredit Bank - HypoVereinsbank                          94441Plattling                          UniCredit Bank-HypoVereinbk22068HYVEDEMM44599000369U000000000
-740200742UniCredit Bank - HypoVereinsbank                          94201Regen                              UniCredit Bank-HypoVereinbk22068HYVEDEMM44599000370U000000000
-740200742UniCredit Bank - HypoVereinsbank                          94221Zwiesel                            UniCredit Bank-HypoVereinbk22068HYVEDEMM44599000371U000000000
+740200742UniCredit Bank - HypoVereinsbank                          94201Regen                              UniCredit Bank-HypoVereinbk22068HYVEDEMM44599000370D000000000
+740200742UniCredit Bank - HypoVereinsbank                          94221Zwiesel                            UniCredit Bank-HypoVereinbk22068HYVEDEMM44599000371D000000000
 740200742UniCredit Bank - HypoVereinsbank                          94470Vilshofen an der Donau             UniCredit Bank-HypoVereinbk22068HYVEDEMM44599031166U000000000
 740200742UniCredit Bank - HypoVereinsbank                          94052Pocking                            UniCredit Bank-HypoVereinbk22068HYVEDEMM44599034214U000000000
-740201001Raiffeisenlandesbank OÖ Zndl Süddeutschland               94036Passau                             RLB OÖ Zndl Süddeutschland 29100RZOODE77XXX60046767U000000000
-740201501Raiffeisenlandesbank OÖ Zndl Südde - für interne Zwecke   94036Passau                             RLB OÖ Zndl Süddeutschland      RZOODE7705060056411U000000000
+740201001Raiffeisenlandesbank OÖ Zndl Süddeutschland               80333München                            RLB OÖ Zndl Süddeutschland 29100RZOODE77XXX60046767M000000000
+740201501Raiffeisenlandesbank OÖ Zndl Südde - für interne Zwecke   80333München                            RLB OÖ Zndl Süddeutschland      RZOODE7705060056411M000000000
 740400821Commerzbank Passau                                        94032Passau                             Commerzbank Passau         24752COBADEFFXXX13010247U000000000
 740500001Sparkasse Passau                                          94014Passau                             Spk Passau                 57293BYLADEM1PAS00008730U000000000
 740500002Sparkasse Passau                                          94110Wegscheid, Niederbay               Spk Passau                 57293           00008195U000000000
@@ -14522,7 +14261,6 @@ namespace :squirrels do
 740627862Raiffeisenbank i Lkr Passau-Nord                          94104Tittling                           Raiffbk i Lkr Passau-Nord  68036           88027132U000000000
 740627862Raiffeisenbank i Lkr Passau-Nord                          94161Ruderting                          Raiffbk i Lkr Passau-Nord  68036           88027301U000000000
 740627862Raiffeisenbank i Lkr Passau-Nord                          94169Thurmansbang                       Raiffbk i Lkr Passau-Nord  68036           88027537U000000000
-740627862Raiffeisenbank i Lkr Passau-Nord                          94579Zenting                            Raiffbk i Lkr Passau-Nord  68036           88043666U000000000
 740627862Raiffeisenbank i Lkr Passau-Nord (Gf P2)                  94113Tiefenbach, Kr Passau              Raiffbk i Lkr Passau-Nord  78036           88054658U000000000
 740645931Raiffeisenbank                                            94108Wegscheid, Niederbay               Raiffeisenbank Wegscheid   68004GENODEF1WSD88027028U000000000
 740645932Raiffeisenbank Wegscheid                                  94139Breitenberg, Niederbay             Raiffeisenbank Wegscheid   68004           88026510U000000000
@@ -14572,7 +14310,7 @@ namespace :squirrels do
 740924001Volksbank Vilshofen                                       94470Vilshofen an der Donau             Volksbank Vilshofen        97117GENODEF1VIV88022325U000000000
 740924002Volksbank Vilshofen Zw Griesbach                          94086Bad Griesbach i.Rottal             Volksbank Griesbach        97117           88021376U000000000
 740924002Volksbank Vilshofen Zw Eging, See                         94535Eging a.See                        Volksbank Eging            97117           88021427U000000000
-740924002Volksbank Vilshofen Zw Aidenbach                          94498Aidenbach, Niederbay               Volksbank Aidenbach        97117           88021508U000000000
+740924002Volksbank Vilshofen Zw Aidenbach                          94501Aidenbach                          Volksbank Aidenbach        97117           88021508M000000000
 740924002Volksbank Vilshofen Zw Ortenburg                          94496Ortenburg                          Volksbank Ortenburg        97117           88021804U000000000
 740924002Volksbank Vilshofen Zw Osterhofen                         94486Osterhofen, Niederbay              Volksbank Osterhofen       97117           88021809U000000000
 740924002Volksbank Vilshofen Zw Schöllnach                         94508Schöllnach                         Volksbank Schöllnach       97117           88022666U000000000
@@ -14698,7 +14436,7 @@ namespace :squirrels do
 741910002VR-Bank Landau (Gf P2)                                    94405Landau a.d.Isar                    VR-Bank Landau             87071           88054674U000000000
 742200751UniCredit Bank - HypoVereinsbank                          94304Straubing                          UniCredit Bank-HypoVereinbk22085HYVEDEMM45299000109U000000000
 742211701UniCredit Bank - HypoVereinsbank                          93413Cham, Oberpf                       UniCredit Bank-HypoVereinbk22019HYVEDEMM67599000110U000000000
-742211702UniCredit Bank - HypoVereinsbank                          93438Bad Kötzting                       UniCredit Bank-HypoVereinbk22019HYVEDEMM67599000111U000000000
+742211702UniCredit Bank - HypoVereinsbank                          93438Bad Kötzting                       UniCredit Bank-HypoVereinbk22019HYVEDEMM67599000111D000000000
 742400621Commerzbank Straubing                                     94315Straubing                          Commerzbank Straubing      24753COBADEFFXXX13010234U000000000
 742500001Sparkasse Niederbayern-Mitte                              94304Straubing                          Spk Niederbayern-Mitte     57296BYLADEM1SRG00009352U000000000
 742500002Sparkasse Niederbayern-Mitte                              94374Schwarzach, Niederbay              Spk Niederbayern-Mitte     57296           00007825U000000000
@@ -14788,17 +14526,14 @@ namespace :squirrels do
 742610241Raiffeisenbank Chamer Land                                93404Cham, Oberpf                       Raiffeisenbank Chamer Land 67042GENODEF1CHA88027396U000000000
 742610242Raiffeisenbank Chamer Land                                93466Chamerau                           Raiffeisenbank Chamer Land 67042           88027397U000000000
 742610242Raiffeisenbank Chamer Land                                93449Waldmünchen                        Raiffeisenbank Chamer Land 67042           88027454U000000000
-742610242Raiffeisenbank Chamer Land                                93482Pemfling                           Raiffeisenbank Chamer Land 67042           88027774U000000000
 742610242Raiffeisenbank Chamer Land                                93455Traitsching                        Raiffeisenbank Chamer Land 67042           88027862U000000000
 742610242Raiffeisenbank Chamer Land                                93194Walderbach                         Raiffeisenbank Chamer Land 67042           88052231U000000000
 742610242Raiffeisenbank Chamer Land                                93199Zell, Oberpf                       Raiffeisenbank Chamer Land 67042           88052232U000000000
 742610242Raiffeisenbank Chamer Land                                93491Stamsried                          Raiffeisenbank Chamer Land 67042           88052233U000000000
 742610242Raiffeisenbank Chamer Land                                93489Schorndorf, Oberpf                 Raiffeisenbank Chamer Land 67042           88052234U000000000
 742610242Raiffeisenbank Chamer Land                                93464Tiefenbach, Oberpf                 Raiffeisenbank Chamer Land 67042           88052235U000000000
-742610242Raiffeisenbank Chamer Land                                92554Thanstein                          Raiffeisenbank Chamer Land 67042           88052236U000000000
 742610242Raiffeisenbank Chamer Land                                93426Roding, Regen                      Raiffeisenbank Chamer Land 67042           88052237U000000000
 742610242Raiffeisenbank Chamer Land                                93483Pösing                             Raiffeisenbank Chamer Land 67042           88052848U000000000
-742610242Raiffeisenbank Chamer Land                                93477Gleißenberg, Oberpf                Raiffeisenbank Chamer Land 67042           88053586U000000000
 742610242Raiffeisenbank Chamer Land                                92444Rötz, Oberpf                       Raiffeisenbank Chamer Land 67042           88053587U000000000
 742610242Raiffeisenbank Chamer Land                                93428Furth im Wald                      Raiffeisenbank Chamer Land 67042           88053589U000000000
 742610242Raiffeisenbank Chamer Land                                93473Arnschwang                         Raiffeisenbank Chamer Land 67042           88053590U000000000
@@ -14826,15 +14561,15 @@ namespace :squirrels do
 742900002Volksbank Straubing (Gf P2)                               94303Straubing                          Volksbank Straubing        87014           88054677U000000000
 742901001CB Bank                                                   94306Straubing                          CB Bank Straubing               CBSRDE71XXX98049281U000000000
 743200731UniCredit Bank - HypoVereinsbank                          84007Landshut, Isar                     UniCredit Bank-HypoVereinbk22048HYVEDEMM43399000112U000000000
-743200732UniCredit Bank - HypoVereinsbank                          84347Pfarrkirchen, Niederbay            UniCredit Bank-HypoVereinbk22048HYVEDEMM43399000361U000000000
-743200732UniCredit Bank - HypoVereinsbank                          84359Simbach a. Inn                     UniCredit Bank-HypoVereinbk22048HYVEDEMM43399000363U000000000
-743200732UniCredit Bank - HypoVereinsbank                          94401Landau a.d.Isar                    UniCredit Bank-HypoVereinbk22048HYVEDEMM43399000368U000000000
+743200732UniCredit Bank - HypoVereinsbank                          84347Pfarrkirchen, Niederbay            UniCredit Bank-HypoVereinbk22048HYVEDEMM43399000361D000000000
+743200732UniCredit Bank - HypoVereinsbank                          84359Simbach a. Inn                     UniCredit Bank-HypoVereinbk22048HYVEDEMM43399000363D000000000
+743200732UniCredit Bank - HypoVereinsbank                          94401Landau a.d.Isar                    UniCredit Bank-HypoVereinbk22048HYVEDEMM43399000368D000000000
 743200732UniCredit Bank - HypoVereinsbank                          84122Dingolfing                         UniCredit Bank-HypoVereinbk22048HYVEDEMM43399000377U000000000
 743200732UniCredit Bank - HypoVereinsbank                          85360Moosburg a.d.Isar                  UniCredit Bank-HypoVereinbk22048HYVEDEMM43399000381U000000000
-743200732UniCredit Bank - HypoVereinsbank                          84053Rottenburg a.d.Laaber              UniCredit Bank-HypoVereinbk22048HYVEDEMM43399000383U000000000
-743200732UniCredit Bank - HypoVereinsbank                          84145Velden, Vils                       UniCredit Bank-HypoVereinbk22048HYVEDEMM43399000384U000000000
+743200732UniCredit Bank - HypoVereinsbank                          84053Rottenburg a.d.Laaber              UniCredit Bank-HypoVereinbk22048HYVEDEMM43399000383D000000000
+743200732UniCredit Bank - HypoVereinsbank                          84145Velden, Vils                       UniCredit Bank-HypoVereinbk22048HYVEDEMM43399000384D000000000
 743200732UniCredit Bank - HypoVereinsbank                          84133Vilsbiburg                         UniCredit Bank-HypoVereinbk22048HYVEDEMM43399031211U000000000
-743200732UniCredit Bank - HypoVereinsbank                          84030Ergolding                          UniCredit Bank-HypoVereinbk22048HYVEDEMM43399032951U000000000
+743200732UniCredit Bank - HypoVereinsbank                          84030Ergolding                          UniCredit Bank-HypoVereinbk22048HYVEDEMM43399032951D000000000
 743400771Commerzbank                                               84028Landshut, Isar                     Commerzbank Landshut       24751COBADEFFXXX13010233U000000000
 743500001Sparkasse Landshut                                        84011Landshut, Isar                     Spk Landshut               57168BYLADEM1LAH11010573U000000000
 743500002Sparkasse Landshut                                        84137Vilsbiburg                         Spk Landshut               57168           11008324U000000000
@@ -15000,11 +14735,11 @@ namespace :squirrels do
 750000001Bundesbank                                                93006Regensburg                         BBk Regensburg             20750MARKDEF175009011568U000000000
 750101111SEB                                                       93047Regensburg                         SEB Regensburg             25889ESSEDE5F75013015077U000000000
 750200731UniCredit Bank - HypoVereinsbank                          93002Regensburg                         UniCredit Bank-HypoVereinbk22071HYVEDEMM44799000113U000000000
-750200732UniCredit Bank - HypoVereinsbank                          93321Abensberg, Hallertau               UniCredit Bank-HypoVereinbk22071HYVEDEMM44799000027U000000000
+750200732UniCredit Bank - HypoVereinsbank                          93321Abensberg, Hallertau               UniCredit Bank-HypoVereinbk22071HYVEDEMM44799000027D000000000
 750200732UniCredit Bank - HypoVereinsbank                          93328Neustadt a.d.Donau                 UniCredit Bank-HypoVereinbk22071HYVEDEMM44799000028U000000000
 750200732UniCredit Bank - HypoVereinsbank                          93301Kelheim                            UniCredit Bank-HypoVereinbk22071HYVEDEMM44799000029U000000000
 750200732UniCredit Bank - HypoVereinsbank                          93067Neutraubling                       UniCredit Bank-HypoVereinbk22071HYVEDEMM44799000114U000000000
-750200732UniCredit Bank - HypoVereinsbank                          92331Parsberg, Oberpf                   UniCredit Bank-HypoVereinbk22071HYVEDEMM44799000393U000000000
+750200732UniCredit Bank - HypoVereinsbank                          92331Parsberg, Oberpf                   UniCredit Bank-HypoVereinbk22071HYVEDEMM44799000393D000000000
 750200732UniCredit Bank - HypoVereinsbank                          93155Hemau                              UniCredit Bank-HypoVereinbk22071HYVEDEMM44799000396U000000000
 750200732UniCredit Bank - HypoVereinsbank                          93123Regenstauf                         UniCredit Bank-HypoVereinbk22071HYVEDEMM44799033354U000000000
 750200732UniCredit Bank - HypoVereinsbank                          93174Beratzhausen                       UniCredit Bank-HypoVereinbk22071HYVEDEMM44799034608U000000000
@@ -15072,7 +14807,6 @@ namespace :squirrels do
 750515652Kreissparkasse Kelheim                                    84101Obersüßbach                        Kreissparkasse Kelheim     57167           00009257U000000000
 750515652Kreissparkasse Kelheim                                    93349Mindelstetten                      Kreissparkasse Kelheim     57167           00009296U000000000
 750515652Kreissparkasse Kelheim                                    84044Mainburg                           Kreissparkasse Kelheim     57167           00009337U000000000
-750515652Kreissparkasse Kelheim                                    85104Pförring                           Kreissparkasse Kelheim     57167           00009482U000000000
 750515652Kreissparkasse Kelheim                                    93343Essing                             Kreissparkasse Kelheim     57167           00009944U000000000
 750515652Kreissparkasse Kelheim                                    93346Ihrlerstein                        Kreissparkasse Kelheim     57167           00009964U000000000
 750515652Kreissparkasse Kelheim                                    93077Bad Abbach                         Kreissparkasse Kelheim     57167           00010899U000000000
@@ -15253,7 +14987,6 @@ namespace :squirrels do
 752500002Sparkasse Amberg-Sulzbach                                 91249Weigendorf, Oberpf                 Sparkasse Amberg-Sulzbach  57221           00010633U000000000
 752500002Sparkasse Amberg-Sulzbach                                 92242Hirschau, Oberpf                   Sparkasse Amberg-Sulzbach  57221           00010740U000000000
 752500002Sparkasse Amberg-Sulzbach                                 92271Freihung                           Sparkasse Amberg-Sulzbach  57221           00010760U000000000
-752500002Sparkasse Amberg-Sulzbach                                 92266Ensdorf, Oberpf                    Sparkasse Amberg-Sulzbach  57221           00039675U000000000
 752500002Sparkasse Amberg-Sulzbach                                 92265Edelsfeld                          Sparkasse Amberg-Sulzbach  57221           00040890U000000000
 752500002Sparkasse Amberg-Sulzbach                                 92272Freudenberg, Oberpf                Sparkasse Amberg-Sulzbach  57221           00041519U000000000
 752500002Sparkasse Amberg-Sulzbach                                 92278Illschwang                         Sparkasse Amberg-Sulzbach  57221           00044167U000000000
@@ -15273,8 +15006,8 @@ namespace :squirrels do
 752900002Volksbank-Raiffeisenbank Amberg                           92280Kastl b Amberg, Oberpf             VB-Raiffbk Amberg          97017           88056420U000000000
 752900002Volksbank-Raiffeisenbank Amberg                           92289Ursensollen                        VB-Raiffbk Amberg          97017           88056421U000000000
 753200751UniCredit Bank - HypoVereinsbank                          92612Weiden i.d.OPf.                    UniCredit Bank-HypoVereinbk22092HYVEDEMM45499000118U000000000
-753200752UniCredit Bank - HypoVereinsbank                          95636Tirschenreuth                      UniCredit Bank-HypoVereinbk22092HYVEDEMM45499000138U000000000
-753200752UniCredit Bank - HypoVereinsbank                          92642Vohenstrauß                        UniCredit Bank-HypoVereinbk22092HYVEDEMM45499031368U000000000
+753200752UniCredit Bank - HypoVereinsbank                          95636Tirschenreuth                      UniCredit Bank-HypoVereinbk22092HYVEDEMM45499000138D000000000
+753200752UniCredit Bank - HypoVereinsbank                          92642Vohenstrauß                        UniCredit Bank-HypoVereinbk22092HYVEDEMM45499031368D000000000
 753400901Commerzbank                                               92637Weiden i.d.OPf.                    Commerzbank Weiden Oberpf  24754COBADEFFXXX13010242U000000000
 753400902Commerzbank                                               92655Grafenwöhr                         Commerzbank Grafenwöhr     24754           13052373U000000000
 753500001Sparkasse Oberpfalz Nord                                  92615Weiden i.d.OPf.                    Spk Oberpfalz Nord         57241BYLADEM1WEN00008766U000000000
@@ -15373,7 +15106,7 @@ namespace :squirrels do
 760200702UniCredit Bank - HypoVereinsbank                          92306Neumarkt i.d.OPf.                  UniCredit Bank-HypoVereinbk22065HYVEDEMM46099000122U000000000
 760200702UniCredit Bank - HypoVereinsbank                          90533Feucht                             UniCredit Bank-HypoVereinbk22065HYVEDEMM46099000415U000000000
 760200702UniCredit Bank - HypoVereinsbank                          91211Hersbruck                          UniCredit Bank-HypoVereinbk22065HYVEDEMM46099000416U000000000
-760200702UniCredit Bank - HypoVereinsbank                          90563Schwaig b. Nürnberg                UniCredit Bank-HypoVereinbk22065HYVEDEMM46099032861U000000000
+760200702UniCredit Bank - HypoVereinsbank                          90563Schwaig b. Nürnberg                UniCredit Bank-HypoVereinbk22065HYVEDEMM46099032861D000000000
 760200702UniCredit Bank - HypoVereinsbank                          90514Altdorf b. Nürnberg                UniCredit Bank-HypoVereinbk22065HYVEDEMM46099034607U000000000
 760200991UniCredit Bank - HypoVereinsbank Prepaid Card             90327Nürnberg, Mittelfr                 UniCredit Bank-HypoVereinbk     HYVEDEMMCAR09055806U000000000
 760260001norisbank                                                 10625Berlin                             norisbank Berlin           21430NORSDE71XXXC7049522U000000000
@@ -15437,8 +15170,8 @@ namespace :squirrels do
 760300801BNP Paribas Niederlassung Deutschland                     90402Nürnberg, Mittelfr                 BNPP ehem. Cortal Consors  26468CSDBDE71XXX01049354U000000000
 760306001Isbank Fil Nürnberg                                       90429Nürnberg, Mittelfr                 Isbank Nürnberg            29841ISBKDEFXNUR06048647U000000000
 760308001BIW Bank für Investments und Wertpapiere                  47877Willich                            BIW Bank                        BIWBDE3376001056424U000000000
-760320001TeamBank Nürnberg                                         90471Nürnberg, Mittelfr                 TeamBank Nürnberg          99017TEAMDE71XXX06053255M000000000
-760320011TeamBank Nürnberg GF Austria                              90471Nürnberg, Mittelfr                 TeamBank Nürnberg GF -AT-       TEAMDE71TAT06053575M000000000
+760320001TeamBank Nürnberg                                         90471Nürnberg, Mittelfr                 TeamBank Nürnberg          99017TEAMDE71XXX06053255U000000000
+760320011TeamBank Nürnberg GF Austria                              90471Nürnberg, Mittelfr                 TeamBank Nürnberg GF -AT-       TEAMDE71TAT06053575U000000000
 760350001UmweltBank                                                90489Nürnberg, Mittelfr                 UmweltBank Nürnberg             UMWEDE7NXXX55049360U000000000
 760400601Commerzbank CC                                            90402Nürnberg, Mittelfr                 Commerzbank CC Nürnberg         COBADEFFXXX09055824U000000000
 760400611Commerzbank                                               90006Nürnberg, Mittelfr                 Commerzbank Nürnberg       24760COBADEFFXXX13010226U000000000
@@ -15473,10 +15206,6 @@ namespace :squirrels do
 760520802Sparkasse Neumarkt i d OPf-Parsberg                       92367Pilsach                            Spk Neumarkt i d OPf-Parsbg57201           00044180U000000000
 760520802Sparkasse Neumarkt i d OPf-Parsberg                       92369Sengenthal                         Spk Neumarkt i d OPf-Parsbg57201           00044713U000000000
 760600001DZ BANK                                                   90002Nürnberg, Mittelfr                 DZ BANK                    67009GENODEFF76009025516U000000000
-760605611Evangelische Kreditgenossenschaft Filiale Nürnberg -alt-  90402Nürnberg, Mittelfr                 EKK Nürnberg -alt-         67034GENODEF1N0588025517U100000000
-760605612ACREDOBANK                                                19010Schwerin, Meckl                    ACREDOBANK Schwerin        67034           88046140U000000000
-760605612ACREDOBANK                                                80335München                            ACREDOBANK München         67034           88051129U000000000
-760605612ACREDOBANK (Gf P2)                                        90026Nürnberg, Mittelfr                 ACREDOBANK Nürnberg        77034           88054725U000000000
 760606181Volksbank Raiffeisenbank                                  90019Nürnberg, Mittelfr                 VR Bank Nürnberg           67035GENODEF1N0288028633U000000000
 760606182Volksbank Raiffeisenbank Nürnberg                         91227Leinburg                           VR Bank Nürnberg           67035           88025170U000000000
 760606182Volksbank Raiffeisenbank Nürnberg                         90571Schwaig b. Nürnberg                VR Bank Nürnberg           67035           88025378U000000000
@@ -15528,7 +15257,7 @@ namespace :squirrels do
 760694042Raiffeisenbank Uehlfeld-Dachsbach                         91486Uehlfeld                           Raiffbk Uehlfeld-Dachsbach 67570           88025689U000000000
 760694042Raiffeisenbank Uehlfeld-Dachsbach                         91487Vestenbergsgreuth                  Raiffbk Uehlfeld-Dachsbach 67570           88025709U000000000
 760694042Raiffeisenbank Uehlfeld-Dachsbach (Gf P2)                 91462Dachsbach                          Raiffbk Uehlfeld-Dachsbach 77570           88054733U000000000
-760694091Raiffeisenbank                                            90597Dietenhofen, Mittelfr              Raiffeisenbank Dietenhofen 67573GENODEF1DIH88025171U000000000
+760694091Raiffeisenbank Dietenhofen -alt-                          90597Dietenhofen                        Raiffbk Dietenhofen -alt-  67573GENODEF1DIH88025171U100000000
 760694092Raiffeisenbank (Gf P2)                                    90597Dietenhofen, Mittelfr              Raiffeisenbank Dietenhofen 77573           88054734U000000000
 760694101Raiffeisenbank Dietersheim und Umgebung                   91463Dietersheim, Mittelfr              Raiffeisenbank Dietersheim 67576GENODEF1DIM88025172U000000000
 760694102Raiffeisenbank Dietersheim und Umgebung                   91413Neustadt a.d.Aisch                 Raiffeisenbank Dietersheim 67576           88025645U000000000
@@ -15581,8 +15310,6 @@ namespace :squirrels do
 760694682Raiffeisenbank Weißenburg-Gunzenhausen                    91790Bergen, Mittelfr                   Raiffbk Weißenburg-Gunzenh 67625           88053642U000000000
 760694682Raiffeisenbank Weißenburg-Gunzenhausen                    91790Burgsalach                         Raiffbk Weißenburg-Gunzenh 67625           88053643U000000000
 760694682Raiffeisenbank Weißenburg-Gunzenhausen (Gf P2)            91781Weißenburg i.Bay.                  Raiffbk Weißenburg-Gunzenh 77625           88054740U000000000
-760694831Raiffeisenbank Herzogenaurach -alt-                       91062Herzogenaurach                     Raiffbk Herzogenaurach -alt67636GENODEF1HZA88025338U100000000
-760694832Raiffeisenbank (Gf P2)                                    91062Herzogenaurach                     Raiffbk Herzogenaurach     77636           88054741U000000000
 760694861Raiffeisenbank Hirschau                                   92242Hirschau, Oberpf                   Raiffbk Hirschau           67639GENODEF1HSC88025342U000000000
 760694862Raiffeisenbank Hirschau                                   92253Schnaittenbach                     Raiffbk Hirschau           67639           88025649U000000000
 760694862Raiffeisenbank Hirschau                                   92272Freudenberg, Oberpf                Raiffbk Hirschau           67639           88051824U000000000
@@ -15607,12 +15334,8 @@ namespace :squirrels do
 760695592VR-Bank Uffenheim-Neustadt                                96152Burghaslach                        VR-Bank Uffenheim-Neustadt 67703           88027391U000000000
 760695592VR-Bank Uffenheim-Neustadt                                91452Wilhermsdorf                       VR-Bank Uffenheim-Neustadt 67703           88027497U000000000
 760695592VR-Bank Uffenheim-Neustadt                                91456Diespeck                           VR-Bank Uffenheim-Neustadt 67703           88027503U000000000
-760695592VR-Bank Uffenheim-Neustadt                                91474Langenfeld, Mittelfr               VR-Bank Uffenheim-Neustadt 67703           88027643U000000000
 760695592VR-Bank Uffenheim-Neustadt                                91477Markt Bibart                       VR-Bank Uffenheim-Neustadt 67703           88027670U000000000
 760695592VR-Bank Uffenheim-Neustadt                                91443Scheinfeld                         VR-Bank Uffenheim-Neustadt 67703           88027865U000000000
-760695592VR-Bank Uffenheim-Neustadt                                91480Markt Taschendorf                  VR-Bank Uffenheim-Neustadt 67703           88028623U000000000
-760695592VR-Bank Uffenheim-Neustadt                                91483Oberscheinfeld                     VR-Bank Uffenheim-Neustadt 67703           88032292U000000000
-760695592VR-Bank Uffenheim-Neustadt                                97215Weigenheim                         VR-Bank Uffenheim-Neustadt 67703           88052738U000000000
 760695592VR-Bank Uffenheim-Neustadt                                97210Uffenheim                          VR-Bank Uffenheim-Neustadt 67703           88052739U000000000
 760695592VR-Bank Uffenheim-Neustadt                                97258Ippesheim, Mittelfr                VR-Bank Uffenheim-Neustadt 67703           88052740U000000000
 760695592VR-Bank Uffenheim-Neustadt                                91465Ergersheim                         VR-Bank Uffenheim-Neustadt 67703           88052742U000000000
@@ -15622,7 +15345,6 @@ namespace :squirrels do
 760695592VR-Bank Uffenheim-Neustadt                                91478Markt Nordheim                     VR-Bank Uffenheim-Neustadt 67703           88055371U000000000
 760695592VR-Bank Uffenheim-Neustadt                                90616Neuhof a.d.Zenn                    VR-Bank Uffenheim-Neustadt 67703           88055372U000000000
 760695592Raiffeisenbank Münchaurach                                91086Aurachtal                          Raiffeisenbk Münchaurach   67703           88055373U000000000
-760695592Raiffeisenbank Münchaurach                                91097Oberreichenbach b Herzogenaurach   Raiffeisenbk Münchaurach   67703           88055374U000000000
 760695641Raiffeisenbank Oberferrieden-Burgthann                    90559Burgthann                          Raiffbk Oberferrieden-Burgt67704GENODEF1BTO88025558U000000000
 760695642Raiffeisenbank Oberferrieden-Burgthann (Gf P2)            90559Burgthann                          Raiffbk Oberferrieden-Burgt77704           88054748U000000000
 760695761Raiffeisenbank Plankstetten                               92334Berching                           Raiffeisenbank Plankstetten67718GENODEF1BPL88027792U000000000
@@ -15632,18 +15354,7 @@ namespace :squirrels do
 760695982Raiffeisenbank Großhabersdorf-Roßtal                      90614Ammerndorf                         Raiffeisenbank Roßtal      67731           88025070U000000000
 760695982Raiffeisenbank Großhabersdorf-Roßtal                      90611Großhabersdorf                     Raiffeisenbank Roßtal      67731           88027489U000000000
 760695982Raiffeisenbank Großhabersdorf-Roßtal (Gf P2)              90572Roßtal                             Raiffeisenbank Roßtal      77731           88054750U000000000
-760696011VR-Bank Rothenburg                                        91535Rothenburg ob der Tauber           VR-Bank Rothenburg         67734GENODEF1RT288027849U000000000
-760696012VR-Bank Rothenburg                                        91637Wörnitz                            VR-Bank Rothenburg         67734           88025212U000000000
-760696012VR-Bank Rothenburg                                        91607Gebsattel                          VR-Bank Rothenburg         67734           88025257U000000000
-760696012VR-Bank Rothenburg                                        91605Gallmersgarten                     VR-Bank Rothenburg         67734           88025529U000000000
-760696012VR-Bank Rothenburg                                        91587Adelshofen, Mittelfr               VR-Bank Rothenburg         67734           88025673U000000000
-760696012VR-Bank Rothenburg                                        91608Geslau                             VR-Bank Rothenburg         67734           88029239U000000000
-760696012VR-Bank Rothenburg                                        91601Dombühl                            VR-Bank Rothenburg         67734           88051814U000000000
-760696012VR-Bank Rothenburg                                        91631Wettringen, Mittelfr               VR-Bank Rothenburg         67734           88051815D000000000
-760696012VR-Bank Rothenburg                                        91610Insingen                           VR-Bank Rothenburg         67734           88051816U000000000
-760696012VR-Bank Rothenburg                                        91583Schillingsfürst, Mittelfr          VR-Bank Rothenburg         67734           88051817U000000000
-760696012VR-Bank Rothenburg                                        91438Bad Windsheim                      VR-Bank Rothenburg         67734           88052257M000000000
-760696012VR-Bank Rothenburg                                        91616Neusitz, Mittelfr                  VR-Bank Rothenburg         67734           88052258D000000000
+760696011VR-Bank Rothenburg -alt-                                  91535Rothenburg ob der Tauber           VR-Bank Rothenburg -alt-   67734GENODEF1RT288027849U000000000
 760696012VR-Bank Rothenburg (Gf P2)                                91535Rothenburg ob der Tauber           VR-Bank Rothenburg         77734           88054751U000000000
 760696021Raiffeisenbank Seebachgrund                               91093Heßdorf, Mittelfr                  Raiffbk Seebachgrund-Heßdf 67736GENODEF1HSE88027532U000000000
 760696022Raiffeisenbank Seebachgrund                               91056Erlangen                           Raiffbk Seebachgrund-Heßdf 67736           88027488U000000000
@@ -15666,6 +15377,7 @@ namespace :squirrels do
 760696632Raiffeisenbank Heilsbronn-Windsbach (Gf P2)               91575Windsbach                          Raiffbk Heilsbr-Windsbach  77777           88054755U000000000
 760696632Raiffeisenbank Heilsbronn-Windsbach                       91623Sachsen b. Ansbach                 Raiffbk Heilsbr-Windsbach  67777           88055511U000000000
 760696632Raiffeisenbank Heilsbronn-Windsbach                       91586Lichtenau, Mittelfr                Raiffbk Heilsbr-Windsbach  67777           88055512U000000000
+760696632Raiffeisenbank Heilsbronn-Windsbach                       90597Dietenhofen                        Raiffbk Heilsbr-Windsbach  67777           88056635U000000000
 760696691Raiffeisenbank                                            90505Zirndorf, Mittelfr                 Raiffeisenbank Zirndorf    67782GENODEF1ZIR88027065U000000000
 760696692Raiffeisenbank Zirndorf Zw                                90522Oberasbach b Nürnberg              Raiffeisenbank Zirndorf    67782           88026441U000000000
 760696692Raiffeisenbank Zirndorf Zw                                90556Cadolzburg                         Raiffeisenbank Zirndorf    67782           88037415U000000000
@@ -15741,11 +15453,10 @@ namespace :squirrels do
 760905002Sparda-Bank Nürnberg                                      96215Lichtenfels, Bay                   Sparda-Bank Nürnberg       97052           81049410U000000000
 760906131apoBank                                                   90007Nürnberg, Mittelfr                 apoBank Nürnberg           97055DAAEDED1013A4025518U000000000
 760909001PSD Bank                                                  90328Nürnberg, Mittelfr                 PSD Bank Nürnberg          98065GENODEF1P1791024813U000000000
-760910001Sparda-Bank Nürnberg Zw Sonnenstraße                      90471Nürnberg, Mittelfr                 Sparda-Bk Nürnbg Sonnenstr      GENODEF1S1481046820U176090500
 762119001CVW - Privatbank                                          91452Wilhermsdorf                       CVW - Privatbank           99014GENODEF1WHD88008771U000000000
 762200731UniCredit Bank - HypoVereinsbank                          90702Fürth, Bay                         UniCredit Bank-HypoVereinbk22030HYVEDEMM41999000123U000000000
 762200732UniCredit Bank - HypoVereinsbank                          90575Langenzenn                         UniCredit Bank-HypoVereinbk22030HYVEDEMM41999000422U000000000
-762200732UniCredit Bank - HypoVereinsbank                          97211Uffenheim                          UniCredit Bank-HypoVereinbk22030HYVEDEMM41999000441U000000000
+762200732UniCredit Bank - HypoVereinsbank                          97211Uffenheim                          UniCredit Bank-HypoVereinbk22030HYVEDEMM41999000441D000000000
 762200732UniCredit Bank - HypoVereinsbank                          90505Zirndorf, Mittelfr                 UniCredit Bank-HypoVereinbk22030HYVEDEMM41999032629U000000000
 762300001BSQ Bauspar                                               90347Nürnberg, Mittelfr                 BSQ Bauspar Nürnberg            QUBADE71XXX11046489U000000000
 762400111Commerzbank Fürth Bayern                                  90762Fürth, Bay                         Commerzbank Fürth Bayern   24766COBADEFFXXX13010793U000000000
@@ -15778,7 +15489,6 @@ namespace :squirrels do
 762604511Raiffeisen-Volksbank Fürth                                90763Fürth, Bay                         Raiffeisen-Volksbank Fürth 67030GENODEF1FUE88025251U000000000
 762604512Raiffeisen-Volksbank Fürth                                90427Nürnberg, Mittelfr                 Raiffeisen-Volksbank Fürth 67030           88025286U000000000
 762604512Raiffeisen-Volksbank Fürth                                90617Puschendorf                        Raiffeisen-Volksbank Fürth 67030           88025609U000000000
-762604512Raiffeisen-Volksbank Fürth                                90587Tuchenbach                         Raiffeisen-Volksbank Fürth 67030           88028581D000000000
 762604512Raiffeisen-Volksbank Fürth                                90579Langenzenn                         Raiffeisen-Volksbank Fürth 67030           88035820U000000000
 762604512Raiffeisen-Volksbank Fürth                                90587Veitsbronn                         Raiffeisen-Volksbank Fürth 67030           88035823U000000000
 762604512Raiffeisen-Volksbank Fürth                                90587Obermichelbach b Fürth, Bay        Raiffeisen-Volksbank Fürth 67030           88042769U000000000
@@ -15786,9 +15496,9 @@ namespace :squirrels do
 763200721UniCredit Bank - HypoVereinsbank                          91051Erlangen                           UniCredit Bank-HypoVereinbk22025HYVEDEMM41799000124U000000000
 763200722UniCredit Bank - HypoVereinsbank                          91294Forchheim, Oberfr                  UniCredit Bank-HypoVereinbk22025HYVEDEMM41799000058U000000000
 763200722UniCredit Bank - HypoVereinsbank                          91401Neustadt a.d.Aisch                 UniCredit Bank-HypoVereinbk22025HYVEDEMM41799000421U000000000
-763200722UniCredit Bank - HypoVereinsbank                          91325Adelsdorf, Mittelfr                UniCredit Bank-HypoVereinbk22025HYVEDEMM41799000432U000000000
-763200722UniCredit Bank - HypoVereinsbank                          91311Höchstadt a.d.Aisch                UniCredit Bank-HypoVereinbk22025HYVEDEMM41799000435U000000000
-763200722UniCredit Bank - HypoVereinsbank                          91316Ebermannstadt                      UniCredit Bank-HypoVereinbk22025HYVEDEMM41799000445U000000000
+763200722UniCredit Bank - HypoVereinsbank                          91325Adelsdorf, Mittelfr                UniCredit Bank-HypoVereinbk22025HYVEDEMM41799000432D000000000
+763200722UniCredit Bank - HypoVereinsbank                          91311Höchstadt a.d.Aisch                UniCredit Bank-HypoVereinbk22025HYVEDEMM41799000435D000000000
+763200722UniCredit Bank - HypoVereinsbank                          91316Ebermannstadt                      UniCredit Bank-HypoVereinbk22025HYVEDEMM41799000445D000000000
 763200722UniCredit Bank - HypoVereinsbank                          91065Herzogenaurach                     UniCredit Bank-HypoVereinbk22025HYVEDEMM41799033726U000000000
 763301111Bankhaus Max Flessa                                       91006Erlangen                           Flessabank Erlangen        26071FLESDEMMXXX09000031U179330111
 763400611Commerzbank Erlangen                                      91052Erlangen                           Commerzbank Erlangen       24765COBADEFFXXX13025210U000000000
@@ -15937,7 +15647,6 @@ namespace :squirrels do
 765500002Vereinigte Sparkassen Ansbach                             91737Ornbau                             Ver Spk Ansbach            57216           00039260U000000000
 765500002Vereinigte Sparkassen Ansbach                             91722Arberg                             Ver Spk Ansbach            57216           00040440U000000000
 765500002Vereinigte Sparkassen Ansbach                             91629Weihenzell                         Ver Spk Ansbach            57216           00041180U000000000
-765500002Vereinigte Sparkassen Ansbach                             91743Unterschwaningen                   Ver Spk Ansbach            57216           00041181U000000000
 765510201Kreis- und Stadtsparkasse Dinkelsbühl                     91543Dinkelsbühl                        Kr u St Spk Dinkelsbühl    57289BYLADEM1DKB00009562U000000000
 765510202Kreis- und Stadtsparkasse Dinkelsbühl                     91602Dürrwangen, Mittelfr               Kr u St Spk Dinkelsbühl    57289           00009573U000000000
 765510202Kreis- und Stadtsparkasse Dinkelsbühl                     91614Mönchsroth                         Kr u St Spk Dinkelsbühl    57289           00009643U000000000
@@ -15966,29 +15675,38 @@ namespace :squirrels do
 765518602Stadt- und Kreissparkasse Rothenburg                      91637Wörnitz                            St u Kr Spk Rothenburg     57232           00044026U000000000
 765518602Stadt- und Kreissparkasse Rothenburg                      91616Neusitz, Mittelfr                  St u Kr Spk Rothenburg     57232           00044199U000000000
 765518602Stadt- und Kreissparkasse Rothenburg                      91608Geslau                             St u Kr Spk Rothenburg     57232           00046359U000000000
-765600601RaiffeisenVolksbank Gewerbebank                           91522Ansbach, Mittelfr                  RaiffVB Ansbach            67019GENODEF1ANS88025807U000000000
-765600602RaiffeisenVolksbank Gewerbebank                           91622Rügland                            RaiffVB Ansbach            67019           88025698U000000000
-765600602RaiffeisenVolksbank Gewerbebank                           91629Weihenzell                         RaiffVB Ansbach            67019           88025733U000000000
-765600602RaiffeisenVolksbank Gewerbebank                           91710Gunzenhausen am Altmühlsee         RaiffVB Ansbach            67019           88026081U000000000
-765600602RaiffeisenVolksbank Gewerbebank                           91560Heilsbronn                         RaiffVB Ansbach            67019           88026119U000000000
-765600602RaiffeisenVolksbank Gewerbebank                           91578Leutershausen, Mittelfr            RaiffVB Ansbach            67019           88026223U000000000
-765600602RaiffeisenVolksbank Gewerbebank                           91586Lichtenau, Mittelfr                RaiffVB Ansbach            67019           88026224U000000000
-765600602RaiffeisenVolksbank Gewerbebank                           91564Neuendettelsau                     RaiffVB Ansbach            67019           88026273U000000000
-765600602RaiffeisenVolksbank Gewerbebank                           91598Colmberg                           RaiffVB Ansbach            67019           88027398U000000000
-765600602RaiffeisenVolksbank Gewerbebank                           91611Lehrberg                           RaiffVB Ansbach            67019           88027652U000000000
-765600602RaiffeisenVolksbank Gewerbebank                           91567Herrieden                          RaiffVB Ansbach            67019           88052327U000000000
-765600602RaiffeisenVolksbank Gewerbebank                           91589Aurach, Mittelfr                   RaiffVB Ansbach            67019           88052328U000000000
-765600602RaiffeisenVolksbank Gewerbebank                           91632Wieseth                            RaiffVB Ansbach            67019           88052329U000000000
-765600602RaiffeisenVolksbank Gewerbebank                           91599Dentlein a. Forst                  RaiffVB Ansbach            67019           88052330U000000000
-765600602RaiffeisenVolksbank Gewerbebank                           91595Burgoberbach                       RaiffVB Ansbach            67019           88052331U000000000
-765600602RaiffeisenVolksbank Gewerbebank                           91617Oberdachstetten                    RaiffVB Ansbach            67019           88052891U000000000
-765600602RaiffeisenVolksbank Gewerbebank                           91604Flachslanden, Mittelfr             RaiffVB Ansbach            67019           88053066U000000000
-765600602RaiffeisenVolksbank Gewerbebank                           91732Merkendorf, Mittelfr               RaiffVB Ansbach            67019           88053077U000000000
-765600602RaiffeisenVolksbank Gewerbebank                           91722Arberg                             RaiffVB Ansbach            67019           88053078U000000000
-765600602RaiffeisenVolksbank Gewerbebank                           91737Ornbau                             RaiffVB Ansbach            67019           88053079U000000000
-765600602RaiffeisenVolksbank Gewerbebank                           91746Weidenbach, Mittelfr               RaiffVB Ansbach            67019           88053080U000000000
-765600602RaiffeisenVolksbank Gewerbebank                           91639Wolframs-Eschenbach                RaiffVB Ansbach            67019           88053081U000000000
-765600602RaiffeisenVolksbank Gewerbebank (Gf P2)                   91522Ansbach, Mittelfr                  RaiffVB Ansbach            77019           88054763U000000000
+765600601VR-Bank Mittelfranken West                                91522Ansbach                            VR-Bank Mittelfranken West 67019GENODEF1ANS88025807U000000000
+765600602VR-Bank Mittelfranken West                                91622Rügland                            VR-Bank Mittelfranken West 67019           88025698U000000000
+765600602VR-Bank Mittelfranken West                                91629Weihenzell                         VR-Bank Mittelfranken West 67019           88025733U000000000
+765600602VR-Bank Mittelfranken West                                91710Gunzenhausen                       VR-Bank Mittelfranken West 67019           88026081U000000000
+765600602VR-Bank Mittelfranken West                                91560Heilsbronn                         VR-Bank Mittelfranken West 67019           88026119U000000000
+765600602VR-Bank Mittelfranken West                                91578Leutershausen                      VR-Bank Mittelfranken West 67019           88026223U000000000
+765600602VR-Bank Mittelfranken West                                91586Lichtenau                          VR-Bank Mittelfranken West 67019           88026224U000000000
+765600602VR-Bank Mittelfranken West                                91564Neuendettelsau                     VR-Bank Mittelfranken West 67019           88026273U000000000
+765600602VR-Bank Mittelfranken West                                91598Colmberg                           VR-Bank Mittelfranken West 67019           88027398U000000000
+765600602VR-Bank Mittelfranken West                                91611Lehrberg                           VR-Bank Mittelfranken West 67019           88027652U000000000
+765600602VR-Bank Mittelfranken West                                91567Herrieden                          VR-Bank Mittelfranken West 67019           88052327U000000000
+765600602VR-Bank Mittelfranken West                                91589Aurach                             VR-Bank Mittelfranken West 67019           88052328U000000000
+765600602VR-Bank Mittelfranken West                                91632Wieseth                            VR-Bank Mittelfranken West 67019           88052329U000000000
+765600602VR-Bank Mittelfranken West                                91599Dentlein a. Forst                  VR-Bank Mittelfranken West 67019           88052330U000000000
+765600602VR-Bank Mittelfranken West                                91595Burgoberbach                       VR-Bank Mittelfranken West 67019           88052331U000000000
+765600602VR-Bank Mittelfranken West                                91617Oberdachstetten                    VR-Bank Mittelfranken West 67019           88052891U000000000
+765600602VR-Bank Mittelfranken West                                91604Flachslanden                       VR-Bank Mittelfranken West 67019           88053066U000000000
+765600602VR-Bank Mittelfranken West                                91732Merkendorf                         VR-Bank Mittelfranken West 67019           88053077U000000000
+765600602VR-Bank Mittelfranken West                                91722Arberg                             VR-Bank Mittelfranken West 67019           88053078U000000000
+765600602VR-Bank Mittelfranken West                                91737Ornbau                             VR-Bank Mittelfranken West 67019           88053079U000000000
+765600602VR-Bank Mittelfranken West                                91746Weidenbach                         VR-Bank Mittelfranken West 67019           88053080U000000000
+765600602VR-Bank Mittelfranken West                                91639Wolframs-Eschenbach                VR-Bank Mittelfranken West 67019           88053081U000000000
+765600602VR-Bank Mittelfranken West(Gf P2)                         91522Ansbach                            VR-Bank Mittelfranken West 77019           88054763U000000000
+765600602VR-Bank Mittelfranken West                                91587Adelshofen                         VR-Bank Mittelfranken West 67019           88056640U000000000
+765600602VR-Bank Mittelfranken West                                91608Geslau                             VR-Bank Mittelfranken West 67019           88056641U000000000
+765600602VR-Bank Mittelfranken West                                91601Dombühl                            VR-Bank Mittelfranken West 67019           88056642U000000000
+765600602VR-Bank Mittelfranken West                                91610Insingen                           VR-Bank Mittelfranken West 67019           88056643U000000000
+765600602VR-Bank Mittelfranken West                                91637Wörnitz                            VR-Bank Mittelfranken West 67019           88056644U000000000
+765600602VR-Bank Mittelfranken West                                91607Gebsattel                          VR-Bank Mittelfranken West 67019           88056645U000000000
+765600602VR-Bank Mittelfranken West                                91583Schillingsfürst                    VR-Bank Mittelfranken West 67019           88056646U000000000
+765600602VR-Bank Mittelfranken West                                91438Bad Windsheim                      VR-Bank Mittelfranken West 67019           88056647U000000000
+765600602VR-Bank Mittelfranken West                                91605Gallmersgarten                     VR-Bank Mittelfranken West 67019           88056648U000000000
 765619791Raiffeisenbank -alt-                                      97210Uffenheim                          Raiffbk Uffenheim -alt-    67082GENODEF1UFF88028035U000000000
 765910001VR Bank Dinkelsbühl                                       91550Dinkelsbühl                        VR Bank Dinkelsbühl        97075GENODEF1DKV88021770U000000000
 765910002VR Bank Dinkelsbühl                                       73495Stödtlen                           VR Bank Dinkelsbühl        97075           88021080U000000000
@@ -16006,7 +15724,7 @@ namespace :squirrels do
 765910002VR Bank Dinkelsbühl (Gf P2)                               91550Dinkelsbühl                        VR Bank Dinkelsbühl        87075           88054764U000000000
 770200701UniCredit Bank - HypoVereinsbank                          96002Bamberg                            UniCredit Bank-HypoVereinbk22012HYVEDEMM41199000130U000000000
 770200702UniCredit Bank - HypoVereinsbank                          96204Lichtenfels, Bay                   UniCredit Bank-HypoVereinbk22012HYVEDEMM41199000131U000000000
-770200702UniCredit Bank - HypoVereinsbank                          96227Bad Staffelstein                   UniCredit Bank-HypoVereinbk22012HYVEDEMM41199000447U000000000
+770200702UniCredit Bank - HypoVereinsbank                          96227Bad Staffelstein                   UniCredit Bank-HypoVereinbk22012HYVEDEMM41199000447D000000000
 770301111Bankhaus Max Flessa                                       96029Bamberg                            Flessabank Bamberg         26072FLESDEMMXXX09035320U179330111
 770400801Commerzbank Bamberg                                       96047Bamberg                            Commerzbank Bamberg        24762COBADEFFXXX13011255U000000000
 770500001Sparkasse Bamberg                                         96055Bamberg                            Spk Bamberg                57290BYLADEM1SKB00011295U000000000
@@ -16244,9 +15962,9 @@ namespace :squirrels do
 771900002Kulmbacher Bank                                           95364Ludwigschorgast                    Kulmbacher Bank            97023           88051374U000000000
 771900002Kulmbacher Bank                                           95365Rugendorf                          Kulmbacher Bank            97023           88051375U000000000
 771900002Kulmbacher Bank (Gf P2)                                   95326Kulmbach                           Kulmbacher Bank            87023           88054788U000000000
-773000001Bundesbank                                                95407Bayreuth                           BBk Bayreuth               20773MARKDEF177309011452U000000000
+773000001Bundesbank eh Bayreuth                                    80711München                            BBk München eh Bayreuth    20773MARKDEF177309011452M100000000
 773200721UniCredit Bank - HypoVereinsbank                          95402Bayreuth                           UniCredit Bank-HypoVereinbk22013HYVEDEMM41299000133U000000000
-773200722UniCredit Bank - HypoVereinsbank                          96219Burgkunstadt                       UniCredit Bank-HypoVereinbk22013HYVEDEMM41299000450U000000000
+773200722UniCredit Bank - HypoVereinsbank                          96219Burgkunstadt                       UniCredit Bank-HypoVereinbk22013HYVEDEMM41299000450D000000000
 773200722UniCredit Bank - HypoVereinsbank                          91253Pegnitz                            UniCredit Bank-HypoVereinbk22013HYVEDEMM41299000453U000000000
 773222001Fondsdepot Bank                                           95030Hof, Saale                         Fondsdepot Bank                 FODBDE77XXX00055704U000000000
 773400761Commerzbank                                               95444Bayreuth                           Commerzbank Bayreuth       24763COBADEFFXXX13011254U000000000
@@ -16279,7 +15997,6 @@ namespace :squirrels do
 773616002Raiffeisen-Volksbank Kronach-Ludwigsstadt                 96346Wallenfels, Oberfr                 Raiff-VB Kronach-Ludwigssta68126           88028529U000000000
 773616002Raiffeisen-Volksbank Kronach-Ludwigsstadt                 96364Marktrodach                        Raiff-VB Kronach-Ludwigssta68126           88028592U000000000
 773616002Raiffeisen-Volksbank Kronach-Ludwigsstadt                 96358Teuschnitz                         Raiff-VB Kronach-Ludwigssta68126           88028625U000000000
-773616002Raiffeisen-Volksbank Kronach-Ludwigsstadt                 96358Reichenbach, Kr Kronach            Raiff-VB Kronach-Ludwigssta68126           88028649U000000000
 773616002Raiffeisen-Volksbank Kronach-Ludwigsstadt                 96365Nordhalben                         Raiff-VB Kronach-Ludwigssta68126           88028868U000000000
 773616002Raiffeisen-Volksbank Kronach-Ludwigsstadt                 96349Steinwiesen                        Raiff-VB Kronach-Ludwigssta68126           88028968U000000000
 773616002Raiffeisen-Volksbank Kronach-Ludwigsstadt                 07343Wurzbach                           Raiff-VB Kronach-Ludwigssta68126           88048747U000000000
@@ -16322,8 +16039,8 @@ namespace :squirrels do
 780200702UniCredit Bank - HypoVereinsbank                          95203Münchberg, Oberfr                  UniCredit Bank-HypoVereinbk22038HYVEDEMM42499000136U000000000
 780200702UniCredit Bank - HypoVereinsbank                          95615Marktredwitz                       UniCredit Bank-HypoVereinbk22038HYVEDEMM42499000137U000000000
 780200702UniCredit Bank - HypoVereinsbank                          95224Helmbrechts, Oberfr                UniCredit Bank-HypoVereinbk22038HYVEDEMM42499000456U000000000
-780200702UniCredit Bank - HypoVereinsbank                          95112Naila                              UniCredit Bank-HypoVereinbk22038HYVEDEMM42499000457U000000000
-780200702UniCredit Bank - HypoVereinsbank                          95101Rehau, Oberfr                      UniCredit Bank-HypoVereinbk22038HYVEDEMM42499000458U000000000
+780200702UniCredit Bank - HypoVereinsbank                          95112Naila                              UniCredit Bank-HypoVereinbk22038HYVEDEMM42499000457D000000000
+780200702UniCredit Bank - HypoVereinsbank                          95101Rehau, Oberfr                      UniCredit Bank-HypoVereinbk22038HYVEDEMM42499000458D000000000
 780200702UniCredit Bank - HypoVereinsbank                          95085Selb                               UniCredit Bank-HypoVereinbk22038HYVEDEMM42499000459U000000000
 780400811Commerzbank Hof Saale                                     95028Hof, Saale                         Commerzbank Hof Saale      24767COBADEFFXXX13010216U000000000
 780400812Commerzbank                                               95111Rehau, Oberfr                      Commerzbank Rehau          24767           13052352U000000000
@@ -16341,8 +16058,6 @@ namespace :squirrels do
 780500002Sparkasse Hochfranken                                     95126Schwarzenbach a.d.Saale            Spk Hochfranken            57253           00009695U000000000
 780500002Sparkasse Hochfranken                                     95179Geroldsgrün                        Spk Hochfranken            57253           00010044U000000000
 780500002Sparkasse Hochfranken                                     95119Naila                              Spk Hochfranken            57253           00010050U000000000
-780500002Sparkasse Hochfranken                                     95188Issigau                            Spk Hochfranken            57253           00010063U000000000
-780500002Sparkasse Hochfranken                                     95192Lichtenberg, Oberfr                Spk Hochfranken            57253           00010096U000000000
 780500002Sparkasse Hochfranken                                     95197Schauenstein                       Spk Hochfranken            57253           00010155U000000000
 780500002Sparkasse Hochfranken                                     95131Schwarzenbach a Wald               Spk Hochfranken            57253           00010161U000000000
 780500002Sparkasse Hochfranken                                     95152Selbitz, Oberfr                    Spk Hochfranken            57253           00010163U000000000
@@ -16351,16 +16066,12 @@ namespace :squirrels do
 780500002Sparkasse Hochfranken                                     95176Konradsreuth, Oberfr               Spk Hochfranken            57253           00010510U000000000
 780500002Sparkasse Hochfranken                                     95213Münchberg, Oberfr                  Spk Hochfranken            57253           00010552U000000000
 780500002Sparkasse Hochfranken                                     95236Stammbach                          Spk Hochfranken            57253           00010572U000000000
-780500002Sparkasse Hochfranken                                     95191Leupoldsgrün                       Spk Hochfranken            57253           00010581U000000000
-780500002Sparkasse Hochfranken                                     95234Sparneck                           Spk Hochfranken            57253           00010586U000000000
 780500002Sparkasse Hochfranken                                     95239Zell im Fichtelgebirge             Spk Hochfranken            57253           00010655U000000000
 780500002Sparkasse Hochfranken                                     95180Berg, Oberfr                       Spk Hochfranken            57253           00010840U000000000
 780500002Sparkasse Hochfranken                                     95138Bad Steben                         Spk Hochfranken            57253           00011316U000000000
 780500002Sparkasse Hochfranken                                     95089Selb                               Spk Hochfranken            57253           00055729U000000000
 780500002Sparkasse Hochfranken                                     95659Arzberg, Oberfr                    Spk Hochfranken            57253           00055732U000000000
-780500002Sparkasse Hochfranken                                     95680Bad Alexandersbad                  Spk Hochfranken            57253           00055733U000000000
 780500002Sparkasse Hochfranken                                     95186Höchstädt i. Fichtelgebirge        Spk Hochfranken            57253           00055734U000000000
-780500002Sparkasse Hochfranken                                     95691Hohenberg a.d.Eger                 Spk Hochfranken            57253           00055735U000000000
 780500002Sparkasse Hochfranken                                     95158Kirchenlamitz                      Spk Hochfranken            57253           00055736U000000000
 780500002Sparkasse Hochfranken                                     95168Marktleuthen                       Spk Hochfranken            57253           00055737U000000000
 780500002Sparkasse Hochfranken                                     95615Marktredwitz                       Spk Hochfranken            57253           00055738U000000000
@@ -16369,7 +16080,6 @@ namespace :squirrels do
 780500002Sparkasse Hochfranken                                     95195Röslau                             Spk Hochfranken            57253           00055741U000000000
 780500002Sparkasse Hochfranken                                     95706Schirnding                         Spk Hochfranken            57253           00055742U000000000
 780500002Sparkasse Hochfranken                                     95707Thiersheim                         Spk Hochfranken            57253           00055743U000000000
-780500002Sparkasse Hochfranken                                     95199Thierstein                         Spk Hochfranken            57253           00055744U000000000
 780500002Sparkasse Hochfranken                                     95709Tröstau                            Spk Hochfranken            57253           00055745U000000000
 780500002Sparkasse Hochfranken                                     95163Weißenstadt                        Spk Hochfranken            57253           00055746U000000000
 780500002Sparkasse Hochfranken                                     95632Wunsiedel                          Spk Hochfranken            57253           00055747U000000000
@@ -16381,9 +16091,9 @@ namespace :squirrels do
 780608962VR Bank Hof                                               95176Konradsreuth, Oberfr               VR Bank Hof                67039           88026817U000000000
 780608962VR Bank Hof                                               95185Gattendorf, Oberfr                 VR Bank Hof                67039           88026944U000000000
 780608962VR Bank Hof                                               95183Trogen, Oberfr                     VR Bank Hof                67039           88027072U000000000
-780608962VR Bank Hof                                               95121Schwarzenbach a.d.Saale            VR Bank Hof                67039           88027146U000000000
+780608962VR Bank Hof                                               95126Schwarzenbach a.d.Saale            VR Bank Hof                67039           88027146U000000000
 780608962VR Bank Hof                                               95158Kirchenlamitz                      VR Bank Hof                67039           88032713U000000000
-780608962VR Bank Hof                                               95104Rehau, Oberfr                      VR Bank Hof                67039           88044306U000000000
+780608962VR Bank Hof                                               95111Rehau                              VR Bank Hof                67039           88044306U000000000
 780608962VR Bank Hof                                               08606Oelsnitz /Vogtl.                   VR Bank Hof                67039           88045866U000000000
 780608962VR Bank Hof                                               95183Töpen                              VR Bank Hof                67039           88045867U000000000
 780608962VR Bank Hof                                               08548Syrau                              VR Bank Hof                67039           88048247U000000000
@@ -16391,13 +16101,13 @@ namespace :squirrels do
 780608962VR Bank Hof                                               08626Adorf /Vogtl.                      VR Bank Hof                67039           88048271U000000000
 780608962VR Bank Hof                                               08543Pöhl im Vogtland                   VR Bank Hof                67039           88048272U000000000
 780608962VR Bank Hof                                               08538Reuth b Plauen                     VR Bank Hof                67039           88048273U000000000
-780608962VR Bank Hof                                               95224Helmbrechts, Oberfr                VR Bank Hof                67039           88050864U000000000
-780608962VR Bank Hof                                               95204Münchberg, Oberfr                  VR Bank Hof                67039           88050895U000000000
+780608962VR Bank Hof                                               95233Helmbrechts                        VR Bank Hof                67039           88050864U000000000
+780608962VR Bank Hof                                               95213Münchberg                          VR Bank Hof                67039           88050895U000000000
 780608962VR Bank Hof                                               95237Weißdorf                           VR Bank Hof                67039           88050896U000000000
-780608962VR Bank Hof                                               95146Selbitz, Oberfr                    VR Bank Hof                67039           88051376U000000000
+780608962VR Bank Hof                                               95152Selbitz                            VR Bank Hof                67039           88051376U000000000
 780608962VR Bank Hof                                               95119Naila                              VR Bank Hof                67039           88051377U000000000
 780608962VR Bank Hof                                               95189Köditz, Oberfr                     VR Bank Hof                67039           88051378U000000000
-780608962VR Bank Hof                                               95127Schwarzenbach a Wald               VR Bank Hof                67039           88053289U000000000
+780608962VR Bank Hof                                               95131Schwarzenbach a Wald               VR Bank Hof                67039           88053289U000000000
 780608962VR Bank Hof (Gf P2)                                       95028Hof, Saale                         VR Bank Hof                77039           88054793U000000000
 780608962VR Bank Hof                                               08523Plauen, Vogtl                      VR Bank Hof                67039           88055884U000000000
 781400001Commerzbank                                               95643Tirschenreuth                      Commerzbank Tirschenreuth  24451COBADEFFXXX13052314U000000000
@@ -16447,8 +16157,8 @@ namespace :squirrels do
 781615752Raiffeisenbank im Stiftland (Gf P2)                       95645Waldsassen                         Raiffbk im Stiftland Walds 78120           88054795U000000000
 783200761UniCredit Bank - HypoVereinsbank                          96402Coburg                             UniCredit Bank-HypoVereinbk22020HYVEDEMM48099032200U000000000
 783200762UniCredit Bank - HypoVereinsbank                          96456Neustadt b. Coburg                 UniCredit Bank-HypoVereinbk22020HYVEDEMM48099000464U000000000
-783200762UniCredit Bank - HypoVereinsbank                          96467Rödental                           UniCredit Bank-HypoVereinbk22020HYVEDEMM48099042630U000000000
-783200762UniCredit Bank - HypoVereinsbank                          96515Sonneberg, Thür                    UniCredit Bank-HypoVereinbk22020HYVEDEMM48099048898U000000000
+783200762UniCredit Bank - HypoVereinsbank                          96467Rödental                           UniCredit Bank-HypoVereinbk22020HYVEDEMM48099042630D000000000
+783200762UniCredit Bank - HypoVereinsbank                          96515Sonneberg, Thür                    UniCredit Bank-HypoVereinbk22020HYVEDEMM48099048898D000000000
 783301111Bankhaus Max Flessa                                       96406Coburg                             Flessabank Coburg          26074FLESDEMMXXX09043001U179330111
 783400911Commerzbank                                               96404Coburg                             Commerzbank Coburg         24764COBADEFFXXX13031380U000000000
 783400912Commerzbank                                               96504Sonneberg, Thür                    Commerzbank Sonneberg Thür 24764           13046009U000000000
@@ -16485,7 +16195,6 @@ namespace :squirrels do
 783600002VR-Bank Coburg                                            96477Weitramsdorf                       VR-Bank Coburg             68158           88051399U000000000
 783600002VR-Bank Coburg                                            96486Lautertal, Oberfr                  VR-Bank Coburg             68158           88051400U000000000
 783600002VR-Bank Coburg                                            96487Dörfles-Esbach                     VR-Bank Coburg             68158           88051401U000000000
-783600002VR-Bank Coburg                                            96489Niederfüllbach                     VR-Bank Coburg             68158           88051402U000000000
 783600002VR-Bank Coburg                                            96515Sonneberg, Thür                    VR-Bank Coburg             68158           88051403U000000000
 783600002VR-Bank Coburg                                            96523Steinach, Thür                     VR-Bank Coburg             68158           88051404U000000000
 783600002VR-Bank Coburg                                            96528Effelder-Rauenstein                VR-Bank Coburg             68158           88051405U000000000
@@ -16571,7 +16280,7 @@ namespace :squirrels do
 790500002Sparkasse Mainfranken Würzburg                            97232Giebelstadt                        Spk Mainfranken            57224           00009019U000000000
 790500002Sparkasse Mainfranken Würzburg                            97218Gerbrunn                           Spk Mainfranken            57224           00009026U000000000
 790500002Sparkasse Mainfranken Würzburg                            97732Gemünden a. Main                   Spk Mainfranken            57224           00009031U000000000
-790500002Sparkasse Mainfranken Würzburg                            97255Gelchsheim                         Spk Mainfranken            57224           00009032U000000000
+790500002Sparkasse Mainfranken Würzburg                            97255Gelchsheim                         Spk Mainfranken            57224           00009032D000000000
 790500002Sparkasse Mainfranken Würzburg                            97892Kreuzwertheim                      Spk Mainfranken            57224           00009100U000000000
 790500002Sparkasse Mainfranken Würzburg                            97277Neubrunn b Würzburg                Spk Mainfranken            57224           00009125U000000000
 790500002Sparkasse Mainfranken Würzburg                            97268Kirchheim, Unterfr                 Spk Mainfranken            57224           00009132U000000000
@@ -16579,7 +16288,7 @@ namespace :squirrels do
 790500002Sparkasse Mainfranken Würzburg                            97840Hafenlohr                          Spk Mainfranken            57224           00009192U000000000
 790500002Sparkasse Mainfranken Würzburg                            97199Ochsenfurt, Unterfr                Spk Mainfranken            57224           00009249U000000000
 790500002Sparkasse Mainfranken Würzburg                            97791Obersinn                           Spk Mainfranken            57224           00009259U000000000
-790500002Sparkasse Mainfranken Würzburg                            97785Mittelsinn                         Spk Mainfranken            57224           00009293U000000000
+790500002Sparkasse Mainfranken Würzburg                            97785Mittelsinn                         Spk Mainfranken            57224           00009293D000000000
 790500002Sparkasse Mainfranken Würzburg                            97337Dettelbach                         Spk Mainfranken            57224           00009567U000000000
 790500002Sparkasse Mainfranken Würzburg                            97318Kitzingen                          Spk Mainfranken            57224           00009582U000000000
 790500002Sparkasse Mainfranken Würzburg                            97346Iphofen                            Spk Mainfranken            57224           00009618U000000000
@@ -16632,8 +16341,8 @@ namespace :squirrels do
 790500002Sparkasse Mainfranken Würzburg                            97253Gaukönigshofen                     Spk Mainfranken            57224           00043706U000000000
 790500002Sparkasse Mainfranken Würzburg                            97288Theilheim, Kr Würzburg             Spk Mainfranken            57224           00044695U000000000
 790500002Sparkasse Mainfranken Würzburg                            97292Uettingen                          Spk Mainfranken            57224           00046455U000000000
-790500002Sparkasse Mainfranken Würzburg                            97250Erlabrunn, Unterfr                 Spk Mainfranken            57224           00046456U000000000
-790500002Sparkasse Mainfranken Würzburg                            97259Greußenheim                        Spk Mainfranken            57224           00046918U000000000
+790500002Sparkasse Mainfranken Würzburg                            97250Erlabrunn, Unterfr                 Spk Mainfranken            57224           00046456D000000000
+790500002Sparkasse Mainfranken Würzburg                            97259Greußenheim                        Spk Mainfranken            57224           00046918D000000000
 790500002Sparkasse Mainfranken Würzburg                            97780Gössenheim                         Spk Mainfranken            57224           00047479U000000000
 790500002Sparkasse Mainfranken Würzburg                            97355Wiesenbronn                        Spk Mainfranken            57224           00050617U000000000
 790610001Raiffeisenbank-alt-                                       97195Ochsenfurt, Unterfr                Raiffbk Ochsenfurt -alt-   67040GENODEF1OCH88024557U000000000
@@ -16647,14 +16356,12 @@ namespace :squirrels do
 790610002Raiffeisenbank Ochsenfurt                                 97255Gelchsheim                         Raiffeisenbank Ochsenfurt  67040           88027457U000000000
 790610002Raiffeisenbank Ochsenfurt                                 97232Giebelstadt                        Raiffeisenbank Ochsenfurt  67040           88032371U000000000
 790610002Raiffeisenbank (Gf P2)                                    97195Ochsenfurt, Unterfr                Raiffeisenbank Ochsenfurt  77040           88054797U000000000
-790611531Raiffeisenbank Lohr, Main -alt-                           97804Lohr a. Main                       Raiffeisenbank Lohr -alt-  67047GENODEF1LOH88027660U000000000
-790611532Raiffeisenbank Lohr, Main (Gf P2) -alt-                   97804Lohr a. Main                       Raiffeisenbank Lohr -alt-  77047           88054798U000000000
 790621061Raiffeisenbank                                            97754Hammelburg                         Raiffbk Hammelburg         67084GENODEF1HAB88029277U000000000
 790621062Raiffeisenbank Hammelburg                                 97727Fuchsstadt, Unterfr                Raiffbk Hammelburg         67084           88024588U000000000
 790621062Raiffeisenbank Hammelburg                                 97797Wartmannsroth                      Raiffbk Hammelburg         67084           88025009U000000000
 790621062Raiffeisenbank Hammelburg                                 97725Elfershausen, Unterfr              Raiffbk Hammelburg         67084           88026851U000000000
 790621062Raiffeisenbank Hammelburg                                 97717Euerdorf                           Raiffbk Hammelburg         67084           88032210U000000000
-790621062Raiffeisenbank Hammelburg                                 97717Sulzthal                           Raiffbk Hammelburg         67084           88050754U000000000
+790621062Raiffeisenbank Hammelburg                                 97717Sulzthal                           Raiffbk Hammelburg         67084           88050754D000000000
 790621062Raiffeisenbank (Gf P2)                                    97754Hammelburg                         Raiffbk Hammelburg         77084           88054799U000000000
 790630601Raiffeisenbank Estenfeld-Bergtheim                        97230Estenfeld                          Raiffbk Estenfeld-Bergtheim68052GENODEF1EFD88024564U000000000
 790630602Raiffeisenbank Estenfeld-Bergtheim                        97273Kürnach                            Raiffbk Estenfeld-Bergtheim68052           88024737U000000000
@@ -16680,7 +16387,6 @@ namespace :squirrels do
 790650282VR-Bank Bad Kissingen-Bad Brückenau                       97657Sandberg, Unterfr                  VR-Bank Bad Kissingen      68122           88026834U000000000
 790650282VR-Bank Bad Kissingen-Bad Brückenau                       97792Riedenberg, Rhön                   VR-Bank Bad Kissingen      68122           88026972U000000000
 790650282VR-Bank Bad Kissingen-Bad Brückenau                       97763Bad Brückenau                      VR-Bank Bad Kissingen      68122           88027349U000000000
-790650282VR-Bank Bad Kissingen-Bad Brückenau                       97737Gemünden a. Main                   VR-Bank Bad Kissingen      68122           88027460U000000000
 790650282VR-Bank Bad Kissingen-Bad Brückenau                       97799Zeitlofs                           VR-Bank Bad Kissingen      68122           88027502U000000000
 790650282VR-Bank Bad Kissingen-Bad Brückenau                       97789Oberleichtersbach                  VR-Bank Bad Kissingen      68122           88027750U000000000
 790650282VR-Bank Bad Kissingen-Bad Brückenau                       97795Schondra                           VR-Bank Bad Kissingen      68122           88027879U000000000
@@ -16695,8 +16401,6 @@ namespace :squirrels do
 790650282VR-Bank Bad Kissingen-Bad Brückenau                       97714Oerlenbach                         VR-Bank Bad Kissingen      68122           88051746U000000000
 790650282VR-Bank Bad Kissingen-Bad Brückenau                       97702Münnerstadt                        VR-Bank Bad Kissingen      68122           88051747U000000000
 790650282VR-Bank Bad Kissingen-Bad Brückenau (Gf P2)               97670Bad Kissingen                      VR-Bank Bad Kissingen      78122           88054802U000000000
-790651601Raiffeisenbank Marktheidenfeld -alt-                      97820Marktheidenfeld                    RB Marktheidenfeld -alt-   68065GENODEF1MHF88027672U000000000
-790651602Raiffeisenbank (Gf P2) -alt-                              97820Marktheidenfeld                    Raiffbk Marktheidenfeld alt78065           88054803U000000000
 790660821Raiffeisenbank                                            97237Altertheim                         Raiffeisenbank Altertheim  68084GENODEF1AHE88027736U000000000
 790660822Raiffeisenbank (Gf P2)                                    97237Altertheim                         Raiffeisenbank Altertheim  78084           88054804U000000000
 790690011Raiffeisenbank Volkach-Wiesentheid                        97351Wiesentheid                        Raiffbk Volkach-Wiesentheid67123GENODEF1WED88032566U000000000
@@ -16795,14 +16499,13 @@ namespace :squirrels do
 790691812Raiffeisenbank Nüdlingen Zw Hausen                        97688Bad Kissingen                      Raiffeisenbank Nüdlingen   67401           88027542U000000000
 790691881Raiffeisenbank im Grabfeld                                97528Sulzdorf a.d.Lederhecke            Raiffeisenbank im Grabfeld 67409GENODEF1SLZ88027930U000000000
 790691882Raiffeisenbank im Grabfeld (Gf P2)                        97528Sulzdorf a.d.Lederhecke            Raiffeisenbank im Grabfeld 77409           88054812U000000000
-790691921Raiffeisenbank Obernbreit und Umgebung                    97342Obernbreit                         Raiffeisenbank Obernbreit  67414GENODEF1ROU88024826D000000000
 790692131Raiffeisenbank Maßbach                                    97517Rannungen                          Raiffeisenbank Maßbach     67436GENODEF1RNM88027813U000000000
 790692132Raiffeisenbank Maßbach                                    97711Maßbach                            Raiffeisenbank Maßbach     67436           88024769U000000000
 790692132Raiffeisenbank Maßbach                                    97456Dittelbrunn                        Raiffeisenbank Maßbach     67436           88027528U000000000
 790692132Raiffeisenbank Maßbach                                    97490Poppenhausen, Unterfr              Raiffeisenbank Maßbach     67436           88027782U000000000
 790692132Raiffeisenbank Maßbach                                    97714Oerlenbach                         Raiffeisenbank Maßbach     67436           88042801U000000000
 790692132Raiffeisenbank Maßbach (Gf P2)                            97517Rannungen                          Raiffeisenbank Maßbach     77436           88054813U000000000
-790692711Raiffeisenbank -alt-                                      97291Thüngersheim                       Raiffbk Thüngersheim -alt- 67474GENODEF1THH88024967M000000000
+790692711Raiffeisenbank -alt-                                      97291Thüngersheim                       Raiffbk Thüngersheim -alt- 67474GENODEF1THH88024967U000000000
 790692712Raiffeisenbank (Gf P2)                                    97291Thüngersheim                       Raiffbk Thüngersheim       77474           88054814U000000000
 790700161Deutsche Bank                                             97004Würzburg                           Deutsche Bank Würzburg     27228DEUTDEMM79063006956U000000000
 790700162Deutsche Bank                                             97408Schweinfurt                        Deutsche Bank Schweinfurt  27228DEUTDEMM79163003919U000000000
@@ -16868,11 +16571,11 @@ namespace :squirrels do
 791900002VR Bank Kitzingen (Gf P2)                                 97318Kitzingen                          VR Bank Kitzingen          87029           88054818U000000000
 793200751UniCredit Bank - HypoVereinsbank                          97408Schweinfurt                        UniCredit Bank-HypoVereinbk22081HYVEDEMM45199000143U000000000
 793200752UniCredit Bank - HypoVereinsbank                          97688Bad Kissingen                      UniCredit Bank-HypoVereinbk22081HYVEDEMM45199000144U000000000
-793200752UniCredit Bank - HypoVereinsbank                          97764Bad Brückenau                      UniCredit Bank-HypoVereinbk22081HYVEDEMM45199000471U000000000
-793200752UniCredit Bank - HypoVereinsbank                          97457Hofheim i.UFr.                     UniCredit Bank-HypoVereinbk22081HYVEDEMM45199000480U000000000
-793200752UniCredit Bank - HypoVereinsbank                          97627Bad Königshofen i. Grabfeld        UniCredit Bank-HypoVereinbk22081HYVEDEMM45199000481U000000000
-793200752UniCredit Bank - HypoVereinsbank                          97634Mellrichstadt                      UniCredit Bank-HypoVereinbk22081HYVEDEMM45199000483U000000000
-793200752UniCredit Bank - HypoVereinsbank                          97697Münnerstadt                        UniCredit Bank-HypoVereinbk22081HYVEDEMM45199000484U000000000
+793200752UniCredit Bank - HypoVereinsbank                          97764Bad Brückenau                      UniCredit Bank-HypoVereinbk22081HYVEDEMM45199000471D000000000
+793200752UniCredit Bank - HypoVereinsbank                          97457Hofheim i.UFr.                     UniCredit Bank-HypoVereinbk22081HYVEDEMM45199000480D000000000
+793200752UniCredit Bank - HypoVereinsbank                          97627Bad Königshofen i. Grabfeld        UniCredit Bank-HypoVereinbk22081HYVEDEMM45199000481D000000000
+793200752UniCredit Bank - HypoVereinsbank                          97634Mellrichstadt                      UniCredit Bank-HypoVereinbk22081HYVEDEMM45199000483D000000000
+793200752UniCredit Bank - HypoVereinsbank                          97697Münnerstadt                        UniCredit Bank-HypoVereinbk22081HYVEDEMM45199000484D000000000
 793200752UniCredit Bank - HypoVereinsbank                          97615Bad Neustadt a.d.Saale             UniCredit Bank-HypoVereinbk22081HYVEDEMM45199000485U000000000
 793200752UniCredit Bank - HypoVereinsbank                          97437Haßfurt                            UniCredit Bank-HypoVereinbk22081HYVEDEMM45199035260U000000000
 793200752UniCredit Bank - HypoVereinsbank                          36015Fulda                              UniCredit Bank-HypoVereinbk22081HYVEDEMM45199041220U000000000
@@ -16994,7 +16697,6 @@ namespace :squirrels do
 793630162VR-Bank Rhön-Grabfeld                                     97645Ostheim v.d.Rhön                   VR-Bank Rhön-Grabfeld      67106           88024851U000000000
 793630162VR-Bank Rhön-Grabfeld                                     97618Unsleben                           VR-Bank Rhön-Grabfeld      67106           88024984U000000000
 793630162VR-Bank Rhön-Grabfeld                                     97616Salz b Bad Neustadt a d Saale      VR-Bank Rhön-Grabfeld      67106           88027857U000000000
-793630162VR-Bank Rhön-Grabfeld                                     97659Schönau a.d.Brend                  VR-Bank Rhön-Grabfeld      67106           88027876U000000000
 793630162VR-Bank Rhön-Grabfeld                                     97640Stockheim, Unterfr                 VR-Bank Rhön-Grabfeld      67106           88027923U000000000
 793630162VR-Bank Rhön-Grabfeld                                     97618Wollbach b Bad Neustadt a d Saale  VR-Bank Rhön-Grabfeld      67106           88044309U000000000
 793630162VR-Bank Rhön-Grabfeld                                     97618Heustreu                           VR-Bank Rhön-Grabfeld      67106           88048248U000000000
@@ -17006,11 +16708,11 @@ namespace :squirrels do
 793630162VR-Bank Rhön-Grabfeld (Gf P2)                             97607Bad Neustadt a.d.Saale             VR-Bank Rhön-Grabfeld      77106           88054820U000000000
 793631511Raiffeisen-Volksbank Haßberge                             97437Haßfurt                            Raiff-VB Haßberge          68043GENODEF1HAS88027540U000000000
 793631512Raiffeisen-Volksbank Haßberge                             97461Hofheim i.UFr.                     Raiff-VB Haßberge          68043           88026746U000000000
-793631512Raiffeisen-Volksbank Haßberge                             97519Riedbach, Unterfr                  Raiff-VB Haßberge          68043           88027580U000000000
+793631512Raiffeisen-Volksbank Haßberge                             97519Riedbach, Unterfr                  Raiff-VB Haßberge          68043           88027580D000000000
 793631512Raiffeisen-Volksbank Haßberge                             97478Knetzgau                           Raiff-VB Haßberge          68043           88027625U000000000
 793631512Raiffeisen-Volksbank Haßberge                             97486Königsberg i.Bay.                  Raiff-VB Haßberge          68043           88027627U000000000
 793631512Raiffeisen-Volksbank Haßberge                             97539Wonfurt                            Raiff-VB Haßberge          68043           88028027U000000000
-793631512Raiffeisen-Volksbank Haßberge                             97491Aidhausen                          Raiff-VB Haßberge          68043           88028215U000000000
+793631512Raiffeisen-Volksbank Haßberge                             97491Aidhausen                          Raiff-VB Haßberge          68043           88028215D000000000
 793631512Raiffeisen-Volksbank Haßberge                             97475Zeil a. Main                       Raiff-VB Haßberge          68043           88028521U000000000
 793631512Raiffeisen-Volksbank Haßberge                             96181Rauhenebrach                       Raiff-VB Haßberge          68043           88028556U000000000
 793631512Raiffeisen-Volksbank Haßberge                             97522Sand a. Main                       Raiff-VB Haßberge          68043           88028880U000000000
@@ -17047,10 +16749,10 @@ namespace :squirrels do
 795200701UniCredit Bank - HypoVereinsbank                          63701Aschaffenburg                      UniCredit Bank-HypoVereinbk22006HYVEDEMM40799000145U000000000
 795200702UniCredit Bank - HypoVereinsbank                          63747Alzenau i.UFr.                     UniCredit Bank-HypoVereinbk22006HYVEDEMM40799000489U000000000
 795200702UniCredit Bank - HypoVereinsbank                          63777Obernburg a. Main                  UniCredit Bank-HypoVereinbk22006HYVEDEMM40799000490U000000000
-795200702UniCredit Bank - HypoVereinsbank                          63793Kahl a. Main                       UniCredit Bank-HypoVereinbk22006HYVEDEMM40799000493U000000000
+795200702UniCredit Bank - HypoVereinsbank                          63793Kahl a. Main                       UniCredit Bank-HypoVereinbk22006HYVEDEMM40799000493D000000000
 795200702UniCredit Bank - HypoVereinsbank                          63882Miltenberg                         UniCredit Bank-HypoVereinbk22006HYVEDEMM40799000497U000000000
-795200702UniCredit Bank - HypoVereinsbank                          63769Goldbach, Unterfr                  UniCredit Bank-HypoVereinbk22006HYVEDEMM40799024610U000000000
-795200702UniCredit Bank - HypoVereinsbank                          63762Großostheim                        UniCredit Bank-HypoVereinbk22006HYVEDEMM40799025292U000000000
+795200702UniCredit Bank - HypoVereinsbank                          63769Goldbach, Unterfr                  UniCredit Bank-HypoVereinbk22006HYVEDEMM40799024610D000000000
+795200702UniCredit Bank - HypoVereinsbank                          63762Großostheim                        UniCredit Bank-HypoVereinbk22006HYVEDEMM40799025292D000000000
 795400491Commerzbank                                               63707Aschaffenburg                      Commerzbank Aschaffenburg  24501COBADEFFXXX13011257U000000000
 795500001Sparkasse Aschaffenburg Alzenau                           63736Aschaffenburg                      Spk Aschaffenburg Alzenau  57215BYLADEM1ASA00011048U000000000
 795500002Sparkasse Aschaffenburg Alzenau                           63825Schöllkrippen                      Spk Aschaffenburg Alzenau  57215           00007844U000000000
@@ -17180,38 +16882,37 @@ namespace :squirrels do
 796685091Raiffeisenbank Eichenbühl und Umgebung                    63928Eichenbühl, Unterfr                Raiffbk Eichenbühl u U     68096GENODEF1ENB88024542U000000000
 796685092Raiffeisenbank Eichenbühl und Umgebung                    63930Neunkirchen, Unterfr               Raiffbk Eichenbühl u U     68096           88024800U000000000
 796685092Raiffeisenbank Eichenbühl und Umgebung (Gf P2)            63928Eichenbühl, Unterfr                Raiffbk Eichenbühl u U     78096           88054834U000000000
-796900001Raiffeisen-Volksbank Miltenberg                           63888Miltenberg                         Raiff-VB Miltenberg        97032GENODEF1MIL88022097U000000000
-796900002Raiffeisen-Volksbank Miltenberg                           63913Amorbach                           Raiff-VB Miltenberg        97032           88024433U000000000
-796900002Raiffeisen-Volksbank Miltenberg                           97904Dorfprozelten                      Raiff-VB Miltenberg        97032           88024525U000000000
-796900002Raiffeisen-Volksbank Miltenberg                           63906Erlenbach a. Main                  Raiff-Volksbank Miltenberg 97032           88024558U000000000
-796900002Raiffeisen-Volksbank Miltenberg                           97903Collenberg                         Raiff-VB Miltenberg        97032           88024570U000000000
-796900002Raiffeisen-Volksbank Miltenberg                           63931Kirchzell                          Raiff-VB Miltenberg        97032           88024720U000000000
-796900002Raiffeisen-Volksbank Miltenberg                           63911Klingenberg a. Main                Raiff-Volksbank Miltenberg 97032           88024725U000000000
-796900002Raiffeisen-Volksbank Miltenberg                           63925Laudenbach, Unterfr                Raiff-Volksbank Miltenberg 97032           88024742U000000000
-796900002Raiffeisen-Volksbank Miltenberg                           97909Stadtprozelten                     Raiff-VB Miltenberg        97032           88024944U000000000
-796900002Raiffeisen-Volksbank Miltenberg                           63937Weilbach, Unterfr                  Raiff-VB Miltenberg        97032           88025016U000000000
-796900002Raiffeisen-Volksbank Miltenberg                           97896Freudenberg, Baden                 Raiff-Volksbank Miltenberg 97032           88025245U000000000
-796900002Raiffeisen-Volksbank Miltenberg                           97901Altenbuch, Unterfr                 Raiff-VB Miltenberg        97032           88027321U000000000
-796900002Raiffeisen-Volksbank Miltenberg                           97906Faulbach, Unterfr                  Raiff-VB Miltenberg        97032           88027434U000000000
-796900002Raiffeisen-Volksbank Miltenberg                           63934Röllbach                           Raiff-Volksbank Miltenberg 97032           88027842U000000000
-796900002Raiffeisen-Volksbank Miltenberg                           63936Schneeberg, Unterfr                Raiff-VB Miltenberg        97032           88027873U000000000
-796900002Raiffeisen-Volksbank Miltenberg                           63933Mönchberg, Spessart                Raiff-Volksbank Miltenberg 97032           88033411U000000000
-796900002Raiffeisen-Volksbank Miltenberg                           63920Großheubach                        Raiff-Volksbank Miltenberg 97032           88042753U000000000
-796900002Raiffeisen-Volksbank Miltenberg                           63924Kleinheubach                       Raiff-Volksbank Miltenberg 97032           88042762U000000000
-796900002Raiffeisen-Volksbank Miltenberg                           63924Rüdenau                            Raiff-Volksbank Miltenberg 97032           88043166U000000000
-796900002Raiffeisen-Volksbank Miltenberg                           63927Bürgstadt                          Raiff-Volksbank Miltenberg 97032           88044266U000000000
-796900002Raiffeisen-Volksbank Miltenberg                           63839Kleinwallstadt                     Raiff-VB                   97032           88053109U000000000
-796900002Raiffeisen-Volksbank Miltenberg                           63840Hausen b Aschaffenburg             Raiff-VB                   97032           88053110U000000000
-796900002Raiffeisen-Volksbank Miltenberg                           63834Sulzbach a. Main                   Raiff-VB                   97032           88053111U000000000
-796900002Raiffeisen-Volksbank Miltenberg (Gf P2)                   63888Miltenberg                         Raiff-VB Miltenberg        87032           88054835U000000000
+796900001Raiffeisen-Volksbank Miltenberg                           63888Miltenberg                         RV-Bank Miltenberg         97032GENODEF1MIL88022097M000000000
+796900002Raiffeisen-Volksbank Miltenberg                           63913Amorbach                           RV-Bank Miltenberg         97032           88024433M000000000
+796900002Raiffeisen-Volksbank Miltenberg                           97904Dorfprozelten                      RV-Bank Miltenberg         97032           88024525M000000000
+796900002Raiffeisen-Volksbank Miltenberg                           63906Erlenbach a. Main                  RV-Bank Miltenberg         97032           88024558M000000000
+796900002Raiffeisen-Volksbank Miltenberg                           97903Collenberg                         RV-Bank Miltenberg         97032           88024570M000000000
+796900002Raiffeisen-Volksbank Miltenberg                           63931Kirchzell                          RV-Bank Miltenberg         97032           88024720M000000000
+796900002Raiffeisen-Volksbank Miltenberg                           63911Klingenberg a. Main                RV-Bank Miltenberg         97032           88024725M000000000
+796900002Raiffeisen-Volksbank Miltenberg                           63925Laudenbach                         RV-Bank Miltenberg         97032           88024742M000000000
+796900002Raiffeisen-Volksbank Miltenberg                           97909Stadtprozelten                     RV-Bank Miltenberg         97032           88024944M000000000
+796900002Raiffeisen-Volksbank Miltenberg                           63937Weilbach                           RV-Bank Miltenberg         97032           88025016M000000000
+796900002Raiffeisen-Volksbank Miltenberg                           97896Freudenberg                        RV-Bank Miltenberg         97032           88025245M000000000
+796900002Raiffeisen-Volksbank Miltenberg                           97901Altenbuch                          RV-Bank Miltenberg         97032           88027321M000000000
+796900002Raiffeisen-Volksbank Miltenberg                           97906Faulbach                           RV-Bank Miltenberg         97032           88027434M000000000
+796900002Raiffeisen-Volksbank Miltenberg                           63934Röllbach                           RV-Bank Miltenberg         97032           88027842M000000000
+796900002Raiffeisen-Volksbank Miltenberg                           63936Schneeberg                         RV-Bank Miltenberg         97032           88027873M000000000
+796900002Raiffeisen-Volksbank Miltenberg                           63933Mönchberg                          RV-Bank Miltenberg         97032           88033411M000000000
+796900002Raiffeisen-Volksbank Miltenberg                           63920Großheubach                        RV-Bank Miltenberg         97032           88042753M000000000
+796900002Raiffeisen-Volksbank Miltenberg                           63924Kleinheubach                       RV-Bank Miltenberg         97032           88042762M000000000
+796900002Raiffeisen-Volksbank Miltenberg                           63924Rüdenau                            Raiff-Volksbank Miltenberg 97032           88043166D000000000
+796900002Raiffeisen-Volksbank Miltenberg                           63927Bürgstadt                          RV-Bank Miltenberg         97032           88044266M000000000
+796900002Raiffeisen-Volksbank Miltenberg                           63839Kleinwallstadt                     RV-Bank Miltenberg         97032           88053109M000000000
+796900002Raiffeisen-Volksbank Miltenberg                           63840Hausen                             RV-Bank Miltenberg         97032           88053110M000000000
+796900002Raiffeisen-Volksbank Miltenberg                           63834Sulzbach a. Main                   RV-Bank Miltenberg         97032           88053111M000000000
+796900002Raiffeisen-Volksbank Miltenberg (Gf P2)                   63888Miltenberg                         RV-Bank Miltenberg         87032           88054835M000000000
 800200861UniCredit Bank - HypoVereinsbank                          06018Halle (Saale)                      UniCredit Bank-HypoVereinbk22108HYVEDEMM44099046114U000000000
-800200862UniCredit Bank - HypoVereinsbank                          06886Lutherstadt Wittenberg             UniCredit Bank-HypoVereinbk22108HYVEDEMM44099049182U000000000
-800200862UniCredit Bank - HypoVereinsbank                          06366Köthen (Anhalt)                    UniCredit Bank-HypoVereinbk22108HYVEDEMM44099049184U000000000
+800200862UniCredit Bank - HypoVereinsbank                          06886Lutherstadt Wittenberg             UniCredit Bank-HypoVereinbk22108HYVEDEMM44099049182D000000000
+800200862UniCredit Bank - HypoVereinsbank                          06366Köthen (Anhalt)                    UniCredit Bank-HypoVereinbk22108HYVEDEMM44099049184D000000000
 800200862UniCredit Bank - HypoVereinsbank                          06217Merseburg                          UniCredit Bank-HypoVereinbk22108HYVEDEMM44099049185U000000000
 800200862UniCredit Bank - HypoVereinsbank                          06667Weißenfels, Saale                  UniCredit Bank-HypoVereinbk22108HYVEDEMM44099056433U000000000
 800200871UniCredit Bank - HypoVereinsbank                          06815Dessau-Roßlau                      UniCredit Bank-HypoVereinbk22117HYVEDEMM46299046490U000000000
 800200872UniCredit Bank - HypoVereinsbank                          06766Bitterfeld-Wolfen                  UniCredit Bank-HypoVereinbk22117HYVEDEMM46299049705U000000000
-800201301ZV Landesbank Baden-Württemberg                           06003Halle (Saale)                      ZV LBBW Halle              25082SOLADEST80265047473D000000000
 800400001Commerzbank                                               06108Halle (Saale)                      Commerzbank Halle          24800COBADEFFXXX13044830U000000000
 800400002Commerzbank                                               06203Merseburg                          Commerzbank Merseburg      24800           13045997U000000000
 800400002Commerzbank                                               06692Zeitz, Elster                      Commerzbank Zeitz          24800           13046021U000000000
@@ -17234,9 +16935,9 @@ namespace :squirrels do
 800555001Salzlandsparkasse                                         39401Staßfurt                           Salzlandsparkasse Staßfurt 58092NOLADE21SES20052698U000000000
 800626081Volksbank Elsterland                                      06917Jessen (Elster)                    Volksbank Elsterland       68664GENODEF1JE132045747U000000000
 800626082Volksbank Elsterland (Gf P2)                              06917Jessen (Elster)                    Volksbank Elsterland       78664           32054836U000000000
-800635081Harzer Volksbank                                          38855Wernigerode                        Harzer Volksbank           68516GENODEF1QLB09045782U000000000
-800635082Harzer Volksbank (Gf P2)                                  38855Wernigerode                        Harzer Volksbank           78516           09054837U000000000
-800635082Harzer Volksbank                                          06484Quedlinburg                        Harzer Volksbank           68516           09056593U000000000
+800635081Harzer Volksbank                                          38855Wernigerode                        Harzer Volksbank           68516GENODEF1QLB28045782M000000000
+800635082Harzer Volksbank (Gf P2)                                  38855Wernigerode                        Harzer Volksbank           78516           28054837M000000000
+800635082Harzer Volksbank                                          06484Quedlinburg                        Harzer Volksbank           68516           28056593M000000000
 800635581Volksbank                                                 06513Sangerhausen                       Volksbank Sangerhausen     68624GENODEF1SGH32045786U000000000
 800635582Volksbank (Gf P2)                                         06513Sangerhausen                       Volksbank Sangerhausen     78624           32054838U000000000
 800635981Volksbank Wittenberg                                      06871Lutherstadt Wittenberg             Volksbank Wittenberg       68536GENODEF1WB132045795U000000000
@@ -17247,7 +16948,7 @@ namespace :squirrels do
 800636282Volksbank                                                 06386Quellendorf                        Volksbank Quellendorf      68642           32055126U000000000
 800636282Volksbank                                                 06780Zörbig                             Volksbank Zörbig           68642           32055127U000000000
 800636282Volksbank                                                 06779Raguhn-Jeßnitz                     Volksbank Raguhn           68642           32055128U000000000
-800636282Volksbank                                                 06792Sandersdorf, Sachs-Anh             Volksbank Sandersdorf      68642           32055129U000000000
+800636282Volksbank                                                 06792Sandersdorf                        Volksbank Sandersdorf      68642           32055129U000000000
 800636282Volksbank                                                 06385Aken (Elbe)                        Volksbank Aken             68642           32055131U000000000
 800636481Volks- und Raiffeisenbank Saale-Unstrut                   06207Merseburg                          Volks-Raiffbk Saale-Unstrut68531GENODEF1NMB28049234U000000000
 800636482Volks- und Raiffeisenbank Saale-Unstrut                   06608Naumburg (Saale)                   Volks-Raiffbk Saale-Unstrut68531           28045764U000000000
@@ -17277,12 +16978,12 @@ namespace :squirrels do
 800935742Volksbank Dessau-Anhalt                                   39261Zerbst /Anhalt                     VB Dessau-Anhalt Zerbst    98012           32045775U000000000
 800935742Volksbank Dessau-Anhalt                                   06385Aken (Elbe)                        VB Dessau-Anhalt Aken      98012           32049362U000000000
 800935742Volksbank Dessau-Anhalt                                   06869Coswig (Anhalt)                    VB Dessau-Anhalt Coswig    98012           32049365U000000000
-800935742Volksbank Dessau-Anhalt                                   06774Muldestausee                       VB Dessau-Anhalt Gossa     98012           32049366U000000000
+800935742Volksbank Dessau-Anhalt                                   06774Muldestausee                       VB Dessau-Anhalt Gossa     98012           32049366D000000000
 800935742Volksbank Dessau-Anhalt                                   06773Gräfenhainichen                    VB De-Anh Gräfenhainichen  98012           32049367U000000000
 800935742Volksbank Dessau-Anhalt                                   06785Oranienbaum-Wörlitz                VB Dessau-Anh Oranienbaum  98012           32049370U000000000
-800935742Volksbank Dessau-Anhalt                                   39245Gommern                            VB Dessau-Anhalt Gommern   98012           32049713U000000000
-800935742Volksbank Dessau-Anhalt                                   39291Möckern b Burg b Magdeburg         VB Dessau-Anhalt Möckern   98012           32049714U000000000
-800935742Volksbank Dessau-Anhalt                                   39264Güterglück                         VB Dessau-Anhalt Güterglück98012           32049715U000000000
+800935742Volksbank Dessau-Anhalt                                   39245Gommern                            VB Dessau-Anhalt Leitzkau  98012           32049713D000000000
+800935742Volksbank Dessau-Anhalt                                   39291Möckern                            VB Dessau-Anhalt Loburg    98012           32049714U000000000
+800935742Volksbank Dessau-Anhalt                                   39264Güterglück                         VB Dessau-Anhalt Güterglück98012           32049715D000000000
 800935742Volksbank Dessau-Anhalt (Gf P2)                           06811Dessau-Roßlau                      Volksbank Dessau-Anhalt    88012           32054844U000000000
 800937841Volksbank Halle, Saale                                    06016Halle (Saale)                      VB Halle, Saale            98013GENODEF1HAL32044943U000000000
 800937842Volksbank Halle, Saale (Gf P2)                            06016Halle (Saale)                      VB Halle, Saale            88013           32054845U000000000
@@ -17360,8 +17061,8 @@ namespace :squirrels do
 810700242Deutsche Bank Privat und Geschäftskunden                  39261Zerbst /Anhalt                     Deutsche Bank PGK Zerbst   21708DEUTDEDB80663050830U000000000
 810800001Commerzbank vormals Dresdner Bank                         39003Magdeburg                          Commerzbank Magdeburg      28810DRESDEFF81076044846U000000000
 810800002Commerzbank vormals Dresdner Bank                         39331Haldensleben                       Commerzbank Haldensleben   28810           76046311U000000000
-810930341Volksbank                                                 39638Gardelegen                         Volksbank Gardelegen       98024GENODEF1GA132044924M000000000
-810930342Volksbank (Gf P2)                                         39638Gardelegen                         Volksbank Gardelegen       88024           32054850M000000000
+810930341Volksbank                                                 39638Gardelegen                         Volksbank Gardelegen       98024GENODEF1GA132044924U000000000
+810930342Volksbank (Gf P2)                                         39638Gardelegen                         Volksbank Gardelegen       88024           32054850U000000000
 810930441Volksbank Osterburg-Lüchow-Dannenberg -alt-               39606Osterburg (Altmark)                VB Osterbg-Lüchow-Dannenbg      GENODEF1OBG32044976U000000000
 810930541Volksbank Stendal                                         39576Stendal                            Volksbank Stendal          98008GENODEF1SDL32045008U000000000
 810930542Volksbank Stendal (Gf P2)                                 39576Stendal                            Volksbank Stendal          88008           32054851U000000000
@@ -17416,7 +17117,6 @@ namespace :squirrels do
 820520201Kreissparkasse Gotha                                      99867Gotha, Thür                        Kr Spk Gotha               58295HELADEF1GTH20049023U000000000
 820520202Kreissparkasse Gotha                                      99100Dachwig                            Kr Spk Gotha               58295           20046990U000000000
 820520202Kreissparkasse Gotha                                      99192Neudietendorf                      Kr Spk Gotha               58295           20046995U000000000
-820520202Kreissparkasse Gotha                                      99330Crawinkel                          Kr Spk Gotha               58295           20047040U000000000
 820520202Kreissparkasse Gotha                                      99958Tonna                              Kr Spk Gotha               58295           20047048U000000000
 820520202Kreissparkasse Gotha                                      99869Günthersleben-Wechmar              Kr Spk Gotha               58295           20047414U000000000
 820520202Kreissparkasse Gotha                                      99894Friedrichroda                      Kr Spk Gotha               58295           20047415U000000000
@@ -17441,7 +17141,6 @@ namespace :squirrels do
 820560602Sparkasse Unstrut-Hainich                                 99943Bad Langensalza                    Spk Unstrut-Hainich        58296           20048524U000000000
 820570701Kreissparkasse Eichsfeld                                  37334Worbis                             Kr Spk Eichsfeld           58294HELADEF1EIC20049136U000000000
 820601971Pax-Bank                                                  99084Erfurt                             Pax-Bank Erfurt            68647GENODED1PA506046663U137060193
-820608001Evangelische Kreditgenossenschaft Filiale Eisenach -alt-  99817Eisenach, Thür                     EKK Eisenach -alt-              GENODEF1EK732046117U152060410
 820640381VR Bank Westthüringen                                     99974Mühlhausen /Thüringen              VR Bank Westthüringen      68569GENODEF1MU232045803U000000000
 820640382VR Bank Westthüringen                                     99837Berka /Werra                       VR Bank Westthüringen      68569           32044934U000000000
 820640382VR Bank Westthüringen                                     99947Bad Langensalza                    VR Bank Westthüringen      68569           32046528U000000000
@@ -17570,7 +17269,6 @@ namespace :squirrels do
 820940542Nordthüringer Volksbank                                   99765Heringen, Helme                    Nordthüringer Volksbank    98014           32048990U000000000
 820940542Nordthüringer Volksbank                                   99755Hohenstein b Nordhausen            Nordthüringer Volksbank    98014           32048991U000000000
 820940542Nordthüringer Volksbank                                   99759Sollstedt, Wipper                  Nordthüringer Volksbank    98014           32048995U000000000
-820940542Nordthüringer Volksbank                                   99752Wipperdorf                         Nordthüringer Volksbank    98014           32048998U000000000
 820940542Nordthüringer Volksbank                                   99735Wolkramshausen                     Nordthüringer Volksbank    98014           32048999U000000000
 820940542Nordthüringer Volksbank                                   06567Bad Frankenhausen /Kyffhäuser      Nordthüringer Volksbank    98014           32050796U000000000
 820940542Nordthüringer Volksbank                                   06556Ringleben b Artern                 Nordthüringer Volksbank    98014           32051285U000000000
@@ -17586,7 +17284,7 @@ namespace :squirrels do
 820940542Nordthüringer Volksbank (Gf P2)                           99734Nordhausen, Thür                   Nordthüringer Volksbank    88014           32054859U000000000
 820940542Nordthüringer Volksbank                                   99713Helbedündorf                       Nordthüringer Volksbank    98014           32054925U000000000
 830200861UniCredit Bank - HypoVereinsbank                          07502Gera                               UniCredit Bank-HypoVereinbk22110HYVEDEMM46899046118U000000000
-830200862UniCredit Bank - HypoVereinsbank                          04600Altenburg, Thür                    UniCredit Bank-HypoVereinbk22110HYVEDEMM46899049707U000000000
+830200862UniCredit Bank - HypoVereinsbank                          04600Altenburg, Thür                    UniCredit Bank-HypoVereinbk22110HYVEDEMM46899049707D000000000
 830200862UniCredit Bank - HypoVereinsbank                          06712Zeitz, Elster                      UniCredit Bank-HypoVereinbk22110HYVEDEMM46899056434U000000000
 830200871UniCredit Bank - HypoVereinsbank                          07704Jena                               UniCredit Bank-HypoVereinbk22111HYVEDEMM46399046119U000000000
 830200881UniCredit Bank - HypoVereinsbank                          07306Saalfeld /Saale                    UniCredit Bank-HypoVereinbk22112HYVEDEMM48499046120U000000000
@@ -17670,12 +17368,12 @@ namespace :squirrels do
 830644882Raiffeisen-Volksbank Hermsdorfer Kreuz Zw                 07646Ottendorf b Stadtroda              Raiffbk-VB Hermsdorf       68604           32048134U000000000
 830644882Raiffeisen-Volksbank Hermsdorfer Kreuz Zw                 07586Kraftsdorf                         Raiffbk-VB Hermsdorf       68604           32048135U000000000
 830644882Raiffeisen-Volksbank Hermsdorfer Kreuz (Gf P2)            07623Hermsdorf, Thür                    RVB Hermsdorfer Kreuz      78604           32054860U000000000
-830645681Geraer Bank                                               07507Gera                               Geraer Bank                68600GENODEF1GEV32045825U000000000
-830645682Geraer Bank                                               07589Münchenbernsdorf                   Geraer Bank                68600           32048225U000000000
-830645682Geraer Bank                                               07580Ronneburg, Thür                    Geraer Bank                68600           32048226U000000000
-830645682Geraer Bank                                               07570Weida, Thür                        Geraer Bank                68600           32048227U000000000
-830645682Geraer Bank                                               07580Seelingstädt b Gera                Geraer Bank                68600           32048811U000000000
-830645682Geraer Bank                                               07586Bad Köstritz                       Geraer Bank                68600           32049302U000000000
+830645681Geraer Bank -alt-                                         07507Gera                               Geraer Bank -alt-          68600GENODEF1GEV32045825M000000000
+830645682Geraer Bank                                               07589Münchenbernsdorf                   Geraer Bank                68600           32048225D000000000
+830645682Geraer Bank                                               07580Ronneburg, Thür                    Geraer Bank                68600           32048226D000000000
+830645682Geraer Bank                                               07570Weida, Thür                        Geraer Bank                68600           32048227D000000000
+830645682Geraer Bank                                               07580Seelingstädt b Gera                Geraer Bank                68600           32048811D000000000
+830645682Geraer Bank                                               07586Bad Köstritz                       Geraer Bank                68600           32049302D000000000
 830645682Geraer Bank (Gf P2)                                       07507Gera                               Geraer Bank                78600           32054861U000000000
 830654081VR-Bank Altenburger Land / Deutsche Skatbank              04621Schmölln, Thür                     VR-Bank ABG-Land / Skatbank68661GENODEF1SLR32047893U000000000
 830654082VR-Bank Altenburger Land / Deutsche Skatbank              04639Gößnitz, Thür                      VR-Bank ABG-Land / Skatbank68661           32047902U000000000
@@ -17704,23 +17402,29 @@ namespace :squirrels do
 830944442Raiffeisen-Volksbank Saale-Orla                           07338Kaulsdorf, Saale                   Raiff-VB Saale-Orla        98054           32050604U000000000
 830944442Raiffeisen-Volksbank Saale-Orla                           07318Saalfeld /Saale                    Raiff-VB Saale-Orla        98054           32050941U000000000
 830944442Raiffeisen-Volksbank Saale-Orla (Gf P2)                   07381Pößneck                            Raiff-VB Saale-Orla        88054           32054863U000000000
-830944541Volksbank Saaletal                                        07393Rudolstadt                         Volksbank Saaletal         98055GENODEF1RUJ06044994U000000000
-830944542Volksbank Saaletal                                        07768Kahla, Thür                        Volksbank Saaletal         98055           06044995U000000000
-830944542Volksbank Saaletal                                        07353Bad Lobenstein                     Volksbank Saaletal         98055           06045815U000000000
-830944542Volksbank Saaletal                                        07743Jena                               Volksbank Saaletal         98055           06045819U000000000
-830944542Volksbank Saaletal                                        07426Königsee-Rottenbach                Volksbank Saaletal         98055           06046802U000000000
-830944542Volksbank Saaletal                                        07368Remptendorf                        Volksbank Saaletal         98055           06048201U000000000
-830944542Volksbank Saaletal                                        07774Dornburg-Camburg                   Volksbank Saaletal         98055           06048204U000000000
-830944542Volksbank Saaletal                                        07422Bad Blankenburg                    Volksbank Saaletal         98055           06048888U000000000
-830944542Volksbank Saaletal                                        07922Tanna b Schleiz                    Volksbank Saaletal         98055           06049532U000000000
-830944542Volksbank Saaletal                                        07902Schleiz                            Volksbank Saaletal         98055           06050800U000000000
-830944542Volksbank Saaletal                                        98724Neuhaus am Rennweg                 Volksbank Saaletal         98055           06052529U000000000
-830944542Volksbank Saaletal                                        98743Gräfenthal                         Volksbank Saaletal         98055           06052530U000000000
-830944542Volksbank Saaletal                                        98701Großbreitenbach                    Volksbank Saaletal         98055           06052531U000000000
-830944542Volksbank Saaletal                                        98739Lichte                             Volksbank Saaletal         98055           06052532U000000000
-830944542Volksbank Saaletal                                        98746Meuselbach-Schwarzmühle            Volksbank Saaletal         98055           06052533U000000000
-830944542Volksbank Saaletal                                        98744Oberweißbach /Thür. Wald           Volksbank Saaletal         98055           06052535U000000000
-830944542Volksbank Saaletal (Gf P2)                                07393Rudolstadt                         Volksbank Saaletal         88055           06054864U000000000
+830944541Volksbank Gera-Jena-Rudolstadt                            07743Jena                               VB Gera-Jena-Rudolstadt    98055GENODEF1RUJ06044994M000000000
+830944542Volksbank Gera-Jena-Rudolstadt                            07768Kahla                              VB Gera-Jena-Rudolstadt    98055           06044995M000000000
+830944542Volksbank Gera-Jena-Rudolstadt                            07353Bad Lobenstein                     VB Gera-Jena-Rudolstadt    98055           06045815M000000000
+830944542Volksbank Gera-Jena-Rudolstadt                            07407Rudolstadt                         VB Gera-Jena-Rudolstadt    98055           06045819M000000000
+830944542Volksbank Gera-Jena-Rudolstadt                            07426Königsee-Rottenbach                VB Gera-Jena-Rudolstadt    98055           06046802M000000000
+830944542Volksbank Gera-Jena-Rudolstadt                            07368Remptendorf                        VB Gera-Jena-Rudolstadt    98055           06048201M000000000
+830944542Volksbank Gera-Jena-Rudolstadt                            07774Dornburg-Camburg                   VB Gera-Jena-Rudolstadt    98055           06048204M000000000
+830944542Volksbank Gera-Jena-Rudolstadt                            07422Bad Blankenburg                    VB Gera-Jena-Rudolstadt    98055           06048888M000000000
+830944542Volksbank Gera-Jena-Rudolstadt                            07922Tanna                              VB Gera-Jena-Rudolstadt    98055           06049532M000000000
+830944542Volksbank Gera-Jena-Rudolstadt                            07902Schleiz                            VB Gera-Jena-Rudolstadt    98055           06050800M000000000
+830944542Volksbank Gera-Jena-Rudolstadt                            98724Neuhaus am Rennweg                 VB Gera-Jena-Rudolstadt    98055           06052529M000000000
+830944542Volksbank Gera-Jena-Rudolstadt                            98743Gräfenthal                         VB Gera-Jena-Rudolstadt    98055           06052530M000000000
+830944542Volksbank Gera-Jena-Rudolstadt                            98701Großbreitenbach                    VB Gera-Jena-Rudolstadt    98055           06052531M000000000
+830944542Volksbank Saaletal                                        98739Lichte                             Volksbank Saaletal         98055           06052532D000000000
+830944542Volksbank Gera-Jena-Rudolstadt                            98746Meuselbach-Schwarzmühle            VB Gera-Jena-Rudolstadt    98055           06052533M000000000
+830944542Volksbank Gera-Jena-Rudolstadt                            98744Oberweißbach/Thür. Wald            VB Gera-Jena-Rudolstadt    98055           06052535M000000000
+830944542Volksbank Gera-Jena-Rudolstadt (Gf P2)                    07743Jena                               VB Gera-Jena-Rudolstadt    88055           06054864M000000000
+830944542Volksbank Gera-Jena-Rudolstadt                            07580Ronneburg                          VB Gera-Jena-Rudolstadt    98055           06056678A000000000
+830944542Volksbank Gera-Jena-Rudolstadt                            07570Weida                              VB Gera-Jena-Rudolstadt    98055           06056679A000000000
+830944542Volksbank Gera-Jena-Rudolstadt                            07589Münchenbernsdorf                   VB Gera-Jena-Rudolstadt    98055           06056680A000000000
+830944542Volksbank Gera-Jena-Rudolstadt                            07586Bad Köstritz                       VB Gera-Jena-Rudolstadt    98055           06056681A000000000
+830944542Volksbank Gera-Jena-Rudolstadt                            07580Seelingstädt                       VB Gera-Jena-Rudolstadt    98055           06056682A000000000
+830944542Volksbank Gera-Jena-Rudolstadt                            07545Gera                               VB Gera-Jena-Rudolstadt    98055           06056683A000000000
 830944941Volksbank Eisenberg                                       07607Eisenberg, Thür                    Volksbank Eisenberg        98028GENODEF1ESN32044915U000000000
 830944942Volksbank Eisenberg Zw                                    07639Bad Klosterlausnitz                Volksbank Eisenberg        98028           32046493U000000000
 830944942Volksbank Eisenberg Zw                                    07616Bürgel, Thür                       Volksbank Eisenberg        98028           32048137U000000000
@@ -17776,7 +17480,6 @@ namespace :squirrels do
 840540402Kreissparkasse Hildburghausen                             98660Themar                             Kr Spk Hildburghausen      58497           20046848U000000000
 840540402Kreissparkasse Hildburghausen                             98666Masserberg                         Kr Spk Hildburghausen      58497           20046851U000000000
 840540402Kreissparkasse Hildburghausen                             98673Eisfeld                            Kr Spk Hildburghausen      58497           20046852U000000000
-840540402Kreissparkasse Hildburghausen                             98669Veilsdorf                          Kr Spk Hildburghausen      58497           20047516D000000000
 840540402Kreissparkasse Hildburghausen                             98630Römhild                            Kr Spk Hildburghausen      58497           20047803U000000000
 840540402Kreissparkasse Hildburghausen                             98553Schleusingen                       Kr Spk Hildburghausen      58497           20047873U000000000
 840540402Kreissparkasse Hildburghausen                             98678Sachsenbrunn                       Kr Spk Hildburghausen      58497           20048927U000000000
@@ -17850,11 +17553,10 @@ namespace :squirrels do
 840948142VR Bank Südthüringen                                      98708Gehren, Thür                       VR Bank Südthüringen       98038           32053558U000000000
 840948142VR Bank Südthüringen                                      98693Ilmenau, Thür                      VR Bank Südthüringen       98038           32053559U000000000
 840948142VR Bank Südthüringen (Gf P2)                              98503Suhl                               VR Bank Südthüringen       88038           32054870U000000000
-850000001Bundesbank eh Dresden                                     04253Leipzig                            BBk Leipzig eh Dresden     20850MARKDEF185009044814M000000000
+850000001Bundesbank eh Dresden                                     04253Leipzig                            BBk Leipzig eh Dresden     20850MARKDEF185009044814U100000000
 850105001Sächsische Aufbaubank -Förderbank-                        01054Dresden                            Sächsische Aufbaubank           SABDDE81XXX09049283U000000000
-850200301ZV Landesbank Baden-Württemberg                           01097Dresden                            ZV LBBW Dresden            25081SOLADEST85065046125D000000000
 850200861UniCredit Bank - HypoVereinsbank                          01074Dresden                            UniCredit Bank-HypoVereinbk22100HYVEDEMM49699045899U000000000
-850200862UniCredit Bank - HypoVereinsbank                          02625Bautzen, Sachs                     UniCredit Bank-HypoVereinbk22100HYVEDEMM49699052220U000000000
+850200862UniCredit Bank - HypoVereinsbank                          02625Bautzen, Sachs                     UniCredit Bank-HypoVereinbk22100HYVEDEMM49699052220D000000000
 850200862UniCredit Bank - HypoVereinsbank                          01445Radebeul                           UniCredit Bank-HypoVereinbk22100HYVEDEMM49699056435U000000000
 850205001Bank für Sozialwirtschaft                                 01074Dresden                            Bank für Sozialwirtschaft  25017BFSWDE33DRE09047486U000000000
 850400001Commerzbank                                               01001Dresden                            Commerzbank Dresden        24850COBADEFFXXX13044810U000000000
@@ -17928,7 +17630,6 @@ namespace :squirrels do
 850503002Ostsächsische Sparkasse Dresden                           01738Dorfhain                           Ostsächsische Spk Dresden  58597           20049547U000000000
 850503002Ostsächsische Sparkasse Dresden                           01731Kreischa b Dresden                 Ostsächsische Spk Dresden  58597           20049548U000000000
 850503002Ostsächsische Sparkasse Dresden                           01778Lauenstein, Sachs                  Ostsächsische Spk Dresden  58597           20049551U000000000
-850503002Ostsächsische Sparkasse Dresden                           01705Pesterwitz                         Ostsächsische Spk Dresden  58597           20049554D000000000
 850503002Ostsächsische Sparkasse Dresden                           01734Rabenau, Sachs                     Ostsächsische Spk Dresden  58597           20049557U000000000
 850503002Ostsächsische Sparkasse Dresden                           01737Tharandt                           Ostsächsische Spk Dresden  58597           20049562U000000000
 850503002Ostsächsische Sparkasse Dresden                           01723Wilsdruff                          Ostsächsische Spk Dresden  58597           20050483U000000000
@@ -17947,7 +17648,6 @@ namespace :squirrels do
 850503002Ostsächsische Sparkasse Dresden                           01936Schwepnitz                         Ostsächsische Spk Dresden  58597           20051782U000000000
 850503002Ostsächsische Sparkasse Dresden                           02997Wittichenau                        Ostsächsische Spk Dresden  58597           20051783U000000000
 850503002Ostsächsische Sparkasse Dresden                           01781Pirna                              Ostsächsische Spk Dresden  58597OSDDDE81PIR20052382U000000000
-850503501Ostsächsische Sparkasse Dresden Gf OSD.Net                01305Dresden                            Ostsächsische Spk OSD.Net  58591OSDDDE81NET20056168U000000000
 850550001Sparkasse Meißen                                          01587Riesa                              Spk Meißen                 58592SOLADES1MEI20049419U000000000
 850550002Sparkasse Meißen                                          01594Stauchitz                          Spk Meißen                 58592           20055325U000000000
 850550002Sparkasse Meißen                                          01609Gröditz b Riesa                    Spk Meißen                 58592           20055326U000000000
@@ -18054,7 +17754,6 @@ namespace :squirrels do
 855901002Volksbank Löbau-Zittau                                    02785Olbersdorf                         VB Löbau-Zittau            98076           06048762U000000000
 855901002Volksbank Löbau-Zittau                                    02782Seifhennersdorf                    VB Löbau-Zittau            98076           06048764U000000000
 855901002Volksbank Löbau-Zittau                                    02747Herrnhut                           VB Löbau-Zittau            98076           06048967U000000000
-855901002Volksbank Löbau-Zittau                                    02708Lawalde-Lauba                      VB Löbau-Zittau            98076           06049350D000000000
 855901002Volksbank Löbau-Zittau                                    02752Zittau                             VB Löbau-Zittau            98076           06050832U000000000
 855901002Volksbank Löbau-Zittau (Gf P2)                            02725Ebersbach-Neugersdorf              VB Löbau-Zittau            88076           06054878U000000000
 855910001Volksbank Raiffeisenbank Niederschlesien                  02810Görlitz, Neiße                     VB Raiffbk Niederschlesien 98077GENODEF1GR106044932U000000000
@@ -18080,7 +17779,6 @@ namespace :squirrels do
 860101112SEB                                                       01069Dresden                            SEB Dresden                25919ESSEDE5F86213044878U000000000
 860101112SEB                                                       08056Zwickau                            SEB Zwickau                25919ESSEDE5F86313050688U000000000
 860104241Aareal Bank                                               04007Leipzig                            Aareal Bank                26919AARBDE5W86009046495U000000000
-860200301ZV Landesbank Baden-Württemberg                           04003Leipzig                            ZV LBBW Leipzig            25080SOLADEST86065044835D000000000
 860200861UniCredit Bank - HypoVereinsbank                          04009Leipzig                            UniCredit Bank-HypoVereinbk22104HYVEDEMM49599045909U000000000
 860205001Bank für Sozialwirtschaft                                 04003Leipzig                            Bank für Sozialwirtschaft  25016BFSWDE33LPZ09047474U000000000
 860205002Bank für Sozialwirtschaft                                 99084Erfurt                             Bank für Sozialwirtschaft  25016           09053422U000000000
@@ -18209,7 +17907,7 @@ namespace :squirrels do
 860956042Leipziger Volksbank (Gf P2)                               04109Leipzig                            Leipziger Volksbank        88018           06054886U000000000
 870000001Bundesbank                                                09071Chemnitz, Sachs                    BBk Chemnitz               20870MARKDEF187009044805U000000000
 870200861UniCredit Bank - HypoVereinsbank                          09005Chemnitz, Sachs                    UniCredit Bank-HypoVereinbk22105HYVEDEMM49799045894U000000000
-870200862UniCredit Bank - HypoVereinsbank                          09599Freiberg, Sachs                    UniCredit Bank-HypoVereinbk22105HYVEDEMM49799049712U000000000
+870200862UniCredit Bank - HypoVereinsbank                          09599Freiberg, Sachs                    UniCredit Bank-HypoVereinbk22105HYVEDEMM49799049712D000000000
 870200871UniCredit Bank - HypoVereinsbank                          08502Plauen, Vogtl                      UniCredit Bank-HypoVereinbk22115HYVEDEMM48199046128U000000000
 870200881UniCredit Bank - HypoVereinsbank                          08002Zwickau                            UniCredit Bank-HypoVereinbk22116HYVEDEMM44199046497U000000000
 870400001Commerzbank                                               09004Chemnitz, Sachs                    Commerzbank Chemnitz       24870COBADEFFXXX13044800U000000000
@@ -18299,9 +17997,7 @@ namespace :squirrels do
 870540002Erzgebirgssparkasse                                       09474Crottendorf, Erzgeb                Erzgebirgssparkasse        58791           20052715U000000000
 870540002Erzgebirgssparkasse                                       09427Ehrenfriedersdorf                  Erzgebirgssparkasse        58791           20052716U000000000
 870540002Erzgebirgssparkasse                                       09481Elterlein                          Erzgebirgssparkasse        58791           20052717U000000000
-870540002Erzgebirgssparkasse                                       09488Thermalbad Wiesenbad               Erzgebirgssparkasse        58791           20052718D000000000
 870540002Erzgebirgssparkasse                                       09419Thum, Erzgeb                       Erzgebirgssparkasse        58791           20052719U000000000
-870540002Erzgebirgssparkasse                                       09465Sehmatal-Sehma                     Erzgebirgssparkasse        58791           20052721U000000000
 870540002Erzgebirgssparkasse                                       09423Gelenau, Erzgeb                    Erzgebirgssparkasse        58791           20052722U000000000
 870540002Erzgebirgssparkasse                                       09468Geyer                              Erzgebirgssparkasse        58791           20052723U000000000
 870540002Erzgebirgssparkasse                                       09471Königswalde, Erzgeb                Erzgebirgssparkasse        58791           20052725U000000000
@@ -18310,8 +18006,6 @@ namespace :squirrels do
 870540002Erzgebirgssparkasse                                       09465Sehmatal-Neudorf                   Erzgebirgssparkasse        58791           20052729U000000000
 870540002Erzgebirgssparkasse                                       09487Schlettau, Erzgeb                  Erzgebirgssparkasse        58791           20052732U000000000
 870540002Erzgebirgssparkasse                                       09405Gornau                             Erzgebirgssparkasse        58791           20056305U000000000
-870540002Erzgebirgssparkasse                                       09439Amtsberg                           Erzgebirgssparkasse        58791           20056306D000000000
-870540002Erzgebirgssparkasse                                       09548Deutschneudorf                     Erzgebirgssparkasse        58791           20056308D000000000
 870540002Erzgebirgssparkasse                                       09548Kurort Seiffen, Erzgeb             Erzgebirgssparkasse        58791           20056310U000000000
 870540002Erzgebirgssparkasse                                       09496Marienberg, Erzgeb                 Erzgebirgssparkasse        58791           20056311U000000000
 870540002Erzgebirgssparkasse                                       09514Lengefeld, Erzgeb                  Erzgebirgssparkasse        58791           20056312U000000000
@@ -18369,7 +18063,6 @@ namespace :squirrels do
 870580002Sparkasse Vogtland                                        08541Theuma                             Sparkasse Vogtland         58796           20047251U000000000
 870580002Sparkasse Vogtland                                        08233Treuen, Vogtl                      Sparkasse Vogtland         58796           20047254U000000000
 870580002Sparkasse Vogtland                                        08223Werda b Auerbach, Vogtl            Sparkasse Vogtland         58796           20047255U000000000
-870580002Sparkasse Vogtland                                        08265Erlbach, Vogtl                     Sparkasse Vogtland         58796           20047257D000000000
 870580002Sparkasse Vogtland                                        08261Schöneck /Vogtl.                   Sparkasse Vogtland         58796           20047259U000000000
 870580002Sparkasse Vogtland                                        08258Markneukirchen                     Sparkasse Vogtland         58796           20047260U000000000
 870580002Sparkasse Vogtland                                        08262Muldenhammer                       Sparkasse Vogtland         58796           20047262U000000000
@@ -18394,9 +18087,9 @@ namespace :squirrels do
 870690752Volksbank Mittleres Erzgebirge                            09509Pockau                             VB Mittl Erzgebirge        68652           06048039U000000000
 870690752Volksbank Mittleres Erzgebirge                            09427Ehrenfriedersdorf                  VB Mittl Erzgebirge        68652           06048041U000000000
 870690752Volksbank Mittleres Erzgebirge                            09575Eppendorf, Sachs                   VB Mittl Erzgebirge        68652           06048042U000000000
-870690752Volksbank Mittleres Erzgebirge                            09432Großolbersdorf                     VB Mittl Erzgebirge        68652           06048046U000000000
+870690752Volksbank Mittleres Erzgebirge                            09432Großolbersdorf                     VB Mittl Erzgebirge        68652           06048046D000000000
 870690752Volksbank Mittleres Erzgebirge                            09573Leubsdorf, Sachs                   VB Mittl Erzgebirge        68652           06048049U000000000
-870690752Volksbank Mittleres Erzgebirge                            09577Niederwiesa                        VB Mittl Erzgebirge        68652           06048051U000000000
+870690752Volksbank Mittleres Erzgebirge                            09577Niederwiesa                        VB Mittl Erzgebirge        68652           06048051D000000000
 870690752Volksbank Mittleres Erzgebirge                            09405Zschopau                           VB Mittl Erzgebirge        68652           06048054U000000000
 870690752Volksbank Mittleres Erzgebirge                            09544Neuhausen /Erzgeb.                 VB Mittl Erzgebirge        68652           06048162U000000000
 870690752Volksbank Mittleres Erzgebirge                            09619Sayda                              VB Mittl Erzgebirge        68652           06048163U000000000
@@ -18576,32 +18269,34 @@ namespace :squirrels do
 870962142Volksbank Chemnitz                                        09405Zschopau                           Volksbank Chemnitz         98040           06056349U000000000
 870962142Volksbank Chemnitz                                        09419Thum, Erzgeb                       Volksbank Chemnitz         98040           06056350U000000000
 870962142Volksbank Chemnitz                                        09474Crottendorf, Erzgeb                Volksbank Chemnitz         98040           06056351U000000000
-870962142Volksbank Chemnitz                                        09423Gelenau, Erzgeb                    Volksbank Chemnitz         98040           06056352U000000000
-"
+870962142Volksbank Chemnitz                                        09423Gelenau, Erzgeb                    Volksbank Chemnitz         98040           06056352U000000000"
 
 
     get_bic_for = Hash[banks.scan(/^(\d{8}).{131}([A-Z\d]{11})/).map {|key, value| [key, value]}]
 
 
     due_date = {
-      'COR1' => '01.02.2016',
-      'CORE' => '01.02.2016'
+      'COR1' => '03.03.2016',
+      'CORE' => '07.03.2016'
     }
 
 
-    all_payments = Payment.where('id < 12201')
+    all_payments = Payment.where('id < 16383') #
 
-    #############!!!!!!!!!!!!!!!!!!!!!! TODO: TEST new überweisungszweck+#############
-    #############!!!!!!!!!!!!!!!!!!!!!! TODO: TEST new überweisungszweck+#############
-    #############!!!!!!!!!!!!!!!!!!!!!! TODO: TEST new überweisungszweck+#############
-    #############!!!!!!!!!!!!!!!!!!!!!! TODO: TEST new überweisungszweck+#############
-    #############!!!!!!!!!!!!!!!!!!!!!! TODO: TEST new überweisungszweck+#############
-    #############!!!!!!!!!!!!!!!!!!!!!! TODO: TEST new überweisungszweck+#############
-    #############!!!!!!!!!!!!!!!!!!!!!! TODO: TEST new überweisungszweck+#############
+    #############!!!!!!!!!!!!!!!!!!!!!! TODO: NEUE BANKENLISTE LADEN+#############
+    #############!!!!!!!!!!!!!!!!!!!!!! TODO: NEUE BANKENLISTE LADEN+#############
+    #############!!!!!!!!!!!!!!!!!!!!!! TODO: NEUE BANKENLISTE LADEN+#############
+    #############!!!!!!!!!!!!!!!!!!!!!! TODO: NEUE BANKENLISTE LADEN+#############
+    #############!!!!!!!!!!!!!!!!!!!!!! TODO: NEUE BANKENLISTE LADEN+#############
+    #############!!!!!!!!!!!!!!!!!!!!!! TODO: NEUE BANKENLISTE LADEN+#############
+    #############!!!!!!!!!!!!!!!!!!!!!! TODO: NEUE BANKENLISTE LADEN+#############
+    #############!!!!!!!!!!!!!!!!!!!!!! TODO: NEUE BANKENLISTE LADEN+#############
+    #############!!!!!!!!!!!!!!!!!!!!!! TODO: NEUE BANKENLISTE LADEN+#############
+
 
     payments = {
-    	 'COR1' => all_payments.where("account_iban like 'DE%'"),
-    	 'CORE' => all_payments.where("account_iban not like 'DE%'")
+    	'COR1' => all_payments.where("account_iban like 'DE%'"),
+    	'CORE' => all_payments.where("account_iban not like 'DE%'")
     }
 
 
@@ -18614,24 +18309,24 @@ namespace :squirrels do
 
     sdd = []
 
-    documents.times do |_i|
-    	 sdd << SEPA::DirectDebit.new(
- 	      # Name of the initiating party and creditor, in German: "Auftraggeber"
- 	      # String, max. 70 char
- 	      name:                'Mein Grundeinkommen e.V.',
+    documents.times do |i|
+    	sdd << SEPA::DirectDebit.new(
+	      # Name of the initiating party and creditor, in German: "Auftraggeber"
+	      # String, max. 70 char
+	      name:       'Mein Grundeinkommen e.V.',
 
- 	      # OPTIONAL: Business Identifier Code (SWIFT-Code) of the creditor
- 	      # String, 8 or 11 char
- 	      bic:                 'GENODEM1GLS',
+	      # OPTIONAL: Business Identifier Code (SWIFT-Code) of the creditor
+	      # String, 8 or 11 char
+	      bic:        'GENODEM1GLS',
 
- 	      # International Bank Account Number of the creditor
- 	      # String, max. 34 chars
- 	      iban:                'DE76430609671165313800',
+	      # International Bank Account Number of the creditor
+	      # String, max. 34 chars
+	      iban:       'DE76430609671165313800',
 
- 	      # Creditor Identifier, in German: Gläubiger-Identifikationsnummer
- 	      # String, max. 35 chars
-        creditor_identifier: 'DE62ZZZ00001604785'
- 	    )
+	      # Creditor Identifier, in German: Gläubiger-Identifikationsnummer
+	      # String, max. 35 chars
+	      creditor_identifier: 'DE62ZZZ00001604785'
+	    )
 
     	#puts sdd
 
@@ -18641,93 +18336,95 @@ namespace :squirrels do
 
     payments.each do |instrument,payment|
 
-	     payment.each_with_index do |p,i|
+	    payment.each_with_index do |p,i|
 
- 	      if p.active
- 		       if IBANTools::IBAN.valid?(p.account_iban.upcase) && !p.amount_total.nil?
-
-
-  		      	 doc = (i/1000).floor if instrument == 'COR1'
-  		      	 doc = -1 if instrument == 'CORE'
-
-  		      	 puts "payment-id: #{p.id}"
-
-  		        sdd[doc].add_transaction(
-   		          # Name of the debtor, in German: "Zahlungspflichtiger"
-   		          # String, max. 70 char
-   		         name:                      "#{p.user_first_name} #{p.user_last_name}",
-
-  		          # OPTIONAL: Business Identifier Code (SWIFT-Code) of the debtor's account
-  		          # String, 8 or 11 char
-  		          bic:                       !p.account_bic.blank? ? p.account_bic.upcase : get_bic_for[p.account_iban[4,8]],
-
-  		          # International Bank Account Number of the debtor's account
-  		          # String, max. 34 chars
-  		          iban:                      p.account_iban.upcase,
-
-  		          # Amount in EUR
-  		          # Number with two decimal digit
-  		          amount:                    p.amount_total, #number_with_precision(p.amount_total, precision: 2),
-
-  		          # OPTIONAL: Instruction Identification, will not be submitted to the debtor
-  		          # String, max. 35 char
-  		          #instruction:               '',
-
-  		          # OPTIONAL: End-To-End-Identification, will be submitted to the debtor
-  		          # String, max. 35 char
-  		          reference:                 "CH#{p.id}-#{due_date[instrument]}",
-
-  		          # OPTIONAL: Unstructured remittance information, in German "Verwendungszweck"
-  		          # String, max. 140 char
-              remittance_information:    p.amount_bge > 0 ? "#{p.amount_bge} EUR in den Grundeinkommenstopf - #{p.amount_society} EUR Spende an den Verein. Vielen Dank" : "#{p.amount_society} EUR Spende an den Verein. Vielen Dank",
-
-  		          # Mandate identifikation, in German "Mandatsreferenz"
-  		          # String, max. 35 char
-  		          mandate_id:                "CH#{p.id}",
-
-  		          # Mandate Date of signature, in German "Datum, zu dem das Mandat unterschrieben wurde"
-  		          # Date
-
-              mandate_date_of_signature: p.created_at.to_date,
-
-  		          # Local instrument, in German "Lastschriftart"
-  		          # One of these strings:
-  		          #   'CORE' ("Basis-Lastschrift")
-  		          #   'COR1' ("Basis-Lastschrift mit verkürzter Vorlagefrist")
-  		          #   'B2B' ("Firmen-Lastschrift")
-              local_instrument:          instrument,
-
-  		          # Sequence type
-  		          # One of these strings:
-  		          #   'FRST' ("Erst-Lastschrift")
-  		          #   'RCUR' ("Folge-Lastschrift")
-  		          #   'OOFF' ("Einmalige Lastschrift")
-  		          #   'FNAL' ("Letztmalige Lastschrift")
+	      if p.active
+		      if IBANTools::IBAN.valid?(p.account_iban.upcase) && !p.amount_total.nil?
 
 
-  		          #TODO: switch for recurring / first
-  		          sequence_type:             p.sent_first_notification_at.nil? ? 'FRST' : 'RCUR',
+		      	doc = (i/1000).floor if instrument == 'COR1'
+		      	doc = -1 if instrument == 'CORE'
 
-  		          # OPTIONAL: Requested collection date, in German "Fälligkeitsdatum der Lastschrift"
-  		          # Date
-  		          requested_date:            due_date[instrument].to_date,
+		      	puts "payment-id: #{p.id}"
+		      	puts get_bic_for[p.account_iban[4,8]] if instrument == 'COR1'
 
-  		          # OPTIONAL: Enables or disables batch booking, in German "Sammelbuchung / Einzelbuchung"
-  		          # True or False
-  		          batch_booking:             true
+		        sdd[doc].add_transaction(
+		          # Name of the debtor, in German: "Zahlungspflichtiger"
+		          # String, max. 70 char
+		          name:                      "#{p.user_first_name} #{p.user_last_name}",
 
-   		       )
-  		      else
-  		        puts "iban error with payment id: #{p.id}"
-  		      end
- 		    end
- 	    end
-	   end
+		          # OPTIONAL: Business Identifier Code (SWIFT-Code) of the debtor's account
+		          # String, 8 or 11 char
+		          bic:                       instrument == 'CORE' && !p.account_bic.blank? ? p.account_bic.upcase : get_bic_for[p.account_iban[4,8]],
+
+		          # International Bank Account Number of the debtor's account
+		          # String, max. 34 chars
+		          iban:                      p.account_iban.upcase,
+
+		          # Amount in EUR
+		          # Number with two decimal digit
+		          amount:                    p.amount_total, #number_with_precision(p.amount_total, precision: 2),
+
+		          # OPTIONAL: Instruction Identification, will not be submitted to the debtor
+		          # String, max. 35 char
+		          #instruction:               '',
+
+		          # OPTIONAL: End-To-End-Identification, will be submitted to the debtor
+		          # String, max. 35 char
+		          reference:                 "CH#{p.id}-#{due_date[instrument]}",
+
+		          # OPTIONAL: Unstructured remittance information, in German "Verwendungszweck"
+		          # String, max. 140 char
+		          remittance_information:    !p.amount_bge.nil? && p.amount_bge > 0 ? "#{p.amount_bge} EUR in den Grundeinkommenstopf - #{p.amount_society} EUR Spende an den Verein. Vielen Dank" : "#{p.amount_society} EUR Spende an den Verein. Vielen Dank",
+
+		          # Mandate identifikation, in German "Mandatsreferenz"
+		          # String, max. 35 char
+		          mandate_id:                "CH#{p.id}",
+
+		          # Mandate Date of signature, in German "Datum, zu dem das Mandat unterschrieben wurde"
+		          # Date
+
+		          mandate_date_of_signature: p.created_at.to_date,
+
+		          # Local instrument, in German "Lastschriftart"
+		          # One of these strings:
+		          #   'CORE' ("Basis-Lastschrift")
+		          #   'COR1' ("Basis-Lastschrift mit verkürzter Vorlagefrist")
+		          #   'B2B' ("Firmen-Lastschrift")
+		          local_instrument: instrument,
+
+		          # Sequence type
+		          # One of these strings:
+		          #   'FRST' ("Erst-Lastschrift")
+		          #   'RCUR' ("Folge-Lastschrift")
+		          #   'OOFF' ("Einmalige Lastschrift")
+		          #   'FNAL' ("Letztmalige Lastschrift")
+
+
+		          #TODO: switch for recurring / first
+		          sequence_type: p.sent_first_notification_at.nil? ? 'FRST' : 'RCUR',
+
+		          # OPTIONAL: Requested collection date, in German "Fälligkeitsdatum der Lastschrift"
+		          # Date
+		          requested_date: due_date[instrument].to_date,
+
+		          # OPTIONAL: Enables or disables batch booking, in German "Sammelbuchung / Einzelbuchung"
+		          # True or False
+		          batch_booking: true
+
+		        )
+		      else
+		        puts "iban error with payment id: #{p.id}"
+		      end
+		    end
+	    end
+	end
 
 	# Last: create XML string
-	   sdd.each do |r|
-   		 puts r.to_xml # Use latest schema pain.008.003.02
-   	end
+	sdd.each do |r|
+		puts r.to_xml # Use latest schema pain.008.003.02
+		debugger
+	end
 
 
 

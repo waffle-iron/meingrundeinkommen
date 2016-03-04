@@ -2,8 +2,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
-                <span style="font-size:25px;">Täglich grüßt das Grundeinkommen!</span></br>
-                Diese Woche: Verlosung von 7 Grundeinkommen, <b>täglich um 19.30 Uhr</b>!
+                <span style="font-size:25px;">Täglich grüßte das Grundeinkommen!</span></br>
+                Herzlichen Glückwunsch an die 8 Grundeinkommens-Gewinnenden dieser Woche!
             </div>
         </div>
         <div class="row" style="margin-top:20px;margin-bottom:20px;">
@@ -11,44 +11,64 @@
                 &nbsp;
             </div>
             <div class="col-md-1 text-center">
-                <div class="testimonial-image">
-                    <img src="/assets/team/team-member-who.jpg"><b>Montag</b>
+                <div class="testimonial-image" style="line-height: 120%">
+                    <a href="/menschen/200805">
+                        <img src="https://s3.eu-central-1.amazonaws.com/mge-rails/uploads/user/avatar/200805/13082011172.jpg">Montag:<br>Andreas
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-1 text-center">
+                <div class="testimonial-image" style="line-height: 120%">
+                    <a href="/menschen/206536">
+                        <img src="https://s3.eu-central-1.amazonaws.com/mge-rails/uploads/user/avatar/206536/IMG_1463.JPG">Montag:<br>Renés Kind                    </a>
+                </div>
+            </div>
+            <div class="col-md-1 text-center">
+                <div class="testimonial-image" style="line-height: 120%">
+                    <a href="/menschen/190834" >
+                        <img src="/assets/team/team-member.jpg">Dienstag:<br>Sandras Kind
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-1 text-center">
+                <div class="testimonial-image" style="line-height: 120%">
+                    <a href="/menschen/220623">
+                        <img src="https://s3.eu-central-1.amazonaws.com/mge-rails/uploads/user/avatar/220623/image.jpg">Mittwoch:<br>Monika
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-1 text-center">
+                <div class="testimonial-image" style="line-height: 120%">
+                    <a href="/menschen/33335">
+                        <img src="https://s3.eu-central-1.amazonaws.com/mge-rails/uploads/user/avatar/33335/image.jpg">Donnerstag:<br>My K
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-1 text-center">
+                <div class="testimonial-image" style="line-height: 120%">
+                    <a href="/menschen/33912">
+                        <img src="https://s3.eu-central-1.amazonaws.com/mge-rails/uploads/user/avatar/33912/D1265-06.jpg">Freitag:<br>Lisa
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-1 text-center">
+                <div class="testimonial-image" style="line-height: 120%">
+                    <a href="/menschen/26429">
+                        <img src="https://s3.eu-central-1.amazonaws.com/mge-rails/uploads/user/avatar/26429/10748706_859980670689539_1276533295_n.jpg">Freitag:<br>Valeries Kind
+                    </a>
                 </div>
             </div>
             <div class="col-md-1 text-center">
                 <div class="testimonial-image">
-                    <img src="/assets/team/team-member-who.jpg">Dienstag
-                </div>
-            </div>
-            <div class="col-md-1 text-center">
-                <div class="testimonial-image">
-                    <img src="/assets/team/team-member-who.jpg">Mittwoch
-                </div>
-            </div>
-            <div class="col-md-1 text-center">
-                <div class="testimonial-image">
-                    <img src="/assets/team/team-member-who.jpg">Donnerstag
-                </div>
-            </div>
-            <div class="col-md-1 text-center">
-                <div class="testimonial-image">
-                    <img src="/assets/team/team-member-who.jpg">Freitag
-                </div>
-            </div>
-            <div class="col-md-1 text-center">
-                <div class="testimonial-image">
-                    <img src="/assets/team/team-member-who.jpg">Freitag
-                </div>
-            </div>
-            <div class="col-md-1 text-center">
-                <div class="testimonial-image">
-                    <img src="/assets/team/team-member-who.jpg">Freitag
+                    <a href="/menschen/221053">
+                        <img src="https://s3.eu-central-1.amazonaws.com/mge-rails/uploads/user/avatar/221053/tilman.jpg">Freitag:<br>Tilman
+                    </a>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12 text-center" style="margin-top:20px">
-                <a ng-if="current.user && current.participates()" href="" disabled="true" class="btn btn-special btn-color">
+            <div class="col-md-12 text-center" style="margin-top:40px">
+                <!-- <a ng-if="current.user && current.participates()" href="" disabled="true" class="btn btn-special btn-color">
                     <i class="fa fa-check"></i> Du nimmst an allen Verlosungen teil
                 </a>
                 <a ng-if="current.user && !current.participates()" href="/boarding?trigger=wants_to_participate" class="btn btn-special btn-color">
@@ -57,11 +77,11 @@
 
                 <a ng-if="!current.user" href="/boarding?trigger=wants_to_participate" class="btn btn-special btn-color">
                     Teilnehmen
-                </a>
+                </a> -->
 
 
                  <a href="https://live.mein-grundeinkommen.de" class="btn btn-special btn-color" target="_blank">
-                    Livestream ansehen
+                    Verlosungsvideos ansehen
                 </a>
             </div>
         </div>
@@ -255,120 +275,175 @@
                     <div class="content-box-info text-left">
                         <h3 style="margin-bottom:5px"><a href="/menschen/{{d.id}}">{{d.name}}</a></h3>
 
-                        <div ng-switch="d.name">
+                        <div ng-switch="d.id">
 
-                            <p ng-switch-when="Robin">
+                            <p ng-switch-when="26255">
+                                hat von Oktober 2014 bis September 2015 ein Jahr lang 1.000 € monatliches Grundeinkommen erhalten. <a
+                                    href="/menschen/{{d.id}}">Profil ansehen</a>
+                            </p>
+
+
+                            <p ng-switch-when="21365">
+                                hat von Oktober 2014 bis September 2015 ein Jahr lang 1.000 € monatliches Grundeinkommen erhalten. <a
+                                    href="/menschen/{{d.id}}">Profil ansehen</a>
+                            </p>
+
+                            <p ng-switch-when="12419">
+                                hat von Oktober 2014 bis September 2015 ein Jahr lang 1.000 € monatliches Grundeinkommen erhalten. <a
+                                    href="/menschen/{{d.id}}">Profil ansehen</a>
+                            </p>
+
+                            <p ng-switch-when="">
+                                hat von Oktober 2014 bis September 2015 ein Jahr lang 1.000 € monatliches Grundeinkommen erhalten. <a
+                                    href="/menschen/{{d.id}}">Profil ansehen</a>
+                            </p>
+
+                            <p ng-switch-when="24228">
                                 ist 9 Jahre alt. Als er von seinem Gewinn erfuhr fragte er: "Krieg ich jetzt jeden Monat
                                 ein Buch?" <a href="/blog/182">Sein Video-Portrait</a>
                             </p>
 
-                            <p ng-switch-when="Christoph">
+                            <p ng-switch-when="21152">
                                 hat dank Grundeinkommen seinen Job im Callcenter gekündigt und wird nun Erzieher! <a
                                     href="/blog/13">Lies seine Geschichte</a>
                             </p>
 
-                            <p ng-switch-when="Josefine">
+                            <p ng-switch-when="25710">
                                 Erhält seit 1. März 2015 1.000€ monatliches Grundeinkommen.
                             </p>
 
-                            <p ng-switch-when="Florian">
+                            <p ng-switch-when="138">
                                 Erhält seit 1. März 2015 1.000€ monatliches Grundeinkommen.
                             </p>
 
-                            <p ng-switch-when="Erdmuthe">
+                            <p ng-switch-when="46463">
                                 Erhält seit 1. April 2015 1.000€ monatliches Grundeinkommen. <a href="/blog/170">Lies ihre
                                 Reaktion</a>
                             </p>
 
-                            <p ng-switch-when="Holger">
+                            <p ng-switch-when="10537">
                                 Erhält seit 1. April 2015 1.000€ monatliches Grundeinkommen. <a href="/blog/170">Lies
                                 seine Reaktion</a>
                             </p>
 
-                            <p ng-switch-when="Joschua">
+                            <p ng-switch-when="26052">
                                 "Ich fühle mich abgesichert, freier, unabhängig, wohltätiger." <a target="_blank" href="http://www.welt.de/regionales/hamburg/article147487421/12-000-Euro-fuer-ein-Leben-voller-Nichtstun.html">Sein Portrait</a> | <a href="/blog/202">Seine
                                 Reaktion</a>
                             </p>
 
-                            <p ng-switch-when="bordermax">
+                            <p ng-switch-when="39920">
                                 Erhält seit 1. Juni 2015 1.000€ monatliches Grundeinkommen. <a href="/menschen/{{d.id}}">Vorhaben
                                 ansehen</a>
                             </p>
 
-                            <p ng-switch-when="Matthias Weber">
+                            <p ng-switch-when="10141">
                                 Erhält seit 1. Juni 2015 1.000€ monatliches Grundeinkommen. <a href="/menschen/{{d.id}}">Vorhaben
                                 ansehen</a>
                             </p>
 
-                            <p ng-switch-when="Marc">
+                            <p ng-switch-when="61072">
                                 Erhält seit 1. August 2015 1.000€ monatliches Grundeinkommen. <a href="/blog/463">Lies seine Reaktion</a>
                             </p>
 
-                            <p ng-switch-when="Oliviaw">
+                            <p ng-switch-when="63590">
                                 Erhält ab 1. September 2015 1.000€ monatliches Grundeinkommen. <a href="/menschen/{{d.id}}">Vorhaben
                                 ansehen</a>
                             </p>
 
-                            <p ng-switch-when="Tick">
+                            <p ng-switch-when="40149">
                                 Ticks Sohn Janosch (4 Jahre) erhält ab 1. Oktober 2015 1.000€ monatliches Grundeinkommen. <a href="/menschen/{{d.id}}">Vorhaben
                                 ansehen</a>
                             </p>
 
-                            <p ng-switch-when="Sonja">
+                            <p ng-switch-when="27321">
                                 Erhält seit 1. Dezember 2015 ein monatliches Grundeinkommen von 1.000€. <a href="/menschen/{{d.id}}">Vorhaben
                                 ansehen</a>
                             </p>
 
-                            <p ng-switch-when="Nicinixon">
+                            <p ng-switch-when="58433">
                                 Erhält seit 1. Dezember 2015 ein monatliches Grundeinkommen von 1.000€. <a href="/menschen/{{d.id}}">Vorhaben
                                 ansehen</a>
                             </p>
 
-                            <p ng-switch-when="Ingrid Buchwieser">
+                            <p ng-switch-when="5306">
                                 Erhält seit 1. Dezember 2015 ein monatliches Grundeinkommen von 1.000€. <a href="/menschen/{{d.id}}">Vorhaben
                                 ansehen</a>
                             </p>
 
-                            <p ng-switch-when="Astrid Lobreyer">
+                            <p ng-switch-when="146303">
                                 Erhält seit 1. Dezember 2015 ein monatliches Grundeinkommen von 1.000€. <a href="/menschen/{{d.id}}">Vorhaben
                                 ansehen</a>
                             </p>
 
-                            <p ng-switch-when="Hasem Askar Shijar">
+                            <p ng-switch-when="120163">
                                 Erhält seit 1. November 2015 ein monatliches Grundeinkommen von 1.000€. <a href="/menschen/{{d.id}}">Vorhaben
                                 ansehen</a>
                             </p>
 
-                            <p ng-switch-when="Katrin Klink">
+                            <p ng-switch-when="28958">
                                 Erhält seit 1. Januar 2016 ein monatliches Grundeinkommen von 1.000€. <a href="/menschen/{{d.id}}">Vorhaben
                                 ansehen</a>
                             </p>
 
-                            <p ng-switch-when="Stefan">
+                            <p ng-switch-when="33840">
                                 Erhält seit 1. Januar 2016 ein monatliches Grundeinkommen von 1.000€. <a href="/menschen/{{d.id}}">Vorhaben
                                 ansehen</a>
                             </p>
 
-                            <p ng-switch-when="Hildegard">
+                            <p ng-switch-when="84172">
                                 Erhält seit 1. Januar 2016 ein monatliches Grundeinkommen von 1.000€. <a href="/menschen/{{d.id}}">Vorhaben
                                 ansehen</a>
                             </p>
 
-                            <p ng-switch-when="Judy">
+                            <p ng-switch-when="103286">
                                 Erhält seit 1. Januar 2016 ein monatliches Grundeinkommen von 1.000€. <a href="/menschen/{{d.id}}">Vorhaben
                                 ansehen</a>
                             </p>
 
-                            <p ng-switch-when="Anna Nebel">
+                            <p ng-switch-when="70448">
                                 Ihr Kind Pepa Moa (7) erhält seit 1. Januar 2016 ein monatliches Grundeinkommen von 1.000€. <a href="/menschen/{{d.id}}">Vorhaben
                                 ansehen</a>
                             </p>
 
+                            <p ng-switch-when="200805">
+                                erhält ab 1. März 2016 ein Jahr lang 1.000€ monatliches Grundeinkommen. <a href="/menschen/{{d.id}}">Vorhaben
+                                ansehen</a>
+                            </p>
+                            <p ng-switch-when="206536">
+                                Renés Kind erhält ab 1. März 2016 ein Jahr lang 1.000€ monatliches Grundeinkommen. <a href="/menschen/{{d.id}}">Vorhaben
+                                ansehen</a>
+                            </p>
+                            <p ng-switch-when="190834">
+                                Ihr Kind erhält ab 1. März 2016 ein Jahr lang 1.000€ monatliches Grundeinkommen. <a href="/menschen/{{d.id}}">Vorhaben
+                                ansehen</a>
+                            </p>
+                            <p ng-switch-when="220623">
+                                erhält ab 1. März 2016 ein Jahr lang 1.000€ monatliches Grundeinkommen. <a href="/menschen/{{d.id}}">Vorhaben
+                                ansehen</a>
+                            </p>
+                            <p ng-switch-when="30">
+                                Ihr Kind Pepa Moa (7) erhält seit 1. Januar 2016 ein monatliches Grundeinkommen von 1.000€. <a href="/menschen/{{d.id}}">Vorhaben
+                                ansehen</a>
+                            </p>
+                            <p ng-switch-when="31">
+                                Ihr Kind Pepa Moa (7) erhält seit 1. Januar 2016 ein monatliches Grundeinkommen von 1.000€. <a href="/menschen/{{d.id}}">Vorhaben
+                                ansehen</a>
+                            </p>
+                            <p ng-switch-when="32">
+                                Ihr Kind Pepa Moa (7) erhält seit 1. Januar 2016 ein monatliches Grundeinkommen von 1.000€. <a href="/menschen/{{d.id}}">Vorhaben
+                                ansehen</a>
+                            </p>
+                            <p ng-switch-when="33">
+                                Ihr Kind Pepa Moa (7) erhält seit 1. Januar 2016 ein monatliches Grundeinkommen von 1.000€. <a href="/menschen/{{d.id}}">Vorhaben
+                                ansehen</a>
+                            </p>
 
                             <p ng-switch-default>
-                                hat von Oktober 2014 bis September 2015 ein Jahr lang 1.000 € monatliches Grundeinkommen erhalten. <a
+                                erhält ein Jahr lang 1.000 € monatliches Grundeinkommen. <a
                                     href="/menschen/{{d.id}}">Profil ansehen</a>
                             </p>
+
+
                         </div>
                     </div>
                 </div>
@@ -428,7 +503,7 @@
 
                 <!-- <h1 class="title_headline" style="margin-bottom:15px;margin-top:15px;line-height:150%">Am Samstag wird das 5. <span class="infolink" ng-click="bge_info()">Grundeinkommen</span> <a href="https://www.facebook.com/events/376506499170475/?fref=ts" target="_blank" class="huge">hier</a> verlost.</h1> -->
 
-                <h1 class="title_headline" style="margin-bottom:15px;margin-top:15px;line-height:150%">Nächste Verlosung: Diese Woche täglich um 19.30 Uhr</h1>
+                <h1 class="title_headline" style="margin-bottom:15px;margin-top:15px;line-height:150%">Nächste Verlosung: Im März</h1>
 
                 <!-- <h3 style="color:white" class="margin-top-20">Wir verlosen das 13. Grundeinkommen auf dem <a
                         href="http://cassiopeia-berlin.de/event/female-focus-festival/" target="_blank">Female Focus

@@ -1,9 +1,9 @@
 class Api::SettingsController < ApplicationController
 
   def index
-    r = {}
+    r= {}
     Setting.all.each do |s|
-      r[s.name] = s.value
+    	r[s.name] = s.value
     end
     render json: r
   end
