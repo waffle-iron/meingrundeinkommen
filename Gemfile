@@ -14,7 +14,6 @@ gem 'bcrypt'
 gem 'devise', '3.2.4'
 # misc
 
-
 gem 'bullet', '~> 5.0'
 gem 'actionpack-page_caching'
 gem 'angular-ui-bootstrap-rails'
@@ -54,7 +53,9 @@ gem 'lograge'
 gem 'puma', '~> 2.16'
 
 group :development, :test do
+  gem 'binding_of_caller'
   gem 'awesome_print'
+  gem 'better_errors', '~> 2.1', '>= 2.1.1'
   gem 'brice'
   gem 'byebug'
   gem 'database_cleaner'
