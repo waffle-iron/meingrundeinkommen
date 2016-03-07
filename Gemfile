@@ -12,9 +12,10 @@ gem 'mysql2', '~> 0.3.18'
 # authentication/authorization
 gem 'bcrypt'
 gem 'devise', '3.2.4'
-
 # misc
 
+
+gem 'bullet', '~> 5.0'
 gem 'actionpack-page_caching'
 gem 'angular-ui-bootstrap-rails'
 gem 'angular_rails_csrf'
