@@ -6,7 +6,11 @@ default: &default
   password: <%= ENV['MYSQL_USER_PASSWORD'] %>
 
 development:
-  <<: *default
+  adapter:  mysql2
+  encoding: utf8
+  host:     <%= ENV['MYSQL_TCP_ADDR'] %>
+  username: <%= ENV['MYSQL_USER_NAME'] %>
+  password: <%= ENV['MYSQL_USER_PASSWORD'] %>
   database: mge_development
 
 test:
