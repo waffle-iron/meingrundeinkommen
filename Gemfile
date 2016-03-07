@@ -14,7 +14,6 @@ gem 'bcrypt'
 gem 'devise', '3.2.4'
 # misc
 
-gem 'bullet', '~> 5.0'
 gem 'actionpack-page_caching'
 gem 'angular-ui-bootstrap-rails'
 gem 'angular_rails_csrf'
@@ -53,16 +52,18 @@ gem 'lograge'
 gem 'puma', '~> 2.16'
 
 group :development, :test do
-  gem 'binding_of_caller'
   gem 'awesome_print'
   gem 'better_errors', '~> 2.1', '>= 2.1.1'
+  gem 'binding_of_caller'
   gem 'brice'
+  gem 'bullet', '~> 5.0'
   gem 'byebug'
   gem 'database_cleaner'
   gem 'fabrication'
   gem 'faker'
   gem 'jazz_hands2', '~> 1.0', '>= 1.0.2'
   gem 'letter_opener'
+  gem 'powder', '~> 0.3.0'
   gem 'progress_bar'
   gem 'railroady', '~> 1.4', '>= 1.4.2' # Visualize model and controller as UML and output to SVG
   gem 'rspec-rails'
