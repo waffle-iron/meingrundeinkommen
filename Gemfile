@@ -15,6 +15,7 @@ gem 'devise', '3.2.4'
 # misc
 
 gem 'actionpack-page_caching'
+gem 'addressable', '~> 2.4'
 gem 'angular-ui-bootstrap-rails'
 gem 'angular_rails_csrf'
 gem 'angularjs-rails-resource', '~> 1.1.1'
