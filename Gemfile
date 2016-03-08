@@ -35,7 +35,6 @@ gem 'less-rails-bootstrap', '~> 3.3', '>= 3.3.5.0'
 gem 'mass_mandrill'
 gem 'mini_magick'
 gem 'net-ssh', '~> 3.0', '>= 3.0.2'
-gem 'rack-timeout', '~> 0.3.2'
 gem 'sass-rails'
 gem 'strip_attributes'
 gem 'sunspot_rails'
@@ -44,6 +43,7 @@ gem 'uglifier', '>= 1.3.0'
 
 group :production do
   gem 'newrelic_rpm'
+  gem 'rack-timeout', '~> 0.3.2'
   gem 'rails_12factor', '~> 0.0.3' # heroku
 end
 
