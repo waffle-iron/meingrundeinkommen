@@ -49,7 +49,7 @@ group :production do
 end
 
 # production
-gem 'lograge'
+#gem 'lograge'
 gem 'puma', '~> 2.16'
 
 group :development, :test do
