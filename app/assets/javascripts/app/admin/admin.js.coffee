@@ -62,7 +62,7 @@ angular.module("admin", ["Support", "Registration", "Statistic", "Flag", "Paymen
       $scope.m = response
 
 
-    $scope.recalculate_receipients = ->
+    $scope.recalculate_recipients = ->
       new Mailing(
         groups: $scope.group_selection
         group_keys: $scope.group_keys
@@ -80,12 +80,12 @@ angular.module("admin", ["Support", "Registration", "Statistic", "Flag", "Paymen
         $scope.group_selection.push group
         $scope.group_keys.push ""
 
-      $scope.recalculate_receipients()
+      $scope.recalculate_recipients()
 
       return
 
     $scope.sendMail = (test = true)->
-      $scope.recalculate_receipients().then ->
+      $scope.recalculate_recipients().then ->
         if test || confirm("Mail an #{$scope.m.count} User versenden?")
           $scope.mail.sending = true
           new Mailing(

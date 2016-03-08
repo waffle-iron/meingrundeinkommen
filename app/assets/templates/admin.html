@@ -146,7 +146,7 @@
 				    ng-checked="group_selection.indexOf(group) > -1"
 				    ng-click="toggleGroupSelection(group)"
 				  > {{group}}
-				  <input ng-change="recalculate_receipients()" type="text" ng-show="group.slice(-1) == '#' && group_selection.indexOf(group) > -1" ng-model="group_keys[group_selection.indexOf(group)]">
+				  <input ng-change="recalculate_recipients()" type="text" ng-show="group.slice(-1) == '#' && group_selection.indexOf(group) > -1" ng-model="group_keys[group_selection.indexOf(group)]">
 				</label>
 				<br>
 			</div>

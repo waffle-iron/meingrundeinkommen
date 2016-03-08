@@ -56,7 +56,7 @@ class User < ActiveRecord::Base
   scope :without_crowdbar, -> { includes(:flags).where(flags: {name: 'hasCrowdbar', value_boolean: false}) }
   scope :without_newsletter, -> { where(newsletter: false) }
 
-  def self.all_newsletter_receipients
+  def self.all_newsletter_recipients
   end
 
   def tandems
