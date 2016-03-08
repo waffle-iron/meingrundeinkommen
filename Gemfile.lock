@@ -489,6 +489,7 @@ DEPENDENCIES
   newrelic_rpm
   powder (~> 0.3.0)
   progress_bar
+  pry-byebug
   puma (~> 2.16)
   rack-timeout (~> 0.3.2)
   railroady (~> 1.4, >= 1.4.2)

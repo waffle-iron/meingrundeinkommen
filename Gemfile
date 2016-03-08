@@ -65,6 +65,7 @@ group :development, :test do
   gem 'letter_opener'
   gem 'powder', '~> 0.3.0'
   gem 'progress_bar'
+  gem 'pry-byebug'
   gem 'railroady', '~> 1.4', '>= 1.4.2' # Visualize model and controller as UML and output to SVG
   gem 'rspec-rails'
   gem 'rubocop', '~> 0.37.2', require: false
