@@ -63,6 +63,10 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'fabrication'
   gem 'faker'
+  gem 'guard', '~> 2.13'
+  gem 'guard-bundler', '~> 2.1', require: false
+  gem 'guard-livereload', '~> 2.5', '>= 2.5.2', require: false
+  gem 'guard-puma', '~> 0.3.1', require: false
   gem 'jazz_hands2', '~> 1.0', '>= 1.0.2'
   gem 'letter_opener'
   gem 'powder', '~> 0.3.0'
