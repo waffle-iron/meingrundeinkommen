@@ -6,33 +6,16 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  # chances
   has_many :chances, dependent: :destroy
-
   has_many :crowdcards
-
   has_many :flags, dependent: :destroy
-
-  has_many :supports
-
-  has_one  :payment, dependent: :destroy
-
-  scope :with_flag, ->(flag, value) { joins(:flags).where('flags.name = ? and flags.value_boolean = ?', flag, value)}
-
-  #   # the participations in user_todos:
-  has_many :user_wishes, dependent: :destroy
-  has_many :wishes, through: :user_wishes
-
   has_many :state_users, dependent: :destroy
   has_many :states, through: :state_users
+  has_many :supports
+  has_many :user_wishes, dependent: :destroy
+  has_many :wishes, through: :user_wishes
+  has_one  :payment, dependent: :destroy
 
-  searchable do
-    text :name
-    text :email
-    text :id
-  end
-
-  # validates_presence_of   :avatar
   validates_integrity_of  :avatar
   validates_processing_of :avatar
   validates :datenschutz, inclusion: [true]
@@ -52,9 +35,16 @@ class User < ActiveRecord::Base
   scope :participating, -> { includes(:chances).where(chances: { confirmed: true })}
   scope :sign_up_after, ->(date) { where('created_at > ?',date)}
   scope :with_crowdbar, -> { includes(:flags).where(flags: {name: 'hasCrowdbar', value_boolean: true}) }
+  scope :with_flag, ->(flag, value) { joins(:flags).where('flags.name = ? and flags.value_boolean = ?', flag, value)}
   scope :with_newsletter, -> { where(newsletter: true) }
   scope :without_crowdbar, -> { includes(:flags).where(flags: {name: 'hasCrowdbar', value_boolean: false}) }
   scope :without_newsletter, -> { where(newsletter: false) }
+
+  searchable do
+    text :name
+    text :email
+    text :id
+  end
 
   def self.all_newsletter_recipients
   end
