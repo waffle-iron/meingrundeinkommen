@@ -36,7 +36,7 @@ class Api::WishesController < ApplicationController
   end
 
   def users
-    render json: Wish.find(params[:id]).users.includes(:chances, :payment).order(avatar: :desc)
+    render json:  Wish.includes(users: [:chances, :payment]).find(params[:id]).users.order(avatar: :desc)
   end
 
   def stories
