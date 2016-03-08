@@ -73,6 +73,7 @@ group :development, :test do
   gem 'progress_bar'
   gem 'pry-byebug'
   gem 'railroady', '~> 1.4', '>= 1.4.2' # Visualize model and controller as UML and output to SVG
+  gem 'rails_best_practices', '~> 1.16', require: false
   gem 'rspec-rails'
   gem 'rubocop', '~> 0.37.2', require: false
   gem 'ruby-lint', '~> 2.1'
