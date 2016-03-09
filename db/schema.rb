@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160309033011) do
+ActiveRecord::Schema.define(version: 20160309033802) do
 
   create_table "chances", force: true do |t|
     t.integer  "user_id"
@@ -294,6 +294,8 @@ ActiveRecord::Schema.define(version: 20160309033011) do
     t.integer  "user_id"
     t.boolean  "tweeted"
   end
+
+  add_index "supports", ["user_id"], name: "index_supports_on_user_id", using: :btree
 
   create_table "supports_backup", force: true do |t|
     t.string   "nickname"
