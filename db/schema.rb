@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160309032234) do
+ActiveRecord::Schema.define(version: 20160309033011) do
 
   create_table "chances", force: true do |t|
     t.integer  "user_id"
@@ -230,6 +230,7 @@ ActiveRecord::Schema.define(version: 20160309032234) do
     t.boolean  "visibility", default: false
   end
 
+  add_index "state_users", ["state_id"], name: "index_state_users_on_state_id", using: :btree
   add_index "state_users", ["user_id"], name: "user_id", using: :btree
 
   create_table "states", force: true do |t|
