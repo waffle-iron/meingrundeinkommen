@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160309034011) do
+ActiveRecord::Schema.define(version: 20160309034221) do
 
   create_table "chances", force: true do |t|
     t.integer  "user_id"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 20160309034011) do
   end
 
   add_index "comments", ["commentable_id"], name: "commentable_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "crowdcards", force: true do |t|
     t.integer  "user_id"
