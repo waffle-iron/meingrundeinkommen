@@ -11,9 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160122145310) do
+ActiveRecord::Schema.define(version: 20160309032234) do
 
   create_table "chances", force: true do |t|
+    t.integer  "user_id"
     t.date     "dob"
     t.boolean  "is_child"
     t.integer  "country_id"
@@ -22,7 +23,6 @@ ActiveRecord::Schema.define(version: 20160122145310) do
     t.string   "code"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "code2"
@@ -36,8 +36,36 @@ ActiveRecord::Schema.define(version: 20160122145310) do
     t.integer  "affiliate"
   end
 
-  add_index "chances", ["first_name", "last_name", "dob"], name: "index_chances_on_first_name_and_last_name_and_dob", unique: true
-  add_index "chances", ["user_id"], name: "index_chances_on_user_id"
+  add_index "chances", ["code"], name: "code", unique: true, using: :btree
+  add_index "chances", ["first_name", "last_name", "dob"], name: "index_chances_on_first_name_and_last_name_and_dob", unique: true, using: :btree
+  add_index "chances", ["user_id"], name: "user_id", using: :btree
+
+  create_table "chances_backup", force: true do |t|
+    t.integer  "user_id"
+    t.date     "dob"
+    t.boolean  "is_child"
+    t.integer  "country_id"
+    t.string   "city"
+    t.boolean  "confirmed_publication"
+    t.string   "code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "code2"
+    t.boolean  "crowdbar_verified",     default: false
+    t.boolean  "ignore_double_chance",  default: false
+    t.boolean  "remember_data",         default: false
+    t.string   "crowdcard_code"
+    t.boolean  "confirmed",             default: false
+    t.boolean  "mediacoverage",         default: false
+    t.string   "phone"
+    t.integer  "affiliate"
+  end
+
+  add_index "chances_backup", ["code"], name: "code", unique: true, using: :btree
+  add_index "chances_backup", ["first_name", "last_name", "dob"], name: "index_chances_on_first_name_and_last_name_and_dob", unique: true, using: :btree
+  add_index "chances_backup", ["user_id"], name: "user_id", using: :btree
 
   create_table "codes", force: true do |t|
     t.string   "code"
@@ -45,6 +73,8 @@ ActiveRecord::Schema.define(version: 20160122145310) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "codes", ["code"], name: "unique_code", unique: true, using: :btree
 
   create_table "comments", force: true do |t|
     t.integer  "user_id"
@@ -58,6 +88,8 @@ ActiveRecord::Schema.define(version: 20160122145310) do
     t.datetime "updated_at"
   end
 
+  add_index "comments", ["commentable_id"], name: "commentable_id", using: :btree
+
   create_table "crowdcards", force: true do |t|
     t.integer  "user_id"
     t.text     "first_name"
@@ -66,7 +98,7 @@ ActiveRecord::Schema.define(version: 20160122145310) do
     t.text     "house_number"
     t.text     "zip_code"
     t.text     "city"
-    t.text     "country",         default: "de"
+    t.text     "country"
     t.integer  "number_of_cards", default: 1
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -84,40 +116,7 @@ ActiveRecord::Schema.define(version: 20160122145310) do
     t.datetime "updated_at"
   end
 
-  create_table "follows", force: true do |t|
-    t.string   "follower_type"
-    t.integer  "follower_id"
-    t.string   "followable_type"
-    t.integer  "followable_id"
-    t.datetime "created_at"
-  end
-
-  add_index "follows", ["followable_id", "followable_type"], name: "fk_followables"
-  add_index "follows", ["follower_id", "follower_type"], name: "fk_follows"
-
-  create_table "ideas", force: true do |t|
-    t.string   "name"
-    t.text     "emo_pitch"
-    t.text     "pitch"
-    t.text     "details"
-    t.text     "needs"
-    t.integer  "up_votes"
-    t.integer  "down_votes"
-    t.string   "potential"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "likes", force: true do |t|
-    t.string   "liker_type"
-    t.integer  "liker_id"
-    t.string   "likeable_type"
-    t.integer  "likeable_id"
-    t.datetime "created_at"
-  end
-
-  add_index "likes", ["likeable_id", "likeable_type"], name: "fk_likeables"
-  add_index "likes", ["liker_id", "liker_type"], name: "fk_likes"
+  add_index "flags", ["user_id"], name: "user_id", using: :btree
 
   create_table "notifications", force: true do |t|
     t.datetime "created_at"
@@ -131,14 +130,14 @@ ActiveRecord::Schema.define(version: 20160122145310) do
     t.string   "user_last_name"
     t.string   "user_street"
     t.string   "user_street_number"
-    t.float    "amount_total"
-    t.float    "amount_society"
-    t.float    "amount_bge"
+    t.float    "amount_total",               limit: 24
+    t.float    "amount_society",             limit: 24
+    t.float    "amount_bge",                 limit: 24
     t.boolean  "accept"
     t.string   "account_bank"
     t.string   "account_iban"
     t.string   "account_bic"
-    t.boolean  "active",                     default: true
+    t.boolean  "active",                                default: true
     t.datetime "activated_at"
     t.datetime "paused_at"
     t.datetime "deleted_at"
@@ -148,6 +147,63 @@ ActiveRecord::Schema.define(version: 20160122145310) do
     t.string   "user_zip"
     t.string   "user_city"
   end
+
+  add_index "payments", ["user_id"], name: "index_payments_on_user_id", using: :btree
+  add_index "payments", ["user_id"], name: "user_id", using: :btree
+
+  create_table "payments_bak", force: true do |t|
+    t.string   "user_email"
+    t.integer  "user_id"
+    t.string   "user_first_name"
+    t.string   "user_last_name"
+    t.string   "user_street"
+    t.string   "user_street_number"
+    t.float    "amount_total",               limit: 24
+    t.float    "amount_society",             limit: 24
+    t.float    "amount_bge",                 limit: 24
+    t.boolean  "accept"
+    t.string   "account_bank"
+    t.string   "account_iban"
+    t.string   "account_bic"
+    t.boolean  "active",                                default: true
+    t.datetime "activated_at"
+    t.datetime "paused_at"
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.date     "sent_first_notification_at"
+    t.string   "user_zip"
+    t.string   "user_city"
+  end
+
+  add_index "payments_bak", ["user_id"], name: "user_id", using: :btree
+
+  create_table "payments_bak2", force: true do |t|
+    t.string   "user_email"
+    t.integer  "user_id"
+    t.string   "user_first_name"
+    t.string   "user_last_name"
+    t.string   "user_street"
+    t.string   "user_street_number"
+    t.float    "amount_total",               limit: 24
+    t.float    "amount_society",             limit: 24
+    t.float    "amount_bge",                 limit: 24
+    t.boolean  "accept"
+    t.string   "account_bank"
+    t.string   "account_iban"
+    t.string   "account_bic"
+    t.boolean  "active",                                default: true
+    t.datetime "activated_at"
+    t.datetime "paused_at"
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.date     "sent_first_notification_at"
+    t.string   "user_zip"
+    t.string   "user_city"
+  end
+
+  add_index "payments_bak2", ["user_id"], name: "user_id", using: :btree
 
   create_table "questions", force: true do |t|
     t.string   "text"
@@ -174,6 +230,8 @@ ActiveRecord::Schema.define(version: 20160122145310) do
     t.boolean  "visibility", default: false
   end
 
+  add_index "state_users", ["user_id"], name: "user_id", using: :btree
+
   create_table "states", force: true do |t|
     t.string   "text"
     t.datetime "created_at"
@@ -187,14 +245,39 @@ ActiveRecord::Schema.define(version: 20160122145310) do
     t.datetime "updated_at"
   end
 
+  add_index "suggestions", ["email"], name: "email8", length: {"email"=>8}, using: :btree
+
+  create_table "support_debug", force: true do |t|
+    t.string   "nickname"
+    t.string   "email"
+    t.string   "firstname"
+    t.string   "lastname"
+    t.float    "amount_total",      limit: 24
+    t.float    "amount_internal",   limit: 24
+    t.float    "amount_for_income", limit: 24
+    t.string   "company"
+    t.string   "street"
+    t.string   "zip"
+    t.string   "city"
+    t.string   "country"
+    t.string   "payment_method"
+    t.boolean  "payment_completed"
+    t.text     "comment"
+    t.boolean  "anonymous"
+    t.boolean  "recurring"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
   create_table "supports", force: true do |t|
     t.string   "nickname"
     t.string   "email"
     t.string   "firstname"
     t.string   "lastname"
-    t.float    "amount_total"
-    t.float    "amount_internal"
-    t.float    "amount_for_income"
+    t.float    "amount_total",      limit: 24
+    t.float    "amount_internal",   limit: 24
+    t.float    "amount_for_income", limit: 24
     t.string   "company"
     t.string   "street"
     t.string   "zip"
@@ -209,6 +292,75 @@ ActiveRecord::Schema.define(version: 20160122145310) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.boolean  "tweeted"
+  end
+
+  create_table "supports_backup", force: true do |t|
+    t.string   "nickname"
+    t.string   "email"
+    t.string   "firstname"
+    t.string   "lastname"
+    t.float    "amount_total",      limit: 24
+    t.float    "amount_internal",   limit: 24
+    t.float    "amount_for_income", limit: 24
+    t.string   "company"
+    t.string   "street"
+    t.string   "zip"
+    t.string   "city"
+    t.string   "country"
+    t.string   "payment_method"
+    t.boolean  "payment_completed"
+    t.text     "comment"
+    t.boolean  "anonymous"
+    t.boolean  "recurring"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  create_table "supports_bak", force: true do |t|
+    t.string   "nickname"
+    t.string   "email"
+    t.string   "firstname"
+    t.string   "lastname"
+    t.float    "amount_total",      limit: 24
+    t.float    "amount_internal",   limit: 24
+    t.float    "amount_for_income", limit: 24
+    t.string   "company"
+    t.string   "street"
+    t.string   "zip"
+    t.string   "city"
+    t.string   "country"
+    t.string   "payment_method"
+    t.boolean  "payment_completed"
+    t.text     "comment"
+    t.boolean  "anonymous"
+    t.boolean  "recurring"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  create_table "supports_bak2", force: true do |t|
+    t.string   "nickname"
+    t.string   "email"
+    t.string   "firstname"
+    t.string   "lastname"
+    t.float    "amount_total",      limit: 24
+    t.float    "amount_internal",   limit: 24
+    t.float    "amount_for_income", limit: 24
+    t.string   "company"
+    t.string   "street"
+    t.string   "zip"
+    t.string   "city"
+    t.string   "country"
+    t.string   "payment_method"
+    t.boolean  "payment_completed"
+    t.text     "comment"
+    t.boolean  "anonymous"
+    t.boolean  "recurring"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "tandems", force: true do |t|
@@ -233,8 +385,35 @@ ActiveRecord::Schema.define(version: 20160122145310) do
     t.string   "invitee_code"
   end
 
-  add_index "tandems", ["invitation_token"], name: "index_tandems_on_invitation_token", unique: true
-  add_index "tandems", ["inviter_id", "invitee_email"], name: "index_tandems_on_inviter_id_and_invitee_email", unique: true
+  add_index "tandems", ["invitation_token"], name: "index_tandems_on_invitation_token", unique: true, using: :btree
+  add_index "tandems", ["invitee_id"], name: "invitee_id", using: :btree
+  add_index "tandems", ["inviter_id"], name: "inviter_id", using: :btree
+
+  create_table "tandems_backup", force: true do |t|
+    t.integer  "inviter_id"
+    t.integer  "invitee_id"
+    t.string   "invitee_name"
+    t.string   "invitee_email"
+    t.string   "invitation_token"
+    t.datetime "invitation_accepted_at"
+    t.string   "purpose"
+    t.boolean  "invitee_participates"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "invitation_type"
+    t.integer  "disabled_by"
+    t.text     "invitee_email_subject"
+    t.text     "invitee_email_text"
+    t.datetime "invitee_email_sent"
+    t.text     "inviter_grudges_invitee_for"
+    t.text     "invitee_grudges_inviter_for"
+    t.string   "inviter_code"
+    t.string   "invitee_code"
+  end
+
+  add_index "tandems_backup", ["invitation_token"], name: "index_tandems_on_invitation_token", unique: true, using: :btree
+  add_index "tandems_backup", ["invitee_id"], name: "invitee_id", using: :btree
+  add_index "tandems_backup", ["inviter_id"], name: "inviter_id", using: :btree
 
   create_table "todos", force: true do |t|
     t.string   "title"
@@ -250,6 +429,10 @@ ActiveRecord::Schema.define(version: 20160122145310) do
     t.datetime "updated_at"
   end
 
+  add_index "user_wishes", ["created_at"], name: "created_at", using: :btree
+  add_index "user_wishes", ["user_id"], name: "user_id", using: :btree
+  add_index "user_wishes", ["wish_id"], name: "wish_id", using: :btree
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "name",                   default: "",    null: false
@@ -264,8 +447,6 @@ ActiveRecord::Schema.define(version: 20160122145310) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "sign_up_ip"
-    t.string   "number_of_signups"
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -281,20 +462,124 @@ ActiveRecord::Schema.define(version: 20160122145310) do
     t.boolean  "crowdbar_not_found",     default: false
     t.integer  "winner",                 default: 0
     t.boolean  "admin",                  default: false
-    t.string   "provider",               default: "",    null: false
-    t.string   "uid",                    default: "",    null: false
-    t.text     "tokens"
     t.boolean  "veganz",                 default: false
   end
 
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "users_bak", force: true do |t|
+    t.string   "email",                  default: "",    null: false
+    t.string   "name",                   default: "",    null: false
+    t.string   "initial_wishes",         default: ""
+    t.string   "initial_conditions",     default: ""
+    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,     null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "avatar"
+    t.boolean  "datenschutz",            default: false
+    t.boolean  "newsletter",             default: false
+    t.boolean  "has_crowdbar",           default: false
+    t.string   "browser"
+    t.string   "os"
+    t.boolean  "crowdbar_not_found",     default: false
+    t.integer  "winner",                 default: 0
+    t.boolean  "admin",                  default: false
+    t.boolean  "veganz",                 default: false
+  end
+
+  add_index "users_bak", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+  add_index "users_bak", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users_bak", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "users_bak2", force: true do |t|
+    t.string   "email",                  default: "",    null: false
+    t.string   "name",                   default: "",    null: false
+    t.string   "initial_wishes",         default: ""
+    t.string   "initial_conditions",     default: ""
+    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,     null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "avatar"
+    t.boolean  "datenschutz",            default: false
+    t.boolean  "newsletter",             default: false
+    t.boolean  "has_crowdbar",           default: false
+    t.string   "browser"
+    t.string   "os"
+    t.boolean  "crowdbar_not_found",     default: false
+    t.integer  "winner",                 default: 0
+    t.boolean  "admin",                  default: false
+    t.boolean  "veganz",                 default: false
+  end
+
+  add_index "users_bak2", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+  add_index "users_bak2", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users_bak2", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "users_november", force: true do |t|
+    t.string   "email",                  default: "",    null: false
+    t.string   "name",                   default: "",    null: false
+    t.string   "initial_wishes",         default: ""
+    t.string   "initial_conditions",     default: ""
+    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,     null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "avatar"
+    t.boolean  "datenschutz",            default: false
+    t.boolean  "newsletter",             default: false
+    t.boolean  "has_crowdbar",           default: false
+    t.string   "browser"
+    t.string   "os"
+    t.boolean  "crowdbar_not_found",     default: false
+  end
+
+  add_index "users_november", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+  add_index "users_november", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users_november", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "wishes", force: true do |t|
     t.string   "text"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "wishes", ["text"], name: "text12", length: {"text"=>12}, using: :btree
 
 end
