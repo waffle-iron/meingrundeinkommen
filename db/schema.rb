@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160309034221) do
+ActiveRecord::Schema.define(version: 20160314180652) do
 
   create_table "chances", force: true do |t|
     t.integer  "user_id"
@@ -471,6 +471,7 @@ ActiveRecord::Schema.define(version: 20160309034221) do
     t.boolean  "veganz",                 default: false
   end
 
+  add_index "users", ["avatar"], name: "index_users_on_avatar", using: :btree
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
