@@ -40,7 +40,7 @@ class Api::UserWishesController < ApplicationController
 
   def index
     x = []
-    UserWish.limit(10).order('updated_at desc').map do |user_wish|
+    UserWish.includes(:user).limit(10).order('updated_at desc').map do |user_wish|
       wish = Wish.where(id: user_wish.wish_id).first
       next unless wish
       x << {
