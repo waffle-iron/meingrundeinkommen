@@ -33,7 +33,7 @@ class Api::SupportsController < ApplicationController
   end
 
   def statements
-    render json: Support.where('comment is not null and payment_completed is not null').limit(30).order(updated_at: :desc)
+    render json: Support.includes(:user).where('comment is not null and payment_completed is not null').limit(30).order(updated_at: :desc)
   end
 
   def index
