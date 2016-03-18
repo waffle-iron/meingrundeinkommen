@@ -61,6 +61,7 @@ group :development, :test do
   gem 'brice'
   gem 'bullet', '~> 5.0'
   gem 'byebug'
+  gem 'capybara', '~> 2.6', '>= 2.6.2'
   gem 'database_cleaner'
   gem 'fabrication'
   gem 'faker'
