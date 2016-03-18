@@ -57,7 +57,7 @@ class Api::UserWishesController < ApplicationController
       }
     end
 
-    users = User.where.not('users.avatar' => nil).order_by_rand(30)
+    users = User.where.not('users.avatar' => nil).order_by_rand.limit(30)
 
     users.each do |user|
       wish = user.wishes.sample
