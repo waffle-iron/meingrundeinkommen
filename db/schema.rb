@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160314180652) do
+ActiveRecord::Schema.define(version: 20160318194549) do
 
   create_table "chances", force: true do |t|
     t.integer  "user_id"
@@ -90,6 +90,15 @@ ActiveRecord::Schema.define(version: 20160314180652) do
 
   add_index "comments", ["commentable_id"], name: "commentable_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "crowdbars", force: true do |t|
+    t.float    "total_commission",        limit: 24
+    t.integer  "referal_count"
+    t.float    "seven_day_commission",    limit: 24
+    t.integer  "seven_day_referal_count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "crowdcards", force: true do |t|
     t.integer  "user_id"
