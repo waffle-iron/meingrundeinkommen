@@ -12,7 +12,7 @@ class Api::TandemsController < ApplicationController
             (inviter_grudges_invitee_for is not null AND
              inviter_grudges_invitee_for !='')
 
-    )").sample(50).map do |tandem|
+    )").order_by_rand.limit(50).map do |tandem|
       inviter = User.find_by_id(tandem.inviter_id)
       invitee = User.find_by_id(tandem.invitee_id)
 
