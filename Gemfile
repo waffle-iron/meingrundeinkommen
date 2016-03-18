@@ -55,7 +55,6 @@ gem 'puma', '~> 2.16'
 
 group :development, :test do
   gem "rubycritic", :require => false
-  gem 'guard-rspec', '~> 4.6', '>= 4.6.4'
   gem 'awesome_print'
   gem 'better_errors', '~> 2.1', '>= 2.1.1'
   gem 'binding_of_caller'
@@ -69,7 +68,9 @@ group :development, :test do
   gem 'guard', '~> 2.13'
   gem 'guard-bundler', '~> 2.1', require: false
   gem 'guard-livereload', '~> 2.5', '>= 2.5.2', require: false
+  gem 'guard-pow', '~> 2.0'
   gem 'guard-puma', '~> 0.3.1', require: false
+  gem 'guard-rspec', '~> 4.6', '>= 4.6.4'
   gem 'jazz_hands2', '~> 1.0', '>= 1.0.2'
   gem 'letter_opener'
   gem 'powder', '~> 0.3.0'

@@ -267,6 +267,8 @@ GEM
       guard (~> 2.8)
       guard-compat (~> 1.0)
       multi_json (~> 1.8)
+    guard-pow (2.0.0)
+      guard (~> 2.0)
     guard-puma (0.3.1)
       guard (~> 2.8)
       puma
@@ -584,6 +586,7 @@ DEPENDENCIES
   guard (~> 2.13)
   guard-bundler (~> 2.1)
   guard-livereload (~> 2.5, >= 2.5.2)
+  guard-pow (~> 2.0)
   guard-puma (~> 0.3.1)
   guard-rspec (~> 4.6, >= 4.6.4)
   haml-rails
