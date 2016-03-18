@@ -55,6 +55,7 @@ gem 'puma', '~> 2.16'
 
 group :development, :test do
   gem "rubycritic", :require => false
+  gem 'guard-rspec', '~> 4.6', '>= 4.6.4'
   gem 'awesome_print'
   gem 'better_errors', '~> 2.1', '>= 2.1.1'
   gem 'binding_of_caller'
