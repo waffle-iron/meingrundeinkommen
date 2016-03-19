@@ -252,7 +252,7 @@ Style/ExtraSpacing:
   # lines.
   AllowForAlignment: true
   # When true, forces the alignment of = in assignments on consecutive lines.
-  ForceEqualSignAlignment: true
+  ForceEqualSignAlignment: false
   Exclude:
 
 # Offense count: 4
