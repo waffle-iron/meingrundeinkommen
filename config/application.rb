@@ -8,6 +8,9 @@ Bundler.require(*Rails.groups)
 module Grundeinkommen
   class Application < Rails::Application
 
+    # Log gc instumentation, so it show up in New Relic dashboard
+    GC::Profiler.enable
+
     config.exceptions_app = routes
 
     config.secret_key_base = ENV['SECRET_KEY_BASE']
