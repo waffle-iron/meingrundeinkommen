@@ -40,16 +40,9 @@ module Clockwork
     end
 
     if job == 'crowdbar.stats'
-
-      response = HTTParty.get('http://bar.mein-grundeinkommen.de/crowd_bar_stats.json')
-      json     = JSON.parse(response.body)
-
-      File.open('/tmp/crowdbar.json', 'w+') do |f|
-        f.write(json.to_json)
-      end
-
-      storage = StorageUploader.new
-      storage.store!(File.open('/tmp/crowdbar.json'))
+      crowdbar = Crowdbar.new
+      crowdbar.fetch_stats('http://bar.mein-grundeinkommen.de/crowd_bar_stats.json')
+      crowdbar.save!
     end
 
     if job == 'clear.cache'

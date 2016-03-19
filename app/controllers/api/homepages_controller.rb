@@ -55,19 +55,12 @@ class Api::HomepagesController < ApplicationController
     # else
     # crowdbar_amount = crowdbar_yesterday
 
-    # crowdbar
-    url = "#{ENV['CDN_URL']}/storage/crowdbar.json"
-    # Make sure we get don't get a bad URI
-    uri      = Addressable::URI.parse(url)
-    response = HTTParty.get(uri)
-    cb_json  = JSON.parse(response.body)
-    # cb_json = JSON.parse(File.read('public/crowdbar.json'))
-
-    crowdbar_amount = cb_json['total_commission'] * 0.9
+    crowdbar = Crowdbar.last
+    crowdbar_amount = crowdbar.total_commission * 0.9
 
     total_amount = startnext + crowdfunding_amount + own_funding_paypal + own_funding + crowdbar_amount + crowdcard_amount
 
-    donations = Support.where('payment_completed IS NOT NULL').sum(:amount_internal) + cb_json['total_commission'] * 0.1 + crowdcard_total * 0.1
+    donations = Support.where('payment_completed IS NOT NULL').sum(:amount_internal) + crowdbar.total_commission * 0.1 + crowdcard_total * 0.1
 
     confirmed_users = User.where.not(confirmed_at: nil).count
 
@@ -76,8 +69,8 @@ class Api::HomepagesController < ApplicationController
     prediction = {}
     # temp_q = Support.where(:created_at => (last_synced_day.created_at - 13.days).beginning_of_day..last_synced_day.created_at.end_of_day, :payment_method => :crowdbar)
     temp_q2                                    = Support.where(created_at: (Time.now - 15.days).beginning_of_day..(Time.now - 2.days).end_of_day, payment_completed: true).where.not(payment_method: :crowdbar)
-    prediction[:avg_daily_commission]          = cb_json['seven_day_commission'] / 7 + temp_q2.sum(:amount_for_income) / 14
-    prediction[:avg_daily_commission_crowdbar] = cb_json['seven_day_commission'] / 7
+    prediction[:avg_daily_commission]          = crowdbar.seven_day_commission / 7 + temp_q2.sum(:amount_for_income) / 14
+    prediction[:avg_daily_commission_crowdbar] = crowdbar.seven_day_commission / 7
     prediction[:days]                          = ((12000 - (total_amount % 12000)) / prediction[:avg_daily_commission]).round
     prediction[:date]                          = Time.now + (prediction[:days].to_i).days
     number_of_participants                     = Chance.count
@@ -126,7 +119,7 @@ class Api::HomepagesController < ApplicationController
         kpi_social_groups_distribution:     State.joins(:state_users).select('count(state_users.id)').group('states.text').order('count_state_users_id desc').count('state_users.id')
       }
 
-      csv       = CSV.generate do |csv|
+      csv = CSV.generate do |csv|
         columns = ['Date']
         columns << params[:kpi].to_s
         csv << columns
