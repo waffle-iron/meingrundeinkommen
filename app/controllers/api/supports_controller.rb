@@ -1,6 +1,7 @@
 class Api::SupportsController < ApplicationController
 
   caches_page :crowdbar, :statements
+  skip_before_filter :verify_authenticity_token, :only => [:crowdbar, :statements]
 
   def create
     support = Support.create(params.permit(:amount_total, :amount_for_income, :amount_internal, :payment_method, :recurring))

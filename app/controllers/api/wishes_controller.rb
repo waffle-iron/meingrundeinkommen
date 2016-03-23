@@ -3,6 +3,7 @@ class Api::WishesController < ApplicationController
   include ConjugationHelper
 
   caches_page :top
+  skip_before_filter :verify_authenticity_token, :only => [:top]
 
   def create
     # current_user = User.first
