@@ -3,7 +3,6 @@ class Api::QuestionsController < ApplicationController
   respond_to :json
 
   caches_page :index
-  skip_before_filter :verify_authenticity_token, :only => [:index]
 
   def create
     question = Question.where(text: params[:text]).first

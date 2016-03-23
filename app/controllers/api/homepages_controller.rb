@@ -15,7 +15,6 @@ end
 class Api::HomepagesController < ApplicationController
 
   caches_page :show
-  skip_before_filter :verify_authenticity_token, :only => [:show]
 
   def show
     crowdfunding_supporter = 2900 + 140 + 18 # startnext + untracked paypal + kto

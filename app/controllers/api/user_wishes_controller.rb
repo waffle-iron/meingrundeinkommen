@@ -2,7 +2,6 @@ class Api::UserWishesController < ApplicationController
   include ActionView::Helpers::DateHelper
 
   caches_page :index
-  skip_before_filter :verify_authenticity_token, :only => [:index]
 
   def create
     # current_user = User.first
