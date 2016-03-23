@@ -5,34 +5,34 @@ namespace :chances do
     desc 'set random codes for users'
 
     # chances = Chance.where(:code => nil, :confirmed => true).shuffle
-    chances = Chance.where(confirmed: true).shuffle
+    #chances = Chance.where(confirmed: true).shuffle
 
-    first_round = false
+    first_round = true  # false wenn alle generiert werden sollen, true wenn es einen startwert gibt (s.u.)
 
     i = 0
 
     wheel_numbers = (1..36)
 
-    (1..6).each do |c1|
+    (1..13).each do |c1|
       wheel_numbers.each do |c2|
         wheel_numbers.each do |c3|
           wheel_numbers.each do |c4|
-            # if first_round && c1 == 9 && c2 == 22 && c3 == 30 && c4 == 4
-            #   first_round = false
-            # end
+            if first_round && c1 == 5 && c2 == 11 && c3 == 17 && c4 == 25 #5•11•17•24
+              first_round = false
+            end
             next if first_round
 
             code = "#{c1}•#{c2}•#{c3}•#{c4}"
 
             code_save = {code: code, used: false}
 
-            if chances[i]
-              # •
-              code_save[:used] = true
-              puts "#{i} - #{c1}•#{c2}•#{c3}•#{c4}"
-              chances[i].update_attribute(:code, code)
-              i += 1
-            end
+            # if chances[i]
+            #   # •
+            #   code_save[:used] = true
+            #   puts "#{i} - #{c1}•#{c2}•#{c3}•#{c4}"
+            #   chances[i].update_attribute(:code, code)
+            #   i += 1
+            # end
 
             Code.create(code_save)
 
