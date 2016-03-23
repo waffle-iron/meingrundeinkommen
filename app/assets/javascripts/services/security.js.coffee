@@ -46,9 +46,9 @@ angular.module "Security", ["Devise","Flag","Setting"]
       getSettings: ->
         #Setting.query().then (settings) ->
         #  service.settings = settings
-        r =
+        r = [
           raffleOpen: true
-
+        ]
         return r
 
 
