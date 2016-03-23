@@ -46,6 +46,9 @@ angular.module "Security", ["Devise","Flag","Setting"]
       getSettings: ->
         #Setting.query().then (settings) ->
         #  service.settings = settings
+
+        console.log 'FUCK YOU'
+
         service.settings = []
         service.settings['raffleOpen'] = true
 
