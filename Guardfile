@@ -28,17 +28,25 @@ guard :bundler do
 end
 
 guard 'livereload' do
+  watch(%r{app/views/.+\.(erb|haml|slim)})
+  watch(%r{app/helpers/.+\.rb})
+  watch(%r{public/.+\.(css|js|html)})
+  watch(%r{config/locales/.+\.yml})
+  # Rails Assets Pipeline
+  watch(%r{(app|vendor)(/assets/\w+/(.+\.(css|js|html))).*}) { |m| "/assets/#{m[3]}" }
+
   extensions = {
-    css: :css,
-    scss: :css,
-    sass: :css,
-    js: :js,
     coffee: :js,
-    html: :html,
-    png: :png,
+    css: :css,
     gif: :gif,
-    jpg: :jpg,
+    html: :html,
     jpeg: :jpeg,
+    jpg: :jpg,
+    js: :js,
+    png: :png,
+    sass: :css,
+    scss: :css,
+    slim: :slim,
     # less: :less, # uncomment if you want LESS stylesheets done in browser
   }
 
