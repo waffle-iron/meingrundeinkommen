@@ -97,7 +97,9 @@ class Api::HomepagesController < ApplicationController
       squirrel_monthly_amount_society: number_with_precision(Payment.where(active: true).sum(:amount_society), precision: 0, delimiter: '.'),
       prediction:                      prediction,
       number_of_participants:          number_with_precision(number_of_participants, precision: 0, delimiter: '.'),
-      supports:                        Support.where(comment: true, payment_completed: false).order(created_at: :desc).limit(12),
+      supports:                        Support.where(comment: true, payment_completed: false).order(created_at: :desc).limit(12)
+
+      #,
       # kpi_per_day:                     {
       #   registered_confirmed_users_by_date: User.select('count(users.id) as anzahl, created_at, confirmed_at').where.not(confirmed_at: nil).group_by{|x| x.created_at.strftime('%Y-%m-%d')} ,
       #   donations_by_date:                  Support.select('payment_completed, created_at, sum(amount_internal) as summe').where('payment_completed IS NOT NULL').group_by{|x| x.created_at.strftime('%Y-%m-%d')} ,
