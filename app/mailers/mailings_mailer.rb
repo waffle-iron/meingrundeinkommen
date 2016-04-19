@@ -39,7 +39,7 @@ class MailingsMailer < MassMandrill::MandrillMailer
     template_content = [{ name: 'body', content: content }]
 
     mail(to:               addresses,
-         from:             'Mein Grundeinkommen <noreply@meinbge.de>',
+         from: 'Mein Grundeinkommen <support@mein-grundeinkommen.de>',
          subject:          subject,
          template_content: template_content,
          template:         template,
