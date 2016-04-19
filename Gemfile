@@ -53,11 +53,11 @@ group :production do
 end
 
 # production
-#gem 'lograge'
+# gem 'lograge'
 gem 'puma', '~> 2.16'
 
 group :development, :test do
-  gem "rubycritic", :require => false
+  gem 'rubycritic', require: false
   gem 'awesome_print'
   gem 'better_errors', '~> 2.1', '>= 2.1.1'
   gem 'binding_of_caller'

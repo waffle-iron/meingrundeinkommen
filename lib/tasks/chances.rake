@@ -5,9 +5,9 @@ namespace :chances do
     desc 'set random codes for users'
 
     # chances = Chance.where(:code => nil, :confirmed => true).shuffle
-    #chances = Chance.where(confirmed: true).shuffle
+    # chances = Chance.where(confirmed: true).shuffle
 
-    first_round = true  # false wenn alle generiert werden sollen, true wenn es einen startwert gibt (s.u.)
+    first_round = true # false wenn alle generiert werden sollen, true wenn es einen startwert gibt (s.u.)
 
     i = 0
 
@@ -17,7 +17,7 @@ namespace :chances do
       wheel_numbers.each do |c2|
         wheel_numbers.each do |c3|
           wheel_numbers.each do |c4|
-            if first_round && c1 == 5 && c2 == 11 && c3 == 17 && c4 == 25 #5•11•17•24
+            if first_round && c1 == 5 && c2 == 11 && c3 == 17 && c4 == 25 # 5•11•17•24
               first_round = false
             end
             next if first_round
