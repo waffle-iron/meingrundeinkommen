@@ -5,8 +5,8 @@ services:
     ports:
       - "3000:3000"
     env_file:
-      - ./mge_rails.env
-      - ./secrets.env
+      - ./.mge_rails.env
+      - ./.secrets.env
 
     depends_on:
       - mysql
