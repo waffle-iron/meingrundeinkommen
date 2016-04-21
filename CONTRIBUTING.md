@@ -1,7 +1,7 @@
 ## What you will need:
 
-- docker installed on your system.
-- `direnv` installed on your system, see http://direnv.net
+- [docker](https://www.docker.com) installed on your system.
+- `direnv` installed on your system, see [direnv.net](http://direnv.net)
 - An `.envrc` file in the root directory of the app.
 - Run `direnv allow`, to source the `.envrc` file
 - A database dump (until we have seed data)
