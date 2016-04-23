@@ -25,22 +25,22 @@
 
   <div ng-controller="AvatarController" class="col-md-4 text-center">
 
-  	<div ng-if="own_profile" class="testimonial-image-large" ng-file-select="onFileSelect($files)" ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="about-to-drop" accept="image/*" ng-class="{own_profile: own_profile}">
-		<img src="{{user.avatar.avatar.url}}">
-		<i style="font-size:100px;margin-top:-200px;margin-bottom:118px;margin-left:-0px" class="fa fa-plus show-on-drag" ng-class="{showit: user.is_default_avatar}"></i>
-	</div>
+    <div ng-if="own_profile" class="testimonial-image-large" ng-file-select="onFileSelect($files)" ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="about-to-drop" accept="image/*" ng-class="{own_profile: own_profile}">
+    <img src="{{user.avatar.avatar.url}}">
+    <i style="font-size:100px;margin-top:-200px;margin-bottom:118px;margin-left:-0px" class="fa fa-plus show-on-drag" ng-class="{showit: user.is_default_avatar}"></i>
+  </div>
 
-	<div ng-if="!own_profile" class="testimonial-image-large">
-		<img src="{{user.avatar.avatar.url}}">
-	</div>
+  <div ng-if="!own_profile" class="testimonial-image-large">
+    <img src="{{user.avatar.avatar.url}}">
+  </div>
 
 
-	<h1 class="margin-top-20" style="margin-bottom:10px;">
-		<span ng-show="own_profile">Hallo {{user.name}}!</span>
-		<span ng-hide="own_profile">Hallo, ich bin
-		{{user.name}}!</span>
-	</h1>
-	<a ng-if="own_profile" href="#" ng-click="open()"><i class="fa fa-pencil"></i> Mitgliedsdaten ändern</a>
+  <h1 class="margin-top-20" style="margin-bottom:10px;">
+    <span ng-show="own_profile">Hallo {{user.name}}!</span>
+    <span ng-hide="own_profile">Hallo, ich bin
+    {{user.name}}!</span>
+  </h1>
+  <a ng-if="own_profile" href="#" ng-click="open()"><i class="fa fa-pencil"></i> Mitgliedsdaten ändern</a>
   <hr>
 
 
@@ -106,10 +106,10 @@
   <!-- Right Column -->
 
   <div class="row" ng-if="own_profile && !largeScreen && user_states.length == 0 && !skip.states" style="padding-bottom:20px;">
-  	<div class="col-md-12 text-center">
+    <div class="col-md-12 text-center">
 
-	  </div>
-	</div>
+    </div>
+  </div>
   <div class="col-md-8">
 
     <div ng-if="!own_profile" ng-include="'/assets/wishes.html'"></div>
@@ -124,15 +124,15 @@
         <tab-heading>
            Ich würde...
         </tab-heading>
-	      <div ng-include="'/assets/wishes.html'"></div>
-	    </tab>
+        <div ng-include="'/assets/wishes.html'"></div>
+      </tab>
 
       <!-- Avatar -->
 
-	    <tab  active="currentTab.image" ng-if="default_avatar" heading="Gesicht zeigen">
+      <tab  active="currentTab.image" ng-if="default_avatar" heading="Gesicht zeigen">
 
         <div ng-include="'/assets/boarding/avatar.html'"></div>
-	    </tab>
+      </tab>
 
 
       <!-- Wer bist du? -->
