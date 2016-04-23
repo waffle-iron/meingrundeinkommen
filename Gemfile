@@ -56,8 +56,10 @@ end
 # gem 'lograge'
 gem 'puma', '~> 2.16'
 
+# FIXME: extract :test environment where possible
 group :development, :test do
   gem 'rubycritic', require: false
+  gem 'factory_girl_rails', '~> 4.0'
   gem 'awesome_print'
   gem 'better_errors', '~> 2.1', '>= 2.1.1'
   gem 'binding_of_caller'
