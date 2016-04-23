@@ -58,7 +58,6 @@ gem 'puma', '~> 2.16'
 
 # FIXME: extract :test environment where possible
 group :development, :test do
-  gem 'rubycritic', require: false
   gem 'factory_girl_rails', '~> 4.0'
   gem 'awesome_print'
   gem 'better_errors', '~> 2.1', '>= 2.1.1'
@@ -86,6 +85,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rubocop', '~> 0.37.2', require: false
   gem 'ruby-lint', '~> 2.1'
+  gem 'rubycritic', require: false
   gem 'shoulda-matchers'
   gem 'simplecov'
   gem 'sqlite3'
