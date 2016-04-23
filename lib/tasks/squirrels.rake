@@ -18274,7 +18274,7 @@ namespace :squirrels do
 
     get_bic_for = Hash[banks.scan(/^(\d{8}).{131}([A-Z\d]{11})/).map {|key, value| [key, value]}]
 
-
+    # TODO booking dates
     due_date = {
       'COR1' => '01.04.2016',
       'CORE' => '06.04.2016'
