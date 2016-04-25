@@ -58,7 +58,6 @@ gem 'puma', '~> 2.16'
 
 # FIXME: extract :test environment where possible
 group :development, :test do
-  gem 'factory_girl_rails', '~> 4.0'
   gem 'awesome_print'
   gem 'better_errors', '~> 2.1', '>= 2.1.1'
   gem 'binding_of_caller'
@@ -67,6 +66,7 @@ group :development, :test do
   gem 'byebug'
   gem 'capybara', '~> 2.6', '>= 2.6.2'
   gem 'fabrication'
+  gem 'factory_girl_rails', '~> 4.0'
   gem 'faker'
   gem 'guard', '~> 2.13'
   gem 'guard-bundler', '~> 2.1', require: false
