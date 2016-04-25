@@ -15,6 +15,9 @@ development:
 
 test:
   <<: *default
+  host:     <%= ENV['MYSQL_TCP_ADDR'] %>
+  username: <%= ENV['MYSQL_USER_NAME'] %>
+  password: <%= ENV['MYSQL_USER_PASSWORD'] %>
   database: mge_test
 
 staging:
