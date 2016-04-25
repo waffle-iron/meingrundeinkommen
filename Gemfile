@@ -61,11 +61,9 @@ group :development, :test do
   gem 'awesome_print'
   gem 'better_errors', '~> 2.1', '>= 2.1.1'
   gem 'binding_of_caller'
-  gem 'brice'
   gem 'bullet', '~> 5.0'
   gem 'byebug'
   gem 'capybara', '~> 2.6', '>= 2.6.2'
-  gem 'fabrication'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'faker'
   gem 'guard', '~> 2.13'
@@ -77,7 +75,6 @@ group :development, :test do
   gem 'jazz_hands2', '~> 1.0', '>= 1.0.2'
   gem 'letter_opener'
   gem 'powder', '~> 0.3.0'
-  gem 'progress_bar'
   gem 'pry-byebug'
   gem 'railroady', '~> 1.4', '>= 1.4.2' # Visualize model and controller as UML and output to SVG
   gem 'rails_best_practices', '~> 1.16', require: false
