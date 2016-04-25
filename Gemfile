@@ -85,7 +85,7 @@ group :development, :test do
   gem 'rubocop', '~> 0.37.2', require: false
   gem 'ruby-lint', '~> 2.1'
   gem 'rubycritic', require: false
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', '~> 3.1', '>= 3.1.1'
   gem 'simplecov'
   gem 'sqlite3'
   gem 'sunspot_solr'
