@@ -61,7 +61,7 @@ group :development, :test do
   gem 'awesome_print'
   gem 'better_errors', '~> 2.1', '>= 2.1.1'
   gem 'binding_of_caller'
-  gem 'bullet', '~> 5.0'
+  gem 'bullet', '~> 5.0' # Fix N+1 queries
   gem 'byebug'
   gem 'capybara', '~> 2.6', '>= 2.6.2'
   gem 'factory_girl_rails', '~> 4.0'
@@ -73,13 +73,13 @@ group :development, :test do
   gem 'guard-puma', '~> 0.3.1', require: false
   gem 'guard-rspec', '~> 4.6', '>= 4.6.4'
   gem 'jazz_hands2', '~> 1.0', '>= 1.0.2'
-  gem 'letter_opener'
-  gem 'powder', '~> 0.3.0'
+  gem 'letter_opener' # open sent emails in a browser
+  gem 'powder', '~> 0.3.0' # Manages pow server
   gem 'pry-byebug'
   gem 'railroady', '~> 1.4', '>= 1.4.2' # Visualize model and controller as UML and output to SVG
   gem 'rails_best_practices', '~> 1.16', require: false
   gem 'rspec-rails'
-  gem 'rubocop', '~> 0.37.2', require: false
+  gem 'rubocop', '~> 0.37.2', require: false # Ruby/Rails syntax linting
   gem 'ruby-lint', '~> 2.1'
   gem 'rubycritic', require: false
   gem 'shoulda-matchers', '~> 3.1', '>= 3.1.1'
