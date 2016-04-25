@@ -66,7 +66,6 @@ group :development, :test do
   gem 'bullet', '~> 5.0'
   gem 'byebug'
   gem 'capybara', '~> 2.6', '>= 2.6.2'
-  gem 'database_cleaner'
   gem 'fabrication'
   gem 'faker'
   gem 'guard', '~> 2.13'
@@ -90,4 +89,8 @@ group :development, :test do
   gem 'simplecov'
   gem 'sqlite3'
   gem 'sunspot_solr'
+end
+
+group :test do
+  gem 'database_cleaner', '~> 1.5', '>= 1.5.3'
 end
