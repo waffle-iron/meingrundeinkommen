@@ -12,7 +12,8 @@
 Once you have all of the above:
 
 - Make sure you have a docker instance running, i.e.: `docker-machine start dev`. Please refer to the docker manual for more info.
-- Inside the project root, build the containers: `docker-compose up`, will build and start the containers defined in `docker-compose.yml`
+
+- Inside the project root, build the containers: `docker-compose build` and then `docker-compose up`, will build and start the containers defined in `docker-compose.yml`
 - Find the IP of your db container. I.e. `docker-machine ip dev`.
 - Feed the db dump into your db container: `mysql -u root -proot -h $MYSQL_TCP_ADDR mge_development < dump.sql`
 - Make sure you have [rbenv](https://github.com/rbenv/rbenv) installed on your system.
