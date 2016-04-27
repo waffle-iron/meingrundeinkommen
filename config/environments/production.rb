@@ -24,11 +24,12 @@ Rails.application.configure do
     password: '6ef3cc88fada326360f9ac98a0a320d2ce27267b',
     address: 'smtp.sparkpostmail.com',
     port: 587,
-    #enable_starttls_auto: true,
+    enable_starttls_auto: :true,
     format: :html,
     :from => "\"Mein Grundeinkommen\" <support@mein-grundeinkommen.de>"
 
   }
+
 
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local = false
