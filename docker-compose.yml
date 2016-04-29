@@ -18,6 +18,9 @@ services:
       - "3306:3306"
     volumes:
       - mge_data:/var/lib/mysql
+    env_file:
+      - ./.secrets.env
+
 
   solr:
     image: solr:5.4
